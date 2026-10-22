@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>大栄工業株式会社｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#f1ebe1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@700;800&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#f1ebe1;--ink:#221a12;--mute:#6e604f;--accent:#9a3b1f;--accent-ink:#fff;--panel:#e6ddcf;--line:rgba(34,26,18,.13);--display:"Shippori Mincho B1",serif;--display-weight:800;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 50%;--top-ink:var(--ink)}
+
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>が大栄工業株式会社様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">工務店　東京都新宿区住吉町</p><p class="pl-name">大栄工業</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">大栄工業</a>
+  <nav aria-label="ページ内の案内"><a href="#story">大栄工業の家づくり</a><a href="#features">こだわり</a><a href="#info">お問い合わせ</a></nav>
+  
+  <a class="call" href="tel:0333590391"><span data-en="Call">電話</span><span class="num">03-3359-0391</span></a>
+</header>
+
+<main>
+  <section class="hero tate" hidden>
+    <div class="hero-img"><img src="img/hero.jpg" alt="木造の町家" ></div>
+    <div class="hero-copy">
+      <p class="kind">工務店　東京都新宿区住吉町</p>
+      <h1 aria-label="木に、こだわる家。"><span class="ch" style="--i:0">木</span><span class="ch" style="--i:1">に</span><span class="ch" style="--i:2">、</span><br><span class="ch" style="--i:3">こ</span><span class="ch" style="--i:4">だ</span><span class="ch" style="--i:5">わ</span><span class="ch" style="--i:6">る</span><span class="ch" style="--i:7">家</span><span class="ch" style="--i:8">。</span></h1>
+      <span class="seal" aria-hidden="true">大栄</span>
+      <p class="sub">明治32年創業。新宿区で120年以上続く工務店です。注文住宅・リフォームをご用命ください。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-de hero-sig" id="sig" aria-label="スクロールすると、刻んだ二本の木が組み合わさる、継手の3D演出">
+    <div class="de-stick hero tate">
+      <canvas id="de3d" aria-hidden="true"></canvas>
+      <div class="hero-copy hs-copy" id="hs-copy"><p class="kind">工務店　東京都新宿区住吉町</p><h1 aria-label="木に、こだわる家。"><span class="ch" style="--i:0">木</span><span class="ch" style="--i:1">に</span><span class="ch" style="--i:2">、</span><br><span class="ch" style="--i:3">こ</span><span class="ch" style="--i:4">だ</span><span class="ch" style="--i:5">わ</span><span class="ch" style="--i:6">る</span><span class="ch" style="--i:7">家</span><span class="ch" style="--i:8">。</span></h1><span class="seal" aria-hidden="true">大栄</span><p class="sub">明治32年創業。新宿区で120年以上続く工務店です。注文住宅・リフォームをご用命ください。</p></div>
+      <div class="de-copy" id="de-copy">
+        <p class="de-step" id="de-step">継手（つぎて）</p>
+        <p class="de-h" id="de-h">刻んで、<br>組む。</p>
+        <p class="de-p" id="de-p">木と木を、形を刻んでつなぐ。大工の手仕事です。</p>
+        <ol class="de-steps" id="de-steps"><li>刻む</li><li>落としこむ</li><li>組み上がる</li></ol>
+      </div>
+      <p class="de-note" id="de-note">「腰掛け蟻継ぎ」の3Dイメージです</p>
+    </div>
+  </section>
+<style>
+.sig-de{position:relative;height:400vh;background:#e9e0d0}
+.de-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;color:var(--ink);background:radial-gradient(70% 70% at 40% 52%,#fbf7f0,#e2d7c4 78%)}
+.de-stick .hs-copy{z-index:3}
+#de3d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.de-copy{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);max-width:340px;opacity:0;z-index:3}
+.de-step{margin:0;color:var(--accent);font-weight:700;letter-spacing:.16em;font-size:14px}
+.de-h{font-family:var(--display);font-weight:800;font-size:clamp(44px,5vw,76px);line-height:1.2;margin:8px 0 14px}
+.de-p{margin:0 0 22px;color:var(--mute)}
+.de-steps{list-style:none;margin:0;padding:0;display:flex;gap:18px;font-size:14px;color:var(--mute);counter-reset:s}
+.de-steps li{counter-increment:s;transition:color .3s}
+.de-steps li::before{content:counter(s);display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;border:1px solid currentColor;margin-right:6px;font-size:12px}
+.de-steps li.on{color:var(--accent);font-weight:700}
+.de-note{position:absolute;left:var(--gut);bottom:22px;margin:0;font-size:12px;color:var(--mute);z-index:3;opacity:0}
+@media (max-width:860px){
+  .de-copy{top:auto;bottom:0;transform:none;left:0;right:0;max-width:none;padding:56px var(--gut) 96px;background:linear-gradient(to top,rgba(233,224,208,.97) 62%,rgba(233,224,208,0))}
+  .de-p{display:none}
+  .de-note{top:74px;bottom:auto;left:auto;right:var(--gut)}
+}
+</style>
+<script type="module">
+import * as THREE from 'three';
+import { stage3d, heroFade, span, ease, c01, qa, mouse, woodTexture, canvasTexture } from '../_kit/sig/stage.js';
+
+const canvas = document.getElementById('de3d'), section = canvas.closest('section');
+const copy = document.getElementById('de-copy'), note = document.getElementById('de-note'), steps = [...document.querySelectorAll('#de-steps li')];
+const L = 3.2, W = .9, Y0 = -.5, YS = -.12, Y1 = .5;   // 材の長さ・幅、腰掛けの高さ
+const NECK = .17, HEAD = .29, DEPTH = .62, SEAT = .32; // 蟻（あり）の首と頭、腰掛けの出
+
+const st = stage3d({ canvas, section, fov: 30, env: .03, exposure: 1.15, frame });
+if (st) {
+  const { scene } = st;
+  const grain = woodTexture('#d8b07a', 'rgba(120,70,30,', 1024, 256);
+  grain.wrapS = grain.wrapT = THREE.RepeatWrapping; grain.repeat.set(.35, 1.4);
+  // 木口（こぐち）：年輪
+  const rings = canvasTexture(512, 512, (g, w, h) => {
+    g.fillStyle = '#d2a56c'; g.fillRect(0, 0, w, h);
+    for (let r = 4; r < 720; r += 9 + Math.random() * 7) { g.strokeStyle = `rgba(110,60,25,${.18 + Math.random() * .2})`; g.lineWidth = 2 + Math.random() * 3; g.beginPath(); g.arc(w * .3, h * 1.1, r, 0, 7); g.stroke(); }
+  });
+  rings.wrapS = rings.wrapT = THREE.RepeatWrapping; rings.repeat.set(.9, .9);
+  const side = new THREE.MeshPhysicalMaterial({ map: grain, roughness: .62, clearcoat: .15 });
+  const cut = new THREE.MeshPhysicalMaterial({ map: rings, roughness: .75 });
+  // 平面図の形を、上下に押し出す
+  function ext(pts, y0, y1) {
+    const s = new THREE.Shape(pts.map(([x, z]) => new THREE.Vector2(x, -z)));
+    const g = new THREE.ExtrudeGeometry(s, { depth: y1 - y0, bevelEnabled: true, bevelThickness: .012, bevelSize: .012, bevelSegments: 2 });
+    g.rotateX(-Math.PI / 2); g.translate(0, y0, 0);
+    return new THREE.Mesh(g, [side, side]);
+  }
+  // 端の面だけ、年輪の材質に
+  function endCap(x, y0, y1, z0, z1) {
+    const m = new THREE.Mesh(new THREE.PlaneGeometry(z1 - z0, y1 - y0), cut);
+    m.position.set(x, (y0 + y1) / 2, (z0 + z1) / 2); m.rotation.y = x < 0 ? -Math.PI / 2 : Math.PI / 2; return m;
+  }
+  const dov = [[0, -NECK], [-DEPTH, -HEAD], [-DEPTH, HEAD], [0, NECK]];
+  // 女木（めぎ）：蟻の穴と、下に腰掛け
+  const female = new THREE.Group();
+  female.add(ext([[-L, -W / 2], [0, -W / 2], ...dov, [0, W / 2], [-L, W / 2]], YS, Y1));
+  female.add(ext([[-L, -W / 2], [SEAT, -W / 2], [SEAT, W / 2], [-L, W / 2]], Y0, YS));
+  female.add(endCap(-L - .013, Y0, Y1, -W / 2, W / 2));
+  // 男木（おぎ）：蟻の形の出っぱり。下は腰掛けの分だけ下がる
+  const male = new THREE.Group();
+  male.add(ext([[L, -W / 2], [0, -W / 2], ...dov, [0, W / 2], [L, W / 2]].reverse(), YS, Y1));
+  male.add(ext([[L, -W / 2], [SEAT, -W / 2], [SEAT, W / 2], [L, W / 2]].reverse(), Y0, YS));
+  male.add(endCap(L + .013, Y0, Y1, -W / 2, W / 2));
+  const joint = new THREE.Group(); joint.add(female, male); scene.add(joint);
+  // 木くず
+  const dustN = 60, dust = new THREE.InstancedMesh(new THREE.BoxGeometry(.03, .01, .05), new THREE.MeshStandardMaterial({ color: '#e2c08f', roughness: .8 }), dustN);
+  const dd = Array.from({ length: dustN }, () => ({ x: 0, y: -10, z: 0, vx: 0, vy: 0, vz: 0, r: Math.random() * 6 }));
+  joint.add(dust);
+  const floor = new THREE.Mesh(new THREE.CircleGeometry(9, 48), new THREE.ShadowMaterial({ opacity: .22 }));
+  floor.rotation.x = -Math.PI / 2; floor.position.y = -1.1; floor.receiveShadow = true; joint.add(floor);
+  st.renderer.shadowMap.enabled = true; st.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  joint.traverse(o => { if (o.isMesh && o !== floor) o.castShadow = true; });
+  scene.add(new THREE.HemisphereLight('#fff6ea', '#8a7356', 1));
+  const key = new THREE.DirectionalLight('#fff0dc', 2.4); key.position.set(-3, 7, 4); key.castShadow = true;
+  key.shadow.mapSize.set(1024, 1024); Object.assign(key.shadow.camera, { left: -6, right: 6, top: 6, bottom: -6 }); scene.add(key);
+  const rim = new THREE.DirectionalLight('#ffb27a', 1.2); rim.position.set(4, 2, -5); scene.add(rim);
+  Object.assign(st, { joint, female, male, dust, dd, tmp: new THREE.Object3D(), landed: false });
+  st.start();
+}
+let stepI = -1;
+function frame({ t, dt, p, portrait }) {
+  const heroK = heroFade(p, .1);
+  copy.style.opacity = note.style.opacity = c01((p - .07) / .06);
+  // 1：離れて浮いている　2：男木が真上へ　3：落としこむ　4：組み上がって、ゆっくり回る
+  const a = ease(span(p, .1, .4)), drop = ease(span(p, .45, .7)), done = span(p, .72, 1);
+  const si = p < .42 ? 0 : p < .7 ? 1 : 2;
+  if (si !== stepI) { stepI = si; steps.forEach((li, k) => li.classList.toggle('on', k === si)); }
+  const { male, female, joint } = st;
+  female.position.set(-.9 * (1 - a), 0, 0);
+  male.position.set(1.4 * (1 - a), 1.35 * a * (1 - drop) + (1 - a) * .35, 0);
+  male.rotation.set(0, (1 - a) * -.5, (1 - a) * .08);
+  // 組み上がった瞬間に、木くずが舞う
+  if (drop > .985 && !st.landed) { st.landed = true; st.dd.forEach(d => { d.x = (Math.random() - .5) * .8; d.y = YS; d.z = (Math.random() - .5) * 1.2; d.vx = (Math.random() - .5) * 2; d.vy = Math.random() * 2; d.vz = (Math.random() - .5) * 2; }); }
+  if (drop < .9) st.landed = false;
+  st.dd.forEach((d, i) => {
+    if (!qa) { d.vy -= 6 * dt; d.x += d.vx * dt; d.y = Math.max(-1.08, d.y + d.vy * dt); d.z += d.vz * dt; if (d.y <= -1.08) { d.vx *= .9; d.vz *= .9; } }
+    st.tmp.position.set(d.x, d.y, d.z); st.tmp.rotation.set(d.r, d.r * 2, 0); st.tmp.updateMatrix(); st.dust.setMatrixAt(i, st.tmp.matrix);
+  });
+  st.dust.instanceMatrix.needsUpdate = true;
+  const s = portrait ? .48 : .62 + .1 * (1 - heroK);
+  joint.scale.setScalar(s);
+  // 最初の画面は左に、説明が出たら右へ
+  joint.position.set(portrait ? -.5 * heroK : -1.5 * heroK + 1.3 * (1 - heroK), portrait ? 1.1 - heroK * 2.1 : -.1, 0);
+  joint.rotation.set(.0, -.7 + (qa ? 0 : t * .05) * (1 - drop) + done * Math.PI * .7 + mouse.x * .25, 0);
+  st.camera.position.set(0, portrait ? 3.2 : 2.8, portrait ? 10 : 8.4);
+  st.camera.lookAt(0, portrait ? .5 : 0, 0);
+}
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="1899" data-from="1839">1899</span><small>年　明治32年　創業</small></div></div>
+    <div class="rv"><h2>大工の名を、社名に残して。</h2><p>茶室や数寄屋造りの家を多く手がけた大工棟梁から始まりました。社名の「大栄工業」は、2代目の尾身信蔵が会社設立にあたり、原点である大工の名を残そうとつけたものです。</p><p>1946年、焼け野原の新宿で大工業を再開。創業当時のように、建築から修繕まで、長く心地よく安心して暮らせる住まいをお届けしています。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>注文住宅</span><span>リフォーム</span><span>木にこだわる</span><span>数寄屋</span><span>明治三十二年創業</span><span>注文住宅</span><span>リフォーム</span><span>木にこだわる</span><span>数寄屋</span><span>明治三十二年創業</span><span>注文住宅</span><span>リフォーム</span><span>木にこだわる</span><span>数寄屋</span><span>明治三十二年創業</span><span>注文住宅</span><span>リフォーム</span><span>木にこだわる</span><span>数寄屋</span><span>明治三十二年創業</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>大栄工業の家づくり</h2><span>CONCEPT</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/f1.jpg" alt="丸太を削る大工" loading="lazy" data-speed=".06" data-gl></div><h3>木にこだわる</h3><p>木の家づくりを、100年以上。</p></article><article class="feature rv"><div class="ph"><img src="img/f2.jpg" alt="木の継手" loading="lazy" data-speed=".06" data-gl></div><h3>性能にこだわる</h3><p>長く心地よく、安心して暮らせる住まいを。</p></article><article class="feature rv"><div class="ph"><img src="img/f3.jpg" alt="鉋をかける大工" loading="lazy" data-speed=".06" data-gl></div><h3>都心の注文住宅を</h3><p>新宿から、都心の家づくりを。</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/wide.jpg" alt="木の梁" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">一級建築士事務所を併設しています。</figcaption></figure>
+  
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">営業時間</h2></div>
+      <p class="status" id="status"><i></i><b>…</b></p>
+      <table class="hours"><tr data-wd="1,2,3,4,5"><th>受付</th><td>平日 9:00〜17:00</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>東京都新宿区住吉町11-20</p>
+      <p class="mute">新宿区住吉町の本社から、都内の家づくりに伺います。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%96%B0%E5%AE%BF%E5%8C%BA%E4%BD%8F%E5%90%89%E7%94%BA11-20%20%E5%A4%A7%E6%A0%84%E5%B7%A5%E6%A5%AD" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:0333590391" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">長く住める家を、ご一緒に。</h2>
+    <a class="tel" href="tel:0333590391">03-3359-0391</a>
+    <p>家づくりやリフォームのご相談、資料請求はお電話かメールでどうぞ。</p>
+    <div class="btns"><a class="btn" href="mailto:info@daiei-con.jp" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>大栄工業株式会社　東京都新宿区住吉町11-20　TEL 03-3359-0391</p>
+  <p>この試作は森川ウェブ（mahmoris98@gmail.com）が、大栄工業株式会社様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:0333590391" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+<script>window.SCHEDULE = {"days": {"1": [[540, 1020]], "2": [[540, 1020]], "3": [[540, 1020]], "4": [[540, 1020]], "5": [[540, 1020]]}};</script>
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

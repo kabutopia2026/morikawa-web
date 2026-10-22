@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>かんばん劇場（有限会社石山製作所）｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0b0a12">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Yuji+Syuku&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#0b0a12;--ink:#f3eefb;--mute:#a49fb5;--accent:#ff3d8b;--accent-ink:#0b0a12;--panel:#151324;--line:rgba(243,238,251,.13);--display:"Dela Gothic One",sans-serif;--display-weight:400;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 50%;--top-ink:var(--ink)}
+
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>がかんばん劇場（有限会社石山製作所）様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">看板の製作・施工　台東区松が谷（かっぱ橋）</p><p class="pl-name">かんばん劇場</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">かんばん劇場</a>
+  <nav aria-label="ページ内の案内"><a href="#story">かんばん劇場</a><a href="#features">看板</a><a href="#info">営業時間</a></nav>
+  
+  <a class="call" href="tel:0338421480"><span data-en="Call">電話</span><span class="num">03-3842-1480</span></a>
+</header>
+
+<main>
+  <section class="hero" hidden>
+    <div class="hero-img"><img src="img/hero.jpg" alt="夜に光るネオン看板" ></div>
+    <div class="hero-copy">
+      <p class="kind">看板の製作・施工　台東区松が谷（かっぱ橋）</p>
+      <h1><span class="ln"><span style="--i:0">お店の顔を、</span></span><span class="ln"><span style="--i:1">灯します。</span></span></h1>
+      
+      <p class="sub">昭和24年創業。看板のデザイン・制作・工事から、修理、LED化、メンテナンスまで。看板のことは何でもご相談ください。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-kb hero-sig" id="sig" aria-label="お店の名前を入れると、看板の見え方を試せる演出">
+    <div class="kb-stick hero">
+      <canvas id="kb2d" aria-hidden="true"></canvas>
+      <div class="hero-copy hs-copy" id="hs-copy"><p class="kind">看板の製作・施工　台東区松が谷（かっぱ橋）</p><h1><span class="ln"><span style="--i:0">お店の顔を、</span></span><span class="ln"><span style="--i:1">灯します。</span></span></h1><p class="sub">昭和24年創業。看板のデザイン・制作・工事から、修理、LED化、メンテナンスまで。看板のことは何でもご相談ください。</p></div>
+      <div class="kb-copy" id="kb-copy">
+        <p class="kb-step" id="kb-step">ネオンサイン</p>
+        <p class="kb-h" id="kb-h">夜の街で、目に留まる。</p>
+        <label class="kb-in"><span>お店の名前を入れてみてください</span><input id="kb-name" type="text" maxlength="8" value="かんばん劇場" autocomplete="off"></label>
+        <div class="kb-tabs" role="group" aria-label="看板の種類">
+          <button type="button" data-k="0" aria-pressed="true">ネオン</button><button type="button" data-k="1" aria-pressed="false">LED文字</button><button type="button" data-k="2" aria-pressed="false">行燈</button><button type="button" data-k="3" aria-pressed="false">書き文字</button>
+        </div>
+      </div>
+      <p class="kb-note">看板のイメージです</p>
+    </div>
+  </section>
+<style>
+.sig-kb{position:relative;height:420vh;background:#0b0a12}
+.kb-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#0b0a12}
+.kb-stick .hs-copy{z-index:3;text-shadow:0 2px 24px rgba(0,0,0,.8)}
+#kb2d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.kb-copy{position:absolute;left:var(--gut);bottom:12vh;max-width:520px;opacity:0;z-index:3}
+.kb-step{margin:0;color:var(--accent);font-weight:700;letter-spacing:.2em;font-size:13px}
+.kb-h{font-family:var(--display);font-size:clamp(24px,2.6vw,38px);line-height:1.35;margin:8px 0 18px}
+.kb-in{display:block;margin-bottom:14px}
+.kb-in span{display:block;font-size:13px;color:var(--mute);margin-bottom:6px}
+.kb-in input{width:100%;max-width:320px;font:inherit;font-size:20px;font-weight:700;padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.06);color:var(--ink)}
+.kb-tabs{display:flex;gap:6px;flex-wrap:wrap}
+.kb-tabs button{font:inherit;font-size:14px;font-weight:700;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.kb-tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#0b0a12}
+.kb-note{position:absolute;right:var(--gut);bottom:22px;margin:0;font-size:12px;color:var(--mute);z-index:3}
+@media (max-width:860px){
+  .kb-copy{bottom:0;left:0;right:0;max-width:none;padding:40px var(--gut) 96px;background:linear-gradient(to top,rgba(11,10,18,.96) 70%,rgba(11,10,18,0))}
+  .kb-h{font-size:26px;margin-bottom:12px}
+  .kb-note{top:74px;bottom:auto}
+}
+</style>
+<script type="module">
+import { stage2d, heroFade, span, c01, qa, mouse } from '../_kit/sig/stage.js';
+
+const canvas = document.getElementById('kb2d'), section = canvas.closest('section');
+const copy = document.getElementById('kb-copy'), note = section.querySelector('.kb-note');
+const stepEl = document.getElementById('kb-step'), hEl = document.getElementById('kb-h'), input = document.getElementById('kb-name');
+const tabs = [...section.querySelectorAll('.kb-tabs button')];
+const KINDS = [['ネオンサイン', '夜の街で、目に留まる。'], ['LEDサイン', '今ある看板の、LED化も。'], ['行燈看板', '店先で、やわらかく灯る。'], ['書き文字サイン', '職人が、筆で描く。']];
+let kind = 0, manual = 0, on = 0, lastKind = -1, flick = 0;
+tabs.forEach(b => b.addEventListener('click', () => { kind = +b.dataset.k; manual = performance.now(); }));
+input.addEventListener('input', () => { flick = 0; on = 0; });
+
+// 壁（レンガ）を一度だけ描いておく
+let wall = null;
+function makeWall(w, h) {
+  const c = document.createElement('canvas'); c.width = w; c.height = h; const g = c.getContext('2d');
+  g.fillStyle = '#15121c'; g.fillRect(0, 0, w, h);
+  const bw = 92, bh = 34;
+  for (let y = 0; y < h + bh; y += bh) for (let x = -bw; x < w + bw; x += bw) {
+    const ox = (Math.floor(y / bh) % 2) * bw / 2, l = 18 + Math.random() * 10;
+    g.fillStyle = `hsl(${250 + Math.random() * 20},12%,${l * .6}%)`; g.fillRect(x + ox + 2, y + 2, bw - 4, bh - 4);
+  }
+  return c;
+}
+
+const st = stage2d({ canvas, section, draw(g, w, h, { t, dt, p }) {
+  const heroK = heroFade(p, .1);
+  copy.style.opacity = note.style.opacity = c01((p - .07) / .06);
+  if (!wall || wall.width !== Math.ceil(w) || wall.height !== Math.ceil(h)) wall = makeWall(Math.ceil(w), Math.ceil(h));
+  if (performance.now() - manual > 1500) kind = Math.min(3, Math.floor(span(p, .14, 1) * 4));
+  if (kind !== lastKind) {
+    lastKind = kind; flick = 0; on = 0;
+    stepEl.textContent = KINDS[kind][0]; hEl.textContent = KINDS[kind][1];
+    tabs.forEach((b, i) => b.setAttribute('aria-pressed', i === kind));
+  }
+  // 点灯：ちらついてから、灯る
+  flick += dt; on = qa ? 1 : flick < .5 ? (Math.random() < .5 ? 1 : .15) : 1;
+  g.drawImage(wall, 0, 0, w, h);
+  const vg = g.createRadialGradient(w * .62, h * .4, 10, w * .62, h * .4, Math.max(w, h) * .8);
+  vg.addColorStop(0, 'rgba(0,0,0,0)'); vg.addColorStop(1, 'rgba(0,0,0,.75)'); g.fillStyle = vg; g.fillRect(0, 0, w, h);
+
+  const name = (input.value || 'かんばん劇場').slice(0, 8);
+  const portrait = h > w;
+  const cx = portrait ? w / 2 : w * (.62 + heroK * .04), cy = portrait ? h * .3 : h * .42;
+  const fs = Math.min((portrait ? w * .86 : w * .5) / Math.max(3, name.length), portrait ? 64 : 120);
+  g.save(); g.translate(cx + mouse.x * 8, cy + mouse.y * 6);
+  g.textAlign = 'center'; g.textBaseline = 'middle';
+  g.font = `400 ${fs}px "Dela Gothic One",sans-serif`;
+  const tw = g.measureText(name).width;
+  if (kind === 0) {
+    // ネオン：管の光を何重にも重ねる
+    g.lineJoin = 'round'; g.lineCap = 'round';
+    const col = '255,61,139';
+    for (const [lw, blur, a] of [[16, 40, .35], [8, 18, .7], [3, 6, 1]]) {
+      g.strokeStyle = `rgba(${col},${a * on})`; g.shadowColor = `rgba(${col},${on})`; g.shadowBlur = blur; g.lineWidth = lw * fs / 120; g.strokeText(name, 0, 0);
+    }
+    g.shadowBlur = 0; g.strokeStyle = `rgba(255,235,245,${.9 * on})`; g.lineWidth = 1.4 * fs / 120; g.strokeText(name, 0, 0);
+  } else if (kind === 1) {
+    // LED チャンネル文字：側面のある文字が、白く光る
+    g.fillStyle = '#2a2a33'; for (let i = 6; i > 0; i--) g.fillText(name, i * .9, i * .9);
+    g.shadowColor = `rgba(160,210,255,${on})`; g.shadowBlur = 30; g.fillStyle = `rgba(245,250,255,${.25 + .75 * on})`; g.fillText(name, 0, 0);
+    g.shadowBlur = 60; g.globalAlpha = .4 * on; g.fillText(name, 0, 0); g.globalAlpha = 1;
+  } else if (kind === 2) {
+    // 行燈：光る箱に、黒い文字
+    const bw = tw + fs * 1.2, bh = fs * 1.9;
+    g.shadowColor = `rgba(255,214,150,${.8 * on})`; g.shadowBlur = 50;
+    const lg = g.createLinearGradient(0, -bh / 2, 0, bh / 2); lg.addColorStop(0, `rgba(255,246,226,${.35 + .65 * on})`); lg.addColorStop(1, `rgba(255,225,170,${.3 + .6 * on})`);
+    g.fillStyle = lg; g.fillRect(-bw / 2, -bh / 2, bw, bh); g.shadowBlur = 0;
+    g.strokeStyle = '#3a2a1a'; g.lineWidth = fs * .08; g.strokeRect(-bw / 2, -bh / 2, bw, bh);
+    g.fillStyle = '#1a1310'; g.fillText(name, 0, fs * .04);
+  } else {
+    // 書き文字：木の板に、筆の文字
+    const bw = tw + fs * 1.4, bh = fs * 1.9;
+    const wd = g.createLinearGradient(-bw / 2, 0, bw / 2, 0); wd.addColorStop(0, '#6b4528'); wd.addColorStop(.5, '#8a5b34'); wd.addColorStop(1, '#5f3c22');
+    g.fillStyle = wd; g.fillRect(-bw / 2, -bh / 2, bw, bh);
+    g.strokeStyle = 'rgba(40,22,10,.35)'; g.lineWidth = 1;
+    for (let i = 0; i < 18; i++) { const y = -bh / 2 + (i + .5) * bh / 18; g.beginPath(); g.moveTo(-bw / 2, y); g.bezierCurveTo(-bw / 6, y + 4, bw / 6, y - 4, bw / 2, y + 2); g.stroke(); }
+    g.font = `400 ${fs}px "Yuji Syuku","Dela Gothic One",serif`;
+    g.fillStyle = '#f4ead8'; g.fillText(name, 0, fs * .04);
+    // 上から照らすライト
+    const lg = g.createRadialGradient(0, -bh * .9, 4, 0, -bh * .2, bh * 1.2); lg.addColorStop(0, `rgba(255,236,190,${.35 * on})`); lg.addColorStop(1, 'rgba(255,236,190,0)');
+    g.fillStyle = lg; g.fillRect(-bw, -bh * 1.5, bw * 2, bh * 2.4);
+  }
+  g.restore();
+} });
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="1949" data-from="1889">1949</span><small>年　昭和24年2月　創業</small></div></div>
+    <div class="rv"><h2>新しい看板も、今ある看板も。</h2><p>新規に看板を作られる方から、既存のデザイン変更やLED化・リニューアル・点検・撤去まで、あらゆるご要望をお受けしています。</p><p>店舗・オフィス・チェーン店・商業施設まで、さまざまなシーンで活用いただいています。かっぱ橋には浅草店とリサイクル展示場もあります。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>ネオンサイン</span><span>LEDサイン</span><span>行燈看板</span><span>書き文字</span><span>自立看板</span><span>昭和二十四年創業</span><span>ネオンサイン</span><span>LEDサイン</span><span>行燈看板</span><span>書き文字</span><span>自立看板</span><span>昭和二十四年創業</span><span>ネオンサイン</span><span>LEDサイン</span><span>行燈看板</span><span>書き文字</span><span>自立看板</span><span>昭和二十四年創業</span><span>ネオンサイン</span><span>LEDサイン</span><span>行燈看板</span><span>書き文字</span><span>自立看板</span><span>昭和二十四年創業</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>看板</h2><span>SIGNS</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/f1.jpg" alt="窓に描かれた手書きの看板" loading="lazy" data-speed=".06" data-gl></div><h3>書き文字・手書き看板</h3><p>職人が筆で描く、温かみのある看板。</p></article><article class="feature rv"><div class="ph"><img src="img/f2.jpg" alt="壁で作業する職人" loading="lazy" data-speed=".06" data-gl></div><h3>施工・メンテナンス</h3><p>取り付けから点検、撤去まで。</p></article><article class="feature rv"><div class="ph"><img src="img/f3.jpg" alt="吊り下げられた看板" loading="lazy" data-speed=".06" data-gl></div><h3>サインプレート・アクリル</h3><p>店先から館内まで、いろいろな看板を。</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/wide.jpg" alt="夜の路地に光る看板" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">夜の街で、目に留まる。</figcaption></figure>
+  
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">営業時間</h2></div>
+      <p class="status" id="status"><i></i><b>…</b></p>
+      <table class="hours"><tr data-wd="1,2,3,4,5"><th>本店</th><td>平日 9:00〜18:00</td></tr><tr data-wd="6"><th>土曜・祝日</th><td>11:00〜17:00</td></tr><tr><th>定休日</th><td>日曜</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>東京都台東区松が谷1-9-14</p>
+      <p class="mute">東京メトロ銀座線 田原町駅が最寄りです。浅草店は西浅草2-5-3（合羽橋南信号角）。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8F%B0%E6%9D%B1%E5%8C%BA%E6%9D%BE%E3%81%8C%E8%B0%B71-9-14%20%E3%81%8B%E3%82%93%E3%81%B0%E3%82%93%E5%8A%87%E5%A0%B4" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:0338421480" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">看板のことは、何でも。</h2>
+    <a class="tel" href="tel:0338421480">03-3842-1480</a>
+    <p>デザインのご相談やお見積もりは、お電話かメールでどうぞ。</p>
+    <div class="btns"><a class="btn" href="mailto:info@kanbangekijyou.com" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>かんばん劇場（有限会社石山製作所）　東京都台東区松が谷1-9-14　TEL 03-3842-1480</p>
+  <p>この試作は森川ウェブ（mahmoris98@gmail.com）が、かんばん劇場（有限会社石山製作所）様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:0338421480" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+<script>window.SCHEDULE = {"days": {"1": [[540, 1080]], "2": [[540, 1080]], "3": [[540, 1080]], "4": [[540, 1080]], "5": [[540, 1080]], "6": [[660, 1020]]}};</script>
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

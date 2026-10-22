@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>株式会社日本橋銀杏堂｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#111112">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@700;800&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#111112;--ink:#efe9df;--mute:#a8a094;--accent:#c8322a;--accent-ink:#fff;--panel:#1b1b1d;--line:rgba(239,233,223,.13);--display:"Shippori Mincho",serif;--display-weight:800;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 50%;--top-ink:var(--ink)}
+
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>が株式会社日本橋銀杏堂様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">手彫りの印章専門店　日本橋横山町</p><p class="pl-name">日本橋銀杏堂</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">日本橋銀杏堂</a>
+  <nav aria-label="ページ内の案内"><a href="#story">銀杏堂のこと</a><a href="#features">取扱品目</a><a href="#info">営業時間</a></nav>
+  
+  <a class="call" href="tel:0336613040"><span data-en="Call">電話</span><span class="num">03-3661-3040</span></a>
+</header>
+
+<main>
+  <section class="hero tate" hidden>
+    <div class="hero-img"><img src="img/hero.jpg" alt="筆で文字を書く手" ></div>
+    <div class="hero-copy">
+      <p class="kind">手彫りの印章専門店　日本橋横山町</p>
+      <h1 aria-label="一本ずつ、手で彫る。"><span class="ch" style="--i:0">一</span><span class="ch" style="--i:1">本</span><span class="ch" style="--i:2">ず</span><span class="ch" style="--i:3">つ</span><span class="ch" style="--i:4">、</span><br><span class="ch" style="--i:5">手</span><span class="ch" style="--i:6">で</span><span class="ch" style="--i:7">彫</span><span class="ch" style="--i:8">る</span><span class="ch" style="--i:9">。</span></h1>
+      <span class="seal" aria-hidden="true">銀杏</span>
+      <p class="sub">創業100余年の印章専門店です。実印・銀行印・認印から、ゴム印、落款印、名刺まで。店内で彫刻作業をご覧いただけることもあります。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-gn hero-sig" id="sig" aria-label="お名前を入れると、3Dの印鑑が紙に押される演出">
+    <div class="gn-stick hero tate">
+      <canvas id="gn3d" aria-hidden="true"></canvas>
+      <div class="hero-copy hs-copy" id="hs-copy"><p class="kind">手彫りの印章専門店　日本橋横山町</p><h1 aria-label="一本ずつ、手で彫る。"><span class="ch" style="--i:0">一</span><span class="ch" style="--i:1">本</span><span class="ch" style="--i:2">ず</span><span class="ch" style="--i:3">つ</span><span class="ch" style="--i:4">、</span><br><span class="ch" style="--i:5">手</span><span class="ch" style="--i:6">で</span><span class="ch" style="--i:7">彫</span><span class="ch" style="--i:8">る</span><span class="ch" style="--i:9">。</span></h1><span class="seal" aria-hidden="true">銀杏</span><p class="sub">創業100余年の印章専門店です。実印・銀行印・認印から、ゴム印、落款印、名刺まで。店内で彫刻作業をご覧いただけることもあります。</p></div>
+      <div class="gn-copy" id="gn-copy">
+        <p class="gn-step" id="gn-step">手彫り</p>
+        <p class="gn-h" id="gn-h">一本ずつ、<br>手で彫る。</p>
+        <label class="gn-in"><span>お名前（4文字まで）</span><input id="gn-name" type="text" maxlength="4" value="銀杏" autocomplete="off"></label>
+        <p class="gn-p">スクロールすると、印面を見せてから、紙に押します。</p>
+      </div>
+      <p class="gn-note">3Dのイメージです。実際の印鑑は、職人が一本ずつ手で彫ります</p>
+    </div>
+  </section>
+<style>
+.sig-gn{position:relative;height:400vh;background:#111112}
+.gn-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:radial-gradient(60% 60% at 55% 55%,#24201b,#111112 72%)}
+.gn-stick .hs-copy{z-index:3}
+#gn3d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.gn-copy{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);max-width:380px;opacity:0;z-index:3}
+.gn-step{margin:0;color:var(--accent);font-weight:700;letter-spacing:.2em;font-size:14px}
+.gn-h{font-family:var(--display);font-weight:800;font-size:clamp(34px,4vw,56px);line-height:1.3;margin:8px 0 20px}
+.gn-in span{display:block;font-size:13px;color:var(--mute);margin-bottom:6px}
+.gn-in input{width:200px;font:inherit;font-family:var(--display);font-size:28px;font-weight:800;padding:8px 14px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.06);color:var(--ink)}
+.gn-p{margin:16px 0 0;color:var(--mute);font-size:14px}
+.gn-note{position:absolute;right:var(--gut);bottom:22px;margin:0;font-size:12px;color:var(--mute);z-index:3;max-width:320px;text-align:right}
+@media (max-width:860px){
+  .gn-copy{top:auto;bottom:0;transform:none;left:0;right:0;max-width:none;padding:48px var(--gut) 96px;background:linear-gradient(to top,rgba(17,17,18,.96) 66%,rgba(17,17,18,0))}
+  .gn-h{font-size:32px;margin-bottom:12px}.gn-p{display:none}
+  .gn-note{top:74px;bottom:auto}
+}
+</style>
+<script type="module">
+import * as THREE from 'three';
+import { stage3d, heroFade, span, ease, c01, qa, mouse, woodTexture } from '../_kit/sig/stage.js';
+
+const canvas = document.getElementById('gn3d'), section = canvas.closest('section');
+const copy = document.getElementById('gn-copy'), note = section.querySelector('.gn-note'), input = document.getElementById('gn-name');
+const FONT = '"Shippori Mincho",serif';
+
+// 印面：文字を縦に並べ、左右を反転して彫る。押した跡は反転しない
+function layout(g, s, name, mirror) {
+  const chars = [...(name || '銀杏')].slice(0, 4), n = chars.length;
+  g.save(); g.translate(s / 2, s / 2); if (mirror) g.scale(-1, 1);
+  const R = s * .44;
+  g.textAlign = 'center'; g.textBaseline = 'middle';
+  if (n <= 3) {
+    const fs = R * (n === 1 ? 1.25 : n === 2 ? .82 : .58);
+    g.font = `800 ${fs}px ${FONT}`;
+    chars.forEach((c, i) => {
+      g.save(); g.translate(0, (i - (n - 1) / 2) * fs * .98); g.scale(n === 1 ? 1 : 1.25, 1); g.fillText(c, 0, 0); g.restore();
+    });
+  } else {
+    const fs = R * .62; g.font = `800 ${fs}px ${FONT}`;
+    // 4文字は右の列から、上から下へ
+    [[.5, -.5], [.5, .5], [-.5, -.5], [-.5, .5]].forEach(([x, y], i) => g.fillText(chars[i], x * fs * 1.02, y * fs * 1.02));
+  }
+  g.restore();
+  g.lineWidth = s * .035; g.beginPath(); g.arc(s / 2, s / 2, R + s * .03, 0, Math.PI * 2); g.stroke();
+}
+const faceCanvas = document.createElement('canvas'), stampCanvas = document.createElement('canvas');
+faceCanvas.width = faceCanvas.height = stampCanvas.width = stampCanvas.height = 512;
+function paint() {
+  const name = input.value.trim() || '銀杏';
+  let g = faceCanvas.getContext('2d');
+  g.fillStyle = '#c99a5b'; g.fillRect(0, 0, 512, 512);
+  g.fillStyle = g.strokeStyle = '#f1d6a6'; g.shadowColor = 'rgba(60,30,10,.7)'; g.shadowBlur = 6; g.shadowOffsetY = 3;
+  layout(g, 512, name, true);
+  g = stampCanvas.getContext('2d');
+  g.clearRect(0, 0, 512, 512); g.fillStyle = g.strokeStyle = '#c8322a'; g.shadowBlur = 0; g.shadowOffsetY = 0;
+  layout(g, 512, name, false);
+  // 朱肉のかすれ
+  g.globalCompositeOperation = 'destination-out';
+  for (let i = 0; i < 2200; i++) { g.fillStyle = `rgba(0,0,0,${Math.random() * .5})`; g.fillRect(Math.random() * 512, Math.random() * 512, 1 + Math.random() * 3, 1 + Math.random() * 2); }
+  g.globalCompositeOperation = 'source-over';
+  if (st && st.faceTex) { st.faceTex.needsUpdate = true; st.stampTex.needsUpdate = true; }
+}
+
+const st = stage3d({ canvas, section, fov: 30, env: .03, exposure: 1.1, frame });
+if (st) {
+  const { scene } = st;
+  st.faceTex = new THREE.CanvasTexture(faceCanvas); st.faceTex.colorSpace = THREE.SRGBColorSpace;
+  st.stampTex = new THREE.CanvasTexture(stampCanvas); st.stampTex.colorSpace = THREE.SRGBColorSpace;
+  const wood = new THREE.MeshPhysicalMaterial({ map: woodTexture('#cfa165', 'rgba(110,70,30,'), roughness: .38, clearcoat: .7 });
+  const face = new THREE.MeshPhysicalMaterial({ map: st.faceTex, roughness: .6 });
+  const R = .42, L = 2.6;
+  const seal = new THREE.Group(); scene.add(seal);
+  const body = new THREE.Mesh(new THREE.CylinderGeometry(R, R, L, 64, 1), [wood, wood, face]);
+  body.position.y = L / 2; seal.add(body);                   // 印面が真下（y=0）に来るように
+  const mark = new THREE.Mesh(new THREE.SphereGeometry(.05, 12, 8), new THREE.MeshStandardMaterial({ color: '#c8322a' }));
+  mark.position.set(0, L * .82, R); seal.add(mark);           // 上下を示すアタリ
+  // 紙
+  const paper = new THREE.Mesh(new THREE.PlaneGeometry(4.2, 3), new THREE.MeshStandardMaterial({ color: '#f4efe4', roughness: 1 }));
+  paper.rotation.x = -Math.PI / 2; scene.add(paper);
+  const stamp = new THREE.Mesh(new THREE.PlaneGeometry(R * 2.05, R * 2.05), new THREE.MeshBasicMaterial({ map: st.stampTex, transparent: true, opacity: 0, depthWrite: false }));
+  stamp.rotation.x = -Math.PI / 2; stamp.position.y = .003; scene.add(stamp);
+  scene.add(new THREE.HemisphereLight('#fff4e6', '#2a2018', .8));
+  const key = new THREE.DirectionalLight('#fff', 2); key.position.set(-3, 6, 4); scene.add(key);
+  Object.assign(st, { seal, paper, stamp, L });
+  paint();
+  input.addEventListener('input', paint);
+  (document.fonts ? document.fonts.ready : Promise.resolve()).then(paint);
+  st.start();
+}
+
+function frame({ t, p, portrait }) {
+  const heroK = heroFade(p, .1);
+  copy.style.opacity = note.style.opacity = c01((p - .07) / .06);
+  const show = ease(span(p, .14, .34)), down = ease(span(p, .42, .56)), up = ease(span(p, .6, .74));
+  const press = down * (1 - up);
+  const { seal, stamp, paper, L } = st;
+  const s = portrait ? .62 : 1;
+  const baseX = portrait ? 0 : (1.4 * (1 - heroK) - 1.0 * heroK);
+  seal.scale.setScalar(s); paper.scale.setScalar(s); stamp.scale.setScalar(s);
+  paper.position.set(baseX, 0, 0); stamp.position.x = baseX;
+  // 立った姿 → 印面を見せる → 紙に押す → 持ち上げる
+  const tilt = -show * (1 - down) * 1.3;
+  seal.rotation.set(tilt, (reduce() ? 0 : t * .4) * (1 - show) + mouse.x * .4, 0);
+  const lift = (1 - press) * (.55 + show * .35) * s;
+  seal.position.set(baseX, lift + (1 - show) * .2 * s, 0);
+  stamp.material.opacity = qa ? (p > .6 ? 1 : 0) : Math.max(stamp.material.opacity, down > .98 ? 1 : 0) * (p < .4 ? 0 : 1);
+  st.camera.position.set(mouse.x * .5, portrait ? 4.6 : 3.4, portrait ? 9.6 : 8.6);
+  st.camera.lookAt(portrait ? 0 : -.3 * heroK + .6 * (1 - heroK), portrait ? 1.7 : 1.35, 0);
+}
+function reduce() { return matchMedia('(prefers-reduced-motion: reduce)').matches; }
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="47" data-from="-13">47</span><small>年　手彫り印鑑職人として</small></div></div>
+    <div class="rv"><h2>名工の技と信用を、受け継いで。</h2><p>職人の橋本英典は、銀杏堂印房（旧屋号）で5年間の住込み修業を積み、手彫り印鑑職人として47年。師匠は、現代の名工「卓越技能章」を受けた甲斐雄山です。</p><p>その技術と信用を受け継いだ職人と、それをまた受け継ぐ息子で、一本一本丁寧にお作りします。2024年7月16日、旧店舗から600メートルの場所へ移転しました。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>実印</span><span>銀行印</span><span>認印</span><span>ゴム印</span><span>落款印</span><span>手彫り</span><span>実印</span><span>銀行印</span><span>認印</span><span>ゴム印</span><span>落款印</span><span>手彫り</span><span>実印</span><span>銀行印</span><span>認印</span><span>ゴム印</span><span>落款印</span><span>手彫り</span><span>実印</span><span>銀行印</span><span>認印</span><span>ゴム印</span><span>落款印</span><span>手彫り</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>取扱品目</h2><span>SEALS</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/f1.jpg" alt="筆で文字を書く様子" loading="lazy" data-speed=".06" data-gl></div><h3>実印・銀行印・認印</h3><p>手彫りで、一本ずつお作りします。</p></article><article class="feature rv"><div class="ph"><img src="img/f2.jpg" alt="墨で書かれた文字" loading="lazy" data-speed=".06" data-gl></div><h3>ゴム印・シャチハタ</h3><p>ゴム印は一個からご注文・配達します。</p></article><article class="feature rv"><div class="ph"><img src="img/f3.jpg" alt="書の作品" loading="lazy" data-speed=".06" data-gl></div><h3>落款印・名刺・筆耕</h3><p>作品に押す落款印も承ります。</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/wide.jpg" alt="縦書きの書" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">店が、そのまま作業場です。</figcaption></figure>
+  
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">営業時間</h2></div>
+      <p class="status" id="status"><i></i><b>…</b></p>
+      <table class="hours"><tr data-wd="1,2,3,4,5"><th>営業時間</th><td>9:00〜18:00</td></tr><tr><th>土曜</th><td>前日（金曜）までのお電話予約で対応</td></tr><tr><th>休業日</th><td>土曜・日曜・祝日</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>東京都中央区日本橋横山町5-18 GREENPARK日本橋横山町101号</p>
+      <p class="mute">都営新宿線 馬喰横山駅、JR総武本線 馬喰町駅、都営浅草線 東日本橋駅から徒歩圏内です。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%AD%E5%A4%AE%E5%8C%BA%E6%97%A5%E6%9C%AC%E6%A9%8B%E6%A8%AA%E5%B1%B1%E7%94%BA5-18%20%E6%97%A5%E6%9C%AC%E6%A9%8B%E9%8A%80%E6%9D%8F%E5%A0%82" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:0336613040" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">一生ものの印を、手彫りで。</h2>
+    <a class="tel" href="tel:0336613040">03-3661-3040</a>
+    <p>ご注文やご相談は、お電話・FAX・メールで承ります。</p>
+    <div class="btns"><a class="btn" href="mailto:ginnando@mbg.nifty.com" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>株式会社日本橋銀杏堂　東京都中央区日本橋横山町5-18 GREENPARK日本橋横山町101号　TEL 03-3661-3040</p>
+  <p>この試作は森川ウェブ（mahmoris98@gmail.com）が、株式会社日本橋銀杏堂様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:0336613040" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+<script>window.SCHEDULE = {"days": {"1": [[540, 1080]], "2": [[540, 1080]], "3": [[540, 1080]], "4": [[540, 1080]], "5": [[540, 1080]]}};</script>
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

@@ -2,6 +2,9 @@
 (function () {
   // 確認用：?qa を付けると動きを止めて最終状態を表示する
   if (/[?&]qa/.test(location.search)) document.documentElement.classList.add('qa');
+  // 確認用：&at=sig で、その場所まで移動した状態にする
+  var atId = (location.search.match(/[?&]at=([\w-]+)/) || [])[1];
+  if (atId) addEventListener('load', function () { var el = document.getElementById(atId); if (el) scrollTo(0, el.getBoundingClientRect().top + scrollY); });
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches || document.documentElement.classList.contains('qa');
   var clamp01 = function (x) { return Math.max(0, Math.min(1, x)); };
   var lang = 'ja';

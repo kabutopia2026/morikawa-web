@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>別府・竹のかおり（株式会社友成産業）｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#13261b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#13261b;--ink:#f0ead6;--mute:#b4b49a;--accent:#c9a95c;--accent-ink:#13261b;--panel:#1a3124;--line:rgba(240,234,214,.14);--display:"Yuji Syuku",serif;--display-weight:400;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 40%}
+
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>が別府・竹のかおり（株式会社友成産業）様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">竹細工・一閑張り　大分県別府市</p><p class="pl-name">竹のかおり</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">竹のかおり</a>
+  <nav aria-label="ページ内の案内"><a href="#story">竹のかおり</a><a href="#features">商品</a><a href="#info">営業時間</a></nav>
+  
+  <a class="call" href="tel:0977277111"><span data-en="Call">電話</span><span class="num">0977-27-7111</span></a>
+</header>
+
+<main>
+  <section class="hero tate">
+    <div class="hero-img"><img src="img/hero.jpg" alt="まっすぐ伸びる竹林"  data-gl="wipe" data-gl-hero></div>
+    <div class="hero-copy">
+      <p class="kind">竹細工・一閑張り　大分県別府市</p>
+      <h1 aria-label="竹を編み、暮らしを包む。"><span class="ch" style="--i:0">竹</span><span class="ch" style="--i:1">を</span><span class="ch" style="--i:2">編</span><span class="ch" style="--i:3">み</span><span class="ch" style="--i:4">、</span><br><span class="ch" style="--i:5">暮</span><span class="ch" style="--i:6">ら</span><span class="ch" style="--i:7">し</span><span class="ch" style="--i:8">を</span><span class="ch" style="--i:9">包</span><span class="ch" style="--i:10">む</span><span class="ch" style="--i:11">。</span></h1>
+      <span class="seal" aria-hidden="true">竹</span>
+      <p class="sub">別府の友成産業が営む「竹のかおり」。竹のバッグや木製プレート、カトラリーなどを販売しています。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-tb" id="sig" aria-label="竹の編み目を3Dで回して見られる演出">
+    <div class="tb-stick">
+      <canvas id="tb3d" aria-hidden="true"></canvas>
+      <div class="tb-copy">
+        <p class="tb-step">別府竹細工の編み方</p>
+        <p class="tb-h" id="tb-h">網代編み</p>
+        <p class="tb-p" id="tb-p">細い竹ひごを、斜めに交差させて編む。かごやバッグに。</p>
+        <div class="tb-tabs" role="group" aria-label="編み方を選ぶ">
+          <button type="button" data-i="0" aria-pressed="true">網代編み</button><button type="button" data-i="1" aria-pressed="false">四つ目編み</button><button type="button" data-i="2" aria-pressed="false">ござ目編み</button>
+        </div>
+        <p class="tb-hint">ドラッグすると、回して眺められます。</p>
+      </div>
+      <p class="tb-note">3Dのイメージです。実際の商品とは異なります</p>
+    </div>
+  </section>
+<style>
+.sig-tb{position:relative;height:320vh;background:#13261b}
+.tb-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:radial-gradient(60% 60% at 64% 52%,#244233,#13261b 72%)}
+#tb3d{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;touch-action:pan-y}
+.tb-copy{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);max-width:380px;z-index:3}
+.tb-step{margin:0;color:var(--accent);letter-spacing:.2em;font-size:14px}
+.tb-h{font-family:var(--display);font-size:clamp(44px,5.4vw,80px);line-height:1.1;margin:8px 0 14px;transition:opacity .3s}
+.tb-p{margin:0 0 22px;color:var(--mute);transition:opacity .3s}
+.tb-tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tb-tabs button{font:inherit;font-weight:700;font-size:14px;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.tb-tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#13261b}
+.tb-hint{margin:16px 0 0;font-size:13px;color:var(--mute)}
+.tb-note{position:absolute;right:var(--gut);bottom:22px;margin:0;font-size:12px;color:var(--mute)}
+@media (max-width:860px){
+  .tb-copy{top:auto;bottom:0;transform:none;left:0;right:0;max-width:none;padding:56px var(--gut) 96px;background:linear-gradient(to top,rgba(19,38,27,.96) 62%,rgba(19,38,27,0))}
+  .tb-hint{display:none}
+  .tb-note{top:74px;bottom:auto}
+}
+</style>
+<script type="module">
+import { turntable } from '../_kit/sig/turntable.js';
+
+const canvas = document.getElementById('tb3d'), section = canvas.closest('section');
+const hEl = document.getElementById('tb-h'), pEl = document.getElementById('tb-p'), tabs = [...section.querySelectorAll('.tb-tabs button')];
+const TEXT = [
+  ['網代編み', '細い竹ひごを、斜めに交差させて編む。かごやバッグに。'],
+  ['四つ目編み', '縦と横の竹ひごで、四角い目をつくる。軽やかな透かし。'],
+  ['ござ目編み', '細かく詰めて編む、ござのような編み目。器やかごに。'],
+];
+// 竹ひごの色：節や日焼けで少しずつ違う
+const strip = (g, x, y, w, h, i) => {
+  const base = 190 + (i * 37 % 30), gr = g.createLinearGradient(x, y, x + w, y + h);
+  gr.addColorStop(0, `rgb(${base},${base - 38},${base - 110})`); gr.addColorStop(.5, `rgb(${base + 28},${base - 8},${base - 85})`); gr.addColorStop(1, `rgb(${base - 12},${base - 52},${base - 120})`);
+  g.fillStyle = gr; g.fillRect(x, y, w, h);
+};
+const PAINT = {
+  ajiro(g, w, h) {      // 網代：2本越え2本くぐりで、斜めに
+    g.fillStyle = '#5a3d1c'; g.fillRect(0, 0, w, h);
+    const s = 22;
+    for (let y = 0, r = 0; y < h; y += s, r++) for (let x = 0, c = 0; x < w; x += s, c++) {
+      const over = ((c + r) >> 1) % 2;
+      if (over) strip(g, x + 1, y + 1, s * 2 - 2, s - 2, c + r); else strip(g, x + 1, y + 1, s - 2, s * 2 - 2, c * 3 + r);
+    }
+  },
+  yotsume(g, w, h) {    // 四つ目：格子と、すき間
+    g.fillStyle = '#1d140b'; g.fillRect(0, 0, w, h);
+    const s = 56, b = 16;
+    for (let x = 0, i = 0; x < w; x += s, i++) strip(g, x, 0, b, h, i);
+    for (let y = 0, i = 0; y < h; y += s, i++) strip(g, 0, y, w, b, i + 5);
+    for (let x = 0, i = 0; x < w; x += s, i++) for (let y = 0, j = 0; y < h; y += s, j++) if ((i + j) % 2) strip(g, x, y, b, b, i + j);
+  },
+  gozame(g, w, h) {     // ござ目：細かく詰めて
+    g.fillStyle = '#4d3417'; g.fillRect(0, 0, w, h);
+    for (let x = 0, i = 0; x < w; x += 9, i++) strip(g, x, 0, 7, h, i);
+    g.fillStyle = 'rgba(60,38,14,.55)';
+    for (let y = 0; y < h; y += 6) g.fillRect(0, y, w, 1.6);
+  },
+};
+const tt = turntable({
+  canvas, section, start: .12, shadow: .6,
+  items: [
+    { profile: [[0, 0], [.8, 0], [.9, .05], [1.05, .5], [1.2, 1.12], [1.26, 1.22], [1.18, 1.24], [1.13, 1.12], [.98, .52], [.84, .09], [0, .07]], mat: { paint: PAINT.ajiro, roughness: .65, clearcoat: .15 } },
+    { profile: 'plate', mat: { paint: PAINT.yotsume, roughness: .7, clearcoat: .1 }, scale: .95 },
+    { profile: 'tumbler', mat: { paint: PAINT.gozame, roughness: .6, clearcoat: .2 }, scale: 1.05 },
+  ],
+  place: (portrait) => portrait ? { x: 0, y: .9, lookX: 0, lookY: -1.0, s: .78 } : { x: 1.3, y: .1, lookX: 0, lookY: 0, s: 1.05 },
+  onItem: i => {
+    tabs.forEach((b, k) => b.setAttribute('aria-pressed', k === i));
+    hEl.style.opacity = pEl.style.opacity = 0;
+    setTimeout(() => { hEl.textContent = TEXT[i][0]; pEl.textContent = TEXT[i][1]; hEl.style.opacity = pEl.style.opacity = 1; }, 180);
+  },
+});
+tabs.forEach(b => b.addEventListener('click', () => tt && tt.select(+b.dataset.i)));
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="1978" data-from="1918">1978</span><small>年　昭和53年　別府で創業</small></div></div>
+    <div class="rv"><h2>一閑張りの工房を、開きました。</h2><p>令和5年9月27日、一閑張りの工房を開設しました。お気軽にお立ち寄りください。</p><p>竹バッグや木製プレート、カトラリーなどの小売販売は、月曜日から金曜日の9時30分から16時まで行っています。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>竹バッグ</span><span>木製プレート</span><span>カトラリー</span><span>一閑張り</span><span>別府</span><span>竹バッグ</span><span>木製プレート</span><span>カトラリー</span><span>一閑張り</span><span>別府</span><span>竹バッグ</span><span>木製プレート</span><span>カトラリー</span><span>一閑張り</span><span>別府</span><span>竹バッグ</span><span>木製プレート</span><span>カトラリー</span><span>一閑張り</span><span>別府</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>商品</h2><span>BAMBOO</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/f2.jpg" alt="竹で編んだかご" loading="lazy" data-speed=".06" data-gl></div><h3>竹のバッグ</h3><p>竹で編んだ、かごのバッグ。</p></article><article class="feature rv"><div class="ph"><img src="img/f1.jpg" alt="竹ひごを編む手" loading="lazy" data-speed=".06" data-gl></div><h3>竹の手仕事</h3><p>竹ひごを編み上げる、別府の竹細工。</p></article><article class="feature rv"><div class="ph"><img src="img/f3.jpg" alt="積み重ねた竹かご" loading="lazy" data-speed=".06" data-gl></div><h3>木製プレート・カトラリー</h3><p>毎日の食卓に、木と竹のぬくもりを。</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/wide.jpg" alt="見上げた竹林" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">竹の香りを、そのまま。</figcaption></figure>
+  
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">営業時間</h2></div>
+      <p class="status" id="status"><i></i><b>…</b></p>
+      <table class="hours"><tr data-wd="1,2,3,4,5"><th>小売販売</th><td>月曜日〜金曜日 9:30〜16:00</td></tr><tr><th>休業日</th><td>土曜・日曜・祝祭日（休業日カレンダーをご確認ください）</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>大分県別府市鶴見1066-6</p>
+      <p class="mute">一閑張りの工房にも、お気軽にお立ち寄りください。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E5%88%86%E7%9C%8C%E5%88%A5%E5%BA%9C%E5%B8%82%E9%B6%B4%E8%A6%8B1066-6%20%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E5%8F%8B%E6%88%90%E7%94%A3%E6%A5%AD" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:0977277111" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">竹のかおりを、お届けします。</h2>
+    <a class="tel" href="tel:0977277111">0977-27-7111</a>
+    <p>商品やWebカタログについては、お電話かメールでお問い合わせください。</p>
+    <div class="btns"><a class="btn" href="mailto:tns@cronos.ocn.ne.jp" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>別府・竹のかおり（株式会社友成産業）　大分県別府市鶴見1066-6　TEL 0977-27-7111</p>
+  <p>この試作は森川ウェブ（mahmoris98@gmail.com）が、別府・竹のかおり（株式会社友成産業）様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:0977277111" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+<script>window.SCHEDULE = {"days": {"1": [[570, 960]], "2": [[570, 960]], "3": [[570, 960]], "4": [[570, 960]], "5": [[570, 960]]}};</script>
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

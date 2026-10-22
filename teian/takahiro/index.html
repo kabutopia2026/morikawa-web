@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>株式会社タカヒロ｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#14100d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@700;800&family=Cormorant+Garamond:wght@500&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#14100d;--ink:#efe6da;--mute:#b5a593;--accent:#c98b57;--accent-ink:#14100d;--panel:#1e1713;--line:rgba(239,230,218,.14);--display:"Shippori Mincho B1",serif;--display-weight:800;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 50%;--top-ink:var(--ink)}
+.top .name{font-family:'Cormorant Garamond',serif;letter-spacing:.24em;font-size:19px}
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>が株式会社タカヒロ様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">コーヒードリップポット・厨房用品　新潟県燕市</p><p class="pl-name">TAKAHIRO</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">TAKAHIRO</a>
+  <nav aria-label="ページ内の案内"><a href="#story">雫のこと</a><a href="#features">商品</a><a href="#price">価格</a></nav>
+  
+  <a class="call" href="tel:0256623345"><span data-en="Call">電話</span><span class="num">0256-62-3345</span></a>
+</header>
+
+<main>
+  <section class="hero" hidden>
+    <div class="hero-img"><img src="img/hero.jpg" alt="ドリップポットからお湯が細く注がれるコーヒー" ></div>
+    <div class="hero-copy">
+      <p class="kind">コーヒードリップポット・厨房用品　新潟県燕市</p>
+      <h1><span class="ln"><span style="--i:0">お湯は、</span></span><span class="ln"><span style="--i:1">一滴ずつ。</span></span></h1>
+      
+      <p class="sub">昭和50年、新潟県燕市で設立。極細の注ぎ口で点滴抽出ができるオリジナルのドリップポット「雫」をはじめ、業務用の厨房用品をお届けしています。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-tk hero-sig" id="sig" aria-label="ドリップポットから、お湯が一滴ずつ落ちる3Dの演出">
+    <div class="tk-stick hero">
+      <canvas id="tk3d" aria-hidden="true"></canvas>
+      <div class="hero-copy hs-copy" id="hs-copy"><p class="kind">コーヒードリップポット・厨房用品　新潟県燕市</p><h1><span class="ln"><span style="--i:0">お湯は、</span></span><span class="ln"><span style="--i:1">一滴ずつ。</span></span></h1><p class="sub">昭和50年、新潟県燕市で設立。極細の注ぎ口で点滴抽出ができるオリジナルのドリップポット「雫」をはじめ、業務用の厨房用品をお届けしています。</p></div>
+      <div class="tk-copy" id="tk-copy">
+        <p class="tk-step" id="tk-step">極細のパイプから</p>
+        <p class="tk-h" id="tk-h">真下へ、
+一滴ずつ。</p>
+        <p class="tk-p" id="tk-p">注ぎ口から真下に落ちるので、初めての方でも、ゆっくり思いのままに注げます。</p>
+        <p class="tk-drops"><b id="tk-n">0</b> 滴</p>
+      </div>
+      <p class="tk-note">3Dのイメージです</p>
+    </div>
+  </section>
+<style>
+.sig-tk{position:relative;height:400vh;background:radial-gradient(70% 60% at 65% 45%,#2a1f18,#14100d 70%)}
+.tk-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:transparent}
+#tk3d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.tk-copy{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);max-width:460px;opacity:0;z-index:3}
+.tk-step{margin:0;color:var(--accent);font-weight:700;letter-spacing:.14em;font-size:14px}
+.tk-h{white-space:pre-line;font-family:var(--display);font-weight:800;font-size:clamp(32px,4vw,56px);line-height:1.3;margin:8px 0 16px;transition:opacity .35s}
+.tk-p{margin:0;color:var(--mute);transition:opacity .35s}
+.tk-drops{margin:28px 0 0;font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--mute)}
+.tk-drops b{font-size:64px;color:var(--ink);font-weight:500;margin-right:4px}
+.tk-note{position:absolute;right:var(--gut);bottom:22px;margin:0;font-size:12px;color:var(--mute);z-index:3}
+@media (max-width:860px){
+  .tk-copy{top:auto;bottom:0;transform:none;left:0;right:0;max-width:none;padding:60px var(--gut) 96px;background:linear-gradient(to top,rgba(20,16,13,.96) 62%,rgba(20,16,13,0))}
+  .tk-drops{display:none}
+  .tk-note{top:74px;bottom:auto}
+}
+</style>
+<script type="module">
+import * as THREE from 'three';
+import { stage3d, heroFade, span, ease, c01, qa, mouse } from '../_kit/sig/stage.js';
+
+const canvas = document.getElementById('tk3d'), section = canvas.closest('section');
+const copy = document.getElementById('tk-copy'), stepEl = document.getElementById('tk-step'), hEl = document.getElementById('tk-h'), pEl = document.getElementById('tk-p'), nEl = document.getElementById('tk-n');
+const note = section.querySelector('.tk-note');
+const STEPS = [
+  ['極細のパイプから', '真下へ、\n一滴ずつ。', '注ぎ口から真下に落ちるので、初めての方でも、ゆっくり思いのままに注げます。'],
+  ['点滴抽出', 'お湯を、\n点で落とす。', '多くのお客様からご要望の多かった「点滴抽出」が、雫ならできます。'],
+  ['ステンレス製', '直火にも、\nIHにも。', '錆に強いステンレス製。蓋を取れば8.5cmの開口部から手が入り、お手入れも簡単です。'],
+];
+
+const st = stage3d({ canvas, section, fov: 30, env: .04, exposure: 1.2, frame });
+if (st) {
+  const { scene, camera } = st;
+  const steel = new THREE.MeshPhysicalMaterial({ color: '#eef0f2', metalness: 1, roughness: .2, clearcoat: .6, clearcoatRoughness: .1, envMapIntensity: 2.2 });
+  const black = new THREE.MeshPhysicalMaterial({ color: '#141414', roughness: .35, clearcoat: .6 });
+  const lathe = (pts, mat) => new THREE.Mesh(new THREE.LatheGeometry(pts.map(([r, y]) => new THREE.Vector2(r, y)), 96), mat);
+
+  // ポット：本体・蓋・取っ手・極細の注ぎ口
+  const pot = new THREE.Group(), pivot = new THREE.Group();
+  pivot.add(pot); scene.add(pivot);
+  pot.add(lathe([[0, 0], [.95, 0], [1.02, .04], [1.06, .2], [1.08, .6], [1.04, .95], [.92, 1.18], [.7, 1.32], [.56, 1.36], [.56, 1.4], [0, 1.4]], steel));
+  pot.add(lathe([[0, 1.4], [.6, 1.4], [.62, 1.43], [.46, 1.5], [0, 1.53]], steel));
+  const knob = new THREE.Mesh(new THREE.SphereGeometry(.13, 24, 16), black); knob.position.y = 1.6; pot.add(knob);
+  const tube = (pts, r, mat) => new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts.map(p => new THREE.Vector3(...p))), 80, r, 14), mat);
+  pot.add(tube([[-.95, 1.22, 0], [-1.55, 1.36, 0], [-1.68, .9, 0], [-1.46, .36, 0], [-1.0, .3, 0]], .07, black));
+  const SPOUT = [[.9, .25, 0], [1.35, .36, 0], [1.72, .92, 0], [1.98, 1.46, 0], [2.18, 1.62, 0], [2.34, 1.54, 0], [2.42, 1.38, 0]];
+  pot.add(tube(SPOUT, .038, steel));
+  pot.position.set(-.5, -.9, 0);       // 傾けたときの回転の中心をずらす
+  const tipLocal = new THREE.Vector3(...SPOUT[SPOUT.length - 1]);
+
+  // ドリッパーとカップ
+  const ceramic = new THREE.MeshPhysicalMaterial({ color: '#f3f1ec', roughness: .25, clearcoat: .8 });
+  const drip = new THREE.Group(); scene.add(drip);
+  drip.add(lathe([[.12, 0], [.18, 0], [.62, .78], [.66, .82], [.62, .84], [.56, .8], [.14, .06], [0, .05]], ceramic));
+  const coffee = new THREE.Mesh(new THREE.CircleGeometry(.5, 48), new THREE.MeshPhysicalMaterial({ color: '#3a2214', roughness: .5, clearcoat: .9 }));
+  coffee.rotation.x = -Math.PI / 2; coffee.position.y = .55; drip.add(coffee);
+  const cup = lathe([[0, -.95], [.5, -.95], [.58, -.9], [.62, -.05], [.66, 0], [.6, 0], [.56, -.82], [0, -.84]], ceramic); drip.add(cup);
+
+  scene.add(new THREE.HemisphereLight('#fff3e6', '#20160f', .6));
+  const key = new THREE.DirectionalLight('#fff1dd', 2.2); key.position.set(-3, 5, 6); scene.add(key);
+
+  // しずく：落ちて、表面に波紋を残す
+  const dropGeo = new THREE.SphereGeometry(.035, 12, 10); dropGeo.scale(1, 1.5, 1);
+  const water = new THREE.MeshPhysicalMaterial({ color: '#cfe6f5', roughness: 0, metalness: 0, transparent: true, opacity: .85, envMapIntensity: 2 });
+  const drops = Array.from({ length: 40 }, () => { const m = new THREE.Mesh(dropGeo, water); m.visible = false; m.userData.v = 0; scene.add(m); return m; });
+  const ringMat = new THREE.MeshBasicMaterial({ color: '#e9cfa9', transparent: true, opacity: 0, side: THREE.DoubleSide, depthWrite: false });
+  const rings = Array.from({ length: 10 }, () => { const m = new THREE.Mesh(new THREE.RingGeometry(.04, .06, 40), ringMat.clone()); m.rotation.x = -Math.PI / 2; m.visible = false; scene.add(m); return m; });
+  let emit = 0, count = 0, ringI = 0;
+  const tip = new THREE.Vector3(), surf = new THREE.Vector3();
+
+  Object.assign(st, { pivot, pot, drip, coffee, drops, rings, tipLocal });
+  st.place = portrait => {
+    const s = portrait ? .44 : 1;
+    pivot.scale.setScalar(s); drip.scale.setScalar(s);
+    pivot.position.set(portrait ? -.25 : 0, portrait ? 1.3 : .1, 0);
+    // 一番傾けたときの注ぎ口の真下にドリッパーを置く
+    const keep = pivot.rotation.z; pivot.rotation.z = -.62; pivot.updateMatrixWorld(true);
+    tip.copy(tipLocal).applyMatrix4(pot.matrixWorld); pivot.rotation.z = keep;
+    drip.position.set(tip.x, tip.y - 1.5 * s, 0);
+  };
+  st.tick = (dt, tilt, pour) => {
+    pot.updateMatrixWorld(true); tip.copy(tipLocal).applyMatrix4(pot.matrixWorld);
+    coffee.getWorldPosition(surf);
+    emit += dt * (pour ? 7 : 0);
+    while (emit > 1) {
+      emit--; const d = drops.find(m => !m.visible);
+      if (d) { d.visible = true; d.position.copy(tip); d.userData.v = 0; }
+    }
+    for (const d of drops) {
+      if (!d.visible) continue;
+      d.userData.v += 9.8 * dt * .9; d.position.y -= d.userData.v * dt;
+      if (d.position.y < surf.y) {
+        d.visible = false; count++;
+        const r = rings[ringI++ % rings.length]; r.visible = true; r.position.set(d.position.x, surf.y + .005, 0); r.scale.setScalar(1); r.material.opacity = .9; r.userData.a = 1;
+      }
+    }
+    for (const r of rings) {
+      if (!r.visible) continue;
+      r.userData.a -= dt * 1.2; r.scale.setScalar(1 + (1 - r.userData.a) * 6 * drip.scale.x); r.material.opacity = Math.max(0, r.userData.a) * .8;
+      if (r.userData.a <= 0) r.visible = false;
+    }
+    return count;
+  };
+  st.start();
+}
+
+function frame({ dt, p, portrait, t }) {
+  const heroK = heroFade(p, .1);
+  copy.style.opacity = note.style.opacity = c01((p - .08) / .06);
+  st.place(portrait);
+  const tilt = ease(span(p, .14, .34));
+  st.pivot.rotation.z = -.62 * tilt + (1 - tilt) * Math.sin(t * .6) * .02;
+  st.pivot.rotation.y = (1 - tilt) * (-.35 + mouse.x * .5) + tilt * mouse.x * .2;
+  const n = st.tick(dt, tilt, tilt > .96 && !qa);
+  nEl.textContent = qa ? 128 : n;
+  const k = Math.min(2, Math.floor(span(p, .3, 1) * 3));
+  if (k !== step) {
+    step = k; hEl.style.opacity = pEl.style.opacity = 0;
+    setTimeout(() => { stepEl.textContent = STEPS[k][0]; hEl.textContent = STEPS[k][1]; pEl.textContent = STEPS[k][2]; hEl.style.opacity = pEl.style.opacity = 1; }, qa ? 0 : 220);
+  }
+  st.coffee.scale.setScalar(.7 + Math.min(1, (qa ? 128 : st.coffee.userData.n = n) / 160) * .3);
+  // 最初は見出しの右にポット、注ぐときはポットとドリッパーを画面の右寄りに収める
+  const pan = ease(span(p, .08, .34));
+  st.camera.position.set(mouse.x * .4, 1.0 - mouse.y * .3 + heroK * .3, (portrait ? 9.5 : 9.5 + pan * 2.4));
+  st.camera.lookAt(portrait ? .35 * pan : -1.9 + pan * .25, portrait ? -.2 : .2 - pan * .5, 0);
+}
+let step = -1;
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="1975" data-from="1915">1975</span><small>年　昭和50年　新潟県燕市で設立</small></div></div>
+    <div class="rv"><h2>注ぎ口は、極細のパイプ。</h2><p>多くのお客様からご要望の多かった「点滴抽出」ができるよう、雫は注ぎ口を極細のパイプにしました。お湯が注ぎ口から真下に落ちるので、初めての方でもゆっくり、思いのままに注げます。</p><p>ステンレス製で錆に強く、直火にも電磁調理器にも対応。蓋を取れば8.5cmの開口部から手が入るので、お手入れも簡単です。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>雫</span><span>点滴抽出</span><span>極細の注ぎ口</span><span>ステンレス</span><span>IH対応</span><span>燕市</span><span>雫</span><span>点滴抽出</span><span>極細の注ぎ口</span><span>ステンレス</span><span>IH対応</span><span>燕市</span><span>雫</span><span>点滴抽出</span><span>極細の注ぎ口</span><span>ステンレス</span><span>IH対応</span><span>燕市</span><span>雫</span><span>点滴抽出</span><span>極細の注ぎ口</span><span>ステンレス</span><span>IH対応</span><span>燕市</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>商品</h2><span>PRODUCTS</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/f1.jpg" alt="細い注ぎ口のポットでドリップする様子" loading="lazy" data-speed=".06" data-gl></div><h3>コーヒードリップポット 雫</h3><p>0.9Lと0.5Lの2サイズ。点滴抽出ができる、タカヒロのオリジナルです。</p></article><article class="feature rv"><div class="ph"><img src="img/f3.jpg" alt="はかりの上の細口ケトル" loading="lazy" data-speed=".06" data-gl></div><h3>温度計取付用の蓋</h3><p>ドリップポットに温度計を取り付けて、お湯の温度を見ながら淹れられます。</p></article><article class="feature rv"><div class="ph"><img src="img/f2.jpg" alt="ペーパーフィルターに入ったコーヒー粉" loading="lazy" data-speed=".06" data-gl></div><h3>業務用の厨房道具</h3><p>バットやトングスタンドなど、プロの厨房で使われる道具も取りそろえています。</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/wide.jpg" alt="湯気の立つドリップコーヒー" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">注ぎ口から、真下へ。</figcaption></figure>
+  
+  <section class="sec" id="price">
+    <div class="sec-head rv"><h2>価格</h2><span>PRICE</span></div>
+    <dl class="prices rv"><div><dt>コーヒードリップポット 雫 0.9L<small>電磁調理器対応</small></dt><dd>18,150円</dd></div><div><dt>コーヒードリップポット 雫 0.5L</dt><dd>5,720円</dd></div><div><dt>温度計取付用ドリップポット蓋</dt><dd>5,280円</dd></div><div><dt>ドリップガード Dcup</dt><dd>3,850円</dd></div></dl>
+    <p class="prices-note rv">価格は現在のオンラインショップの表示（税込）をもとにしています。</p>
+  </section>
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">営業時間</h2></div>
+      
+      <table class="hours"><tr><th>お問い合わせ</th><td>お電話・メール・オンラインショップで承ります</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>新潟県燕市南町3-3-21</p>
+      <p class="mute">オンラインショップから、全国へお届けしています。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E6%BD%9F%E7%9C%8C%E7%87%95%E5%B8%82%E5%8D%97%E7%94%BA3-3-21%20%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%82%BF%E3%82%AB%E3%83%92%E3%83%AD" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:0256623345" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">一滴ずつ、思いのままに。</h2>
+    <a class="tel" href="tel:0256623345">0256-62-3345</a>
+    <p>業務用のご注文や、別注品・特注品のご相談もお気軽にどうぞ。</p>
+    <div class="btns"><a class="btn" href="mailto:info@takahiro-inc.com" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>株式会社タカヒロ　新潟県燕市南町3-3-21　TEL 0256-62-3345</p>
+  <p>この試作は森川ウェブ（mahmoris98@gmail.com）が、株式会社タカヒロ様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:0256623345" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>テスク株式会社｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#1c1410">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;800&family=Cormorant+Garamond:wght@600&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#1c1410;--ink:#f1e6d6;--mute:#b7a28a;--accent:#e2683a;--accent-ink:#1c1410;--panel:#261b15;--line:rgba(241,230,214,.13);--display:"Shippori Mincho",serif;--display-weight:800;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 50%}
+.top .name{font-family:'Cormorant Garamond',serif;letter-spacing:.3em;font-size:20px}
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>がテスク株式会社様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">業務用木製食器・富士山の熔岩石　東京都港区芝</p><p class="pl-name">TESK</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">TESK</a>
+  <nav aria-label="ページ内の案内"><a href="#story">テスクについて</a><a href="#features">主な商品</a><a href="#info">お問い合わせ</a></nav>
+  
+  <a class="call" href="tel:0334560789"><span data-en="Call">電話</span><span class="num">03-3456-0789</span></a>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-img"><img src="img/hero.jpg" alt="並べられた木の器"  data-gl="wipe" data-gl-hero></div>
+    <div class="hero-copy">
+      <p class="kind">業務用木製食器・富士山の熔岩石　東京都港区芝</p>
+      <h1><span class="ln"><span style="--i:0">木の器と、</span></span><span class="ln"><span style="--i:1">富士山の石。</span></span></h1>
+      
+      <p class="sub">1980年創立。業務用木製食器の企画提案・製造・販売と、富士山の熔岩石を扱っています。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-ts" id="sig" aria-label="木の盛台と富士山の熔岩石を3Dで見比べる演出">
+    <div class="ts-stick">
+      <canvas id="ts3d" aria-hidden="true"></canvas>
+      <div class="ts-copy">
+        <p class="ts-step" id="ts-step">木製食器</p>
+        <p class="ts-h" id="ts-h">さくらの
+木目。</p>
+        <p class="ts-p" id="ts-p">個性的で温かみのある木目が特徴です。料理が引き立つ盛台シリーズも。</p>
+        <div class="ts-tabs" role="group" aria-label="素材を選ぶ"><button type="button" data-i="0" aria-pressed="true">木の盛台</button><button type="button" data-i="1" aria-pressed="false">熔岩石</button></div>
+      </div>
+      <p class="ts-note">3Dのイメージです。実際の商品とは異なります</p>
+    </div>
+  </section>
+<style>
+.sig-ts{position:relative;height:300vh;background:#1c1410}
+.ts-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:radial-gradient(60% 60% at 62% 55%,#3a2a20,#1c1410 72%)}
+#ts3d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.ts-copy{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);max-width:380px;z-index:3}
+.ts-step{margin:0;color:var(--accent);letter-spacing:.2em;font-size:14px;font-weight:700}
+.ts-h{white-space:pre-line;font-family:var(--display);font-weight:800;font-size:clamp(38px,4.6vw,66px);line-height:1.2;margin:8px 0 14px;transition:opacity .3s}
+.ts-p{margin:0 0 22px;color:var(--mute);transition:opacity .3s}
+.ts-tabs{display:flex;gap:8px}
+.ts-tabs button{font:inherit;font-weight:700;font-size:14px;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.ts-tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#1c1410}
+.ts-note{position:absolute;right:var(--gut);bottom:22px;margin:0;font-size:12px;color:var(--mute)}
+@media (max-width:860px){
+  .ts-copy{top:auto;bottom:0;transform:none;left:0;right:0;max-width:none;padding:56px var(--gut) 96px;background:linear-gradient(to top,rgba(28,20,16,.96) 62%,rgba(28,20,16,0))}
+  .ts-note{top:74px;bottom:auto}
+}
+</style>
+<script type="module">
+import * as THREE from 'three';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+import { stage3d, span, ease, qa, mouse, woodTexture, canvasTexture } from '../_kit/sig/stage.js';
+
+const canvas = document.getElementById('ts3d'), section = canvas.closest('section');
+const stepEl = document.getElementById('ts-step'), hEl = document.getElementById('ts-h'), pEl = document.getElementById('ts-p'), tabs = [...section.querySelectorAll('.ts-tabs button')];
+const TEXT = [['木製食器', 'さくらの\n木目。', '個性的で温かみのある木目が特徴です。料理が引き立つ盛台シリーズも。'], ['富士山の熔岩石', '火山が\nつくった石。', '富士山の熔岩石も扱っています。取り扱い上の注意もご案内しています。']];
+let mode = -1, manual = 0, mix = 0;
+
+const st = stage3d({ canvas, section, fov: 30, env: .03, exposure: 1.1, frame });
+if (st) {
+  const { scene } = st;
+  const board = new THREE.Mesh(new RoundedBoxGeometry(4, .22, 2.4, 6, .1), new THREE.MeshPhysicalMaterial({ map: woodTexture('#b8754d', 'rgba(90,40,20,'), roughness: .45, clearcoat: .5 }));
+  // 熔岩石：表面に小さな穴（気泡の跡）がたくさんある、黒っぽい石
+  const pores = canvasTexture(1024, 1024, (g, w, h) => {
+    g.fillStyle = '#2b2624'; g.fillRect(0, 0, w, h);
+    for (let i = 0; i < 9000; i++) { const r = Math.random() * 6 + 1; g.fillStyle = `rgba(${Math.random() < .5 ? '10,8,8' : '80,68,62'},${.3 + Math.random() * .5})`; g.beginPath(); g.arc(Math.random() * w, Math.random() * h, r, 0, 7); g.fill(); }
+  });
+  const bump = canvasTexture(512, 512, (g, w, h) => {
+    g.fillStyle = '#888'; g.fillRect(0, 0, w, h);
+    for (let i = 0; i < 4000; i++) { g.fillStyle = Math.random() < .7 ? '#222' : '#ccc'; g.beginPath(); g.arc(Math.random() * w, Math.random() * h, Math.random() * 4 + .6, 0, 7); g.fill(); }
+  }, false);
+  const stoneGeo = new RoundedBoxGeometry(3.6, .34, 2.2, 6, .14);
+  const pos = stoneGeo.attributes.position;
+  for (let i = 0; i < pos.count; i++) { const x = pos.getX(i), z = pos.getZ(i); pos.setY(i, pos.getY(i) + Math.sin(x * 3.1 + z * 2.3) * .015 + Math.sin(x * 7 - z * 5) * .01); }
+  stoneGeo.computeVertexNormals();
+  const stone = new THREE.Mesh(stoneGeo, new THREE.MeshStandardMaterial({ map: pores, bumpMap: bump, bumpScale: 4, roughness: .95, color: '#ffffff' }));
+  const root = new THREE.Group(); root.add(board, stone); scene.add(root);
+  scene.add(new THREE.HemisphereLight('#ffeedd', '#22160f', .8));
+  const key = new THREE.DirectionalLight('#fff3e2', 2.2); key.position.set(-3, 6, 4); scene.add(key);
+  Object.assign(st, { board, stone, root });
+  tabs.forEach(b => b.addEventListener('click', () => { manual = performance.now(); setMode(+b.dataset.i); }));
+  st.start();
+}
+function setMode(i) {
+  if (i === mode) return; mode = i;
+  tabs.forEach((b, k) => b.setAttribute('aria-pressed', k === i));
+  hEl.style.opacity = pEl.style.opacity = 0;
+  setTimeout(() => { stepEl.textContent = TEXT[i][0]; hEl.textContent = TEXT[i][1]; pEl.textContent = TEXT[i][2]; hEl.style.opacity = pEl.style.opacity = 1; }, qa ? 0 : 180);
+}
+function frame({ t, dt, p, portrait }) {
+  if (performance.now() - manual > 1500) setMode(p > .55 ? 1 : 0);
+  mix += ((mode === 1 ? 1 : 0) - mix) * (qa ? 1 : Math.min(1, dt * 4));
+  const e = ease(mix);
+  // 木の盛台が奥へ下がり、熔岩石が手前に上がってくる（入れ替わり）
+  st.board.position.set(0, -e * 1.6, -e * 1.2); st.board.rotation.x = -e * .3; st.board.visible = e < .99;
+  st.stone.position.set(0, (1 - e) * -1.6, (1 - e) * 1.2); st.stone.rotation.x = (1 - e) * .3; st.stone.visible = e > .01;
+  const s = portrait ? .62 : 1;
+  st.root.scale.setScalar(s);
+  st.root.position.set(portrait ? 0 : 1.4, portrait ? .9 : 0, 0);
+  st.root.rotation.y = -.45 + mouse.x * .5 + (qa ? 0 : Math.sin(t * .25) * .1);
+  st.root.rotation.x = mouse.y * .15;
+  st.camera.position.set(0, portrait ? 6 : 4.6, portrait ? 9 : 7.4);
+  st.camera.lookAt(portrait ? 0 : .3, portrait ? .2 : -.1, 0);
+}
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="1980" data-from="1920">1980</span><small>年　創立</small></div></div>
+    <div class="rv"><h2>和にも洋にも、木の器を。</h2><p>オードブルやワンプレートなど、和風・洋風を問わず使える木製食器。パンやスイーツの形から発想したユニークなプレートや、スタッキング性に優れた軽量のトレーもあります。</p><p>さくらの個性的で温かみのある木目を生かした器、料理が引き立つ盛台シリーズ。工場は長野県塩尻市木曽にあります。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>木製食器</span><span>盛台</span><span>トレー</span><span>さくらの木目</span><span>富士山の熔岩石</span><span>木曽</span><span>木製食器</span><span>盛台</span><span>トレー</span><span>さくらの木目</span><span>富士山の熔岩石</span><span>木曽</span><span>木製食器</span><span>盛台</span><span>トレー</span><span>さくらの木目</span><span>富士山の熔岩石</span><span>木曽</span><span>木製食器</span><span>盛台</span><span>トレー</span><span>さくらの木目</span><span>富士山の熔岩石</span><span>木曽</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>主な商品</h2><span>PRODUCTS</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/f1.jpg" alt="木の器を手に持つ様子" loading="lazy" data-speed=".06" data-gl></div><h3>木製食器</h3><p>和風・洋風を問わず使えるプレートや器。</p></article><article class="feature rv"><div class="ph"><img src="img/f2.jpg" alt="木のスプーン" loading="lazy" data-speed=".06" data-gl></div><h3>カトラリー・トレー</h3><p>指掛けが特徴の、軽くて重ねやすいトレーも。</p></article><article class="feature rv"><div class="ph"><img src="img/f3.jpg" alt="熱い石の上で焼かれる肉" loading="lazy" data-speed=".06" data-gl></div><h3>富士山の熔岩石</h3><p>熔岩石の取り扱い上の注意もご案内しています。</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/wide.jpg" alt="木の年輪" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">木目は、ひとつとして同じものがない。</figcaption></figure>
+  
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">営業時間</h2></div>
+      
+      <table class="hours"><tr><th>お問い合わせ</th><td>お電話・メールで承ります</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>東京都港区芝3-29-6</p>
+      <p class="mute">工場・配送センターは長野県塩尻市木曽にあります。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA%E8%8A%9D3-29-6%20%E3%83%86%E3%82%B9%E3%82%AF%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:0334560789" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">料理が引き立つ器を、ご提案します。</h2>
+    <a class="tel" href="tel:0334560789">03-3456-0789</a>
+    <p>カタログのご請求や商品のご相談は、お電話かメールでどうぞ。</p>
+    <div class="btns"><a class="btn" href="mailto:info@t-s-k.jp" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>テスク株式会社　東京都港区芝3-29-6　TEL 03-3456-0789</p>
+  <p>この試作は森川ウェブ（mahmoris98@gmail.com）が、テスク株式会社様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:0334560789" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>東京湾シーバスガイド スズヤ｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#05121c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Russo+One&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#05121c;--ink:#eaf6ff;--mute:#8fb0c6;--accent:#34e0c8;--accent-ink:#05121c;--panel:#0a1d2b;--line:rgba(234,246,255,.13);--display:"Dela Gothic One",sans-serif;--display-weight:400;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 50%;--top-ink:var(--ink)}
+.top .name{font-family:'Russo One',sans-serif;letter-spacing:.14em}
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>が東京湾シーバスガイド スズヤ様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">ルアーシーバス専門の遊漁船　江戸川区・一之江</p><p class="pl-name">SUZUYA</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">SUZUYA</a>
+  <nav aria-label="ページ内の案内"><a href="#story">スズヤ</a><a href="#features">出船</a><a href="#price">料金</a></nav>
+  
+  <a class="call" href="tel:08056574250"><span data-en="Call">電話</span><span class="num">080-5657-4250</span></a>
+</header>
+
+<main>
+  <section class="hero" hidden>
+    <div class="hero-img"><img src="img/hero.jpg" alt="夕日の海で竿を振る釣り人" ></div>
+    <div class="hero-copy">
+      <p class="kind">ルアーシーバス専門の遊漁船　江戸川区・一之江</p>
+      <h1><span class="ln"><span style="--i:0">東京湾の、</span></span><span class="ln"><span style="--i:1">シーバスを。</span></span></h1>
+      
+      <p class="sub">数少ない、オールシーズンのルアーシーバス専門の遊漁船です。予約乗合船は毎日出船予定。初心者の方でも大歓迎です。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-sz hero-sig" id="sig" aria-label="夜の東京湾の水面で、光るルアーが指やマウスについてきて、ときどきボイルが起きる演出">
+    <div class="sz-stick hero">
+      <canvas id="sz3d" aria-hidden="true"></canvas>
+      <div class="sz-labels" id="sz-labels" aria-hidden="true"></div>
+      <div class="hero-copy hs-copy" id="hs-copy"><p class="kind">ルアーシーバス専門の遊漁船　江戸川区・一之江</p><h1><span class="ln"><span style="--i:0">東京湾の、</span></span><span class="ln"><span style="--i:1">シーバスを。</span></span></h1><p class="sub">数少ない、オールシーズンのルアーシーバス専門の遊漁船です。予約乗合船は毎日出船予定。初心者の方でも大歓迎です。</p></div>
+      <div class="sz-copy" id="sz-copy">
+        <p class="sz-step" id="sz-step">ボイル</p>
+        <p class="sz-h" id="sz-h">水面が、<br>沸く。</p>
+        <p class="sz-p" id="sz-p">シーバスに追われた小魚が、水面で跳ねる。それが「ボイル」です。</p>
+        <p class="sz-hint">水面をタップしてみてください。</p>
+      </div>
+      <p class="sz-note" id="sz-note">夜の東京湾のイメージです</p>
+    </div>
+  </section>
+<style>
+.sig-sz{position:relative;height:400vh;background:#05121c}
+.sz-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#05121c}
+.sz-stick .hs-copy{z-index:3;text-shadow:0 2px 30px rgba(0,0,0,.6)}
+#sz3d{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:crosshair}
+.sz-labels{position:absolute;inset:0;pointer-events:none;z-index:2}
+.sz-labels span{position:absolute;transform:translate(-50%,-100%);font-family:"Dela Gothic One",sans-serif;font-size:15px;color:#34e0c8;letter-spacing:.1em;text-shadow:0 0 12px rgba(52,224,200,.7);animation:szUp 1.4s ease-out forwards}
+@keyframes szUp{from{opacity:0;margin-top:0}20%{opacity:1}to{opacity:0;margin-top:-34px}}
+.sz-copy{position:absolute;left:var(--gut);top:42%;transform:translateY(-50%);max-width:360px;opacity:0;z-index:3;text-shadow:0 2px 24px rgba(0,0,0,.7)}
+.sz-step{margin:0;color:var(--accent);font-weight:700;letter-spacing:.16em;font-size:14px}
+.sz-h{font-family:var(--display);font-size:clamp(40px,4.8vw,72px);line-height:1.15;margin:8px 0 14px;transition:opacity .3s}
+.sz-p{margin:0 0 14px;color:var(--ink);opacity:.82;transition:opacity .3s}
+.sz-hint{margin:0;font-size:13px;color:var(--accent)}
+.sz-note{position:absolute;right:var(--gut);bottom:22px;margin:0;font-size:12px;color:var(--mute);z-index:3;opacity:0}
+@media (max-width:860px){
+  .sz-copy{top:auto;bottom:0;transform:none;left:0;right:0;max-width:none;padding:56px var(--gut) 96px;background:linear-gradient(to top,rgba(5,18,28,.95) 62%,rgba(5,18,28,0))}
+  .sz-note{top:74px;bottom:auto}
+}
+</style>
+<script type="module">
+import * as THREE from 'three';
+import { stage3d, heroFade, span, c01, qa, mouse } from '../_kit/sig/stage.js';
+
+const canvas = document.getElementById('sz3d'), section = canvas.closest('section');
+const copy = document.getElementById('sz-copy'), note = document.getElementById('sz-note'), labels = document.getElementById('sz-labels');
+const stepEl = document.getElementById('sz-step'), hEl = document.getElementById('sz-h'), pEl = document.getElementById('sz-p');
+const STEPS = [
+  { step: 'ボイル', h: '水面が、<br>沸く。', p: 'シーバスに追われた小魚が、水面で跳ねる。それが「ボイル」です。' },
+  { step: 'オールシーズン', h: 'ルアーで、<br>シーバスを。', p: '数少ない、オールシーズンのルアーシーバス専門の遊漁船です。初心者の方でも大歓迎です。' },
+  { step: '予約乗合船', h: '1名様から。', p: '土・日・祝日は予約乗合便が出船しています。乗合船 10,000円（税込）。' },
+];
+let si = -1;
+function setStep(i) {
+  if (i === si) return; si = i;
+  hEl.style.opacity = pEl.style.opacity = 0;
+  setTimeout(() => { stepEl.textContent = STEPS[i].step; hEl.innerHTML = STEPS[i].h; pEl.textContent = STEPS[i].p; hEl.style.opacity = pEl.style.opacity = 1; }, qa ? 0 : 160);
+}
+
+const HZ = .6; // 水平線（画面の下から）
+const MAXB = 6;
+const boils = Array.from({ length: MAXB }, () => new THREE.Vector4(0, 0, -1, 0));
+const frag = /* glsl */`
+precision highp float;
+uniform vec2 uRes; uniform float uTime; uniform vec2 uLure; uniform vec4 uBoil[${MAXB}]; uniform float uHz;
+varying vec2 vUv;
+float h1(float n){return fract(sin(n)*43758.5453);}
+float h2(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+float noise(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h2(i),h2(i+vec2(1,0)),f.x),mix(h2(i+vec2(0,1)),h2(i+vec2(1,1)),f.x),f.y);}
+float bh(float x){float id=floor(x*38.);return pow(h1(id),3.)*.06+.01+step(.94,h1(id+31.))*(.04+h1(id+3.)*.05);}
+// 遠くの街の灯り
+vec3 city(vec2 p){
+  if(p.y>bh(p.x)||p.y<0.) return vec3(0.);
+  vec2 w=vec2(p.x*228.,p.y*300.),c=floor(w),f=fract(w);
+  float on=step(.8,h2(c+floor(p.x*38.)*7.));
+  float win=on*step(.2,f.x)*step(f.x,.8)*step(.25,f.y)*step(f.y,.75);
+  return mix(vec3(1.,.74,.42),vec3(.7,.88,1.),h2(c*1.3))*win;
+}
+float glow(float x){float id=floor(x*38.);return bh(x)*(.5+h1(id+9.))*7.;}
+void main(){
+  float asp=uRes.x/uRes.y; vec2 uv=vUv; float x=uv.x*asp;
+  vec3 col;
+  float d=uHz-uv.y;
+  if(d<0.){
+    float hy=-d;
+    col=mix(vec3(.16,.11,.2),vec3(.012,.04,.08),smoothstep(0.,.35,hy));
+    col+=vec3(.25,.12,.08)*exp(-hy*18.);
+    float st=step(.9975,h2(floor(uv*vec2(asp,1.)*420.)))*smoothstep(.1,.4,hy);
+    col+=vec3(st)*.8;
+    float b=bh(x);
+    if(hy<b){col=vec3(.02,.035,.06);col+=city(vec2(x,hy))*.9;}
+    // 鉄塔の赤いランプ
+    float id=floor(x*38.);if(step(.94,h1(id+31.))>0.){vec2 lp=vec2((id+.5)/38.,b);float l=length(vec2(x,hy)-lp);col+=vec3(1.,.15,.1)*exp(-l*l*90000.)*(.5+.5*sin(uTime*3.+id));}
+    col+=vec3(.22,.14,.12)*exp(-hy*60.);
+  }else{
+    float z=.035/(d+.002);
+    vec2 wp=vec2((x-asp*.5)*z*3.,z*3.);
+    float t=uTime*.6;
+    float n1=noise(wp*vec2(1.,2.)+vec2(0.,t))-noise(wp*vec2(1.,2.)+vec2(.3,t));
+    float n2=noise(wp*vec2(2.5,5.)-vec2(t*.7,t))-.5;
+    vec2 nrm=vec2(n1*.8+n2*.5,n2);
+    col=mix(vec3(.02,.06,.1),vec3(.005,.02,.035),smoothstep(0.,.5,d));
+    // 街の灯りが、縦にのびて映る
+    float rx=x+nrm.x*.02*(1.+d*4.);
+    float ry=d*.8+nrm.y*.01;
+    float shim=pow(noise(vec2(rx*260.,d*90.-uTime*.9)),3.);
+    float streak=glow(rx)*exp(-d*5.)*(.15+1.4*shim);
+    col+=mix(vec3(1.,.7,.4),vec3(.6,.85,1.),h1(floor(rx*38.)))*streak*.3;
+    col+=vec3(.15,.1,.12)*exp(-d*30.);
+    // ルアー
+    vec2 lp=vec2(uLure.x*asp,uLure.y);
+    vec2 dl=vec2(x,uv.y)-lp; dl.y/=max(.15,(uHz-uLure.y)*2.2);
+    float ld=length(dl);
+    col+=vec3(.2,.9,.8)*(exp(-ld*ld*9000.)*2.+.06/(1.+ld*60.));
+    col+=vec3(.2,.9,.8)*max(0.,sin(ld*160.-uTime*8.))*exp(-ld*18.)*.12;
+    // ボイル：波紋としぶき
+    for(int i=0;i<${MAXB};i++){
+      vec4 b=uBoil[i]; if(b.z<0.) continue;
+      vec2 bp=vec2(b.x*asp,b.y); float sq=max(.12,(uHz-b.y)*2.2);
+      vec2 db=vec2(x,uv.y)-bp; db.y/=sq; float bd=length(db);
+      float fade=1.-clamp(b.z/1.6,0.,1.);
+      for(int k=0;k<3;k++){float r=b.z*.07*b.w-float(k)*.012; if(r>0.) col+=vec3(.75,.95,1.)*smoothstep(.003,0.,abs(bd-r))*fade*.6;}
+      col+=vec3(.9)*exp(-bd*bd*6000./b.w)*clamp(1.-b.z*1.5,0.,1.);
+      // 水しぶきの柱
+      vec2 sp=vec2(x,uv.y)-bp; float up=max(0.,sp.y);
+      col+=vec3(.85,.97,1.)*exp(-sp.x*sp.x*9000./b.w-up*up*900./(b.w*b.w))*step(-.004,sp.y)*clamp(1.-b.z*2.2,0.,1.)*.9;
+      for(int k=0;k<16;k++){
+        float fk=float(k)+float(i)*13.;
+        float a=h1(fk)*6.283,sp=.4+h1(fk+1.);
+        vec2 q=bp+vec2(cos(a)*.035*sp*b.z,(.10+h1(fk+2.)*.08)*b.z*b.w-.35*b.z*b.z)*vec2(1.,sq*1.6);
+        float dd=length(vec2(x,uv.y)-q);
+        col+=vec3(.9,1.,1.)*exp(-dd*dd*70000.)*step(b.z,.75)*.9;
+      }
+    }
+  }
+  gl_FragColor=vec4(col,1.);
+}`;
+
+let lure = { x: .62, y: .3 }, nextBoil = 1, labelPool = [];
+const st = stage3d({ canvas, section, env: 0, frame });
+if (st) {
+  const mat = new THREE.ShaderMaterial({
+    uniforms: { uRes: { value: new THREE.Vector2(1, 1) }, uTime: { value: 0 }, uLure: { value: new THREE.Vector2(.6, .3) }, uBoil: { value: boils }, uHz: { value: HZ } },
+    vertexShader: 'varying vec2 vUv;void main(){vUv=uv;gl_Position=vec4(position.xy,0.,1.);}',
+    fragmentShader: frag, depthTest: false,
+  });
+  const quad = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), mat); quad.frustumCulled = false;
+  st.scene.add(quad); st.mat = mat;
+  canvas.addEventListener('pointerdown', e => {
+    const r = canvas.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = 1 - (e.clientY - r.top) / r.height;
+    if (y < HZ - .02) { lure = { x, y }; boil(x + (Math.random() - .5) * .04, y + .01, 1.2); }
+  });
+  if (qa) { boil(.55, .32, 1); boils[0].z = .35; boil(.78, .45, .8); boils[1].z = .9; }
+  st.start();
+}
+function boil(x, y, s) {
+  const b = boils.find(b => b.z < 0) || boils.reduce((a, b) => (b.z > a.z ? b : a));
+  b.set(x, y, 0, s);
+  if (qa) return;
+  const r = canvas.getBoundingClientRect();
+  const el = labelPool.find(l => !l.isConnected) || document.createElement('span');
+  el.textContent = 'ボイル'; el.style.left = x * r.width + 'px'; el.style.top = (1 - y) * r.height - 20 + 'px';
+  if (!labelPool.includes(el)) labelPool.push(el);
+  labels.appendChild(el); setTimeout(() => el.remove(), 1400);
+}
+function frame({ t, dt, p, portrait }) {
+  const heroK = heroFade(p, .1);
+  copy.style.opacity = note.style.opacity = c01((p - .07) / .06);
+  setStep(p < .4 ? 0 : p < .7 ? 1 : 2);
+  const m = st.mat.uniforms;
+  m.uRes.value.set(canvas.clientWidth, canvas.clientHeight); m.uTime.value = t;
+  // ルアーは、指やマウスの位置へ（水面の上だけ）
+  const active = performance.now() - mouse.moved < 3000 && mouse.py >= 0;
+  const r = canvas.getBoundingClientRect();
+  let tx = .62 + Math.sin(t * .3) * .2, ty = .26 + Math.sin(t * .23) * .06;
+  if (active) { tx = (mouse.px - r.left) / r.width; ty = Math.min(HZ - .04, 1 - (mouse.py - r.top) / r.height); }
+  if (portrait && !active) { tx = .5 + Math.sin(t * .3) * .25; ty = .42; }
+  if (!qa) { lure.x += (tx - lure.x) * Math.min(1, dt * 2.5); lure.y += (ty - lure.y) * Math.min(1, dt * 2.5); }
+  m.uLure.value.set(lure.x, lure.y);
+  // ときどき、ルアーの近くでボイル。スクロールするほど増える
+  if (!qa) {
+    nextBoil -= dt * (1 + p * 2.5);
+    if (nextBoil < 0) { nextBoil = .9 + Math.random() * 1.6; const near = Math.random() < .6; boil(near ? lure.x + (Math.random() - .5) * .12 : .1 + Math.random() * .85, near ? Math.min(HZ - .03, lure.y + (Math.random() - .5) * .06) : .08 + Math.random() * (HZ - .14), .7 + Math.random() * .6); }
+    boils.forEach(b => { if (b.z >= 0) { b.z += dt; if (b.z > 1.6) b.z = -1; } });
+  }
+}
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="90" data-from="30">90</span><small>cm　初挑戦の少年アングラーが釣り上げたスズキ</small></div></div>
+    <div class="rv"><h2>皆さんに満足いただけるように。</h2><p>土・日・祝日は予約乗合便が出船しています。平日の予約乗合便も募集しています。その他の日程も、お気軽にお問い合わせください。</p><p>釣果は毎日更新。コノシロに追われた「ボイル」の様子や、73cmの極太、90cmのスパーランカーまで、船長が写真とともにお伝えしています。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>シーバス</span><span>ルアー専門</span><span>オールシーズン</span><span>予約乗合</span><span>初心者大歓迎</span><span>ボイル</span><span>シーバス</span><span>ルアー専門</span><span>オールシーズン</span><span>予約乗合</span><span>初心者大歓迎</span><span>ボイル</span><span>シーバス</span><span>ルアー専門</span><span>オールシーズン</span><span>予約乗合</span><span>初心者大歓迎</span><span>ボイル</span><span>シーバス</span><span>ルアー専門</span><span>オールシーズン</span><span>予約乗合</span><span>初心者大歓迎</span><span>ボイル</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>出船</h2><span>SEA BASS</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/f1.jpg" alt="手に持ったルアー" loading="lazy" data-speed=".06" data-gl></div><h3>予約乗合船</h3><p>毎日出船予定。1名様から。</p></article><article class="feature rv"><div class="ph"><img src="img/f2.jpg" alt="夕日の海とリール" loading="lazy" data-speed=".06" data-gl></div><h3>早朝・デイ</h3><p>時間帯は日程に合わせてご案内します。</p></article><article class="feature rv"><div class="ph"><img src="img/f3.jpg" alt="夜の海に浮かぶ船" loading="lazy" data-speed=".06" data-gl></div><h3>チャーター</h3><p>お仲間との貸切も承ります。</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/wide.jpg" alt="夜の海の光" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">遊漁船業者登録 東京都知事 第216号</figcaption></figure>
+  
+  <section class="sec" id="price">
+    <div class="sec-head rv"><h2>料金</h2><span>PRICE</span></div>
+    <dl class="prices rv"><div><dt>乗合船<small>1名様・税込</small></dt><dd>10,000円</dd></div></dl>
+    <p class="prices-note rv">燃料費高騰のため、一部の乗船料金が変更になる場合があります。料金は現在のホームページの表示をもとにしています。</p>
+  </section>
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">営業時間</h2></div>
+      
+      <table class="hours"><tr><th>ご予約</th><td>お電話・メールで（メールの予約もOK）</td></tr><tr><th>出船</th><td>土・日・祝日は予約乗合便あり</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>東京都江戸川区（都営新宿線 一之江駅から徒歩3分・瑞江大橋のたもと）</p>
+      <p class="mute">ゲート前に着いたら、お電話でご連絡ください。パーキングまでご案内します。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B1%9F%E6%88%B8%E5%B7%9D%E5%8C%BA%20%E7%91%9E%E6%B1%9F%E5%A4%A7%E6%A9%8B%20%E3%82%B9%E3%82%BA%E3%83%A4" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:08056574250" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">ランカー、狙いに行きましょう。</h2>
+    <a class="tel" href="tel:08056574250">080-5657-4250</a>
+    <p>予約状況や釣果は、お気軽にお問い合わせください。</p>
+    <div class="btns"><a class="btn" href="mailto:luresuzuya@mwc.biglobe.ne.jp" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>東京湾シーバスガイド スズヤ　東京都江戸川区（都営新宿線 一之江駅から徒歩3分・瑞江大橋のたもと）　TEL 080-5657-4250</p>
+  <p>この試作は森川ウェブ（mahmoris98@gmail.com）が、東京湾シーバスガイド スズヤ様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:08056574250" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>さくら商店株式会社｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#f3f1ee">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#f3f1ee;--ink:#1a1a1c;--mute:#6c6a68;--accent:#c2185b;--accent-ink:#fff;--panel:#e8e5e0;--line:rgba(26,26,28,.12);--display:"Shippori Mincho B1",serif;--display-weight:800;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 45%}
+
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>がさくら商店株式会社様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">堺の包丁卸店　大阪府堺市</p><p class="pl-name">さくら商店</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">さくら商店</a>
+  <nav aria-label="ページ内の案内"><a href="#story">コンセプト</a><a href="#features">包丁</a><a href="#info">営業時間</a></nav>
+  
+  <a class="call" href="tel:0723208072"><span data-en="Call">電話</span><span class="num">072-320-8072</span></a>
+</header>
+
+<main>
+  <section class="hero tate">
+    <div class="hero-img"><img src="img/hero.jpg" alt="包丁の刃元のアップ"  data-gl="wipe" data-gl-hero></div>
+    <div class="hero-copy">
+      <p class="kind">堺の包丁卸店　大阪府堺市</p>
+      <h1 aria-label="毎日コツコツ、着実に。"><span class="ch" style="--i:0">毎</span><span class="ch" style="--i:1">日</span><span class="ch" style="--i:2">コ</span><span class="ch" style="--i:3">ツ</span><span class="ch" style="--i:4">コ</span><span class="ch" style="--i:5">ツ</span><span class="ch" style="--i:6">、</span><br><span class="ch" style="--i:7">着</span><span class="ch" style="--i:8">実</span><span class="ch" style="--i:9">に</span><span class="ch" style="--i:10">。</span></h1>
+      <span class="seal" aria-hidden="true">堺</span>
+      <p class="sub">大阪・堺で、毎日コツコツと包丁を作っています。使う人のことを思い、一丁一丁丁寧に仕立て上げています。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-sk" id="sig" aria-label="鍛冶、刃付け、柄付けの三つの工程で包丁ができあがる3Dの演出">
+    <div class="sk-stick">
+      <canvas id="sk3d" aria-hidden="true"></canvas>
+      <div class="sk-copy">
+        <ol class="sk-steps" aria-label="工程"><li data-i="0">鍛冶</li><li data-i="1">刃付け</li><li data-i="2">柄付け</li></ol>
+        <p class="sk-h" id="sk-h">鍛冶</p>
+        <p class="sk-p" id="sk-p">鋼を熱し、叩いて、刃の形をつくる。</p>
+        <p class="sk-hint">刃の上で、指やマウスを左右に動かしてみてください。</p>
+      </div>
+      <p class="sk-note">3Dのイメージです。実際の包丁とは異なります</p>
+    </div>
+  </section>
+<style>
+.sig-sk{position:relative;height:360vh;background:#141416}
+.sk-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:radial-gradient(60% 60% at 62% 52%,#2b2420,#141416 72%);color:#f3f1ee}
+#sk3d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.sk-copy{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);max-width:380px;z-index:3}
+.sk-steps{list-style:none;margin:0 0 18px;padding:0;display:flex;gap:6px}
+.sk-steps li{font-size:13px;font-weight:700;padding:6px 12px;border-radius:999px;border:1px solid rgba(243,241,238,.25);color:rgba(243,241,238,.6);transition:.3s}
+.sk-steps li.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.sk-h{font-family:var(--display);font-weight:800;font-size:clamp(48px,6vw,88px);line-height:1;margin:0 0 16px;transition:opacity .3s}
+.sk-p{margin:0 0 18px;color:rgba(243,241,238,.7);transition:opacity .3s}
+.sk-hint{margin:0;font-size:13px;color:#f29ab9}
+.sk-note{position:absolute;right:var(--gut);bottom:22px;margin:0;font-size:12px;color:rgba(243,241,238,.55)}
+@media (max-width:860px){
+  .sk-copy{top:auto;bottom:0;transform:none;left:0;right:0;max-width:none;padding:56px var(--gut) 96px;background:linear-gradient(to top,rgba(20,20,22,.96) 62%,rgba(20,20,22,0))}
+  .sk-note{top:74px;bottom:auto}
+}
+</style>
+<script type="module">
+import { knife } from '../_kit/sig/knife.js';
+import { qa } from '../_kit/sig/stage.js';
+
+const canvas = document.getElementById('sk3d'), section = canvas.closest('section');
+const hEl = document.getElementById('sk-h'), pEl = document.getElementById('sk-p'), lis = [...section.querySelectorAll('.sk-steps li')];
+const STAGES = [['鍛冶', '鋼を熱し、叩いて、刃の形をつくる。'], ['刃付け', '研ぎの職人が、刃を仕上げる。'], ['柄付け', '柄を付けて、一本の包丁に。']];
+let stage = -1;
+knife({
+  canvas, section, kinds: ['gyuto'], stages: true, start: .08, handle: '#5b3a26',
+  place: (portrait) => portrait ? { x: -.5, y: 1.1, s: .4 } : { x: .95, y: .1, s: .6 },
+  onStage: i => {
+    if (i === stage) return; stage = i;
+    lis.forEach((li, k) => li.classList.toggle('on', k === i));
+    hEl.style.opacity = pEl.style.opacity = 0;
+    setTimeout(() => { hEl.textContent = STAGES[i][0]; pEl.textContent = STAGES[i][1]; hEl.style.opacity = pEl.style.opacity = 1; }, qa ? 0 : 180);
+  },
+});
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="600" data-from="540">600</span><small>年　受け継がれてきた堺刃物の技</small></div></div>
+    <div class="rv"><h2>一本の包丁を、三人の職人で。</h2><p>堺刃物は「鍛冶」「刃付け」「柄付け」と分担されています。それぞれの職人が高度な技術を用いて1本の包丁を造る伝統は、現在も引き継がれています。</p><p>堺刃物は日本全国で約90%の料理人が使用している包丁と言われています。600年前から受け継がれてきた、堺刃物の技巧への信頼の証しです。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>堺の包丁</span><span>鍛冶</span><span>刃付け</span><span>柄付け</span><span>毎日コツコツ</span><span>堺の包丁</span><span>鍛冶</span><span>刃付け</span><span>柄付け</span><span>毎日コツコツ</span><span>堺の包丁</span><span>鍛冶</span><span>刃付け</span><span>柄付け</span><span>毎日コツコツ</span><span>堺の包丁</span><span>鍛冶</span><span>刃付け</span><span>柄付け</span><span>毎日コツコツ</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>包丁</h2><span>SAKAI KNIVES</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/f1.jpg" alt="木のまな板の上の柳刃包丁" loading="lazy" data-speed=".06" data-gl></div><h3>堺の包丁</h3><p>鍛冶・刃付け・柄付けの職人の手を経て、一本に。</p></article><article class="feature rv"><div class="ph"><img src="img/f2.jpg" alt="刃物を研ぐ職人" loading="lazy" data-speed=".06" data-gl></div><h3>刃付け</h3><p>研ぎの職人が、刃を仕上げます。</p></article><article class="feature rv"><div class="ph"><img src="img/f3.jpg" alt="まな板の上の包丁と野菜" loading="lazy" data-speed=".06" data-gl></div><h3>毎日の包丁</h3><p>家庭で毎日使う一本も、丁寧に。</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/wide.jpg" alt="並んだ包丁" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">一丁一丁、丁寧に。</figcaption></figure>
+  
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">営業時間</h2></div>
+      <p class="status" id="status"><i></i><b>…</b></p>
+      <table class="hours"><tr data-wd="1,2,3,4,5"><th>営業時間</th><td>平日 9:00〜18:00</td></tr><tr><th>定休日</th><td>土曜・日曜・祝日</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>大阪府堺市堺区北旅籠町西2丁2-14</p>
+      <p class="mute">南海電車 七道駅を出て東へ、徒歩約3分。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E9%98%AA%E5%BA%9C%E5%A0%BA%E5%B8%82%E5%A0%BA%E5%8C%BA%E5%8C%97%E6%97%85%E7%B1%A0%E7%94%BA%E8%A5%BF2%E4%B8%812-14%20%E3%81%95%E3%81%8F%E3%82%89%E5%95%86%E5%BA%97" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:0723208072" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">使う人を思って、一丁ずつ。</h2>
+    <a class="tel" href="tel:0723208072">072-320-8072</a>
+    <p>包丁のご相談やお取引については、お電話かメールでどうぞ。</p>
+    <div class="btns"><a class="btn" href="mailto:info@sakura-shouten.co.jp" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>さくら商店株式会社　大阪府堺市堺区北旅籠町西2丁2-14　TEL 072-320-8072</p>
+  <p>この試作は森川ウェブ（mahmoris98@gmail.com）が、さくら商店株式会社様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:0723208072" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+<script>window.SCHEDULE = {"days": {"1": [[540, 1080]], "2": [[540, 1080]], "3": [[540, 1080]], "4": [[540, 1080]], "5": [[540, 1080]]}};</script>
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

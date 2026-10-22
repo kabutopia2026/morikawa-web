@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>白馬八方温泉 民宿あさひや｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#eef3f7">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@700;900&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#eef3f7;--ink:#14222c;--mute:#5a6d7a;--accent:#1f6fb2;--accent-ink:#fff;--panel:#dfe8ef;--line:rgba(20,34,44,.13);--display:"Zen Maru Gothic",sans-serif;--display-weight:900;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 50%}
+
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>が白馬八方温泉 民宿あさひや様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">温泉民宿　長野県白馬村・八方</p><p class="pl-name">民宿あさひや</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">民宿あさひや</a>
+  <nav aria-label="ページ内の案内"><a href="#story">宿のこと</a><a href="#features">お部屋・お料理</a><a href="#price">宿泊料金</a></nav>
+  
+  <a class="call" href="tel:0261722556"><span data-en="Call">電話</span><span class="num">0261-72-2556</span></a>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-img"><img src="img/hero.jpg" alt="雪の白馬の山並み"  data-gl="wipe" data-gl-hero></div>
+    <div class="hero-copy">
+      <p class="kind">温泉民宿　長野県白馬村・八方</p>
+      <h1><span class="ln"><span style="--i:0">白馬で、</span></span><span class="ln"><span style="--i:1">気軽に泊まれる宿。</span></span></h1>
+      
+      <p class="sub">観光、ウインタースポーツ、ビジネスなど、気軽に泊まれる、気軽に利用できる民宿です。早朝・夜中の到着でも大丈夫。ご予約時にご相談ください。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-hk" id="sig" aria-label="スクロールすると、白馬の山並みが夏から秋、冬へと移り変わる3Dの演出">
+    <div class="hk-stick" id="hk-stick">
+      <canvas id="hk3d" aria-hidden="true"></canvas>
+      <div class="hk-copy">
+        <p class="hk-step">白馬の季節</p>
+        <p class="hk-h" id="hk-h">夏</p>
+        <p class="hk-p" id="hk-p">緑の山並み。お米は、あさひや産のあきたこまちです。</p>
+        <ol class="hk-season" id="hk-season"><li>夏</li><li>秋</li><li>冬</li></ol>
+      </div>
+      <p class="hk-pin" id="hk-pin" aria-hidden="true">民宿あさひや<small>白馬八方温泉</small></p>
+      <p class="hk-note">山並みの3Dイメージです。実際の地形とは異なります</p>
+    </div>
+  </section>
+<style>
+.sig-hk{position:relative;height:380vh;background:#eef3f7}
+.hk-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:linear-gradient(#bcdcf2,#eef3f7 70%);transition:background .8s}
+#hk3d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hk-copy{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);max-width:340px;z-index:3}
+.hk-step{margin:0;color:var(--accent);font-weight:700;letter-spacing:.16em;font-size:14px}
+.hk-h{font-family:var(--display);font-weight:900;font-size:clamp(80px,10vw,150px);line-height:1;margin:8px 0 16px;transition:opacity .3s}
+.hk-p{margin:0 0 22px;color:var(--ink);transition:opacity .3s}
+.hk-season{list-style:none;margin:0;padding:0;display:flex;gap:6px}
+.hk-season li{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-weight:700;color:var(--mute);border:1px solid var(--line);transition:background .3s,color .3s}
+.hk-season li.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.hk-note{position:absolute;right:var(--gut);bottom:22px;margin:0;font-size:12px;color:var(--mute)}
+.hk-pin{position:absolute;left:0;top:0;margin:0;z-index:2;transform:translate(-50%,-100%);background:#fff;color:var(--ink);font-weight:700;font-size:14px;padding:8px 14px;border-radius:10px;box-shadow:0 6px 20px rgba(20,34,44,.18);white-space:nowrap;pointer-events:none}
+.hk-pin small{display:block;font-size:11px;font-weight:400;color:var(--mute)}
+.hk-pin::after{content:"";position:absolute;left:50%;bottom:-6px;margin-left:-6px;border:6px solid transparent;border-bottom:0;border-top-color:#fff}
+@media (max-width:860px){
+  .hk-copy{top:auto;bottom:0;transform:none;left:0;right:0;max-width:none;padding:56px var(--gut) 96px;background:linear-gradient(to top,rgba(238,243,247,.97) 62%,rgba(238,243,247,0))}
+  .hk-h{font-size:72px;margin-bottom:10px}
+  .hk-note{top:74px;bottom:auto}
+}
+</style>
+<script type="module">
+import * as THREE from 'three';
+import { stage3d, span, ease, qa, mouse } from '../_kit/sig/stage.js';
+
+const canvas = document.getElementById('hk3d'), section = canvas.closest('section'), stick = document.getElementById('hk-stick'), pinEl = document.getElementById('hk-pin');
+const hEl = document.getElementById('hk-h'), pEl = document.getElementById('hk-p'), lis = [...document.querySelectorAll('#hk-season li')];
+const SEASONS = [
+  { h: '夏', p: '緑の山並み。お米は、あさひや産のあきたこまちです。', sky: 'linear-gradient(#bcdcf2,#eef3f7 70%)' },
+  { h: '秋', p: '色づく山へ。冷蔵庫・テレビ・無線LANのある和室で、ゆっくりと。', sky: 'linear-gradient(#d9e2ea,#f4efe8 70%)' },
+  { h: '冬', p: '八方尾根スキー場の各乗り場まで送迎します。滑ったあとは、24時間入れる八方温泉へ。', sky: 'linear-gradient(#9fb6c9,#e6edf3 70%)' },
+];
+let season = -1;
+function setSeason(i) {
+  if (i === season) return; season = i;
+  lis.forEach((li, k) => li.classList.toggle('on', k === i));
+  stick.style.background = SEASONS[i].sky;
+  hEl.style.opacity = pEl.style.opacity = 0;
+  setTimeout(() => { hEl.textContent = SEASONS[i].h; pEl.textContent = SEASONS[i].p; hEl.style.opacity = pEl.style.opacity = 1; }, qa ? 0 : 160);
+}
+
+// 地形：尾根の連なるノイズ
+function hash(x, y) { const s = Math.sin(x * 127.1 + y * 311.7) * 43758.5453; return s - Math.floor(s); }
+function noise(x, y) {
+  const xi = Math.floor(x), yi = Math.floor(y), xf = x - xi, yf = y - yi, u = xf * xf * (3 - 2 * xf), v = yf * yf * (3 - 2 * yf);
+  const a = hash(xi, yi), b = hash(xi + 1, yi), c = hash(xi, yi + 1), d = hash(xi + 1, yi + 1);
+  return a + (b - a) * u + (c - a) * v + (a - b - c + d) * u * v;
+}
+function ridge(x, y) { let s = 0, a = .5, f = 1; for (let i = 0; i < 5; i++) { s += a * (1 - Math.abs(noise(x * f, y * f) * 2 - 1)) ** 2; a *= .5; f *= 2.1; } return s; }
+
+const st = stage3d({ canvas, section, fov: 34, env: .02, exposure: 1.05, frame });
+if (st) {
+  const { scene } = st;
+  const SX = 14, SZ = 9, NX = 180, NZ = 120;
+  const geo = new THREE.PlaneGeometry(SX, SZ, NX, NZ); geo.rotateX(-Math.PI / 2);
+  const pos = geo.attributes.position, N = pos.count;
+  const hts = new Float32Array(N), slope = new Float32Array(N), jit = new Float32Array(N), fade = new Float32Array(N);
+  for (let i = 0; i < N; i++) {
+    const x = pos.getX(i), z = pos.getZ(i);
+    // 奥ほど高い山脈、手前は谷（八方の里）
+    const back = THREE.MathUtils.smoothstep(-z, -3.5, 4.2);
+    const peaks = Math.exp(-((x + 2.4) ** 2) / 3) * .9 + Math.exp(-((x - .8) ** 2) / 2.2) * 1.1 + Math.exp(-((x - 3.6) ** 2) / 3.5) * .8;
+    // 縁に向かって低く、薄く消える
+    const ex = Math.abs(x) / (SX / 2), ez = Math.abs(z) / (SZ / 2), edge = 1 - THREE.MathUtils.smoothstep(Math.pow(Math.pow(ex, 4) + Math.pow(ez, 4), .25), .6, 1);
+    const h = (ridge(x * .32 + 3, z * .32) * 1.3 + peaks) * (back * 1.15 + .12) * 1.25 * (.35 + .65 * edge);
+    hts[i] = h; pos.setY(i, h); jit[i] = noise(x * 1.3 + 7, z * 1.3) * .7 + hash(x * 3.1, z * 2.7) * .3; fade[i] = edge;
+  }
+  geo.computeVertexNormals();
+  const nrm = geo.attributes.normal;
+  for (let i = 0; i < N; i++) slope[i] = 1 - nrm.getY(i);
+  geo.setAttribute('color', new THREE.BufferAttribute(new Float32Array(N * 4), 4));
+  const mat = new THREE.MeshStandardMaterial({ vertexColors: true, transparent: true, roughness: .9 });
+  const land = new THREE.Mesh(geo, mat); scene.add(land);
+  // 宿の目印（位置はイメージ）
+  const pin = new THREE.Group();
+  const pole = new THREE.Mesh(new THREE.CylinderGeometry(.015, .015, .7, 8), new THREE.MeshStandardMaterial({ color: '#1f6fb2' }));
+  pole.position.y = .35; pin.add(pole);
+  const head = new THREE.Mesh(new THREE.SphereGeometry(.09, 20, 14), new THREE.MeshStandardMaterial({ color: '#1f6fb2', emissive: '#1f6fb2', emissiveIntensity: .4 }));
+  head.position.y = .72; pin.add(head);
+  pin.position.set(-.4, .2, 3.1); scene.add(pin);
+  // 湯けむり
+  const steam = new THREE.Group();
+  const puffMat = new THREE.MeshBasicMaterial({ color: '#ffffff', transparent: true, opacity: .35, depthWrite: false });
+  for (let i = 0; i < 6; i++) { const s = new THREE.Mesh(new THREE.SphereGeometry(.12, 12, 10), puffMat.clone()); steam.add(s); }
+  steam.position.copy(pin.position).add(new THREE.Vector3(.25, .2, 0)); scene.add(steam);
+  // 雪
+  const SN = 1600, sg = new THREE.BufferGeometry(), sp = new Float32Array(SN * 3);
+  for (let i = 0; i < SN; i++) { sp[i * 3] = (Math.random() - .5) * SX; sp[i * 3 + 1] = Math.random() * 6; sp[i * 3 + 2] = (Math.random() - .5) * SZ; }
+  sg.setAttribute('position', new THREE.BufferAttribute(sp, 3));
+  const snow = new THREE.Points(sg, new THREE.PointsMaterial({ color: '#ffffff', size: .045, transparent: true, opacity: 0, depthWrite: false }));
+  scene.add(snow);
+  scene.add(new THREE.HemisphereLight('#eaf4ff', '#5a6a55', .9));
+  const sun = new THREE.DirectionalLight('#fff4e0', 2.2); sun.position.set(-5, 6, 3); scene.add(sun);
+  scene.fog = new THREE.Fog('#eef3f7', 9, 22);
+  Object.assign(st, { land, geo, hts, slope, jit, fade, snow, sp, steam, sun, pin, hemi: scene.children.find(o => o.isHemisphereLight), v: new THREE.Vector3() });
+  st.start();
+}
+const C = {
+  forest: new THREE.Color('#3f6b3a'), meadow: new THREE.Color('#7fa356'), rock: new THREE.Color('#7b7a72'),
+  red: new THREE.Color('#b8452a'), orange: new THREE.Color('#d98a2b'), yellow: new THREE.Color('#d9b84a'), dry: new THREE.Color('#9b8a5e'),
+  snow: new THREE.Color('#eef3f8'), dark: new THREE.Color('#34433b'),
+};
+const tmp = new THREE.Color(), a = new THREE.Color(), b = new THREE.Color();
+// 季節ごとの色。k：0＝夏 1＝秋 2＝冬
+function colorAt(i, k, out) {
+  const h = st.hts[i], s = st.slope[i], j = st.jit[i];
+  const rock = THREE.MathUtils.smoothstep(s, .35, .6);
+  // 夏
+  a.copy(C.meadow).lerp(C.forest, THREE.MathUtils.smoothstep(h, .2, 1.1) * (.6 + j * .4)).lerp(C.rock, Math.max(rock, THREE.MathUtils.smoothstep(h, 2.1, 2.6)));
+  if (h > 2.3 && s < .25 && j > .55) a.lerp(C.snow, .9); // 夏も残る雪渓
+  // 秋
+  const fall = j < .33 ? C.red : j < .66 ? C.orange : C.yellow;
+  b.copy(C.dry).lerp(fall, THREE.MathUtils.smoothstep(h, .3, 1.3) * (1 - THREE.MathUtils.smoothstep(h, 1.6, 2.1))).lerp(C.rock, Math.max(rock, THREE.MathUtils.smoothstep(h, 1.8, 2.3)));
+  if (h > 2.25 - j * .2) b.lerp(C.snow, .85);
+  // 冬
+  tmp.copy(C.snow).lerp(C.dark, rock * .5 + (h < 1.5 ? THREE.MathUtils.smoothstep(j, .45, .7) * .45 : 0));
+  if (k <= 1) out.copy(a).lerp(b, k); else out.copy(b).lerp(tmp, k - 1);
+}
+let lastK = -1;
+function frame({ t, dt, p, portrait }) {
+  const k = ease(span(p, .12, .45)) + ease(span(p, .55, .88));
+  setSeason(k < .5 ? 0 : k < 1.5 ? 1 : 2);
+  if (Math.abs(k - lastK) > .004) {
+    lastK = k; const col = st.geo.attributes.color, o = new THREE.Color();
+    for (let i = 0; i < col.count; i++) { colorAt(i, k, o); col.setXYZW(i, o.r, o.g, o.b, Math.min(1, st.fade[i] * 2.2)); }
+    col.needsUpdate = true;
+  }
+  const winter = Math.max(0, k - 1);
+  st.snow.material.opacity = winter * .9;
+  for (let i = 0; i < st.sp.length; i += 3) {
+    if (qa) break;
+    st.sp[i + 1] -= dt * (.35 + (i % 7) * .03); st.sp[i] += Math.sin(t + i) * dt * .05;
+    if (st.sp[i + 1] < 0) st.sp[i + 1] = 6;
+  }
+  st.snow.geometry.attributes.position.needsUpdate = true;
+  st.steam.children.forEach((s, i) => { const q = ((qa ? .3 : t * .25) + i / 6) % 1; s.position.set(Math.sin(q * 6 + i) * .08, q * 1.1, 0); s.scale.setScalar(.6 + q * 1.6); s.material.opacity = (1 - q) * (.15 + winter * .35); });
+  st.sun.color.set(winter > .5 ? '#eef4ff' : '#fff4e0'); st.sun.intensity = 2.2 + winter * 1.2; st.hemi.intensity = .9 - winter * .35;
+  st.scene.fog.color.set(k < 1 ? '#eef3f7' : k < 1.5 ? '#f4efe8' : '#e6edf3');
+  const s = portrait ? .55 : .7;
+  st.land.scale.setScalar(s); st.snow.scale.setScalar(s); st.pin.scale.setScalar(s); st.steam.scale.setScalar(s);
+  st.pin.position.set(-.4 * s, .2 * s, 3.1 * s); st.steam.position.set(-.15 * s, .4 * s, 3.1 * s);
+  const ang = (qa ? 0 : t * .02) + mouse.x * .12 + p * .25;
+  st.camera.position.set(Math.sin(ang) * 2, portrait ? 7 : 5.4, (portrait ? 13 : 9.4) * Math.cos(ang * .3));
+  st.camera.lookAt(0, portrait ? 1 : .8, -.6);
+  // 山並みは画面の右寄り（スマホでは上寄り）に
+  const W = canvas.clientWidth, H = canvas.clientHeight;
+  st.camera.setViewOffset(W, H, portrait ? 0 : -W * .16, portrait ? H * .16 : 0, W, H);
+  st.camera.updateMatrixWorld();
+  st.v.set(0, .75 * s, 0).add(st.pin.position).project(st.camera);
+  pinEl.style.left = ((st.v.x + 1) / 2 * W) + 'px'; pinEl.style.top = ((1 - st.v.y) / 2 * H - 6) + 'px';
+}
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="24" data-from="-36">24</span><small>時間　いつでも入れる八方温泉</small></div></div>
+    <div class="rv"><h2>滑ったあとは、八方温泉へ。</h2><p>スキーやスノーボード、アクティビティのあとは、24時間入浴できる八方温泉でリフレッシュ。連日のウインタースポーツも、乾燥室があるので安心です。</p><p>白馬駅までの送迎、八方尾根スキー場（名木山ゲレンデ、ゴンドラ乗り場、国際第一リフト乗り場、咲花ゲレンデ）への送迎も行っています。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>白馬八方温泉</span><span>24時間入浴可</span><span>スキー場送迎</span><span>乾燥室</span><span>あさひや産あきたこまち</span><span>白馬八方温泉</span><span>24時間入浴可</span><span>スキー場送迎</span><span>乾燥室</span><span>あさひや産あきたこまち</span><span>白馬八方温泉</span><span>24時間入浴可</span><span>スキー場送迎</span><span>乾燥室</span><span>あさひや産あきたこまち</span><span>白馬八方温泉</span><span>24時間入浴可</span><span>スキー場送迎</span><span>乾燥室</span><span>あさひや産あきたこまち</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>お部屋・お料理</h2><span>STAY</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/f3.jpg" alt="和室" loading="lazy" data-speed=".06" data-gl></div><h3>和室 6帖〜13帖</h3><p>冷蔵庫・テレビ・無線LANインターネットあり。</p></article><article class="feature rv"><div class="ph"><img src="img/f1.jpg" alt="緑の山並み" loading="lazy" data-speed=".06" data-gl></div><h3>あさひや産のお米</h3><p>お米はあさひや産のあきたこまち。手作りの料理で。</p></article><article class="feature rv"><div class="ph"><img src="img/f2.jpg" alt="雪のリフト" loading="lazy" data-speed=".06" data-gl></div><h3>スキー場まで送迎</h3><p>八方尾根スキー場の各乗り場まで。</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/wide.jpg" alt="山あいの川" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">夏も、秋も、白馬へ。</figcaption></figure>
+  
+  <section class="sec" id="price">
+    <div class="sec-head rv"><h2>宿泊料金</h2><span>PRICE</span></div>
+    <dl class="prices rv"><div><dt>1泊2食付・平日</dt><dd>8,400円〜</dd></div><div><dt>1泊2食付・年末年始・お盆・連休・休日</dt><dd>9,500円〜</dd></div></dl>
+    <p class="prices-note rv">税込。連泊や人数により、金額のご相談をお受けします。料金は現在のホームページの表示をもとにしています。</p>
+  </section>
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">営業時間</h2></div>
+      
+      <table class="hours"><tr><th>ご予約</th><td>メールかお電話で</td></tr><tr><th>設備</th><td>EV・PHV 2台まで充電できます</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>長野県北安曇郡白馬村大字北城5890</p>
+      <p class="mute">白馬駅までの送迎も行っています。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E9%95%B7%E9%87%8E%E7%9C%8C%E5%8C%97%E5%AE%89%E6%9B%87%E9%83%A1%E7%99%BD%E9%A6%AC%E6%9D%91%E5%8C%97%E5%9F%8E5890%20%E6%B0%91%E5%AE%BF%E3%81%82%E3%81%95%E3%81%B2%E3%82%84" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:0261722556" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">白馬へ、気軽にどうぞ。</h2>
+    <a class="tel" href="tel:0261722556">0261-72-2556</a>
+    <p>ご予約・ご相談は、メールかお電話で気軽にどうぞ。</p>
+    <div class="btns"><a class="btn" href="mailto:asahiya.hakuba@nifty.com" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>白馬八方温泉 民宿あさひや　長野県北安曇郡白馬村大字北城5890　TEL 0261-72-2556</p>
+  <p>この試作は森川ウェブ（mahmoris98@gmail.com）が、白馬八方温泉 民宿あさひや様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:0261722556" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

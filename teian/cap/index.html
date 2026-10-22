@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CAP平岡｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#151515">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@600&family=Shippori+Mincho:wght@700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#151515;--ink:#f4f0ea;--mute:#aaa49b;--accent:#e3b45d;--accent-ink:#151515;--panel:#1e1e1e;--line:rgba(244,240,234,.13);--display:"Bodoni Moda","Shippori Mincho",serif;--display-weight:600;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 50%}
+.top .name{font-family:'Bodoni Moda',serif;letter-spacing:.12em}
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>がCAP平岡様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">写真スタジオ　両国（墨田区亀沢）</p><p class="pl-name">CAP平岡</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">CAP平岡</a>
+  <nav aria-label="ページ内の案内"><a href="#story">CAP平岡</a><a href="#features">撮影</a><a href="#price">料金</a></nav>
+  
+  <a class="call" href="tel:0336221018"><span data-en="Call">電話</span><span class="num">03-3622-1018</span></a>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-img"><img src="img/hero.jpg" alt="照明の準備が整った写真スタジオ"  data-gl="wipe" data-gl-hero></div>
+    <div class="hero-copy">
+      <p class="kind">写真スタジオ　両国（墨田区亀沢）</p>
+      <h1><span class="ln"><span style="--i:0">大切な一瞬を、</span></span><span class="ln"><span style="--i:1">両国で。</span></span></h1>
+      
+      <p class="sub">お宮参り、成人式、七五三、入園入学卒業などの記念写真はぜひ両国のスタジオへ。建築写真や学校写真、音楽発表会などの出張撮影もいたします。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-cp" id="sig" aria-label="スクロールすると、レンズの絞りが開いて写真が見える演出">
+    <div class="cp-stick">
+      <canvas id="cp2d" aria-hidden="true"></canvas>
+      <div class="cp-flash" id="cp-flash" aria-hidden="true"></div>
+      <div class="cp-copy">
+        <p class="cp-step" id="cp-step">撮影メニュー</p>
+        <p class="cp-h" id="cp-h">記念写真</p>
+        <p class="cp-p" id="cp-p">お宮参り、七五三、成人式、入園入学卒業。</p>
+        <p class="cp-f"><span>絞り</span><b id="cp-f">f/16</b></p>
+        <div class="cp-tabs" role="group" aria-label="撮影メニューを選ぶ"><button type="button" data-i="0" aria-pressed="true">記念写真</button><button type="button" data-i="1" aria-pressed="false">宣材写真</button><button type="button" data-i="2" aria-pressed="false">ペットと</button></div>
+        <button type="button" class="cp-shutter" id="cp-shutter">シャッターを切る</button>
+      </div>
+      <p class="cp-note">写真はイメージです</p>
+    </div>
+  </section>
+<style>
+.sig-cp{position:relative;height:380vh;background:#0e0e0e}
+.cp-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:radial-gradient(55% 60% at 64% 50%,#262422,#0e0e0e 75%)}
+#cp2d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.cp-flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none;z-index:4}
+.cp-copy{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);max-width:340px;z-index:3}
+.cp-step{margin:0;color:var(--accent);letter-spacing:.2em;font-size:13px;font-weight:700}
+.cp-h{font-family:"Shippori Mincho",serif;font-weight:700;font-size:clamp(40px,4.8vw,70px);line-height:1.15;margin:8px 0 12px;transition:opacity .3s}
+.cp-p{margin:0 0 22px;color:var(--mute);transition:opacity .3s}
+.cp-f{margin:0 0 22px;display:flex;align-items:baseline;gap:14px}
+.cp-f span{font-size:13px;color:var(--mute)}
+.cp-f b{font-family:"Bodoni Moda",serif;font-weight:600;font-size:56px;line-height:1;font-style:italic;min-width:4.2ch}
+.cp-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.cp-tabs button{font:inherit;font-weight:700;font-size:14px;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.cp-tabs button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#151515}
+.cp-shutter{font:inherit;font-weight:700;font-size:15px;padding:12px 22px 12px 46px;border-radius:999px;border:0;background:var(--accent);color:#151515;cursor:pointer;position:relative}
+.cp-shutter::before{content:"";position:absolute;left:16px;top:50%;width:18px;height:18px;margin-top:-9px;border-radius:50%;border:3px solid #151515;box-sizing:border-box}
+.cp-note{position:absolute;right:var(--gut);bottom:22px;margin:0;font-size:12px;color:var(--mute)}
+@media (max-width:860px){
+  .cp-copy{top:auto;bottom:0;transform:none;left:0;right:0;max-width:none;padding:40px var(--gut) 90px;background:linear-gradient(to top,rgba(14,14,14,.97) 70%,rgba(14,14,14,0))}
+  .cp-p{display:none}
+  .cp-f{margin-bottom:14px}.cp-f b{font-size:40px}
+  .cp-note{top:74px;bottom:auto}
+}
+</style>
+<script type="module">
+import { stage2d, span, ease, qa, mouse } from '../_kit/sig/stage.js';
+
+const canvas = document.getElementById('cp2d'), section = canvas.closest('section');
+const flash = document.getElementById('cp-flash'), fEl = document.getElementById('cp-f'), hEl = document.getElementById('cp-h'), pEl = document.getElementById('cp-p');
+const tabs = [...section.querySelectorAll('.cp-tabs button')];
+const SCENES = [
+  { h: '記念写真', p: 'お宮参り、七五三、成人式、入園入学卒業。', img: 'img/f1.jpg' },
+  { h: '宣材写真', p: 'プロフィールやオーディション用の写真も。撮影30分・背景一色・データ付で11,000円。', img: 'img/f2.jpg' },
+  { h: 'ペットと一緒に', p: 'かわいいペットとご一緒に。撮影30分・データでお渡し。', img: 'img/f3.jpg' },
+];
+const imgs = SCENES.map(s => { const i = new Image(); i.src = s.img; return i; });
+const STOPS = [16, 11, 8, 5.6, 4, 2.8, 2, 1.4];
+const BLADES = 9;
+let scene = -1, manual = 0, fl = 0, snap = 0, rot = 0;
+
+function show(i) {
+  if (i === scene) return; scene = i;
+  tabs.forEach((b, k) => b.setAttribute('aria-pressed', k === i));
+  hEl.style.opacity = pEl.style.opacity = 0;
+  setTimeout(() => { hEl.textContent = SCENES[i].h; pEl.textContent = SCENES[i].p; hEl.style.opacity = pEl.style.opacity = 1; }, qa ? 0 : 160);
+}
+function shoot() { fl = 1; snap = 1; }
+tabs.forEach(b => b.addEventListener('click', () => { manual = performance.now(); show(+b.dataset.i); shoot(); }));
+document.getElementById('cp-shutter').addEventListener('click', () => { manual = performance.now(); shoot(); });
+
+// 写真を円の中いっぱいに
+function cover(g, img, cx, cy, r, dx, dy) {
+  if (!img.complete || !img.naturalWidth) { g.fillStyle = '#333'; g.fillRect(cx - r, cy - r, r * 2, r * 2); return; }
+  const s = Math.max(r * 2.3 / img.naturalWidth, r * 2.3 / img.naturalHeight), w = img.naturalWidth * s, h = img.naturalHeight * s;
+  g.drawImage(img, cx - w / 2 + dx, cy - h / 2 + dy, w, h);
+}
+
+stage2d({ canvas, section, draw(g, w, h, { t, dt, p }) {
+  g.clearRect(0, 0, w, h);
+  const portrait = h > w * 1.05;
+  const R = portrait ? Math.min(w * .42, h * .26) : Math.min(h * .36, w * .25);
+  const cx = portrait ? w / 2 + mouse.x * 8 : w * .64 + mouse.x * 14, cy = portrait ? h * .33 + mouse.y * 8 : h * .5 + mouse.y * 14;
+  // 3つの撮影メニューを、スクロールで順に。各場面で絞りが開いて、最後に閉じる
+  const seg = Math.min(2.999, span(p, .04, .98) * 3), k = Math.floor(seg), q = seg - k;
+  if (performance.now() - manual > 1800) { if (k !== scene && scene !== -1 && !qa) shoot(); show(k); }
+  let open = ease(span(q, .06, .55)) * (1 - ease(span(q, .9, 1)) * (k < 2 ? 1 : 0));
+  if (performance.now() - manual < 1800) open = 1;
+  open *= 1 - snap * .92;
+  snap = Math.max(0, snap - dt * 2.4);
+  fl = Math.max(0, fl - dt * 2.2);
+  flash.style.opacity = fl * .85;
+  const r = R * (.08 + .9 * open);
+  const fi = Math.round(open * (STOPS.length - 1));
+  fEl.textContent = 'f/' + STOPS[fi];
+
+  // 鏡筒：外側のリングと、目盛り
+  const ring = R * 1.22;
+  const gr = g.createRadialGradient(cx - R * .3, cy - R * .4, R * .2, cx, cy, ring * 1.08);
+  gr.addColorStop(0, '#3a3836'); gr.addColorStop(.7, '#1a1918'); gr.addColorStop(1, '#0b0b0b');
+  g.fillStyle = gr; g.beginPath(); g.arc(cx, cy, ring * 1.08, 0, 7); g.fill();
+  g.strokeStyle = 'rgba(255,255,255,.08)'; g.lineWidth = 1;
+  for (let i = 0; i < 120; i++) { // ローレット（すべり止めの刻み）
+    const a = i / 120 * Math.PI * 2;
+    g.beginPath(); g.moveTo(cx + Math.cos(a) * ring * 1.0, cy + Math.sin(a) * ring * 1.0); g.lineTo(cx + Math.cos(a) * ring * 1.07, cy + Math.sin(a) * ring * 1.07); g.stroke();
+  }
+  g.font = `600 ${Math.max(10, R * .075)}px "Bodoni Moda",serif`; g.textAlign = 'center'; g.textBaseline = 'middle';
+  STOPS.forEach((s, i) => {
+    const a = -Math.PI * .85 + i / (STOPS.length - 1) * Math.PI * .7;
+    g.fillStyle = i === fi ? '#e3b45d' : 'rgba(244,240,234,.45)';
+    g.fillText(String(s), cx + Math.cos(a) * ring * .92, cy + Math.sin(a) * ring * .92);
+  });
+  g.fillStyle = 'rgba(244,240,234,.35)'; g.font = `500 ${Math.max(9, R * .055)}px "Bodoni Moda",serif`;
+  g.fillText('CAP HIRAOKA  STUDIO  RYOGOKU', cx, cy + ring * .92);
+
+  // 写真
+  const lens = R * .98;
+  g.save(); g.beginPath(); g.arc(cx, cy, lens, 0, 7); g.clip();
+  cover(g, imgs[scene < 0 ? 0 : scene], cx, cy, lens, -mouse.x * 18, -mouse.y * 18);
+  // 絞り羽根：開口は正多角形。各頂点から、隣の辺を外へ延ばした線が羽根の縁になる
+  rot = -open * .9;
+  const pts = [];
+  for (let i = 0; i < BLADES; i++) { const a = rot + i / BLADES * Math.PI * 2; pts.push([cx + Math.cos(a) * r, cy + Math.sin(a) * r]); }
+  g.beginPath(); g.rect(cx - lens - 2, cy - lens - 2, lens * 2 + 4, lens * 2 + 4);
+  g.moveTo(pts[0][0], pts[0][1]); for (let i = BLADES - 1; i >= 0; i--) g.lineTo(pts[i][0], pts[i][1]); g.closePath();
+  const bg = g.createRadialGradient(cx, cy, r, cx, cy, lens);
+  bg.addColorStop(0, '#2b2a29'); bg.addColorStop(1, '#121212');
+  g.fillStyle = bg; g.fill('evenodd');
+  for (let i = 0; i < BLADES; i++) {
+    const a = pts[i], b = pts[(i + 1) % BLADES], dx = b[0] - a[0], dy = b[1] - a[1], l = Math.hypot(dx, dy) || 1;
+    const ex = a[0] - dx / l * lens * 2.2, ey = a[1] - dy / l * lens * 2.2;
+    g.strokeStyle = 'rgba(255,255,255,.16)'; g.lineWidth = 1.2; g.beginPath(); g.moveTo(a[0], a[1]); g.lineTo(ex, ey); g.stroke();
+    g.strokeStyle = 'rgba(0,0,0,.6)'; g.lineWidth = 3; g.beginPath(); g.moveTo(a[0] + 2, a[1] + 2); g.lineTo(ex + 2, ey + 2); g.stroke();
+  }
+  // ガラスの反射
+  const gl = g.createLinearGradient(cx - lens, cy - lens, cx + lens, cy + lens);
+  gl.addColorStop(0, 'rgba(255,255,255,.16)'); gl.addColorStop(.35, 'rgba(255,255,255,0)'); gl.addColorStop(.7, 'rgba(120,160,255,0)'); gl.addColorStop(1, 'rgba(120,160,255,.10)');
+  g.fillStyle = gl; g.fillRect(cx - lens, cy - lens, lens * 2, lens * 2);
+  g.restore();
+  g.strokeStyle = 'rgba(227,180,93,.55)'; g.lineWidth = 1.5; g.beginPath(); g.arc(cx, cy, lens + 1, 0, 7); g.stroke();
+} });
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="2010" data-from="1950">2010</span><small>年4月1日から　両国で</small></div></div>
+    <div class="rv"><h2>確かな技術と、丁寧な接客で。</h2><p>仕事が終わった後に撮影したい方、七五三の写真を年賀状に使いたい方、履歴書の写真をきれいにしたい方。ご予約いただければ、できる限りご希望にお応えします。</p><p>お店のホームページに載せる商品写真や、毎年の誕生日・記念日の成長記録も。カメラマン平岡洋一が撮影します。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>お宮参り</span><span>七五三</span><span>入園入学</span><span>成人式</span><span>プロフィール</span><span>出張撮影</span><span>お宮参り</span><span>七五三</span><span>入園入学</span><span>成人式</span><span>プロフィール</span><span>出張撮影</span><span>お宮参り</span><span>七五三</span><span>入園入学</span><span>成人式</span><span>プロフィール</span><span>出張撮影</span><span>お宮参り</span><span>七五三</span><span>入園入学</span><span>成人式</span><span>プロフィール</span><span>出張撮影</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>撮影</h2><span>PHOTO</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/f1.jpg" alt="着物姿の女性" loading="lazy" data-speed=".06" data-gl></div><h3>記念写真</h3><p>お宮参り、七五三、成人式、入園入学卒業。</p></article><article class="feature rv"><div class="ph"><img src="img/f2.jpg" alt="スタジオで撮影したポートレート" loading="lazy" data-speed=".06" data-gl></div><h3>プロフィール・宣材写真</h3><p>オーディションやお仕事用の写真も。</p></article><article class="feature rv"><div class="ph"><img src="img/f3.jpg" alt="浴衣姿の子ども" loading="lazy" data-speed=".06" data-gl></div><h3>ペットと一緒に</h3><p>かわいいペットとご一緒に撮影できます。</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/wide.jpg" alt="白い背景のスタジオ" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">スタジオ使用料込みの料金です。</figcaption></figure>
+  
+  <section class="sec" id="price">
+    <div class="sec-head rv"><h2>料金</h2><span>PRICE</span></div>
+    <dl class="prices rv"><div><dt>プロフィール・オーディション宣材写真<small>撮影30分・背景一色・データ付</small></dt><dd>11,000円</dd></div><div><dt>アーティスト写真<small>撮影2時間・データでお渡し</small></dt><dd>22,000円</dd></div><div><dt>ペットと一緒に<small>撮影30分・背景一色・データでお渡し</small></dt><dd>22,000円</dd></div></dl>
+    <p class="prices-note rv">料金は現在のホームページの表示をもとにしています。</p>
+  </section>
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">営業時間</h2></div>
+      
+      <table class="hours"><tr><th>ご予約</th><td>お電話でどうぞ（外回りが多いため、なるべく携帯へ）</td></tr><tr><th>携帯</th><td>090-3088-3991</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>東京都墨田区亀沢1-24-1</p>
+      <p class="mute">都営大江戸線 両国駅A2出口を出て、清澄通りを北へ約1分。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%A2%A8%E7%94%B0%E5%8C%BA%E4%BA%80%E6%B2%A21-24-1%20CAP%E5%B9%B3%E5%B2%A1" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:0336221018" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">ご予約は、お電話で。</h2>
+    <a class="tel" href="tel:0336221018">03-3622-1018</a>
+    <p>撮影のご相談は、お電話またはメールでどうぞ。クレジットカードもご利用いただけます。</p>
+    <div class="btns"><a class="btn" href="mailto:cap@mbn.nifty.com" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>CAP平岡　東京都墨田区亀沢1-24-1　TEL 03-3622-1018</p>
+  <p>この試作は森川ウェブ（mahmoris98@gmail.com）が、CAP平岡様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:0336221018" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

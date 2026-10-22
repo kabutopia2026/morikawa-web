@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>株式会社ヤナギダ｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#d8c4a0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#d8c4a0;--ink:#2a1d12;--mute:#6f5a42;--accent:#d0342c;--accent-ink:#fff;--panel:#e3d3b5;--line:rgba(42,29,18,.16);--display:"Zen Kaku Gothic New",sans-serif;--display-weight:900;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 50%;--top-ink:var(--ink)}
+
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>が株式会社ヤナギダ様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">包装資材の総合商社　台東区上野桜木</p><p class="pl-name">ヤナギダ</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">ヤナギダ</a>
+  <nav aria-label="ページ内の案内"><a href="#story">会社のこと</a><a href="#features">製品</a><a href="#info">お問い合わせ</a></nav>
+  
+  <a class="call" href="tel:0338284156"><span data-en="Call">電話</span><span class="num">03-3828-4156</span></a>
+</header>
+
+<main>
+  <section class="hero" hidden>
+    <div class="hero-img"><img src="img/hero.jpg" alt="並んだ段ボール箱" ></div>
+    <div class="hero-copy">
+      <p class="kind">包装資材の総合商社　台東区上野桜木</p>
+      <h1><span class="ln"><span style="--i:0">ゴムバンドから、</span></span><span class="ln"><span style="--i:1">はじまった。</span></span></h1>
+      
+      <p class="sub">昭和5年にゴムバンドで創業して以来、結束用品・包装用品・店舗用品・生活用品をお届けしている包装資材の総合商社です。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-yg hero-sig" id="sig" aria-label="ゴムバンドが紙の束をぱちんと結ぶ3Dの演出">
+    <div class="yg-stick hero">
+      <canvas id="yg3d" aria-hidden="true"></canvas>
+      <div class="hero-copy hs-copy" id="hs-copy"><p class="kind">包装資材の総合商社　台東区上野桜木</p><h1><span class="ln"><span style="--i:0">ゴムバンドから、</span></span><span class="ln"><span style="--i:1">はじまった。</span></span></h1><p class="sub">昭和5年にゴムバンドで創業して以来、結束用品・包装用品・店舗用品・生活用品をお届けしている包装資材の総合商社です。</p></div>
+      <div class="yg-copy" id="yg-copy">
+        <p class="yg-step" id="yg-step">結束用品</p>
+        <p class="yg-h" id="yg-h">結ぶ。</p>
+        <p class="yg-p" id="yg-p">創業のゴムバンドから、さまざまな結束材まで。</p>
+        <ol class="yg-four" aria-label="4本柱"><li data-i="0">結束用品</li><li data-i="1">包装用品</li><li data-i="2">店舗用品</li><li data-i="3">生活用品</li></ol>
+      </div>
+      <p class="yg-note">3Dのイメージです。画面をなぞると、ゴムが揺れます</p>
+    </div>
+  </section>
+<style>
+.sig-yg{position:relative;height:400vh;background:#d8c4a0}
+.yg-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:radial-gradient(70% 70% at 62% 48%,#ead9b8,#cfb98f 75%)}
+.yg-stick{color:var(--ink)}
+.yg-stick .hs-copy{z-index:3}
+#yg3d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.yg-copy{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);max-width:420px;opacity:0;z-index:3}
+.yg-step{margin:0;color:var(--accent);font-weight:900;letter-spacing:.16em;font-size:14px}
+.yg-h{font-weight:900;font-size:clamp(56px,7vw,104px);line-height:1;margin:10px 0 18px;transition:opacity .3s,transform .3s}
+.yg-p{margin:0 0 26px;color:var(--mute);transition:opacity .3s}
+.yg-four{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,auto);gap:8px;justify-content:start}
+.yg-four li{padding:7px 14px;border:2px solid var(--ink);border-radius:999px;font-weight:700;font-size:14px;transition:background .3s,color .3s}
+.yg-four li.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.yg-note{position:absolute;right:var(--gut);bottom:22px;margin:0;font-size:12px;color:var(--mute);z-index:3}
+@media (max-width:860px){
+  .yg-copy{top:auto;bottom:0;transform:none;left:0;right:0;max-width:none;padding:56px var(--gut) 96px;background:linear-gradient(to top,rgba(216,196,160,.97) 64%,rgba(216,196,160,0))}
+  .yg-h{font-size:56px}
+  .yg-note{top:74px;bottom:auto}
+}
+</style>
+<script type="module">
+import * as THREE from 'three';
+import { stage3d, heroFade, span, c01, qa, mouse } from '../_kit/sig/stage.js';
+
+const canvas = document.getElementById('yg3d'), section = canvas.closest('section');
+const copy = document.getElementById('yg-copy'), note = section.querySelector('.yg-note');
+const stepEl = document.getElementById('yg-step'), hEl = document.getElementById('yg-h'), pEl = document.getElementById('yg-p');
+const pills = [...section.querySelectorAll('.yg-four li')];
+const STEPS = [
+  ['結束用品', '結ぶ。', '創業のゴムバンドから、さまざまな結束材まで。'],
+  ['包装用品', '包む。', '粘着テープ、紙製品、フィルム製品、袋類、包装機械も。'],
+  ['店舗用品', '並べる。', 'ラベリング・タギング、装飾用品・リボン、店舗用品を。'],
+  ['生活用品', '届ける。', '衛生用品・厨房製品から、梱包物流機器まで。'],
+];
+
+// 輪ゴム：小さな輪から、束の外周いっぱいに伸びる形へ（同じ点の数で2つの形を用意して、その間を動かす）
+const SEG = 160;
+function loopPoints(kind, w, h) {
+  const pts = [];
+  for (let i = 0; i < SEG; i++) {
+    const a = i / SEG * Math.PI * 2;
+    if (kind === 'ring') pts.push(new THREE.Vector3(0, Math.sin(a) * .42, Math.cos(a) * .42));
+    else {
+      // 角の丸い四角（束の断面に沿う）
+      const c = Math.cos(a), s = Math.sin(a), k = 6;
+      const x = Math.sign(c) * Math.pow(Math.abs(c), 2 / k) * w / 2, y = Math.sign(s) * Math.pow(Math.abs(s), 2 / k) * h / 2;
+      pts.push(new THREE.Vector3(0, y, x));
+    }
+  }
+  return pts;
+}
+function band(color, w, h) {
+  const ring = new THREE.CatmullRomCurve3(loopPoints('ring'), true), rect = new THREE.CatmullRomCurve3(loopPoints('rect', w, h), true);
+  const g0 = new THREE.TubeGeometry(ring, SEG, .055, 10, true), g1 = new THREE.TubeGeometry(rect, SEG, .042, 10, true);
+  g0.morphAttributes.position = [g1.attributes.position];
+  g0.morphAttributes.normal = [g1.attributes.normal];
+  const m = new THREE.Mesh(g0, new THREE.MeshPhysicalMaterial({ color, roughness: .55, clearcoat: .3 }));
+  m.morphTargetInfluences = [0];
+  m.userData = { k: 0, v: 0 };
+  return m;
+}
+
+const st = stage3d({ canvas, section, fov: 30, env: .03, frame });
+let step = -1;
+if (st) {
+  const { scene } = st;
+  // 紙の束（少しずつずれて重なる）
+  const kraft = (() => { const c = document.createElement('canvas'); c.width = c.height = 256; const g = c.getContext('2d');
+    g.fillStyle = '#c9a26b'; g.fillRect(0, 0, 256, 256);
+    for (let i = 0; i < 900; i++) { g.fillStyle = `rgba(${Math.random() < .5 ? '90,60,30' : '235,210,170'},${Math.random() * .25})`; g.fillRect(Math.random() * 256, Math.random() * 256, 1 + Math.random() * 5, 1); }
+    const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(2, 2); return t; })();
+  const stack = new THREE.Group(); scene.add(stack);
+  const W = 3.4, D = 2.3;
+  const tones = ['#f4efe4', '#e9dfcb', '#c9a26b', '#f4efe4', '#ddd0b8', '#c9a26b', '#f1ebdf', '#e3d7c1'];
+  tones.forEach((c, i) => {
+    const m = new THREE.Mesh(new THREE.BoxGeometry(W, .11, D), new THREE.MeshStandardMaterial({ color: c, roughness: .9, map: c === '#c9a26b' ? kraft : null }));
+    m.position.set((Math.random() - .5) * .08, i * .115, (Math.random() - .5) * .08); m.rotation.y = (Math.random() - .5) * .03; stack.add(m);
+  });
+  const H = tones.length * .115;
+  stack.children.forEach(m => { m.position.y -= H / 2; });
+  const red = band('#d0342c', D + .1, H + .08), yel = band('#f0b532', W + .1, H + .08), grn = band('#3f8f5a', D + .1, H + .08);
+  red.position.x = -.9; grn.position.x = .9; yel.rotation.y = Math.PI / 2;
+  stack.add(red, yel, grn);
+  scene.add(new THREE.HemisphereLight('#fff6e8', '#7a6040', 1.1));
+  const key = new THREE.DirectionalLight('#fff', 1.6); key.position.set(-3, 6, 5); scene.add(key);
+  Object.assign(st, { stack, bands: [[red, .12], [yel, .3], [grn, .48]] });
+  st.start();
+}
+
+let last = 0, wob = 0;
+function frame({ t, dt, p, portrait }) {
+  const heroK = heroFade(p, .1);
+  copy.style.opacity = note.style.opacity = c01((p - .07) / .06);
+  // ゴムは、ばねのように伸びて、ぱちんと止まる
+  const pm = Math.hypot(mouse.x - (st.mx || 0), mouse.y - (st.my || 0)); st.mx = mouse.x; st.my = mouse.y;
+  wob = Math.min(1, wob * .9 + pm * 4);
+  st.bands.forEach(([b, at], i) => {
+    const target = qa ? (p > at ? 1 : 0) : span(p, at, at + .1) > .5 ? 1 : span(p, at, at + .1) * .4;
+    const u = b.userData;
+    u.v += (target - u.k) * 120 * dt; u.v *= Math.pow(.02, dt); u.k += u.v * dt;
+    if (qa) u.k = target;
+    b.morphTargetInfluences[0] = Math.max(0, Math.min(1.08, u.k + Math.sin(t * 30 + i) * .02 * wob));
+    const off = (1 - Math.min(1, u.k)) * 2.2;
+    b.position.y = off; b.visible = p > at - .1 || qa && p >= at;
+    b.scale.setScalar(1 + (1 - Math.min(1, u.k)) * .2);
+  });
+  const s = portrait ? .55 : 1;
+  st.stack.scale.setScalar(s);
+  st.stack.position.set(portrait ? 0 : 2.6 * heroK + 1.5 * (1 - heroK), portrait ? 1.0 : -.1, 0);
+  st.stack.rotation.set(.42 + mouse.y * .15, -.55 + mouse.x * .5 + (qa ? 0 : Math.sin(t * .25) * .08), 0);
+  const k = Math.min(3, Math.floor(span(p, .14, 1) * 4));
+  if (k !== step) {
+    step = k; hEl.style.opacity = pEl.style.opacity = 0;
+    pills.forEach((li, i) => li.classList.toggle('on', i === k));
+    setTimeout(() => { stepEl.textContent = STEPS[k][0]; hEl.textContent = STEPS[k][1]; pEl.textContent = STEPS[k][2]; hEl.style.opacity = pEl.style.opacity = 1; }, qa ? 0 : 200);
+  }
+  st.camera.position.set(0, 1.2, 10.5);
+  st.camera.lookAt(0, .1, 0);
+}
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="1930" data-from="1870">1930</span><small>年　昭和5年　ゴムバンドで創業</small></div></div>
+    <div class="rv"><h2>結ぶ、包む、並べる。</h2><p>創業は昭和5年、創始者・柳田勇造の柳田商店から。ゴムバンドを扱うところから始まり、今では粘着テープや紙製品、包装機械まで幅広く取りそろえる包装資材の総合商社です。</p><p>環境方針は「環境負荷の軽減を全社で進めよう」。結束用品、包装用品、店舗用品、生活用品の4本柱を育てています。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>ゴムバンド</span><span>結束材</span><span>粘着テープ</span><span>紙製品</span><span>包装機械</span><span>リボン</span><span>昭和五年創業</span><span>ゴムバンド</span><span>結束材</span><span>粘着テープ</span><span>紙製品</span><span>包装機械</span><span>リボン</span><span>昭和五年創業</span><span>ゴムバンド</span><span>結束材</span><span>粘着テープ</span><span>紙製品</span><span>包装機械</span><span>リボン</span><span>昭和五年創業</span><span>ゴムバンド</span><span>結束材</span><span>粘着テープ</span><span>紙製品</span><span>包装機械</span><span>リボン</span><span>昭和五年創業</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>製品</h2><span>PRODUCTS</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/f1.jpg" alt="色とりどりの輪ゴム" loading="lazy" data-speed=".06" data-gl></div><h3>ゴムバンド・結束材</h3><p>創業のゴムバンドから、さまざまな結束材まで。</p></article><article class="feature rv"><div class="ph"><img src="img/f2.jpg" alt="テープカッターと粘着テープ" loading="lazy" data-speed=".06" data-gl></div><h3>粘着テープ・包装機械</h3><p>梱包の現場で使うテープや機械、梱包物流機器も。</p></article><article class="feature rv"><div class="ph"><img src="img/f3.jpg" alt="クラフト紙と麻ひもで包んだ箱" loading="lazy" data-speed=".06" data-gl></div><h3>装飾用品・リボン</h3><p>贈り物を包むリボンや、店舗用品もそろえています。</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/wide.jpg" alt="倉庫に並ぶ梱包資材" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">東京・関東・東北の拠点から。</figcaption></figure>
+  
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">営業時間</h2></div>
+      
+      <table class="hours"><tr><th>お問い合わせ</th><td>お電話・メールで承ります</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>東京都台東区上野桜木2-20-14</p>
+      <p class="mute">本社・東京支店のほか、関東支店・関東物流センター、東北支店があります。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8F%B0%E6%9D%B1%E5%8C%BA%E4%B8%8A%E9%87%8E%E6%A1%9C%E6%9C%A82-20-14%20%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%83%A4%E3%83%8A%E3%82%AE%E3%83%80" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:0338284156" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">包むものから、ご相談ください。</h2>
+    <a class="tel" href="tel:0338284156">03-3828-4156</a>
+    <p>製品のお問い合わせやお見積もりは、お電話かメールでどうぞ。</p>
+    <div class="btns"><a class="btn" href="mailto:otoiawase@yanagida-ltd.co.jp" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>株式会社ヤナギダ　東京都台東区上野桜木2-20-14　TEL 03-3828-4156</p>
+  <p>この試作は森川ウェブ（mahmoris98@gmail.com）が、株式会社ヤナギダ様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:0338284156" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

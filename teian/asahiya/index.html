@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ドライブイン旭屋｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0d2233">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#0d2233;--ink:#f2f6f8;--mute:#9fb6c4;--accent:#f2b134;--accent-ink:#0d2233;--panel:#123048;--line:rgba(242,246,248,.14);--display:"Dela Gothic One",sans-serif;--display-weight:400;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 55%}
+
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>がドライブイン旭屋様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">和食・鮮魚　茨城県土浦市荒川沖</p><p class="pl-name">旭屋</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">旭屋</a>
+  <nav aria-label="ページ内の案内"><a href="#story">本日のおすすめ</a><a href="#features">お品書き</a><a href="#info">営業時間</a></nav>
+  
+  <a class="call" href="tel:0298410022"><span data-en="Call">電話</span><span class="num">029-841-0022</span></a>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-img"><img src="img/hero.jpg" alt="刺身の盛り合わせ"  data-gl="wipe" data-gl-hero></div>
+    <div class="hero-copy">
+      <p class="kind">和食・鮮魚　茨城県土浦市荒川沖</p>
+      <h1><span class="ln"><span style="--i:0">日本各地の魚を、</span></span><span class="ln"><span style="--i:1">土浦で。</span></span></h1>
+      
+      <p class="sub">行きも帰りもお食事は旭屋で。知床羅臼の秋ブリ、壱岐のサワラ、宮古の戻りカツオなど、日本各地から届くブランド魚を定食でお出ししています。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-ah" id="sig" aria-label="今日の魚が、日本各地の港から土浦へ届く様子を描いた地図">
+    <div class="ah-stick">
+      <canvas id="ah2d" aria-hidden="true"></canvas>
+      <div class="ah-copy">
+        <p class="ah-step">本日のおすすめ</p>
+        <p class="ah-h" id="ah-h">オホーツク 秋ブリ</p>
+        <p class="ah-from" id="ah-from">北海道 知床羅臼 直送</p>
+        <p class="ah-p" id="ah-p">10kgを超えて、はじめて「ブリ」。本日は12.6kg。</p>
+        <p class="ah-price" id="ah-price">現金特価 2,580円<small>さくさくアジフライ付</small></p>
+        <div class="ah-tabs" role="group" aria-label="魚を選ぶ"><button type="button" data-i="0" aria-pressed="true">秋ブリ</button><button type="button" data-i="1" aria-pressed="false">サワラ</button><button type="button" data-i="2" aria-pressed="false">戻りカツオ</button><button type="button" data-i="3" aria-pressed="false">ミズタコ</button></div>
+      </div>
+      <p class="ah-note">位置はおおよそです。お品書きは日によって変わります</p>
+    </div>
+  </section>
+<style>
+.sig-ah{position:relative;height:360vh;background:#0d2233}
+.ah-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#0b1d2b}
+#ah2d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.ah-copy{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);max-width:380px;z-index:3}
+.ah-step{margin:0;color:var(--accent);font-weight:700;letter-spacing:.2em;font-size:13px}
+.ah-h{font-family:var(--display);font-size:clamp(24px,2.6vw,38px);line-height:1.2;margin:8px 0 6px;transition:opacity .3s}
+.ah-from{margin:0 0 14px;font-weight:700;color:#7fd3ff;transition:opacity .3s}
+.ah-p{margin:0 0 14px;color:var(--mute);transition:opacity .3s}
+.ah-price{margin:0 0 20px;font-family:var(--display);font-size:24px;transition:opacity .3s}
+.ah-price small{display:block;font-family:var(--body);font-size:13px;color:var(--mute)}
+.ah-tabs{display:flex;gap:6px;flex-wrap:wrap}
+.ah-tabs button{font:inherit;font-weight:700;font-size:14px;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.ah-tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#0d2233}
+.ah-note{position:absolute;right:var(--gut);bottom:22px;margin:0;font-size:12px;color:var(--mute)}
+@media (max-width:860px){
+  .ah-copy{top:auto;bottom:0;transform:none;left:0;right:0;max-width:none;padding:48px var(--gut) 96px;background:linear-gradient(to top,rgba(11,29,43,.97) 66%,rgba(11,29,43,0))}
+  .ah-p{display:none}
+  .ah-note{top:74px;bottom:auto}
+}
+</style>
+<script type="module">
+import { stage2d, span, qa, mouse } from '../_kit/sig/stage.js';
+
+const canvas = document.getElementById('ah2d'), section = canvas.closest('section');
+const els = { h: 'ah-h', from: 'ah-from', p: 'ah-p', price: 'ah-price' };
+for (const k in els) els[k] = document.getElementById(els[k]);
+const tabs = [...section.querySelectorAll('.ah-tabs button')];
+// 経度・緯度（おおよそ）
+const DEST = { name: '土浦', lon: 140.2, lat: 36.08 };
+const FISH = [
+  { h: 'オホーツク 秋ブリ', from: '北海道 知床羅臼 直送', p: '10kgを超えて、はじめて「ブリ」。本日は12.6kg。', price: '現金特価 2,580円', port: '知床羅臼', lon: 145.2, lat: 44.02 },
+  { h: '壱岐一本釣り サワラ', from: '長崎県 壱岐 石田漁協', p: '皮目を強火で焦がした、焼霜造りで。', price: '現金特価 2,380円', port: '壱岐', lon: 129.72, lat: 33.76 },
+  { h: '日帰り漁 戻りカツオ', from: '岩手県 宮古港 直送', p: '24時間以内に港へ戻る日帰り漁の、一本釣り。本日は6.1kg。', price: '現金特価 2,180円', port: '宮古', lon: 141.96, lat: 39.64 },
+  { h: '活 生ミズタコ', from: '秋田県 男鹿 産', p: '茹でていないタコの、甘みと旨味を。', price: '現金特価 2,480円', port: '男鹿', lon: 139.85, lat: 39.9 },
+];
+// 海岸線（ごく大まかな形）
+const LAND = [
+  [[140.0,41.4],[140.4,41.8],[141.2,41.8],[141.0,42.3],[141.7,42.6],[142.5,42.2],[143.3,42.0],[143.9,42.6],[144.7,42.95],[145.6,43.3],[145.3,43.6],[145.1,44.2],[144.2,44.1],[143.0,44.6],[142.0,45.4],[141.6,45.2],[141.8,44.6],[141.6,43.8],[141.3,43.2],[140.4,43.3],[140.4,42.6],[139.8,42.2]],
+  [[140.9,41.5],[141.5,41.4],[141.4,40.6],[141.9,40.0],[142.0,39.5],[141.6,38.7],[141.0,38.3],[141.0,37.5],[140.9,36.9],[140.6,36.3],[140.8,35.7],[140.4,35.2],[139.9,34.9],[139.8,35.3],[139.6,35.2],[139.1,35.1],[138.8,34.6],[138.2,34.6],[137.3,34.6],[136.9,34.3],[136.8,33.6],[135.8,33.5],[135.4,33.9],[135.1,34.3],[135.2,34.7],[134.2,34.7],[133.2,34.4],[132.2,34.0],[131.0,33.9],[130.9,34.3],[131.4,34.4],[132.4,35.3],[133.2,35.6],[134.4,35.6],[135.4,35.6],[136.1,36.1],[136.8,37.1],[137.3,37.5],[137.0,36.8],[137.6,36.9],[138.6,37.4],[139.4,38.1],[139.8,38.9],[140.0,39.8],[139.7,40.0],[140.0,40.6],[140.3,41.2]],
+  [[132.0,33.0],[132.5,32.8],[133.0,32.7],[133.4,33.4],[134.2,33.2],[134.7,33.8],[134.6,34.2],[134.0,34.4],[133.5,34.3],[132.9,34.1],[132.6,33.8],[132.0,33.4]],
+  [[130.9,33.9],[131.6,33.6],[131.9,33.0],[131.4,31.4],[130.7,31.0],[130.2,31.3],[130.3,32.1],[129.8,32.6],[129.6,33.3],[130.1,33.6],[130.5,33.9]],
+];
+let pick = -1, manual = 0, travel = 0;
+function choose(i) {
+  if (i === pick) return; pick = i; travel = 0;
+  tabs.forEach((b, k) => b.setAttribute('aria-pressed', k === i));
+  const f = FISH[i];
+  for (const k of ['h', 'from', 'p', 'price']) els[k].style.opacity = 0;
+  setTimeout(() => {
+    els.h.textContent = f.h; els.from.textContent = f.from; els.p.textContent = f.p;
+    els.price.innerHTML = f.price + '<small>さくさくアジフライ付</small>';
+    for (const k of ['h', 'from', 'p', 'price']) els[k].style.opacity = 1;
+  }, qa ? 0 : 180);
+}
+tabs.forEach(b => b.addEventListener('click', () => { manual = performance.now(); choose(+b.dataset.i); }));
+
+// 魚の形（横向き）
+function fish(g, x, y, s, a, col) {
+  g.save(); g.translate(x, y); g.rotate(a); g.scale(s, s);
+  g.fillStyle = col; g.beginPath();
+  g.moveTo(-14, 0); g.quadraticCurveTo(-4, -8, 10, -2); g.quadraticCurveTo(14, 0, 10, 2); g.quadraticCurveTo(-4, 8, -14, 0); g.fill();
+  g.beginPath(); g.moveTo(-12, 0); g.lineTo(-20, -6); g.lineTo(-18, 0); g.lineTo(-20, 6); g.closePath(); g.fill();
+  g.restore();
+}
+stage2d({ canvas, section, draw(g, w, h, { t, dt, p }) {
+  if (performance.now() - manual > 1500) choose(Math.min(3, Math.floor(span(p, .08, 1) * 4)));
+  travel = qa ? 1 : Math.min(1, travel + dt * .45);
+  g.fillStyle = '#0b1d2b'; g.fillRect(0, 0, w, h);
+  const portrait = h > w;
+  // 地図の範囲（経度128〜147、緯度31〜46）を、画面の右側に
+  const box = portrait ? { x: w * .08, y: h * .08, w: w * .84, h: h * .5 } : { x: w * .42, y: h * .1, w: w * .52, h: h * .82 };
+  const sc = Math.min(box.w / 19, box.h / 15);
+  const ox = box.x + (box.w - 19 * sc) / 2, oy = box.y + (box.h - 15 * sc) / 2;
+  const P = (lon, lat) => [ox + (lon - 128) * sc + mouse.x * 6, oy + (46 - lat) * sc + mouse.y * 6];
+  // 経線・緯線
+  g.strokeStyle = 'rgba(160,210,240,.08)'; g.lineWidth = 1;
+  for (let lon = 128; lon <= 147; lon++) { const [a] = P(lon, 46), [, b] = P(lon, 46), [, c] = P(lon, 31); g.beginPath(); g.moveTo(a, b); g.lineTo(a, c); g.stroke(); }
+  for (let lat = 31; lat <= 46; lat++) { const [a, b] = P(128, lat), [c] = P(147, lat); g.beginPath(); g.moveTo(a, b); g.lineTo(c, b); g.stroke(); }
+  g.fillStyle = 'rgba(160,210,240,.35)'; g.font = '11px sans-serif';
+  g.fillText('N 40°', ...P(128.2, 40.2)); g.fillText('E 140°', ...P(140.1, 31.4));
+  g.fillStyle = 'rgba(160,210,240,.07)'; g.strokeStyle = 'rgba(160,210,240,.32)'; g.lineWidth = 1.2; g.lineJoin = 'round';
+  for (const isl of LAND) { g.beginPath(); isl.forEach(([lo, la], i) => { const [x, y] = P(lo, la); i ? g.lineTo(x, y) : g.moveTo(x, y); }); g.closePath(); g.fill(); g.stroke(); }
+  const [dx, dy] = P(DEST.lon, DEST.lat);
+  FISH.forEach((f, i) => {
+    const [sx, sy] = P(f.lon, f.lat), on = i === pick;
+    const mx = (sx + dx) / 2 + (sy - dy) * .25, my = (sy + dy) / 2 - (sx - dx) * .25;
+    g.strokeStyle = on ? 'rgba(242,177,52,.9)' : 'rgba(160,210,240,.18)'; g.lineWidth = on ? 2 : 1;
+    g.setLineDash(on ? [] : [4, 6]); g.beginPath(); g.moveTo(sx, sy); g.quadraticCurveTo(mx, my, dx, dy); g.stroke(); g.setLineDash([]);
+    g.fillStyle = on ? '#f2b134' : 'rgba(160,210,240,.6)'; g.beginPath(); g.arc(sx, sy, on ? 6 : 4, 0, 7); g.fill();
+    g.fillStyle = on ? '#fff' : 'rgba(160,210,240,.7)'; g.font = `${on ? 700 : 500} ${on ? 15 : 13}px "Zen Kaku Gothic New",sans-serif`;
+    g.fillText(f.port, sx + 10, sy - 8);
+    if (on) {
+      // 魚が港から土浦へ
+      const k = travel, u = 1 - k;
+      const fx = u * u * sx + 2 * u * k * mx + k * k * dx, fy = u * u * sy + 2 * u * k * my + k * k * dy;
+      const tx = 2 * u * (mx - sx) + 2 * k * (dx - mx), ty = 2 * u * (my - sy) + 2 * k * (dy - my);
+      fish(g, fx, fy, 1.4 + Math.sin(t * 8) * .05, Math.atan2(ty, tx), '#ffffff');
+    }
+  });
+  // 土浦
+  const pulse = (t * .8) % 1;
+  g.strokeStyle = `rgba(242,177,52,${1 - pulse})`; g.lineWidth = 2; g.beginPath(); g.arc(dx, dy, 8 + pulse * 26, 0, 7); g.stroke();
+  g.fillStyle = '#f2b134'; g.beginPath(); g.arc(dx, dy, 8, 0, 7); g.fill();
+  g.fillStyle = '#fff'; g.font = '700 18px "Dela Gothic One",sans-serif'; g.fillText('土浦 旭屋', dx + 14, dy + 6);
+} });
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="10" data-from="-50">10</span><small>kgを超えて、はじめて「ブリ」と呼ぶ</small></div></div>
+    <div class="rv"><h2>10kgを超えて、はじめて「ブリ」。</h2><p>北海道知床羅臼から直送のオホーツクの秋ブリ。10kgを超えるものをはじめて「ブリ」と呼び、刺身でお出しします。</p><p>長崎県壱岐の一本釣りサワラは皮目を強火で焦がした焼霜造りで。岩手県宮古港直送の日帰り漁のカツオ、秋田県男鹿の生ミズタコも。どの定食にも、さくさくのアジフライが付きます。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>本日のおすすめ</span><span>秋ブリ</span><span>サワラ</span><span>戻りカツオ</span><span>ミズタコ</span><span>さくさくアジフライ</span><span>本日のおすすめ</span><span>秋ブリ</span><span>サワラ</span><span>戻りカツオ</span><span>ミズタコ</span><span>さくさくアジフライ</span><span>本日のおすすめ</span><span>秋ブリ</span><span>サワラ</span><span>戻りカツオ</span><span>ミズタコ</span><span>さくさくアジフライ</span><span>本日のおすすめ</span><span>秋ブリ</span><span>サワラ</span><span>戻りカツオ</span><span>ミズタコ</span><span>さくさくアジフライ</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>お品書き</h2><span>TODAY</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/f1.jpg" alt="氷の上に並んだ魚" loading="lazy" data-speed=".06" data-gl></div><h3>オホーツク 秋ブリ刺身</h3><p>さくさくアジフライ付　現金特価 2,580円</p></article><article class="feature rv"><div class="ph"><img src="img/f2.jpg" alt="焼き魚の定食" loading="lazy" data-speed=".06" data-gl></div><h3>壱岐一本釣り サワラ刺身</h3><p>焼霜造り　さくさくアジフライ付　現金特価 2,380円</p></article><article class="feature rv"><div class="ph"><img src="img/f3.jpg" alt="泳ぐブリ" loading="lazy" data-speed=".06" data-gl></div><h3>かま・かぶと塩焼き</h3><p>薄塩で焼いた、骨離れの良い身　1,980円〜</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/wide.jpg" alt="魚をさばく料理人" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">その日の魚は、その日のうちに。</figcaption></figure>
+  
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">営業時間</h2></div>
+      
+      <table class="hours"><tr><th>昼</th><td>11:00〜14:00（最終入店）</td></tr><tr><th>夜</th><td>17:30〜21:30（最終入店）</td></tr><tr><th>定休日</th><td>火曜日・不定休</td></tr><tr><th>お支払い</th><td>現金のみ</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>茨城県土浦市荒川沖南区6-138</p>
+      <p class="mute">看板を目印にご来店ください。団体様・オフ会のご利用、クエ鍋のご予約も承ります。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E8%8C%A8%E5%9F%8E%E7%9C%8C%E5%9C%9F%E6%B5%A6%E5%B8%82%E8%8D%92%E5%B7%9D%E6%B2%96%E5%8D%97%E5%8C%BA6-138%20%E3%83%89%E3%83%A9%E3%82%A4%E3%83%96%E3%82%A4%E3%83%B3%E6%97%AD%E5%B1%8B" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:0298410022" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">今日の魚を、食べに来てください。</h2>
+    <a class="tel" href="tel:0298410022">029-841-0022</a>
+    <p>ご予約・団体様のご相談はお電話で。在庫によってはご入店をお断りする場合があります。</p>
+    <div class="btns"><a class="btn" href="mailto:asahiya@mvj.biglobe.ne.jp" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>ドライブイン旭屋　茨城県土浦市荒川沖南区6-138　TEL 029-841-0022</p>
+  <p>この試作は森川ウェブ（mahmoris98@gmail.com）が、ドライブイン旭屋様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:0298410022" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

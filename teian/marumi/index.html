@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>まるみ観光果樹園｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#f2f5ea">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@500&family=Zen+Maru+Gothic:wght@700;900&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#f2f5ea;--ink:#1f2a17;--mute:#5f6d55;--accent:#6b2f73;--accent-ink:#fff;--panel:#e5ebd8;--line:rgba(31,42,23,.13);--display:"Zen Maru Gothic",sans-serif;--display-weight:900;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 40%}
+
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>がまるみ観光果樹園様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">ぶどう・梨の観光果樹園　宮崎県都農町</p><p class="pl-name">まるみ観光果樹園</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">まるみ観光果樹園</a>
+  <nav aria-label="ページ内の案内"><a href="#story">まるみ園のこだわり</a><a href="#features">ぶどう・梨</a><a href="#info">料金・時期</a></nav>
+  
+  <a class="call" href="tel:0983250812"><span data-en="Call">電話</span><span class="num">0983-25-0812</span></a>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-img"><img src="img/hero.jpg" alt="陽の光を受けたぶどう"  data-gl="wipe" data-gl-hero></div>
+    <div class="hero-copy">
+      <p class="kind">ぶどう・梨の観光果樹園　宮崎県都農町</p>
+      <h1><span class="ln"><span style="--i:0">一口食べれば、</span></span><span class="ln"><span style="--i:1">違いがわかる。</span></span></h1>
+      
+      <p class="sub">宮崎県の中央、尾鈴山を仰ぐ都農町の観光果樹園です。ぶどうと梨に麦飯石を使った、天然ミネラル栽培をしています。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-mr" id="sig" aria-label="スクロールすると、ぶどうが緑から紫へ色づいていく3Dの演出">
+    <div class="mr-stick">
+      <canvas id="mr3d" aria-hidden="true"></canvas>
+      <div class="mr-copy">
+        <p class="mr-step" id="mr-step">7月上旬から</p>
+        <p class="mr-h" id="mr-h">色づく、<br>ぶどう。</p>
+        <p class="mr-p" id="mr-p">スクロールすると、ぶどうが色づいていきます。</p>
+        <div class="mr-tabs" role="group" aria-label="果物を選ぶ"><button type="button" data-i="0" aria-pressed="true">ぶどう</button><button type="button" data-i="1" aria-pressed="false">梨</button></div>
+      </div>
+      <p class="mr-note">3Dのイメージです</p>
+    </div>
+  </section>
+<style>
+.sig-mr{position:relative;height:320vh;background:#f2f5ea}
+.mr-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:radial-gradient(60% 60% at 62% 45%,#ffffff,#e4ebd6 75%)}
+#mr3d{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;touch-action:pan-y}
+.mr-copy{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);max-width:440px;z-index:3}
+.mr-step{margin:0;color:var(--accent);font-weight:700;letter-spacing:.14em;font-size:14px}
+.mr-h{font-family:var(--display);font-weight:900;font-size:clamp(40px,4.6vw,70px);line-height:1.15;margin:8px 0 14px;white-space:nowrap}
+.mr-p{margin:0 0 22px;color:var(--mute)}
+.mr-tabs{display:flex;gap:8px}
+.mr-tabs button{font:inherit;font-weight:700;font-size:15px;padding:9px 18px;border-radius:999px;border:2px solid var(--ink);background:#fff;color:var(--ink);cursor:pointer}
+.mr-tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.mr-note{position:absolute;right:var(--gut);bottom:22px;margin:0;font-size:12px;color:var(--mute)}
+@media (max-width:860px){
+  .mr-copy{top:auto;bottom:0;transform:none;left:0;right:0;max-width:none;padding:56px var(--gut) 96px;background:linear-gradient(to top,rgba(242,245,234,.97) 62%,rgba(242,245,234,0))}
+  .mr-note{top:74px;bottom:auto}
+}
+</style>
+<script type="module">
+import * as THREE from 'three';
+import { stage3d, span, ease, qa, mouse, canvasTexture } from '../_kit/sig/stage.js';
+
+const canvas = document.getElementById('mr3d'), section = canvas.closest('section');
+const stepEl = document.getElementById('mr-step'), hEl = document.getElementById('mr-h'), pEl = document.getElementById('mr-p'), tabs = [...section.querySelectorAll('.mr-tabs button')];
+let fruit = 0, manual = 0, rotY = 0, drag = null;
+
+const st = stage3d({ canvas, section, fov: 30, env: .03, exposure: 1.05, frame });
+if (st) {
+  const { scene } = st;
+  const grape = new THREE.Group(); scene.add(grape);
+  // 房：上が広く、下へすぼまる円すいに、粒を詰める
+  const N = 110, berry = new THREE.SphereGeometry(.17, 24, 18); berry.scale(1, 1.12, 1);
+  const bmat = new THREE.MeshPhysicalMaterial({ roughness: .45, clearcoat: .4, sheen: 1, sheenColor: new THREE.Color('#d9d6e6'), sheenRoughness: .6 });
+  const berries = new THREE.InstancedMesh(berry, bmat, N), tmp = new THREE.Object3D();
+  const seeds = [];
+  for (let i = 0; i < N; i++) {
+    const t = Math.pow(Math.random(), .8), y = 1.1 - t * 2.4, r = (1 - t) * .75 + .08;
+    const a = Math.random() * Math.PI * 2, rr = Math.sqrt(Math.random()) * r;
+    tmp.position.set(Math.cos(a) * rr, y, Math.sin(a) * rr); tmp.scale.setScalar(.9 + Math.random() * .2); tmp.updateMatrix();
+    berries.setMatrixAt(i, tmp.matrix); seeds.push(Math.random());
+  }
+  grape.add(berries);
+  const stem = new THREE.Mesh(new THREE.CylinderGeometry(.04, .05, .7, 8), new THREE.MeshStandardMaterial({ color: '#6b5a3a', roughness: .8 }));
+  stem.position.y = 1.5; grape.add(stem);
+  // ぶどうの葉：五つに分かれた形を、少し反らせる
+  const leafShape = new THREE.Shape();
+  for (let k = 0; k <= 120; k++) {
+    const a = k / 120 * Math.PI * 2, lobe = .72 + .28 * Math.pow(Math.abs(Math.cos(a * 2.5)), .6), notch = 1 - .5 * Math.exp(-Math.pow((a - Math.PI * 1.5) * 3, 2));
+    const r = .8 * lobe * notch * (1 + .04 * Math.sin(a * 23)), x = Math.cos(a) * r, y = Math.sin(a) * r;
+    k ? leafShape.lineTo(x, y) : leafShape.moveTo(x, y);
+  }
+  const lg = new THREE.ShapeGeometry(leafShape, 24), lp = lg.attributes.position;
+  for (let i = 0; i < lp.count; i++) { const x = lp.getX(i), y = lp.getY(i); lp.setZ(i, (x * x + y * y) * .22); }
+  lg.computeVertexNormals();
+  const veins = canvasTexture(256, 256, (g, w, h) => {
+    g.fillStyle = '#5d8a34'; g.fillRect(0, 0, w, h);
+    g.strokeStyle = 'rgba(210,230,150,.55)'; g.lineWidth = 2.5;
+    for (let k = 0; k < 5; k++) { const a = -Math.PI / 2 + (k - 2) * .75 + Math.PI; g.beginPath(); g.moveTo(w / 2, h * .62); g.lineTo(w / 2 + Math.cos(a) * w * .45, h * .62 - Math.sin(a) * h * .45); g.stroke(); }
+  });
+  lg.attributes.uv && (() => { const uv = lg.attributes.uv; for (let i = 0; i < uv.count; i++) uv.setXY(i, lp.getX(i) / 1.8 + .5, lp.getY(i) / 1.8 + .5 + .12); })();
+  const leaf = new THREE.Mesh(lg, new THREE.MeshStandardMaterial({ map: veins, side: THREE.DoubleSide, roughness: .65 }));
+  leaf.position.set(.35, 1.55, -.45); leaf.rotation.set(-.9, .5, .4); grape.add(leaf);
+  // 梨：まるく、細かな点（果点）のある皮
+  const pearTex = canvasTexture(1024, 512, (g, w, h) => {
+    const gr = g.createLinearGradient(0, 0, 0, h); gr.addColorStop(0, '#c49a52'); gr.addColorStop(1, '#a87a38'); g.fillStyle = gr; g.fillRect(0, 0, w, h);
+    for (let i = 0; i < 3500; i++) { g.fillStyle = `rgba(250,230,180,${.2 + Math.random() * .4})`; g.fillRect(Math.random() * w, Math.random() * h, 2, 2); }
+  });
+  const pearCurve = new THREE.SplineCurve([[0, -.95], [.5, -.92], [.85, -.7], [1, -.3], [1.02, 0], [.94, .35], [.7, .66], [.35, .82], [0, .84]].map(([r, y]) => new THREE.Vector2(r, y)));
+  const pear = new THREE.Mesh(new THREE.LatheGeometry(pearCurve.getPoints(60), 96),
+    new THREE.MeshPhysicalMaterial({ map: pearTex, roughness: .55, clearcoat: .3 }));
+  const pstem = stem.clone(); pstem.scale.set(.8, .5, .8); pstem.position.y = .95; pear.add(pstem);
+  scene.add(pear);
+  scene.add(new THREE.HemisphereLight('#ffffff', '#b8c4a0', 1));
+  const key = new THREE.DirectionalLight('#fffaf0', 2); key.position.set(-3, 5, 4); scene.add(key);
+  Object.assign(st, { grape, pear, berries, seeds, col: new THREE.Color() });
+  canvas.addEventListener('pointerdown', e => { drag = e.clientX; canvas.setPointerCapture(e.pointerId); });
+  canvas.addEventListener('pointermove', e => { if (drag === null) return; rotY += (e.clientX - drag) * .01; drag = e.clientX; });
+  canvas.addEventListener('pointerup', () => { drag = null; });
+  tabs.forEach(b => b.addEventListener('click', () => { manual = performance.now(); setFruit(+b.dataset.i); }));
+  st.start();
+}
+const GREEN = new THREE.Color('#a9c46c'), RED = new THREE.Color('#8a2f55'), DEEP = new THREE.Color('#3b1544');
+function setFruit(i) {
+  if (i === fruit && hEl.dataset.f == i) return; fruit = i; hEl.dataset.f = i;
+  tabs.forEach((b, k) => b.setAttribute('aria-pressed', k === i));
+  stepEl.textContent = i ? '梨狩り' : '7月上旬から';
+  hEl.innerHTML = i ? 'もぎたての、<br>梨。' : '色づく、<br>ぶどう。';
+  pEl.textContent = i ? '木からもいで、その場で。ぶどう・梨とも、クール便でもお送りします。' : 'スクロールすると、ぶどうが色づいていきます。';
+}
+function frame({ t, dt, p, portrait }) {
+  if (performance.now() - manual > 1500) setFruit(p > .78 ? 1 : 0);
+  const ripe = ease(span(p, .1, .7));
+  const { berries, seeds, col } = st;
+  for (let i = 0; i < seeds.length; i++) {
+    // 粒ごとに少しずつ時期がずれて、まだらに色づく
+    const k = Math.min(1, Math.max(0, ripe * 1.4 - seeds[i] * .4));
+    col.copy(GREEN).lerp(RED, Math.min(1, k * 1.6)); if (k > .6) col.lerp(DEEP, (k - .6) / .4);
+    berries.setColorAt(i, col);
+  }
+  berries.instanceColor.needsUpdate = true;
+  st.grapeK = (st.grapeK ?? 0) + ((fruit ? 0 : 1) - (st.grapeK ?? 0)) * (qa ? 1 : .1);
+  const g = st.grapeK;
+  const s = portrait ? .6 : .86;
+  st.grape.visible = g > .02; st.pear.visible = g < .98;
+  st.grape.scale.setScalar(s * g); st.pear.scale.setScalar(s * (1 - g));
+  const x = portrait ? 0 : 1.6, y = portrait ? 1.1 : -.25;
+  if (!drag) rotY += qa ? 0 : dt * .25;
+  st.grape.position.set(x, y + (qa ? 0 : Math.sin(t * .8) * .04), 0); st.grape.rotation.set(0, rotY + mouse.x * .4, Math.sin(t * .6) * .03);
+  st.pear.position.set(x, y, 0); st.pear.rotation.set(.1, rotY, 0);
+  st.camera.position.set(0, .6, portrait ? 10 : 8);
+  st.camera.lookAt(portrait ? 0 : .4, portrait ? .3 : 0, 0);
+}
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="2027" data-from="1967">2027</span><small>年は、7月上旬に開園します</small></div></div>
+    <div class="rv"><h2>ぶどう・梨に、麦飯石を。</h2><p>まるみ園のこだわりは、天然ミネラル栽培。ぶどうと梨に麦飯石を使い、安全で美味しい果物を育てています。</p><p>今年のぶどう・梨は全て終了しました。ありがとうございました。来年は7月上旬に開園します。予約してからお越しください。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>ぶどう狩り</span><span>梨狩り</span><span>デラウエア</span><span>天然ミネラル栽培</span><span>麦飯石</span><span>都農町</span><span>ぶどう狩り</span><span>梨狩り</span><span>デラウエア</span><span>天然ミネラル栽培</span><span>麦飯石</span><span>都農町</span><span>ぶどう狩り</span><span>梨狩り</span><span>デラウエア</span><span>天然ミネラル栽培</span><span>麦飯石</span><span>都農町</span><span>ぶどう狩り</span><span>梨狩り</span><span>デラウエア</span><span>天然ミネラル栽培</span><span>麦飯石</span><span>都農町</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>ぶどう・梨</h2><span>FRUITS</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/f2.jpg" alt="手にのせたぶどう" loading="lazy" data-speed=".06" data-gl></div><h3>ぶどう狩り</h3><p>デラウエアは7月上旬から収穫できます。</p></article><article class="feature rv"><div class="ph"><img src="img/f1.jpg" alt="梨" loading="lazy" data-speed=".06" data-gl></div><h3>梨狩り</h3><p>みずみずしい梨を、木からもいで。</p></article><article class="feature rv"><div class="ph"><img src="img/f3.jpg" alt="赤いぶどうの房" loading="lazy" data-speed=".06" data-gl></div><h3>贈答用の予約</h3><p>ぶどう・梨ともクール便でお送りします。</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/wide.jpg" alt="ぶどう畑の列" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">山と滝と果物の町、都農。</figcaption></figure>
+  
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">営業時間</h2></div>
+      
+      <table class="hours"><tr><th>開園</th><td>7月上旬から（要予約）</td></tr><tr><th>今シーズン</th><td>ぶどう・梨は全て終了しました</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>宮崎県児湯郡都農町新今別府</p>
+      <p class="mute">県の中央に位置し、尾鈴山を仰ぐ、気候温暖な町です。身障者用トイレもあります。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E5%AE%AE%E5%B4%8E%E7%9C%8C%E5%85%90%E6%B9%AF%E9%83%A1%E9%83%BD%E8%BE%B2%E7%94%BA%20%E3%81%BE%E3%82%8B%E3%81%BF%E8%A6%B3%E5%85%89%E6%9E%9C%E6%A8%B9%E5%9C%92" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:0983250812" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">来年の夏、お待ちしています。</h2>
+    <a class="tel" href="tel:0983250812">0983-25-0812</a>
+    <p>ぶどう・梨狩りや贈答用のご予約は、お電話・FAX・メールでどうぞ。</p>
+    <div class="btns"><a class="btn" href="mailto:marumi.kajuen@nifty.com" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>まるみ観光果樹園　宮崎県児湯郡都農町新今別府　TEL 0983-25-0812</p>
+  <p>この試作は森川ウェブ（mahmoris98@gmail.com）が、まるみ観光果樹園様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:0983250812" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

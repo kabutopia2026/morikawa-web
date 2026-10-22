@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ITAMICOFFEE（イタミコーヒー）｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#1a120d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Shippori+Mincho:wght@700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#1a120d;--ink:#f3e8da;--mute:#bba48c;--accent:#d9a066;--accent-ink:#1a120d;--panel:#24180f;--line:rgba(243,232,218,.13);--display:"Fraunces","Shippori Mincho",serif;--display-weight:700;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 50%;--top-ink:var(--ink)}
+.top .name{font-family:Fraunces,serif;letter-spacing:.08em}
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>がITAMICOFFEE（イタミコーヒー）様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">自家焙煎コーヒー豆　八王子・めじろ台</p><p class="pl-name">ITAMICOFFEE</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">ITAMICOFFEE</a>
+  <nav aria-label="ページ内の案内"><a href="#story">イタミコーヒー</a><a href="#features">コーヒー豆</a><a href="#info">営業時間</a></nav>
+  
+  <a class="call" href="tel:0426495058"><span data-en="Call">電話</span><span class="num">042-649-5058</span></a>
+</header>
+
+<main>
+  <section class="hero" hidden>
+    <div class="hero-img"><img src="img/hero.jpg" alt="焙煎機から出てくるコーヒー豆" ></div>
+    <div class="hero-copy">
+      <p class="kind">自家焙煎コーヒー豆　八王子・めじろ台</p>
+      <h1><span class="ln"><span style="--i:0">生豆と焙煎に、</span></span><span class="ln"><span style="--i:1">こだわって。</span></span></h1>
+      
+      <p class="sub">店主の伊丹は、銀座の珈琲店で14年にわたり焙煎と抽出にたずさわってきました。めじろ台で、自家焙煎のコーヒー豆を販売しています。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-it hero-sig" id="sig" aria-label="スクロールすると、コーヒー豆が生豆から深煎りへ焙煎されていく3Dの演出">
+    <div class="it-stick hero">
+      <canvas id="it3d" aria-hidden="true"></canvas>
+      <div class="hero-copy hs-copy" id="hs-copy"><p class="kind">自家焙煎コーヒー豆　八王子・めじろ台</p><h1><span class="ln"><span style="--i:0">生豆と焙煎に、</span></span><span class="ln"><span style="--i:1">こだわって。</span></span></h1><p class="sub">店主の伊丹は、銀座の珈琲店で14年にわたり焙煎と抽出にたずさわってきました。めじろ台で、自家焙煎のコーヒー豆を販売しています。</p></div>
+      <div class="it-copy" id="it-copy">
+        <p class="it-step">焙煎の度合い（イメージ）</p>
+        <p class="it-h" id="it-h">生豆</p>
+        <div class="it-bar" aria-hidden="true"><i id="it-bar"></i></div>
+        <ol class="it-scale" id="it-scale"></ol>
+      </div>
+      <p class="it-note">3Dのイメージです</p>
+    </div>
+  </section>
+<style>
+.sig-it{position:relative;height:420vh;background:#1a120d}
+.it-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:radial-gradient(60% 60% at 62% 52%,#3a2618,#1a120d 72%)}
+.it-stick .hs-copy{z-index:3;text-shadow:0 2px 30px rgba(0,0,0,.6)}
+#it3d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.it-copy{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);max-width:380px;opacity:0;z-index:3}
+.it-step{margin:0;color:var(--accent);letter-spacing:.16em;font-size:13px;font-weight:700}
+.it-h{font-family:"Shippori Mincho",serif;font-weight:700;font-size:clamp(44px,5.4vw,80px);line-height:1.1;margin:8px 0 20px}
+.it-bar{height:6px;border-radius:6px;background:linear-gradient(90deg,#8fa35a,#c9a24a,#a8662e,#6b3a1c,#3a1d10,#1d0e07);position:relative;margin-bottom:12px}
+.it-bar i{position:absolute;top:50%;width:16px;height:16px;border-radius:50%;background:var(--ink);border:3px solid #1a120d;transform:translate(-50%,-50%);left:0}
+.it-scale{list-style:none;margin:0;padding:0;display:flex;justify-content:space-between;font-size:11px;color:var(--mute)}
+.it-scale li.on{color:var(--ink);font-weight:700}
+.it-note{position:absolute;right:var(--gut);bottom:22px;margin:0;font-size:12px;color:var(--mute);z-index:3}
+@media (max-width:860px){
+  .it-copy{top:auto;bottom:0;transform:none;left:0;right:0;max-width:none;padding:56px var(--gut) 96px;background:linear-gradient(to top,rgba(26,18,13,.96) 62%,rgba(26,18,13,0))}
+  .it-note{top:74px;bottom:auto}
+}
+</style>
+<script type="module">
+import * as THREE from 'three';
+import { stage3d, heroFade, span, c01, qa, mouse } from '../_kit/sig/stage.js';
+
+const canvas = document.getElementById('it3d'), section = canvas.closest('section');
+const copy = document.getElementById('it-copy'), note = section.querySelector('.it-note'), hEl = document.getElementById('it-h'), bar = document.getElementById('it-bar'), scale = document.getElementById('it-scale');
+// 一般的な焙煎度の呼び方と、豆の色
+const ROAST = [['生豆', '#8fa35a'], ['シナモン', '#b98a4a'], ['ミディアム', '#9a6534'], ['ハイ', '#7d4a24'], ['シティ', '#5e3519'], ['フルシティ', '#452512'], ['フレンチ', '#2c170b'], ['イタリアン', '#1b0d06']];
+scale.innerHTML = ROAST.map(r => `<li>${r[0].slice(0, 3)}</li>`).join('');
+const lis = [...scale.children];
+const colors = ROAST.map(r => new THREE.Color(r[1]));
+
+const st = stage3d({ canvas, section, fov: 30, env: .03, exposure: 1.1, frame });
+if (st) {
+  const { scene } = st;
+  // 豆：楕円の片側に、センターカットの溝
+  const geo = new THREE.SphereGeometry(.2, 28, 20);
+  geo.scale(1, .64, .78);
+  const pos = geo.attributes.position;
+  for (let i = 0; i < pos.count; i++) {
+    const x = pos.getX(i), y = pos.getY(i), z = pos.getZ(i);
+    if (y > 0) pos.setY(i, y - Math.exp(-(z * z) / .0016) * .045 * (1 - Math.abs(x) / .2));
+  }
+  geo.computeVertexNormals();
+  const N = 180;
+  const mat = new THREE.MeshPhysicalMaterial({ color: '#ffffff', roughness: .7, clearcoat: 0 });
+  const beans = new THREE.InstancedMesh(geo, mat, N);
+  const data = Array.from({ length: N }, (_, i) => {
+    // 円盤状の山に積む
+    const r = Math.sqrt(Math.random()) * 1.9, a = Math.random() * Math.PI * 2;
+    return { x: Math.cos(a) * r, z: Math.sin(a) * r, y: (1.9 - r) * .45 + Math.random() * .12, rx: Math.random() * 6, ry: Math.random() * 6, rz: Math.random() * 6, jump: 0, v: 0, ph: Math.random() * 7 };
+  });
+  for (let i = 0; i < N; i++) beans.setColorAt(i, colors[0]);
+  scene.add(beans);
+  scene.add(new THREE.HemisphereLight('#ffe9d2', '#1a120d', .9));
+  const key = new THREE.DirectionalLight('#fff0dc', 2.2); key.position.set(-3, 6, 4); scene.add(key);
+  const glow = new THREE.PointLight('#ff7a2a', 0, 6); glow.position.set(0, -.6, 0); scene.add(glow);
+  Object.assign(st, { beans, data, mat, glow, tmp: new THREE.Object3D(), col: new THREE.Color() });
+  st.start();
+}
+let stage = -1;
+function frame({ t, dt, p, portrait }) {
+  const heroK = heroFade(p, .1);
+  copy.style.opacity = note.style.opacity = c01((p - .07) / .06);
+  const r = span(p, .14, .95) * (ROAST.length - 1);           // 0〜7
+  const i0 = Math.floor(r), f = r - i0, i1 = Math.min(ROAST.length - 1, i0 + 1);
+  st.col.copy(colors[i0]).lerp(colors[i1], f);
+  const k = Math.round(r);
+  if (k !== stage) { stage = k; hEl.textContent = ROAST[k][0]; lis.forEach((li, j) => li.classList.toggle('on', j === k)); }
+  bar.style.left = (r / (ROAST.length - 1) * 100) + '%';
+  // 深くなるほど、つやが出る
+  st.mat.roughness = .75 - r / 7 * .45; st.mat.clearcoat = Math.max(0, (r - 4) / 3) * .8;
+  st.glow.intensity = (1 - heroK) * 3;
+  // 「ハゼ」：シティの手前で、豆がはじける
+  const crack = r > 3.2 && r < 5.2;
+  const { beans, data, tmp } = st;
+  for (let i = 0; i < data.length; i++) {
+    const d = data[i];
+    if (!qa && crack && d.y + d.jump < 2 && Math.random() < dt * .6) d.v = 1.5 + Math.random();
+    d.v -= 9 * dt; d.jump = Math.max(0, d.jump + d.v * dt); if (d.jump === 0) d.v = 0;
+    tmp.position.set(d.x, d.y + d.jump, d.z);
+    tmp.rotation.set(d.rx + (qa ? 0 : t * .2 * (d.jump > 0 ? 6 : 0)), d.ry, d.rz);
+    tmp.updateMatrix(); beans.setMatrixAt(i, tmp.matrix);
+    beans.setColorAt(i, st.col);
+  }
+  beans.instanceMatrix.needsUpdate = true; beans.instanceColor.needsUpdate = true;
+  const s = portrait ? .6 : .82 + .18 * (1 - heroK);
+  beans.scale.setScalar(s);
+  beans.position.set(portrait ? 0 : 3.1 * heroK + 1.4 * (1 - heroK), portrait ? .7 : -.4, 0);
+  beans.rotation.y = (qa ? 0 : t * .08) + mouse.x * .3;
+  st.camera.position.set(0, portrait ? 4 : 3.4, portrait ? 8.6 : 7.4);
+  st.camera.lookAt(portrait ? 0 : .5, portrait ? .3 : 0, 0);
+}
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="14" data-from="-46">14</span><small>年　銀座の珈琲店で焙煎と抽出に</small></div></div>
+    <div class="rv"><h2>産地と、生豆と、焙煎と。</h2><p>イタミコーヒーは、産地にこだわっています。厳選の生豆を仕入れ、焙煎にこだわって、おいしいコーヒーをお届けします。</p><p>メール・FAX・電話での通信販売で、全国にお届けしています。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>自家焙煎</span><span>生豆</span><span>産地</span><span>通信販売</span><span>めじろ台</span><span>自家焙煎</span><span>生豆</span><span>産地</span><span>通信販売</span><span>めじろ台</span><span>自家焙煎</span><span>生豆</span><span>産地</span><span>通信販売</span><span>めじろ台</span><span>自家焙煎</span><span>生豆</span><span>産地</span><span>通信販売</span><span>めじろ台</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>コーヒー豆</h2><span>BEANS</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/f1.jpg" alt="焙煎機から豆をすくう様子" loading="lazy" data-speed=".06" data-gl></div><h3>焙煎したての豆</h3><p>少しずつ、丁寧に焙煎しています。</p></article><article class="feature rv"><div class="ph"><img src="img/f2.jpg" alt="麻袋に入ったコーヒー豆" loading="lazy" data-speed=".06" data-gl></div><h3>厳選の生豆</h3><p>産地にこだわって、生豆を仕入れています。</p></article><article class="feature rv"><div class="ph"><img src="img/f3.jpg" alt="コーヒー豆とカップ" loading="lazy" data-speed=".06" data-gl></div><h3>通信販売</h3><p>メール・FAX・電話で、全国へ。</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/wide.jpg" alt="焙煎されたコーヒー豆" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">焙煎の度合いで、味が変わる。</figcaption></figure>
+  
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">営業時間</h2></div>
+      <p class="status" id="status"><i></i><b>…</b></p>
+      <table class="hours"><tr data-wd="1,2,3,4,5,6"><th>営業時間</th><td>10:00〜18:00</td></tr><tr><th>定休日</th><td>日曜日</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>東京都八王子市めじろ台1-7-1</p>
+      <p class="mute">店舗裏の駐車スペース2番が、イタミコーヒーの駐車場です。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%85%AB%E7%8E%8B%E5%AD%90%E5%B8%82%E3%82%81%E3%81%98%E3%82%8D%E5%8F%B01-7-1%20ITAMICOFFEE" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:0426495058" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">今日の焙煎を、お届けします。</h2>
+    <a class="tel" href="tel:0426495058">042-649-5058</a>
+    <p>ご注文は、メール・FAX・お電話で承ります。</p>
+    <div class="btns"><a class="btn" href="mailto:itamicoffee@nifty.com" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>ITAMICOFFEE（イタミコーヒー）　東京都八王子市めじろ台1-7-1　TEL 042-649-5058</p>
+  <p>この試作は森川ウェブ（mahmoris98@gmail.com）が、ITAMICOFFEE（イタミコーヒー）様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:0426495058" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+<script>window.SCHEDULE = {"days": {"1": [[600, 1080]], "2": [[600, 1080]], "3": [[600, 1080]], "4": [[600, 1080]], "5": [[600, 1080]], "6": [[600, 1080]]}};</script>
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

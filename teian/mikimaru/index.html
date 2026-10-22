@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>三喜丸釣船店｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#082033">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#082033;--ink:#eef6fb;--mute:#9ab8cb;--accent:#ff7a3d;--accent-ink:#082033;--panel:#0d2b42;--line:rgba(238,246,251,.14);--display:"Dela Gothic One",sans-serif;--display-weight:400;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 55%}
+
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>が三喜丸釣船店様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">釣船・BBQ船　横浜市金沢区（八景島シーパラダイス隣）</p><p class="pl-name">三喜丸</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">三喜丸</a>
+  <nav aria-label="ページ内の案内"><a href="#story">三喜丸</a><a href="#features">出船</a><a href="#price">料金</a></nav>
+  
+  <a class="call" href="tel:0457019434"><span data-en="Call">電話</span><span class="num">045-701-9434</span></a>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-img"><img src="img/hero.jpg" alt="静かな海に浮かぶ釣り船"  data-gl="wipe" data-gl-hero></div>
+    <div class="hero-copy">
+      <p class="kind">釣船・BBQ船　横浜市金沢区（八景島シーパラダイス隣）</p>
+      <h1><span class="ln"><span style="--i:0">美味しい東京湾を、</span></span><span class="ln"><span style="--i:1">ご案内。</span></span></h1>
+      
+      <p class="sub">毎日出航している乗合船、気の合ったお仲間との仕立船。東京湾の季節の釣りの醍醐味を、満喫していただけます。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-mk" id="sig" aria-label="スクロールすると、船から仕掛けが海の中へ下りていき、季節の釣りものと出船時間が見える演出">
+    <div class="mk-stick">
+      <canvas id="mk2d" aria-hidden="true"></canvas>
+      <div class="mk-copy">
+        <p class="mk-step" id="mk-step">海の中へ</p>
+        <p class="mk-h" id="mk-h">仕掛けを、<br>下ろします。</p>
+        <p class="mk-time" id="mk-time">スクロールしてください</p>
+        <p class="mk-p" id="mk-p">毎日出航している乗合船。お一人でも、お仲間とでも。</p>
+      </div>
+      <p class="mk-note">海の中のイメージです。魚の位置や深さを表すものではありません</p>
+    </div>
+  </section>
+<style>
+.sig-mk{position:relative;height:420vh;background:#04121d}
+.mk-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#04121d}
+#mk2d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.mk-copy{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);max-width:360px;z-index:3;text-shadow:0 2px 24px rgba(4,18,29,.7)}
+.mk-step{margin:0;color:var(--accent);font-weight:700;letter-spacing:.14em;font-size:14px}
+.mk-h{font-family:var(--display);font-size:clamp(34px,4.2vw,60px);line-height:1.2;margin:10px 0 14px;transition:opacity .3s}
+.mk-time{margin:0 0 12px;font-family:var(--display);font-size:clamp(18px,1.7vw,24px);color:#fff;transition:opacity .3s;white-space:pre-line}
+.mk-p{margin:0;color:var(--mute);transition:opacity .3s}
+.mk-note{position:absolute;right:var(--gut);bottom:22px;margin:0;font-size:12px;color:var(--mute);max-width:300px;text-align:right}
+@media (max-width:860px){
+  .mk-copy{top:auto;bottom:0;transform:none;left:0;right:0;max-width:none;padding:56px var(--gut) 96px;background:linear-gradient(to top,rgba(4,18,29,.95) 62%,rgba(4,18,29,0))}
+  .mk-p{display:none}
+  .mk-note{top:74px;bottom:auto;max-width:240px}
+}
+</style>
+<script type="module">
+import { stage2d, span, ease, qa, mouse } from '../_kit/sig/stage.js';
+
+const canvas = document.getElementById('mk2d'), section = canvas.closest('section');
+const els = ['step', 'h', 'time', 'p'].map(k => document.getElementById('mk-' + k));
+// 釣りもの（出船時間は、現在のホームページの表示から）
+const ZONES = [
+  { at: 0, step: '海の中へ', h: '仕掛けを、<br>下ろします。', time: 'スクロールしてください', p: '毎日出航している乗合船。お一人でも、お仲間とでも。' },
+  { at: .28, step: '乗合船', h: 'LTアジ', time: '午前船 7:15\n午後船 12:30', p: '一般 9,500円、女性・お子様（〜18歳）6,500円。' },
+  { at: .56, step: '乗合船', h: 'シロギス・<br>イシモチ', time: '8:00 出船', p: '砂地の海底に、群れでいる魚です。' },
+  { at: .8, step: '夜釣り', h: 'クロアナゴ・<br>メバル', time: '17:30 出船', p: '夕方からの、東京湾の夜釣りを。' },
+];
+let zone = -1;
+function setZone(i) {
+  if (i === zone) return; zone = i; const z = ZONES[i];
+  els.forEach(e => e.style.opacity = 0);
+  setTimeout(() => { els[0].textContent = z.step; els[1].innerHTML = z.h; els[2].textContent = z.time; els[3].textContent = z.p; els.forEach(e => e.style.opacity = 1); }, qa ? 0 : 160);
+}
+
+// 魚の群れ
+function rand(a, b) { return a + Math.random() * (b - a); }
+const SCHOOLS = [
+  // pz：その魚の段落が出ているときのスクロール位置
+  { pz: .42, n: 30, col: '#b8c9c2', belly: '#e9e2b8', len: 30, speed: 60, spread: 110 },   // アジ
+  { pz: .68, n: 12, col: '#d9d4c4', belly: '#f4f0e4', len: 34, speed: 40, spread: 50 },    // シロギス
+  { pz: .68, n: 5, col: '#8f8a7a', belly: '#c7c1ad', len: 40, speed: 28, spread: 40 },     // イシモチ
+  { pz: .93, n: 7, col: '#4a3f33', belly: '#7b6e5a', len: 40, speed: 22, spread: 50, night: 1 }, // メバル
+];
+const fish = [];
+SCHOOLS.forEach((s, si) => { for (let i = 0; i < s.n; i++) fish.push({ s, x: rand(0, 1), oy: rand(-1, 1) * s.spread, ph: rand(0, 7), v: rand(.7, 1.3), dir: si % 2 ? -1 : 1 }); });
+const snow = Array.from({ length: 140 }, () => ({ x: Math.random(), y: Math.random(), z: rand(.3, 1) }));
+let lineX = 0;
+
+function drawFish(g, x, y, len, dir, col, belly, t, glow) {
+  g.save(); g.translate(x, y); g.scale(dir, 1);
+  const w = Math.sin(t * 8) * .12;
+  g.fillStyle = col; g.beginPath();
+  g.moveTo(len * .55, 0); g.quadraticCurveTo(len * .1, -len * .26, -len * .4, -len * .04);
+  g.lineTo(-len * .4, len * .04); g.quadraticCurveTo(len * .1, len * .26, len * .55, 0); g.fill();
+  g.fillStyle = belly; g.beginPath(); g.moveTo(len * .5, len * .02); g.quadraticCurveTo(len * .1, len * .2, -len * .35, len * .03); g.lineTo(len * .5, len * .02); g.fill();
+  g.fillStyle = col; g.beginPath(); g.moveTo(-len * .38, 0); g.lineTo(-len * .62, -len * (.2 + w)); g.lineTo(-len * .55, 0); g.lineTo(-len * .62, len * (.2 - w)); g.closePath(); g.fill();
+  g.fillStyle = glow ? '#ffd27a' : '#111'; g.beginPath(); g.arc(len * .36, -len * .04, len * .045 + (glow ? 1 : 0), 0, 7); g.fill();
+  g.restore();
+}
+
+stage2d({ canvas, section, draw(g, w, h, { t, dt, p }) {
+  const portrait = h > w;
+  // 世界の高さ＝画面4つ分。スクロールで下へ
+  const WH = h * 4.2, camAt = q => span(q, .02, .98) * (WH - h), cam = camAt(p);
+  const surf = h * .42;               // 水面（世界座標）
+  const night = span(p, .74, .9);
+  // 段落の切り替え
+  let zi = 0; ZONES.forEach((z, i) => { if (p >= z.at) zi = i; }); setZone(zi);
+
+  // 空と水
+  const sky = g.createLinearGradient(0, -cam, 0, surf - cam);
+  sky.addColorStop(0, mix('#f6c38a', '#0b1530', night)); sky.addColorStop(1, mix('#ffe7c4', '#1c2a4a', night));
+  g.fillStyle = sky; g.fillRect(0, 0, w, Math.max(0, surf - cam));
+  const sea = g.createLinearGradient(0, surf - cam, 0, WH - cam);
+  sea.addColorStop(0, mix('#1f6f8f', '#0b2a40', night)); sea.addColorStop(.35, mix('#0d3f5c', '#071c2c', night)); sea.addColorStop(1, '#030c14');
+  g.fillStyle = sea; g.fillRect(0, Math.max(0, surf - cam), w, h);
+  // 水面から差しこむ光
+  g.save(); g.globalCompositeOperation = 'lighter';
+  for (let i = 0; i < 7; i++) {
+    const x0 = (i / 7 + Math.sin(t * .2 + i) * .02) * w * 1.2 - w * .1, a = .05 * (1 - night);
+    const lg = g.createLinearGradient(0, surf - cam, 0, surf - cam + h * 1.6);
+    lg.addColorStop(0, `rgba(170,230,255,${a})`); lg.addColorStop(1, 'rgba(170,230,255,0)');
+    g.fillStyle = lg; g.beginPath(); g.moveTo(x0, surf - cam); g.lineTo(x0 + w * .05, surf - cam); g.lineTo(x0 + w * .2, surf - cam + h * 1.6); g.lineTo(x0 + w * .08, surf - cam + h * 1.6); g.fill();
+  }
+  g.restore();
+  // 海底（砂地と岩）
+  const floor = WH - h * .32 - cam;
+  g.fillStyle = '#2b2a22'; g.beginPath(); g.moveTo(0, floor + 40);
+  for (let x = 0; x <= w; x += 20) g.lineTo(x, floor + 30 + Math.sin(x * .01) * 14 + Math.sin(x * .037) * 6);
+  g.lineTo(w, h + 10); g.lineTo(0, h + 10); g.fill();
+  g.fillStyle = '#1b1915';
+  for (let i = 0; i < 6; i++) { const rx = ((i * 0.19 + .6) % 1) * w, rs = 40 + (i % 3) * 30; g.beginPath(); g.ellipse(rx, floor + 70, rs * 1.4, rs * .7, 0, Math.PI, 0); g.fill(); }
+  // マリンスノー
+  g.fillStyle = 'rgba(220,240,255,.35)';
+  for (const s of snow) { const y = ((s.y * WH - cam * s.z + t * 8 * s.z) % h + h) % h; if (y + cam < surf) continue; g.fillRect(s.x * w, y, 1.6 * s.z, 1.6 * s.z); }
+
+  // 船と波
+  const by = surf - cam, bx = portrait ? w * .5 : w * .62, bs = portrait ? 1 : 1.35;
+  if (by > -60) {
+    g.save(); g.translate(bx, by); g.scale(bs, bs); g.translate(-bx, -by);
+    g.fillStyle = mix('#fff8ee', '#cfd6e6', night);
+    g.beginPath(); g.moveTo(bx - 120, by - 8); g.lineTo(bx + 110, by - 8); g.lineTo(bx + 140, by - 34); g.lineTo(bx + 150, by - 34); g.lineTo(bx + 120, by + 14); g.lineTo(bx - 112, by + 14); g.closePath(); g.fill();
+    g.fillStyle = '#ff7a3d'; g.fillRect(bx - 112, by + 4, 232, 6);
+    g.fillStyle = mix('#e8edf2', '#9aa6bd', night); g.fillRect(bx - 30, by - 44, 70, 36);
+    g.fillStyle = '#2b3d50'; g.fillRect(bx - 22, by - 38, 22, 12); g.fillRect(bx + 6, by - 38, 22, 12);
+    g.strokeStyle = '#333'; g.lineWidth = 2; g.beginPath(); g.moveTo(bx - 100, by - 8); g.lineTo(bx - 150, by - 90); g.stroke();
+    if (night > 0) { g.fillStyle = `rgba(255,236,170,${night})`; g.beginPath(); g.arc(bx + 5, by - 50, 5, 0, 7); g.fill(); }
+    g.restore();
+  }
+  g.fillStyle = mix('rgba(120,200,230,.55)', 'rgba(60,100,140,.5)', night);
+  g.beginPath(); g.moveTo(0, by);
+  for (let x = 0; x <= w; x += 12) g.lineTo(x, by + Math.sin(x * .02 + t * 1.6) * 4 + Math.sin(x * .05 - t) * 2);
+  g.lineTo(w, by + 16); g.lineTo(0, by + 16); g.fill();
+
+  // 道糸：竿先から、画面の中ほどまで
+  const tipX = bx - 150 * bs, tipY = by - 90 * bs;
+  lineX += ((portrait ? w * .5 : w * .62) + mouse.x * w * .25 - lineX) * (qa ? 1 : .05);
+  const rigY = Math.max(by + 40, h * (portrait ? .36 : .5));
+  g.strokeStyle = 'rgba(255,255,255,.55)'; g.lineWidth = 1;
+  g.beginPath(); g.moveTo(tipX, tipY); g.quadraticCurveTo(tipX + (lineX - tipX) * .2, Math.min(rigY, by + 30), lineX, rigY); g.stroke();
+  // ビシ（コマセかご）と、枝針
+  g.fillStyle = '#ff7a3d'; g.beginPath(); g.roundRect(lineX - 7, rigY, 14, 26, 4); g.fill();
+  g.strokeStyle = 'rgba(255,255,255,.45)'; g.beginPath(); g.moveTo(lineX, rigY + 26); g.lineTo(lineX, rigY + 110); g.stroke();
+  for (let k = 0; k < 3; k++) { const hy = rigY + 50 + k * 26, sw = Math.sin(t * 2 + k) * 4; g.beginPath(); g.moveTo(lineX, hy); g.lineTo(lineX + 22 + sw, hy + 8); g.stroke(); g.fillStyle = '#ffd27a'; g.beginPath(); g.arc(lineX + 22 + sw, hy + 9, 2.4, 0, 7); g.fill(); }
+  // コマセ（まき餌）
+  g.fillStyle = 'rgba(255,190,140,.5)';
+  for (let k = 0; k < 18; k++) { const a = (t * .6 + k * .37) % 1; g.fillRect(lineX - 20 + Math.sin(k * 3.1) * 30 * a, rigY + 26 + a * 90, 2, 2); }
+
+  // 魚
+  for (const f of fish) {
+    const s = f.s, wy = camAt(s.pz) + h * .62 + f.oy - cam;
+    if (wy < -40 || wy > h + 40) continue;
+    f.x += f.dir * f.v * s.speed * dt / w * (qa ? 0 : 1);
+    if (f.x > 1.1) f.x = -.1; if (f.x < -.1) f.x = 1.1;
+    let fx = f.x * w, fy = wy + Math.sin(t * f.v + f.ph) * 8;
+    // 仕掛けの近くでは、寄ってくる
+    const d = Math.hypot(fx - lineX, fy - rigY - 60);
+    if (d < 220) { const k = (1 - d / 220) * .35; fx += (lineX - fx) * k; fy += (rigY + 60 - fy) * k; }
+    drawFish(g, fx, fy, s.len * (portrait ? .85 : 1), f.dir, s.col, s.belly, t * f.v + f.ph, s.night && night > .3);
+  }
+  // 夜は、まわりを暗く
+  if (night > 0) {
+    const vg = g.createRadialGradient(lineX, rigY + 60, 60, lineX, rigY + 60, Math.max(w, h) * .7);
+    vg.addColorStop(0, 'rgba(2,6,12,0)'); vg.addColorStop(1, `rgba(2,6,12,${night * .6})`);
+    g.fillStyle = vg; g.fillRect(0, 0, w, h);
+  }
+} });
+
+function mix(a, b, k) {
+  const pa = parse(a), pb = parse(b);
+  const c = pa.map((v, i) => v + (pb[i] - v) * k);
+  return `rgba(${c[0] | 0},${c[1] | 0},${c[2] | 0},${c[3].toFixed(3)})`;
+}
+function parse(c) {
+  if (c[0] === '#') return [parseInt(c.slice(1, 3), 16), parseInt(c.slice(3, 5), 16), parseInt(c.slice(5, 7), 16), 1];
+  const m = c.match(/[\d.]+/g).map(Number); return [m[0], m[1], m[2], m[3] ?? 1];
+}
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="5" data-from="-55">5</span><small>時　4〜11月の受付開始（12〜3月は5:30）</small></div></div>
+    <div class="rv"><h2>お一人でも、お仲間とでも。</h2><p>乗合は1人はもちろん、2人から多人数様でも対応いたします。3人以上の乗合では、前もって並んで釣座を取ることもできます（釣座のご指定は不可）。</p><p>平日はリーズナブルなチャータープランもございます。チャーター船は、夏季は冷房も効いています。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>LTアジ</span><span>タチウオ</span><span>マダイ</span><span>シロギス</span><span>夜釣り</span><span>BBQ船</span><span>八景島</span><span>LTアジ</span><span>タチウオ</span><span>マダイ</span><span>シロギス</span><span>夜釣り</span><span>BBQ船</span><span>八景島</span><span>LTアジ</span><span>タチウオ</span><span>マダイ</span><span>シロギス</span><span>夜釣り</span><span>BBQ船</span><span>八景島</span><span>LTアジ</span><span>タチウオ</span><span>マダイ</span><span>シロギス</span><span>夜釣り</span><span>BBQ船</span><span>八景島</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>出船</h2><span>DEPARTURE</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/f1.jpg" alt="港に並ぶ船" loading="lazy" data-speed=".06" data-gl></div><h3>LTアジ</h3><p>午前船 7:15　午後船 12:30</p></article><article class="feature rv"><div class="ph"><img src="img/f2.jpg" alt="港に停まる小さな船" loading="lazy" data-speed=".06" data-gl></div><h3>シロギス・イシモチ</h3><p>8:00 出船</p></article><article class="feature rv"><div class="ph"><img src="img/f3.jpg" alt="夕暮れの海" loading="lazy" data-speed=".06" data-gl></div><h3>夜釣り</h3><p>クロアナゴ・メバル　17:30 出船</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/wide.jpg" alt="海を走る船" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">首都高速湾岸線 幸浦インターから、すぐ。</figcaption></figure>
+  
+  <section class="sec" id="price">
+    <div class="sec-head rv"><h2>料金</h2><span>PRICE</span></div>
+    <dl class="prices rv"><div><dt>アジ・スミイカ・タチウオ・マダコ<small>一般</small></dt><dd>9,500円</dd></div><div><dt>アジ・スミイカ・タチウオ・マダコ<small>女性・お子様（〜18歳）</small></dt><dd>6,500円</dd></div><div><dt>バーベキュー船<small>BBQ台使用料5,000円が別途かかります</small></dt><dd>105,000円</dd></div><div><dt>レンタル竿<small>手巻き／電動</small></dt><dd>500円／2,000円</dd></div></dl>
+    <p class="prices-note rv">料金は現在のホームページの表示をもとにしています。</p>
+  </section>
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">営業時間</h2></div>
+      
+      <table class="hours"><tr><th>受付（開門）</th><td>4〜11月 5:00〜／12〜3月 5:30〜</td></tr><tr><th>定休日</th><td>毎週木曜日</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>神奈川県横浜市金沢区柴町227</p>
+      <p class="mute">八景島シーパラダイスの隣です。ナビ検索は金沢区柴町373で。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E7%A5%9E%E5%A5%88%E5%B7%9D%E7%9C%8C%E6%A8%AA%E6%B5%9C%E5%B8%82%E9%87%91%E6%B2%A2%E5%8C%BA%E6%9F%B4%E7%94%BA227%20%E4%B8%89%E5%96%9C%E4%B8%B8" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:0457019434" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">次の休みは、海へ。</h2>
+    <a class="tel" href="tel:0457019434">045-701-9434</a>
+    <p>ご予約・お問い合わせは、お電話でどうぞ。</p>
+    <div class="btns"><a class="btn" href="mailto:miki1107@kxf.biglobe.ne.jp" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>三喜丸釣船店　神奈川県横浜市金沢区柴町227　TEL 045-701-9434</p>
+  <p>この試作は森川ウェブ（mahmoris98@gmail.com）が、三喜丸釣船店様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:0457019434" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>スリーライン株式会社｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#f4f2ee">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@500;800&family=Outfit:wght@600&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#f4f2ee;--ink:#1b1d22;--mute:#62666f;--accent:#ef7d22;--accent-ink:#fff;--panel:#e9e6df;--line:rgba(27,29,34,.12);--display:"M PLUS 1p",sans-serif;--display-weight:800;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 60%}
+.top .name{font-family:Outfit,sans-serif;letter-spacing:.06em}
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>がスリーライン株式会社様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">業務用食器　東京都港区新橋</p><p class="pl-name">Threeline</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">Threeline</a>
+  <nav aria-label="ページ内の案内"><a href="#story">スリーラインについて</a><a href="#features">食器</a><a href="#info">お問い合わせ</a></nav>
+  
+  <a class="call" href="tel:0334330021"><span data-en="Call">電話</span><span class="num">03-3433-0021</span></a>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-img"><img src="img/hero.jpg" alt="棚に並ぶ色とりどりの器"  data-gl="wipe" data-gl-hero></div>
+    <div class="hero-copy">
+      <p class="kind">業務用食器　東京都港区新橋</p>
+      <h1><span class="ln"><span style="--i:0">器を起点に、</span></span><span class="ln"><span style="--i:1">食の現場を。</span></span></h1>
+      
+      <p class="sub">ヤマト化工が製造するスリーラインメラミンウェアの総販売元。病院や福祉施設、社員食堂、学校給食、ホテルまで、器から課題を解決します。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-tl" id="sig" aria-label="業種を選ぶと、トレーの上の器の組み合わせが替わる3Dの演出">
+    <div class="tl-stick">
+      <canvas id="tl3d" aria-hidden="true"></canvas>
+      <div class="tl-copy">
+        <p class="tl-step">器を起点に</p>
+        <p class="tl-h" id="tl-h">病院</p>
+        <p class="tl-p" id="tl-p">毎日の食事を支える器を、トレーごとご提案します。</p>
+        <div class="tl-tabs" role="group" aria-label="業種を選ぶ">
+          <button type="button" data-i="0" aria-pressed="true">病院</button><button type="button" data-i="1" aria-pressed="false">社員食堂</button><button type="button" data-i="2" aria-pressed="false">学校給食</button><button type="button" data-i="3" aria-pressed="false">ホテル・旅館</button>
+        </div>
+      </div>
+      <p class="tl-note">3Dのイメージです。実際の商品とは異なります</p>
+    </div>
+  </section>
+<style>
+.sig-tl{position:relative;height:340vh;background:#f4f2ee}
+.tl-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:radial-gradient(70% 70% at 64% 55%,#ffffff,#ebe7df 75%)}
+#tl3d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.tl-copy{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);max-width:380px;z-index:3}
+.tl-step{margin:0;color:var(--accent);font-weight:800;letter-spacing:.16em;font-size:14px}
+.tl-h{font-family:var(--display);font-weight:800;font-size:clamp(40px,4.6vw,66px);white-space:nowrap;line-height:1.1;margin:8px 0 14px;transition:opacity .3s}
+.tl-p{margin:0 0 22px;color:var(--mute);transition:opacity .3s}
+.tl-tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tl-tabs button{font:inherit;font-weight:700;font-size:14px;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.tl-tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.tl-note{position:absolute;right:var(--gut);bottom:22px;margin:0;font-size:12px;color:var(--mute)}
+@media (max-width:860px){
+  .tl-copy{top:auto;bottom:0;transform:none;left:0;right:0;max-width:none;padding:56px var(--gut) 96px;background:linear-gradient(to top,rgba(244,242,238,.97) 62%,rgba(244,242,238,0))}
+  .tl-note{top:74px;bottom:auto}
+}
+</style>
+<script type="module">
+import * as THREE from 'three';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+import { stage3d, span, qa, mouse } from '../_kit/sig/stage.js';
+
+const canvas = document.getElementById('tl3d'), section = canvas.closest('section');
+const hEl = document.getElementById('tl-h'), pEl = document.getElementById('tl-p'), tabs = [...section.querySelectorAll('.tl-tabs button')];
+// 業種ごとの器の色（外側・内側）とトレーの色
+const SETS = [
+  { name: '病院', text: '毎日の食事を支える器を、トレーごとご提案します。', tray: '#d9dee4', dishes: [['#ffffff', '#ffffff'], ['#f3efe6', '#f3efe6'], ['#9bb7d4', '#ffffff'], ['#ffffff', '#ffffff']] },
+  { name: '社員食堂', text: 'たくさんの食事を出す現場に合わせた器を。', tray: '#2d2f33', dishes: [['#1d1d1f', '#f1ece2'], ['#1d1d1f', '#f1ece2'], ['#b5532d', '#1d1d1f'], ['#f1ece2', '#f1ece2']] },
+  { name: '学校給食', text: '子どもたちの毎日の食事に寄り添う器を。', tray: '#e8c454', dishes: [['#ffffff', '#ffffff'], ['#7fb069', '#ffffff'], ['#ffffff', '#ffffff'], ['#f08a4b', '#ffffff']] },
+  { name: 'ホテル・旅館', text: '漆器やホテルウェアも取りそろえています。', tray: '#1a1210', dishes: [['#151010', '#a3241d'], ['#151010', '#a3241d'], ['#151010', '#1a1210'], ['#a3241d', '#151010']] },
+];
+let set = -1, manual = 0;
+
+const st = stage3d({ canvas, section, fov: 30, env: .04, exposure: 1.05, frame });
+if (st) {
+  const { scene } = st;
+  const tray = new THREE.Mesh(new RoundedBoxGeometry(4.2, .14, 3, 6, .08), new THREE.MeshPhysicalMaterial({ color: '#d9dee4', roughness: .35, clearcoat: .6 }));
+  tray.position.y = -.07; scene.add(tray);
+  const lip = new THREE.Mesh(new RoundedBoxGeometry(4.3, .18, 3.1, 6, .09), tray.material); lip.scale.set(1, 1, 1); lip.position.y = -.12; scene.add(lip);
+  const lathe = pts => new THREE.LatheGeometry(pts.map(([r, y]) => new THREE.Vector2(r, y)), 80);
+  // 主菜皿・飯碗・汁椀・小鉢（外側と内側で色を分けるため、2枚重ねる）
+  const SHAPES = [
+    { out: [[0, 0], [.6, 0], [.66, .04], [1.1, .16], [1.18, .22]], inn: [[1.16, .23], [1.08, .18], [.62, .08], [0, .07]], at: [-1.0, .62] },
+    { out: [[0, 0], [.32, 0], [.36, .06], [.55, .2], [.66, .55], [.68, .62]], inn: [[.65, .63], [.62, .55], [.5, .22], [0, .12]], at: [1.15, .75] },
+    { out: [[0, 0], [.3, 0], [.34, .06], [.56, .22], [.64, .55], [.66, .64]], inn: [[.63, .65], [.6, .55], [.5, .24], [0, .13]], at: [1.15, -.7] },
+    { out: [[0, 0], [.26, 0], [.3, .05], [.48, .18], [.52, .34]], inn: [[.5, .35], [.46, .2], [.3, .1], [0, .09]], at: [-1.2, -.72] },
+  ];
+  const dishes = SHAPES.map(s => {
+    const g = new THREE.Group();
+    const mo = new THREE.MeshPhysicalMaterial({ color: '#fff', roughness: .18, clearcoat: 1, side: THREE.DoubleSide });
+    const mi = new THREE.MeshPhysicalMaterial({ color: '#fff', roughness: .15, clearcoat: 1, side: THREE.DoubleSide });
+    g.add(new THREE.Mesh(lathe(s.out), mo), new THREE.Mesh(lathe(s.inn), mi));
+    g.position.set(s.at[0], 0, s.at[1]); g.userData = { mo, mi, v: 0, y: 0 };
+    scene.add(g); return g;
+  });
+  scene.add(new THREE.HemisphereLight('#ffffff', '#c9c2b6', .9));
+  const key = new THREE.DirectionalLight('#fff', 1.6); key.position.set(-3, 7, 4); scene.add(key);
+  const root = new THREE.Group(); [tray, lip, ...dishes].forEach(o => root.add(o)); scene.add(root);
+  Object.assign(st, { tray, dishes, root });
+  st.apply = i => {
+    const S = SETS[i];
+    st.tray.material.color.set(S.tray);
+    st.dishes.forEach((d, k) => { d.userData.mo.color.set(S.dishes[k][0]); d.userData.mi.color.set(S.dishes[k][1]); d.userData.v = 7 + k; });
+    tabs.forEach((b, k) => b.setAttribute('aria-pressed', k === i));
+    hEl.style.opacity = pEl.style.opacity = 0;
+    setTimeout(() => { hEl.textContent = S.name; pEl.textContent = S.text; hEl.style.opacity = pEl.style.opacity = 1; }, qa ? 0 : 160);
+  };
+  tabs.forEach(b => b.addEventListener('click', () => { manual = performance.now(); pick(+b.dataset.i); }));
+  st.start();
+}
+function pick(i) { if (i === set) return; set = i; st.apply(i); }
+
+function frame({ t, dt, p, portrait }) {
+  if (performance.now() - manual > 1500) pick(Math.min(3, Math.floor(span(p, .1, 1) * 4)));
+  // 器が、ぽんと跳ねて入れ替わる
+  st.dishes.forEach(d => {
+    const u = d.userData; u.v -= 30 * dt; u.y += u.v * dt; if (u.y < 0) { u.y = 0; u.v = 0; }
+    d.position.y = qa ? 0 : u.y;
+  });
+  const s = portrait ? .62 : 1;
+  st.root.scale.setScalar(s);
+  st.root.position.set(portrait ? 0 : 1.5, portrait ? .9 : 0, 0);
+  st.root.rotation.y = -.35 + mouse.x * .4 + (qa ? 0 : Math.sin(t * .2) * .08);
+  st.camera.position.set(0, portrait ? 7 : 5.4, portrait ? 9 : 7.6);
+  st.camera.lookAt(portrait ? 0 : .3, portrait ? 0 : -.2, 0);
+}
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="1971" data-from="1911">1971</span><small>年　昭和46年3月　創立</small></div></div>
+    <div class="rv"><h2>提案解決型の、食器販売会社。</h2><p>スリーラインは、多彩な商品を取りそろえ、お客様の「食」の現場に関わる問題に取り組む、提案解決型の食器販売会社です。</p><p>メラミン食器を中心に、強化磁器食器、FRP素材をはじめとした各種トレイ、漆器、ホテルウェアなども取りそろえています。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>メラミン</span><span>強化磁器</span><span>FRPトレイ</span><span>漆器</span><span>病院</span><span>社員食堂</span><span>学校給食</span><span>メラミン</span><span>強化磁器</span><span>FRPトレイ</span><span>漆器</span><span>病院</span><span>社員食堂</span><span>学校給食</span><span>メラミン</span><span>強化磁器</span><span>FRPトレイ</span><span>漆器</span><span>病院</span><span>社員食堂</span><span>学校給食</span><span>メラミン</span><span>強化磁器</span><span>FRPトレイ</span><span>漆器</span><span>病院</span><span>社員食堂</span><span>学校給食</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>業種で選ぶ</h2><span>TABLEWARE</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/f1.jpg" alt="重ねた黄色い器" loading="lazy" data-speed=".06" data-gl></div><h3>病院・介護福祉施設</h3><p>毎日の食事を支える、扱いやすい器。</p></article><article class="feature rv"><div class="ph"><img src="img/f2.jpg" alt="ラーメンの器" loading="lazy" data-speed=".06" data-gl></div><h3>社員食堂・外食</h3><p>たくさん使う現場に合わせたラインナップ。</p></article><article class="feature rv"><div class="ph"><img src="img/f3.jpg" alt="棚に積まれた器" loading="lazy" data-speed=".06" data-gl></div><h3>学校給食・保育施設</h3><p>子どもたちの食事に寄り添う器を。</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/wide.jpg" alt="準備の整ったレストラン" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">器を起点に、最適なコーディネートを。</figcaption></figure>
+  
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">営業時間</h2></div>
+      
+      <table class="hours"><tr><th>お問い合わせ</th><td>お電話・メールで承ります</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>東京都港区新橋5-25-6 第2ヤマトビル</p>
+      <p class="mute">カタログのご請求も承ります。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA%E6%96%B0%E6%A9%8B5-25-6%20%E3%82%B9%E3%83%AA%E3%83%BC%E3%83%A9%E3%82%A4%E3%83%B3%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:0334330021" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">食の現場の課題を、器から。</h2>
+    <a class="tel" href="tel:0334330021">03-3433-0021</a>
+    <p>商品のご相談やカタログのご請求は、お電話かメールでどうぞ。</p>
+    <div class="btns"><a class="btn" href="mailto:info@threeline.co.jp" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>スリーライン株式会社　東京都港区新橋5-25-6 第2ヤマトビル　TEL 03-3433-0021</p>
+  <p>この試作は森川ウェブ（mahmoris98@gmail.com）が、スリーライン株式会社様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:0334330021" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>株式会社吉沢利工｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#1d1712">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@700;900&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#1d1712;--ink:#efe5d5;--mute:#b3a28c;--accent:#d38b3a;--accent-ink:#1d1712;--panel:#271f18;--line:rgba(239,229,213,.14);--display:"Zen Old Mincho",serif;--display-weight:900;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 50%}
+
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>が株式会社吉沢利工様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">大工道具・刃物　渋谷道玄坂</p><p class="pl-name">吉沢利工</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">吉沢利工</a>
+  <nav aria-label="ページ内の案内"><a href="#story">店のこと</a><a href="#features">道具</a><a href="#info">営業時間</a></nav>
+  
+  <a class="call" href="tel:0334612365"><span data-en="Call">電話</span><span class="num">03-3461-2365</span></a>
+</header>
+
+<main>
+  <section class="hero tate">
+    <div class="hero-img"><img src="img/hero.jpg" alt="作業台に積もった鉋くず"  data-gl="wipe" data-gl-hero></div>
+    <div class="hero-copy">
+      <p class="kind">大工道具・刃物　渋谷道玄坂</p>
+      <h1 aria-label="明治から、道玄坂で。"><span class="ch" style="--i:0">明</span><span class="ch" style="--i:1">治</span><span class="ch" style="--i:2">か</span><span class="ch" style="--i:3">ら</span><span class="ch" style="--i:4">、</span><br><span class="ch" style="--i:5">道</span><span class="ch" style="--i:6">玄</span><span class="ch" style="--i:7">坂</span><span class="ch" style="--i:8">で</span><span class="ch" style="--i:9">。</span></h1>
+      <span class="seal" aria-hidden="true">利工</span>
+      <p class="sub">当初は大工道具・刃物の専門店として。今は電動工具や作業工具、金物も扱っています。他店ではなかなか手に入りにくい道具も、そろえています。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-yz" id="sig" aria-label="鉋を板の上ですべらせると、鉋くずが薄く長く出てくる3Dの演出">
+    <div class="yz-stick">
+      <canvas id="yz3d" aria-hidden="true"></canvas>
+      <div class="yz-copy">
+        <p class="yz-step">鉋（かんな）</p>
+        <p class="yz-h">薄く、
+長く。</p>
+        <p class="yz-p">よく研いだ鉋なら、鉋くずは途切れずに、くるくると巻いて出てきます。</p>
+        <p class="yz-len"><b id="yz-n">0</b><small>cm</small></p>
+        <p class="yz-hint">板の上で、指やマウスを左から右へ動かしてみてください。</p>
+      </div>
+      <p class="yz-note">3Dのイメージです</p>
+    </div>
+  </section>
+<style>
+.sig-yz{position:relative;height:320vh;background:#1d1712}
+.yz-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:radial-gradient(60% 60% at 62% 55%,#3a2c20,#1d1712 72%)}
+#yz3d{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:pan-y}
+.yz-copy{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);max-width:360px;z-index:3}
+.yz-step{margin:0;color:var(--accent);letter-spacing:.2em;font-size:14px}
+.yz-h{white-space:pre-line;font-family:var(--display);font-weight:900;font-size:clamp(48px,6vw,88px);line-height:1.1;margin:8px 0 14px}
+.yz-p{margin:0 0 18px;color:var(--mute)}
+.yz-len{margin:0;font-family:var(--display);font-size:20px;color:var(--mute)}
+.yz-len b{font-size:72px;color:var(--ink);font-weight:900;margin-right:6px}
+.yz-hint{margin:10px 0 0;font-size:13px;color:var(--accent)}
+.yz-note{position:absolute;right:var(--gut);bottom:22px;margin:0;font-size:12px;color:var(--mute)}
+@media (max-width:860px){
+  .yz-copy{top:auto;bottom:0;transform:none;left:0;right:0;max-width:none;padding:56px var(--gut) 96px;background:linear-gradient(to top,rgba(29,23,18,.96) 62%,rgba(29,23,18,0))}
+  .yz-len b{font-size:44px}.yz-p{display:none}
+  .yz-note{top:74px;bottom:auto}
+}
+</style>
+<script type="module">
+import * as THREE from 'three';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+import { stage3d, span, qa, mouse, woodTexture } from '../_kit/sig/stage.js';
+
+const canvas = document.getElementById('yz3d'), section = canvas.closest('section'), nEl = document.getElementById('yz-n');
+const BOARD = 6;               // 板の長さ
+const SEG = 160, WID = .5;     // 鉋くずの細かさと幅
+let x = -BOARD / 2 + .6, total = 0, hand = 0;
+
+const st = stage3d({ canvas, section, fov: 30, env: .03, exposure: 1.1, frame });
+if (st) {
+  const { scene } = st;
+  const root = new THREE.Group(); scene.add(root);
+  const board = new THREE.Mesh(new THREE.BoxGeometry(BOARD, .5, 1.3), new THREE.MeshPhysicalMaterial({ map: woodTexture('#d9b98c', 'rgba(140,100,60,'), roughness: .55 }));
+  board.position.y = -.25; root.add(board);
+  // 鉋台と刃
+  const plane = new THREE.Group(); root.add(plane);
+  const dai = new THREE.Mesh(new RoundedBoxGeometry(1.5, .42, .8, 4, .06), new THREE.MeshPhysicalMaterial({ map: woodTexture('#8a5a32', 'rgba(50,25,10,'), roughness: .5, clearcoat: .3 }));
+  dai.position.y = .21; plane.add(dai);
+  const blade = new THREE.Mesh(new THREE.BoxGeometry(.08, .55, .6), new THREE.MeshPhysicalMaterial({ color: '#b9bec4', metalness: .9, roughness: .32 }));
+  blade.position.set(-.3, .42, 0); blade.rotation.z = .6; plane.add(blade);
+  const bar = new THREE.Mesh(new THREE.CylinderGeometry(.03, .03, .78, 8), new THREE.MeshStandardMaterial({ color: '#2a2a2a', metalness: .8, roughness: .4 }));
+  bar.rotation.x = Math.PI / 2; bar.position.set(-.18, .3, 0); plane.add(bar);
+  // 鉋くず：細長い帯を、口から上へ、後ろへ巻いていく形に毎フレーム曲げる
+  const geo = new THREE.PlaneGeometry(1, WID, SEG, 1);
+  const shave = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ color: '#f0d5a6', emissive: '#a07c4a', emissiveIntensity: .7, roughness: .6, side: THREE.DoubleSide }));
+  root.add(shave);
+  const pile = new THREE.Group(); root.add(pile);
+  scene.add(new THREE.HemisphereLight('#fff1dc', '#2a1d12', .9));
+  const key = new THREE.DirectionalLight('#fff3e0', 2); key.position.set(-2, 6, 4); scene.add(key);
+  Object.assign(st, { root, plane, shave, pile, geo });
+  st.bend = (len, mouthX) => {
+    const pos = st.geo.attributes.position;
+    for (let i = 0; i <= SEG; i++) {
+      const s = i / SEG * len;
+      // 巻きの半径は、先へ行くほど少し大きくなる
+      const R = .12 + s * .11, th = s / R;
+      const px = mouthX - Math.sin(th) * R, py = .44 + (1 - Math.cos(th)) * R, pz = s * .06;
+      for (const j of [0, 1]) { const k = i + j * (SEG + 1); pos.setXYZ(k, px, py, pz + (j ? -1 : 1) * WID / 2 * (1 - Math.min(.4, s * .02))); }
+    }
+    pos.needsUpdate = true; st.geo.computeVertexNormals();
+  };
+  // 削り終えた鉋くずは、板の手前に落ちて積もる
+  st.drop = len => {
+    const m = new THREE.Mesh(new THREE.TorusGeometry(.22 + Math.random() * .1, .02, 6, 40, Math.PI * (1.4 + Math.random())), st.shave.material);
+    m.position.set(-BOARD / 2 + Math.random() * BOARD, -.5 + Math.random() * .1, .9 + Math.random() * .4); m.rotation.set(Math.random() * 3, Math.random() * 3, 0);
+    m.scale.set(1, 1, 8); st.pile.add(m); if (st.pile.children.length > 24) st.pile.remove(st.pile.children[0]);
+  };
+  canvas.addEventListener('pointerdown', () => { hand = performance.now(); });
+  st.start();
+}
+
+let lastP = 0, len = 0, lastMX = mouse.x;
+function frame({ t, dt, p, portrait }) {
+  // マウス／指を左右に動かすと、鉋が進む。触っていないときはスクロールで進む
+  const dmx = mouse.x - lastMX; lastMX = mouse.x;
+  const userMove = performance.now() - mouse.moved < 300 && dmx > 0 ? dmx * 9 : 0;
+  const scrollMove = Math.max(0, p - lastP) * BOARD * 2.2; lastP = p;
+  const target = qa ? (span(p, .1, .9) * (BOARD - 1.2)) - BOARD / 2 + .6 : null;
+  if (qa) { len = Math.max(0, target + BOARD / 2 - .6) * 1.1; x = target; }
+  else {
+    const dx = Math.min(.25, userMove + scrollMove);
+    x += dx; len += dx * 1.1;
+    if (x > BOARD / 2 - .6) { st.drop(len); total += Math.round(len * 10); x = -BOARD / 2 + .6; len = 0; }
+  }
+  st.plane.position.set(x, 0, 0);
+  st.bend(Math.max(.02, len), x + .22);
+  nEl.textContent = qa ? 58 : total + Math.round(len * 10);
+  const s = portrait ? .4 : .82;
+  st.root.scale.setScalar(s);
+  st.root.position.set(portrait ? 0 : 2.0, portrait ? 1.1 : 0, 0);
+  st.root.rotation.set(.1, -.35 + mouse.x * .15, 0);
+  st.camera.position.set(0, portrait ? 4.4 : 3.6, portrait ? 9.4 : 8.6);
+  st.camera.lookAt(portrait ? 0 : .5, portrait ? .6 : .1, 0);
+}
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="116" data-from="56">116</span><small>年を超える　明治から渋谷道玄坂で</small></div></div>
+    <div class="rv"><h2>一服しながら、道具を見て。</h2><p>先々代（祖父）が初代千代鶴と懇意だったこともあり、当店所蔵のすばらしい道具の数々もお見せしています。店内には千代鶴の展示コーナーもあります。</p><p>当店オリジナルの帆布腰袋や、舞台で使うナグリ（舞台玄能）も販売しています。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>鉋</span><span>鑿</span><span>玄能</span><span>砥石</span><span>帆布腰袋</span><span>千代鶴</span><span>鉋</span><span>鑿</span><span>玄能</span><span>砥石</span><span>帆布腰袋</span><span>千代鶴</span><span>鉋</span><span>鑿</span><span>玄能</span><span>砥石</span><span>帆布腰袋</span><span>千代鶴</span><span>鉋</span><span>鑿</span><span>玄能</span><span>砥石</span><span>帆布腰袋</span><span>千代鶴</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>道具</h2><span>TOOLS</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/f1.jpg" alt="並べられた鑿" loading="lazy" data-speed=".06" data-gl></div><h3>鑿（のみ）</h3><p>叩き鑿、追入鑿など、職人の手に合う一本を。</p></article><article class="feature rv"><div class="ph"><img src="img/f2.jpg" alt="壁に並ぶ鉋" loading="lazy" data-speed=".06" data-gl></div><h3>鉋（かんな）</h3><p>名工の鉋から、毎日使う一台まで。</p></article><article class="feature rv"><div class="ph"><img src="img/f3.jpg" alt="鑿で木を彫る手" loading="lazy" data-speed=".06" data-gl></div><h3>刃物・砥石</h3><p>包丁や小刀、合砥・名倉砥も。</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/wide.jpg" alt="山になった鉋くず" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">薄く、長く、つながる鉋くず。</figcaption></figure>
+  
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">営業時間</h2></div>
+      <p class="status" id="status"><i></i><b>…</b></p>
+      <table class="hours"><tr data-wd="1,2,3,4,5,6"><th>平日・土曜</th><td>8:30〜18:45</td></tr><tr><th>祝日</th><td>9:00〜17:45</td></tr><tr><th>定休日</th><td>日曜日・毎月第3土曜日</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>東京都渋谷区道玄坂2-6-12</p>
+      <p class="mute">明治から変わらず、渋谷道玄坂の同じ場所で営業しています。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%8B%E8%B0%B7%E5%8C%BA%E9%81%93%E7%8E%84%E5%9D%822-6-12%20%E5%90%89%E6%B2%A2%E5%88%A9%E5%B7%A5" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:0334612365" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">探している道具、ありませんか。</h2>
+    <a class="tel" href="tel:0334612365">03-3461-2365</a>
+    <p>在庫や取り寄せのご相談は、お電話かメールでどうぞ。</p>
+    <div class="btns"><a class="btn" href="mailto:yoshizawa-rikou@m6.dion.ne.jp" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>株式会社吉沢利工　東京都渋谷区道玄坂2-6-12　TEL 03-3461-2365</p>
+  <p>この試作は森川ウェブ（mahmoris98@gmail.com）が、株式会社吉沢利工様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:0334612365" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+<script>window.SCHEDULE = {"days": {"1": [[510, 1125]], "2": [[510, 1125]], "3": [[510, 1125]], "4": [[510, 1125]], "5": [[510, 1125]], "6": [[510, 1125]]}, "closedNth": {"day": 6, "n": [3]}};</script>
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>
