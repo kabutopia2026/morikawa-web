@@ -109,8 +109,11 @@
     waits.forEach(function (i) { if (i.complete) bump(); else { i.addEventListener('load', bump, { once: true }); i.addEventListener('error', bump, { once: true }); } });
     (document.fonts ? document.fonts.ready : Promise.resolve()).then(bump);
     setTimeout(function () { target = 100; }, 3800);
+    setTimeout(ready, 6000); // 描画が止まっていても、必ず本編を開く
+    var last = performance.now();
     (function tick() {
-      shown += (target - shown) * .07;
+      var now = performance.now();
+      shown += (target - shown) * (1 - Math.exp(-(now - last) / 240)); last = now;
       num.textContent = Math.round(shown);
       bar.style.transform = 'scaleX(' + (shown / 100) + ')';
       if (shown > 99.4 && performance.now() - t0 > 1200) { num.textContent = 100; setTimeout(ready, 260); return; }
