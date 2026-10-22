@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>関東製畳有限会社 小沼畳店｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#1F271D">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#1F271D;--ink:#EEE9DA;--mute:#B5B29A;--accent:#C9A85A;--accent-ink:#1F271D;--panel:#273123;--line:rgba(238,233,218,.16);--seal:#C9A85A;--display:"Shippori Mincho B1",serif;--display-weight:800;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 60%;--top-ink:var(--ink)}
+.feature .ph.pattern{position:relative;background:repeating-linear-gradient(90deg,#b9b27c 0 2px,#a9a26c 2px 3px,#c2bb86 3px 5px);}.feature .ph.pattern::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(60,55,25,.18) 0 1px,transparent 1px 7px),linear-gradient(120deg,rgba(255,255,255,.18),transparent 55%)}.feature .ph.pattern::before{content:'';position:absolute;left:0;right:0;top:12%;height:18px;z-index:1;background:repeating-linear-gradient(45deg,#1b2418 0 7px,#C9A85A 7px 9px);box-shadow:0 2px 0 rgba(0,0,0,.25)}.features .feature:nth-child(3) .ph.pattern::before{display:none}.features .feature:nth-child(3) .ph.pattern::after{background:radial-gradient(circle at 50% 50%,transparent 0 26%,rgba(201,168,90,.0) 26%),repeating-conic-gradient(from 0deg at 50% 50%,rgba(150,40,60,.55) 0 10deg,transparent 10deg 30deg);-webkit-mask:radial-gradient(circle at 50% 50%,#000 0 30%,transparent 31%);mask:radial-gradient(circle at 50% 50%,#000 0 30%,transparent 31%)}
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>が関東製畳有限会社 小沼畳店様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">畳・内装　新宿区下落合</p><p class="pl-name">小沼畳店</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">小沼畳店</a>
+  <nav aria-label="ページ内の案内"><a href="#features">畳のこと</a><a href="#price">料金</a><a href="#info">営業時間</a></nav>
+  
+  <a class="call" href="tel:0339512947"><span data-en="Call">電話</span><span class="num">03-3951-2947</span></a>
+</header>
+
+<main>
+  <section class="hero tate" hidden>
+    <div class="hero-img"><img src="img/hero.jpg" alt="障子越しの光が差し込む畳の部屋" ></div>
+    <div class="hero-copy">
+      <p class="kind">畳・内装　新宿区下落合</p>
+      <h1 aria-label="畳を替えると、部屋の空気が変わる。"><span class="ch" style="--i:0">畳</span><span class="ch" style="--i:1">を</span><span class="ch" style="--i:2">替</span><span class="ch" style="--i:3">え</span><span class="ch" style="--i:4">る</span><span class="ch" style="--i:5">と</span><span class="ch" style="--i:6">、</span><br><span class="ch" style="--i:7">部</span><span class="ch" style="--i:8">屋</span><span class="ch" style="--i:9">の</span><span class="ch" style="--i:10">空</span><span class="ch" style="--i:11">気</span><span class="ch" style="--i:12">が</span><br><span class="ch" style="--i:13">変</span><span class="ch" style="--i:14">わ</span><span class="ch" style="--i:15">る</span><span class="ch" style="--i:16">。</span></h1>
+      <span class="seal" aria-hidden="true">小沼畳店</span>
+      <p class="sub">昭和5年、目白の地で創業。新畳・表替えから縁無し畳、刺繍畳まで、三代目が承ります。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-tatami hero-sig" id="sig" aria-label="六畳間の畳を表替えする3Dの演出">
+    <div class="st-stick hero tate">
+      <canvas id="tatami3d" aria-hidden="true"></canvas>
+      <div class="hero-copy hs-copy" id="hs-copy"><p class="kind">畳・内装　新宿区下落合</p><h1 aria-label="畳を替えると、部屋の空気が変わる。"><span class="ch" style="--i:0">畳</span><span class="ch" style="--i:1">を</span><span class="ch" style="--i:2">替</span><span class="ch" style="--i:3">え</span><span class="ch" style="--i:4">る</span><span class="ch" style="--i:5">と</span><span class="ch" style="--i:6">、</span><br><span class="ch" style="--i:7">部</span><span class="ch" style="--i:8">屋</span><span class="ch" style="--i:9">の</span><span class="ch" style="--i:10">空</span><span class="ch" style="--i:11">気</span><span class="ch" style="--i:12">が</span><br><span class="ch" style="--i:13">変</span><span class="ch" style="--i:14">わ</span><span class="ch" style="--i:15">る</span><span class="ch" style="--i:16">。</span></h1><span class="seal" aria-hidden="true">小沼畳店</span><p class="sub">昭和5年、目白の地で創業。新畳・表替えから縁無し畳、刺繍畳まで、三代目が承ります。</p></div>
+      <div class="st-copy" id="st-copy">
+        <p class="st-step" id="st-step">日焼けした畳をはがして</p>
+        <h2>六畳の間に、<br>一枚ずつ。</h2>
+        <p>畳は、部屋の寸法を測り、一枚ずつ合わせてつくります。古い畳をはがし、新しい畳を敷くまでを、スクロールでご覧ください。</p>
+      </div>
+      <p class="st-note">3Dのイメージです</p>
+    </div>
+  </section>
+<style>
+.sig-tatami{position:relative;height:420vh;background:#14180f}
+.st-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#14180f}
+#tatami3d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.st-copy{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);max-width:360px;opacity:0;z-index:3}
+.st-copy h2{font-family:var(--display);font-weight:800;font-size:clamp(32px,4vw,56px);line-height:1.35;margin:6px 0 16px}
+.st-copy p{margin:0;color:var(--mute)}
+.st-step{margin:0;color:var(--accent);font-weight:700;letter-spacing:.14em;font-size:14px}
+.st-note{position:absolute;right:var(--gut);bottom:22px;margin:0;font-size:12px;color:var(--mute);z-index:3}
+.hs-copy{text-shadow:0 2px 30px rgba(0,0,0,.6)}
+@media (max-width:860px){
+  .st-copy{top:auto;bottom:0;transform:none;left:0;right:0;max-width:none;padding:70px var(--gut) 90px;background:linear-gradient(to top,rgba(20,24,15,.95) 62%,rgba(20,24,15,0))}
+  .st-note{top:74px;bottom:auto}
+}
+</style>
+<script type="module">
+import * as THREE from 'three';
+
+const canvas = document.getElementById('tatami3d');
+const section = canvas.closest('section');
+const stepEl = document.getElementById('st-step'), copy = document.getElementById('st-copy'), hero = document.getElementById('hs-copy'), note = section.querySelector('.st-note');
+const qa = /[?&]qa/.test(location.search);
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let renderer;
+try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true }); } catch (e) {}
+
+if (renderer) {
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color('#14180f');
+  const camera = new THREE.PerspectiveCamera(32, 1, .1, 100);
+
+  const tex = (w, h, draw) => { const c = document.createElement('canvas'); c.width = w; c.height = h; draw(c.getContext('2d'), w, h); const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; return t; };
+
+  // 畳表（長手方向を横に。上下が畳縁）。古い畳は日焼けとしみ、新しい畳は青々と
+  function omote(c1, c2, old) {
+    return tex(1024, 512, (g, w, h) => {
+      const grad = g.createLinearGradient(0, 0, w, h);
+      grad.addColorStop(0, c1); grad.addColorStop(1, c2);
+      g.fillStyle = grad; g.fillRect(0, 0, w, h);
+      for (let x = 0; x < w; x += 3) { g.fillStyle = `rgba(70,66,25,${.07 + Math.random() * .1})`; g.fillRect(x, 0, 1, h); }
+      for (let y = 0; y < h; y += 26) { g.fillStyle = 'rgba(80,75,35,.16)'; g.fillRect(0, y, w, 2); }
+      if (old) for (let i = 0; i < 9; i++) { const cx = Math.random() * w, cy = Math.random() * h, r = g.createRadialGradient(cx, cy, 4, cx, cy, 90 + Math.random() * 120); r.addColorStop(0, 'rgba(120,80,30,.22)'); r.addColorStop(1, 'rgba(120,80,30,0)'); g.fillStyle = r; g.fillRect(0, 0, w, h); }
+      const heri = 46;
+      for (const y of [0, h - heri]) {
+        g.fillStyle = old ? '#3a3328' : '#1d2433'; g.fillRect(0, y, w, heri);
+        g.fillStyle = old ? 'rgba(160,140,90,.35)' : 'rgba(201,168,90,.6)';
+        for (let x = 8; x < w; x += 22) { g.beginPath(); g.moveTo(x, y + heri / 2); g.lineTo(x + 7, y + 12); g.lineTo(x + 14, y + heri / 2); g.lineTo(x + 7, y + heri - 12); g.closePath(); g.fill(); }
+      }
+    });
+  }
+  const OLD = omote('#c4a96a', '#b0925a', true), NEW = omote('#b6c27a', '#98a95f', false);
+
+  // 障子の格子（光の型）
+  const shoji = tex(256, 256, (g, w, h) => {
+    g.fillStyle = '#fff'; g.fillRect(0, 0, w, h);
+    g.fillStyle = '#000';
+    for (let i = 0; i <= 4; i++) g.fillRect(i * w / 4 - 4, 0, 8, h);
+    for (let j = 0; j <= 6; j++) g.fillRect(0, j * h / 6 - 3, w, 6);
+    const r = g.createRadialGradient(w / 2, h / 2, w * .3, w / 2, h / 2, w * .72);
+    r.addColorStop(0, 'rgba(0,0,0,0)'); r.addColorStop(1, 'rgba(0,0,0,1)');
+    g.fillStyle = r; g.fillRect(0, 0, w, h);
+  });
+
+  const L = 1.76, S = .88, W = 3.52, D = 2.64, T = .055;
+  // 六畳の敷き方（四つの角が一点に集まらない並べ方）
+  const layout = [[0, 0, L, S], [L, 0, L, S], [0, S, S, L], [S, S, L, S], [S, 2 * S, L, S], [W - S, S, S, L]];
+  const room = new THREE.Group(); scene.add(room);
+  const frame = new THREE.Mesh(new THREE.BoxGeometry(W + .24, .08, D + .24), new THREE.MeshStandardMaterial({ color: '#3a2618', roughness: .7 }));
+  frame.position.y = -.06; frame.receiveShadow = true; room.add(frame);
+  const floor = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), new THREE.MeshStandardMaterial({ color: '#1b2015', roughness: 1 }));
+  floor.rotation.x = -Math.PI / 2; floor.position.y = -.1; floor.receiveShadow = true; scene.add(floor);
+
+  const side = new THREE.MeshStandardMaterial({ color: '#7d7746', roughness: .9 });
+  const mats = layout.map(([x, z, w, d]) => {
+    const horizontal = w > d;
+    const top = new THREE.MeshStandardMaterial({ map: OLD, roughness: .78, transparent: true });
+    const m = new THREE.Mesh(new THREE.BoxGeometry(horizontal ? w - .008 : d - .008, T, horizontal ? d - .008 : w - .008), [side, side, top, side, side, side]);
+    m.castShadow = true; m.receiveShadow = true;
+    const g = new THREE.Group(); g.add(m);
+    g.userData = { base: new THREE.Vector3(x + w / 2 - W / 2, T / 2, z + d / 2 - D / 2), top };
+    g.rotation.y = horizontal ? 0 : Math.PI / 2;
+    room.add(g);
+    return g;
+  });
+
+  scene.add(new THREE.HemisphereLight('#fff2d6', '#1b2015', 1.1));
+  const key = new THREE.DirectionalLight('#ffe7c0', 1.3); key.position.set(2, 6, 3); scene.add(key);
+  const sun = new THREE.SpotLight('#fff1d2', 34, 20, .62, .35, 1.2);
+  sun.map = shoji; sun.castShadow = true; sun.shadow.mapSize.set(1024, 1024);
+  scene.add(sun, sun.target);
+
+  function resize() { const w = canvas.clientWidth, h = canvas.clientHeight; renderer.setSize(w, h, false); camera.aspect = w / h; camera.fov = camera.aspect < .9 ? 52 : 32; camera.updateProjectionMatrix(); }
+  resize(); addEventListener('resize', resize);
+  const mouse = { x: 0, y: 0 };
+  addEventListener('pointermove', e => { mouse.x = e.clientX / innerWidth - .5; mouse.y = e.clientY / innerHeight - .5; }, { passive: true });
+
+  const NUM = ['一', '二', '三', '四', '五', '六'];
+  const ease = t => 1 - Math.pow(1 - t, 3);
+  const c01 = x => Math.max(0, Math.min(1, x));
+  let cur = 0, visible = true;
+  new IntersectionObserver(e => { visible = e[0].isIntersecting; }).observe(section);
+  const clock = new THREE.Clock();
+  (function frameLoop() {
+    requestAnimationFrame(frameLoop);
+    if (!visible && !qa) return;
+    const t = clock.getElapsedTime();
+    const r = section.getBoundingClientRect();
+    const p = qa ? +(new URLSearchParams(location.search).get('p') || .74) : c01(-r.top / (r.height - innerHeight));
+    cur += (p - cur) * (reduce || qa ? 1 : .09);
+
+    mats.forEach((g, i) => {
+      const { base, top } = g.userData;
+      const lift = c01((cur - .1 - i * .012) / .12);
+      const place = c01((cur - .3) / .36 * 6 - i);
+      if (place > 0) {
+        top.map = NEW; top.opacity = 1; g.visible = true;
+        const e = ease(place);
+        g.position.set(base.x, base.y + (1 - e) * 1.4, base.z);
+        g.rotation.z = (1 - e) * .25 * (i % 2 ? 1 : -1); g.rotation.x = 0;
+      } else if (lift < 1) {
+        top.map = OLD; top.opacity = 1 - lift * lift; g.visible = true;
+        const e = ease(lift);
+        g.position.set(base.x + (base.x > 0 ? 1 : -1) * e * 2.5, base.y + e * 3.2, base.z - e * 1.5);
+        g.rotation.z = e * .9 * (i % 2 ? 1 : -1); g.rotation.x = -e * .6;
+      } else g.visible = false;
+    });
+
+    if (hero) hero.style.opacity = 1 - c01((cur - .04) / .08);
+    copy.style.opacity = note.style.opacity = c01((cur - .1) / .06);
+    const n = Math.max(1, Math.min(6, Math.ceil(c01((cur - .3) / .36) * 6)));
+    stepEl.textContent = cur < .28 ? '日焼けした畳をはがして' : cur > .7 ? '障子越しの光' : '新しい畳を、' + NUM[n - 1] + '枚目';
+
+    // 障子の光：最初は時間とともにゆっくり、最後はスクロールに合わせて動く
+    const sweep = cur > .66 ? c01((cur - .66) / .34) : .5 + Math.sin(t * .22) * .35;
+    sun.position.set(-4.5 + sweep * 5, 4.2, -2.6 + sweep * 1.2);
+
+    const portrait = camera.aspect < .9, heroK = 1 - c01(cur / .12);
+    const orbit = reduce ? 0 : Math.sin(t * .15) * .35 * heroK;
+    camera.position.set(1.2 + mouse.x * .8 + orbit, (portrait ? 8.2 : 6.2) - mouse.y * .5 + heroK * .4, (portrait ? 6.4 : 4.6) + heroK * .8);
+    camera.lookAt(portrait ? 0 : -1.35 + heroK * 1.85, 0, portrait ? .6 - heroK * 1.5 : .1);
+    renderer.render(scene, camera);
+  })();
+}
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="1930" data-from="1870">1930</span><small>昭和5年　目白で創業</small></div></div>
+    <div class="rv"><h2>三代続く、目白の畳屋。</h2><p>昭和5年、初代・小沼光造が東京・目白で創業しました。昭和22年に関東製畳有限会社となり、現在は三代目・小沼光則が店を継いでいます。</p><p>人気の縁無し畳や琉球畳から、置き畳、刺繍畳、内装工事まで。ご予算に合わせてご提案し、お見積もりは無料です。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>畳</span><span>表替え</span><span>縁無し畳</span><span>琉球畳</span><span>刺繍畳</span><span>昭和五年創業</span><span>畳</span><span>表替え</span><span>縁無し畳</span><span>琉球畳</span><span>刺繍畳</span><span>昭和五年創業</span><span>畳</span><span>表替え</span><span>縁無し畳</span><span>琉球畳</span><span>刺繍畳</span><span>昭和五年創業</span><span>畳</span><span>表替え</span><span>縁無し畳</span><span>琉球畳</span><span>刺繍畳</span><span>昭和五年創業</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>畳のこと</h2><span>TATAMI</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/room.jpg" alt="畳の上に座卓と座布団が置かれた和室" loading="lazy" data-speed=".06" data-gl></div><h3>表替え・裏返し</h3><p>日焼けや擦り切れが気になったら。畳床はそのままに、表を張り替えて新しい香りに。</p></article><article class="feature rv"><div class="ph pattern" aria-hidden="true"></div><h3>縁無し畳・琉球畳</h3><p>目積み表のすっきりした畳で、洋室にもなじむ和の空間に。</p></article><article class="feature rv"><div class="ph pattern" aria-hidden="true"></div><h3>刺繍畳</h3><p>畳表に図柄を刺繍した、格調ある一枚。床の間や玄関の飾りにも。</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/hero.jpg" alt="障子越しの光が差し込む畳の部屋" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">い草の香りは、部屋の空気を変える。</figcaption></figure>
+  
+  <section class="sec" id="price">
+    <div class="sec-head rv"><h2>料金のめやす</h2><span>PRICE</span></div>
+    <dl class="prices rv"><div><dt>表替え<small>普通畳</small></dt><dd>6,000円〜</dd></div><div><dt>裏返し<small>普通畳</small></dt><dd>5,500円〜</dd></div><div><dt>新畳<small>建材床</small></dt><dd>19,000円〜</dd></div><div><dt>新畳<small>藁床</small></dt><dd>28,000円〜</dd></div><div><dt>琉球畳（縁なし）<small>新畳</small></dt><dd>68,000円〜</dd></div><div><dt>刺繍畳<small>1点</small></dt><dd>48,000円〜</dd></div></dl>
+    <p class="prices-note rv">現在のホームページに掲載されている価格です（1畳あたり）。畳の状態や枚数で変わりますので、下見のうえでお見積もりします。</p>
+  </section>
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">営業時間</h2></div>
+      <p class="status" id="status"><i></i><b>…</b></p>
+      <table class="hours"><tr data-wd="1,2,3,4,5,6"><th>営業時間</th><td>8:00〜20:00</td></tr><tr><th>定休日</th><td>日曜・祝日</td></tr><tr><th>時間外</th><td>ご希望により、定休日や夜間も承ります</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>〒161-0033 東京都新宿区下落合3-18-3</p>
+      <p class="mute">下見・施工は関東全域にうかがいます。ご希望により遠方も承ります。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%96%B0%E5%AE%BF%E5%8C%BA%E4%B8%8B%E8%90%BD%E5%90%883-18-3%20%E5%B0%8F%E6%B2%BC%E7%95%B3%E5%BA%97" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:0339512947" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">下見とお見積もりは、無料です。</h2>
+    <a class="tel" href="tel:0339512947">03-3951-2947</a>
+    <p>畳の枚数や部屋の広さがわからなくても大丈夫です。お電話かメールでご相談ください。</p>
+    <div class="btns"><a class="btn" href="mailto:info@kantouseijyou.com" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>関東製畳有限会社 小沼畳店　〒161-0033 東京都新宿区下落合3-18-3　TEL 03-3951-2947</p>
+  <p>この試作は森川ウェブ（mahmoris98@gmail.com）が、関東製畳有限会社 小沼畳店様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:0339512947" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+<script>window.SCHEDULE = {"days": {"1": [[480, 1200]], "2": [[480, 1200]], "3": [[480, 1200]], "4": [[480, 1200]], "5": [[480, 1200]], "6": [[480, 1200]]}};</script>
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

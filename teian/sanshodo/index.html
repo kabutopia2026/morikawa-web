@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>三賞堂印店｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#FBFAF7">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Antique+B1&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#FBFAF7;--ink:#1A1A1A;--mute:#6B6B6B;--accent:#B8322A;--accent-ink:#fff;--panel:#F1EEE8;--line:#E2DDD3;--seal:#E0574D;--display:"Shippori Antique B1",serif;--display-weight:400;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 50%}
+.big-seal{display:grid;place-items:center;width:150px;height:150px;margin-top:36px;border:6px solid #B8322A;border-radius:14px;color:#B8322A;font-family:'Shippori Antique B1',serif;font-size:44px;line-height:1.05;writing-mode:vertical-rl;letter-spacing:.06em;transform:rotate(-6deg) scale(2);opacity:0;transition:transform .45s cubic-bezier(.3,1.6,.5,1),opacity .3s;background:radial-gradient(circle at 30% 30%,rgba(184,50,42,.06),transparent 70%)}.rv.in .big-seal{transform:rotate(-6deg) scale(1);opacity:.92;transition-delay:.5s}.feature .ph.pattern{display:grid;place-items:center;background:#F1EEE8}.feature .ph.pattern span{display:grid;place-items:center;width:46%;aspect-ratio:1;border-radius:50%;border:5px solid #B8322A;color:#B8322A;font-family:'Shippori Antique B1',serif;font-size:clamp(28px,3vw,44px);writing-mode:vertical-rl}
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>が三賞堂印店様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">手彫り印鑑　高田馬場一丁目</p><p class="pl-name">三賞堂印店</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">三賞堂印店</a>
+  <nav aria-label="ページ内の案内"><a href="#story">三賞堂について</a><a href="#features">印鑑</a><a href="#info">お問い合わせ</a></nav>
+  
+  <a class="call" href="tel:0332008365"><span data-en="Call">電話</span><span class="num">03-3200-8365</span></a>
+</header>
+
+<main>
+  <section class="hero tate">
+    <div class="hero-img"><img src="img/hero.jpg" alt="筆で白い紙に文字を書く手元"  data-gl="ink" data-gl-hero></div>
+    <div class="hero-copy">
+      <p class="kind">手彫り印鑑　高田馬場一丁目</p>
+      <h1 aria-label="一本ずつ、手で描いて、彫る。"><span class="ch" style="--i:0">一</span><span class="ch" style="--i:1">本</span><span class="ch" style="--i:2">ず</span><span class="ch" style="--i:3">つ</span><span class="ch" style="--i:4">、</span><br><span class="ch" style="--i:5">手</span><span class="ch" style="--i:6">で</span><span class="ch" style="--i:7">描</span><span class="ch" style="--i:8">い</span><span class="ch" style="--i:9">て</span><span class="ch" style="--i:10">、</span><br><span class="ch" style="--i:11">彫</span><span class="ch" style="--i:12">る</span><span class="ch" style="--i:13">。</span></h1>
+      <span class="seal" aria-hidden="true">三賞堂印</span>
+      <p class="sub">昭和38年創業。手描きの版下と職人の手彫りで、これまでに4万本を超える印鑑をお作りしてきました。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yuji+Boku&display=swap">
+  <section class="sig-seal" id="sig" aria-label="名前を入れて印影を試す">
+    <div class="ss-wrap">
+      <div class="ss-panel">
+        <h2>お名前で、<br>押してみる。</h2>
+        <p>名前を入れて「押す」を押すと、印影のイメージができます。</p>
+        <label class="ss-field"><span>お名前（4文字まで）</span><input id="ss-name" type="text" maxlength="4" value="山田" autocomplete="off"></label>
+        <fieldset class="ss-field"><legend>形</legend>
+          <div class="ss-seg"><label><input type="radio" name="ss-shape" value="maru" checked><span>丸印</span></label><label><input type="radio" name="ss-shape" value="kaku"><span>角印</span></label></div>
+        </fieldset>
+        <fieldset class="ss-field"><legend>用途</legend>
+          <div class="ss-seg"><label><input type="radio" name="ss-kind" value="jitsu" checked><span>実印</span></label><label><input type="radio" name="ss-kind" value="ginko"><span>銀行印</span></label><label><input type="radio" name="ss-kind" value="mitome"><span>認印</span></label></div>
+        </fieldset>
+        <button class="ss-push" id="ss-push" type="button">押す</button>
+        <p class="ss-note">イメージです。実際の印鑑は、職人が版下を手で描き起こして彫ります。大きさは一般的なめやすです。</p>
+      </div>
+      <div class="ss-paper">
+        <svg viewBox="0 0 400 400" id="ss-svg" role="img" aria-label="印影のイメージ">
+          <defs>
+            <filter id="ink" x="-10%" y="-10%" width="120%" height="120%">
+              <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" result="n"/>
+              <feDisplacementMap in="SourceGraphic" in2="n" scale="3.2" result="d"/>
+              <feTurbulence type="fractalNoise" baseFrequency="1.7" numOctaves="2" seed="9" result="n2"/>
+              <feColorMatrix in="n2" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -3 2.1" result="m"/>
+              <feComposite in="d" in2="m" operator="in"/>
+            </filter>
+          </defs>
+          <g id="ss-stamp" filter="url(#ink)"></g>
+        </svg>
+        <p class="ss-size" id="ss-size"></p>
+      </div>
+    </div>
+  </section>
+<style>
+.sig-seal{padding:clamp(70px,12vh,140px) var(--gut);background:#f3efe6}
+.ss-wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:5vw;align-items:center;max-width:1200px;margin:0 auto}
+.ss-panel h2{font-family:var(--display);font-size:clamp(30px,3.6vw,52px);line-height:1.35;margin:0 0 12px}
+.ss-panel > p{margin:0 0 22px;color:var(--mute)}
+.ss-field{display:block;border:0;margin:0 0 16px;padding:0}
+.ss-field > span,.ss-field legend{display:block;font-size:13px;font-weight:700;color:var(--mute);margin-bottom:6px;padding:0}
+.ss-field input[type=text]{width:100%;max-width:280px;font-family:var(--display);font-size:28px;padding:10px 14px;border:2px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+.ss-field input[type=text]:focus{outline:none;border-color:var(--accent)}
+.ss-seg{display:inline-flex;border:2px solid var(--line);border-radius:999px;overflow:hidden;background:#fff}
+.ss-seg label{cursor:pointer}
+.ss-seg input{position:absolute;opacity:0;pointer-events:none}
+.ss-seg span{display:block;padding:8px 18px;font-weight:700;font-size:14px}
+.ss-seg input:checked + span{background:var(--accent);color:#fff}
+.ss-seg input:focus-visible + span{outline:2px solid var(--accent);outline-offset:-4px}
+.ss-push{font:inherit;font-weight:700;font-size:18px;letter-spacing:.2em;color:#fff;background:var(--accent);border:0;border-radius:999px;padding:14px 40px;cursor:pointer;margin-top:6px}
+.ss-push:active{transform:translateY(2px)}
+.ss-note{margin:18px 0 0;font-size:12px;color:var(--mute)}
+.ss-paper{position:relative;aspect-ratio:1;max-width:520px;width:100%;justify-self:center;background:#fffdf7;box-shadow:0 30px 60px -30px rgba(60,40,20,.4);border-radius:4px;display:grid;place-items:center;background-image:radial-gradient(rgba(120,100,70,.06) 1px,transparent 1px);background-size:6px 6px}
+#ss-svg{width:78%;height:auto}
+#ss-stamp{transform-origin:200px 200px;transition:transform .28s cubic-bezier(.3,1.5,.5,1),opacity .2s}
+#ss-stamp.lift{transform:scale(1.35) rotate(-8deg);opacity:0;transition:none}
+.ss-size{position:absolute;right:16px;bottom:10px;margin:0;font-size:12px;color:var(--mute)}
+@media (max-width:860px){.ss-wrap{grid-template-columns:1fr}.ss-paper{order:-1;max-width:360px}}
+</style>
+<script>
+(function () {
+  var NS = 'http://www.w3.org/2000/svg', g = document.getElementById('ss-stamp');
+  var SIZE = { jitsu: [18, '実印（めやす15〜18mm）'], ginko: [15, '銀行印（めやす12〜15mm）'], mitome: [12, '認印（めやす10.5〜12mm）'] };
+  function val(name) { return document.querySelector('input[name=' + name + ']:checked').value; }
+  function draw() {
+    var name = (document.getElementById('ss-name').value.trim() || '山田').slice(0, 4);
+    var shape = val('ss-shape'), kind = val('ss-kind'), s = SIZE[kind][0] / 18;
+    var R = 150 * s, C = '#b8322a';
+    g.innerHTML = '';
+    var add = function (tag, a) { var e = document.createElementNS(NS, tag); for (var k in a) e.setAttribute(k, a[k]); g.appendChild(e); return e; };
+    if (shape === 'maru') add('circle', { cx: 200, cy: 200, r: R, fill: 'none', stroke: C, 'stroke-width': 11 * s });
+    else add('rect', { x: 200 - R, y: 200 - R, width: R * 2, height: R * 2, rx: 10 * s, fill: 'none', stroke: C, 'stroke-width': 11 * s });
+    var chars = [...name], n = chars.length, cells;
+    var inner = R * (shape === 'maru' ? 1.36 : 1.6);
+    if (n === 4) { var h = inner / 2; cells = [[200 + h / 2, 200 - h / 2, h], [200 + h / 2, 200 + h / 2, h], [200 - h / 2, 200 - h / 2, h], [200 - h / 2, 200 + h / 2, h]]; }
+    else { var hh = Math.min(inner / n, inner * .8); cells = chars.map(function (_, i) { return [200, 200 - hh * n / 2 + hh * (i + .5), hh]; }); }
+    chars.forEach(function (ch, i) {
+      var c = cells[i];
+      var t = add('text', { x: c[0], y: c[1], fill: C, 'font-size': c[2] * .92, 'text-anchor': 'middle', 'dominant-baseline': 'central', 'font-family': '"Yuji Boku", "Shippori Antique B1", serif' });
+      t.textContent = ch;
+    });
+    document.getElementById('ss-size').textContent = SIZE[kind][1];
+  }
+  function push() {
+    draw();
+    g.classList.add('lift');
+    g.getBoundingClientRect();
+    requestAnimationFrame(function () { g.classList.remove('lift'); g.setAttribute('transform', ''); g.style.transform = 'rotate(' + (Math.random() * 6 - 3).toFixed(1) + 'deg)'; });
+  }
+  document.getElementById('ss-push').addEventListener('click', push);
+  document.getElementById('ss-name').addEventListener('keydown', function (e) { if (e.key === 'Enter') push(); });
+  document.querySelectorAll('.sig-seal input[type=radio]').forEach(function (r) { r.addEventListener('change', push); });
+  draw();
+  if (document.fonts) document.fonts.load('40px "Yuji Boku"', '山田三賞堂').then(draw).catch(function () {});
+})();
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="1963" data-from="1900">1963</span><small>昭和38年　創業</small></div><div class="big-seal" aria-hidden="true">三賞堂</div></div>
+    <div class="rv"><h2>良い印鑑を、早く確実に。</h2><p>手で描いた版下をもとに機械で荒彫りし、仕上げは職人の手彫りで。機械彫りの正確さと手彫りの良さを合わせた、二刀流の印鑑づくりです。</p><p>急ぎで実印が必要になった方にも、できるだけ早くお届けしています。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>手描き</span><span>手彫り</span><span>実印</span><span>銀行印</span><span>四万本</span><span>手描き</span><span>手彫り</span><span>実印</span><span>銀行印</span><span>四万本</span><span>手描き</span><span>手彫り</span><span>実印</span><span>銀行印</span><span>四万本</span><span>手描き</span><span>手彫り</span><span>実印</span><span>銀行印</span><span>四万本</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>印鑑のこと</h2><span>HANKO</span></div>
+    <div class="features" style="--cols:2"><article class="feature rv"><div class="ph"><img src="img/brush.jpg" alt="筆で大きな文字を書く様子" loading="lazy" data-speed=".06" data-gl></div><h3>手描きの版下</h3><p>文字の形は、ひとつずつ手で描き起こします。</p></article><article class="feature rv"><div class="ph pattern" aria-hidden="true"><span>実印</span></div><h3>実印・銀行印・認印</h3><p>用途に合わせた大きさと書体をご提案します。</p></article></div>
+  </section>
+  
+  
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">営業時間</h2></div>
+      
+      <table class="hours"><tr><th>ご注文</th><td>お電話・メールで承ります</td></tr><tr><th>仕上がり</th><td>お急ぎの方はご相談ください</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>〒169-0075 東京都新宿区高田馬場1-4-19</p>
+      <p class="mute">JR・東京メトロ・西武線 高田馬場駅から歩いてすぐ。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%96%B0%E5%AE%BF%E5%8C%BA%E9%AB%98%E7%94%B0%E9%A6%AC%E5%A0%B41-4-19%20%E4%B8%89%E8%B3%9E%E5%A0%82%E5%8D%B0%E5%BA%97" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:0332008365" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">一生ものの一本を、ご相談ください。</h2>
+    <a class="tel" href="tel:0332008365">03-3200-8365</a>
+    <p>書体や材質のご相談、お急ぎの仕上がりも、お電話かメールでどうぞ。</p>
+    <div class="btns"><a class="btn" href="mailto:han-sanshodo@tuba.ocn.ne.jp" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>三賞堂印店　〒169-0075 東京都新宿区高田馬場1-4-19　TEL 03-3200-8365</p>
+  <p>この試作は森川ウェブ（mahmoris98@gmail.com）が、三賞堂印店様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:0332008365" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

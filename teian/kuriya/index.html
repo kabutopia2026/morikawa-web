@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>酒・肴 くりや｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#17110D">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Antique&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#17110D;--ink:#F1E7D9;--mute:#B8A792;--accent:#E2A04A;--accent-ink:#17110D;--panel:#201813;--line:rgba(241,231,217,.14);--display:"Zen Antique",serif;--display-weight:400;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 50%}
+
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>が酒・肴 くりや様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">酒・肴　四谷三丁目</p><p class="pl-name">酒・肴 くりや</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">酒・肴 くりや</a>
+  <nav aria-label="ページ内の案内"><a href="#story">くりやについて</a><a href="#price">お品書き</a><a href="#info">営業時間</a></nav>
+  
+  <a class="call" href="tel:0362730969"><span data-en="Call">電話</span><span class="num">03-6273-0969</span></a>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-img"><img src="img/hero.jpg" alt="木のカウンターに並ぶ酒瓶"  data-gl="steam" data-gl-hero></div>
+    <div class="hero-copy">
+      <p class="kind">酒・肴　四谷三丁目</p>
+      <h1><span class="ln"><span style="--i:0">季節の肴と、</span></span><span class="ln"><span style="--i:1">うまい酒。</span></span></h1>
+      
+      <p class="sub">四谷三丁目駅から歩いて3分の地下一階。その日のおすすめと、季節の一品をご用意しています。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-tanzaku" id="sig" aria-label="壁に貼られたお品書きの短冊">
+    <div class="tz-head">
+      <h2>壁のお品書き</h2>
+      <p>短冊にマウスを近づけると揺れます。押すと、裏にひとことが書いてあります。</p>
+    </div>
+    <div class="tz-wall">
+      <div class="tz-rail" aria-hidden="true"></div>
+      <ul class="tz-list" id="tz-list"></ul>
+    </div>
+    <p class="tz-note">現在のホームページに掲載のメニュー・価格です。季節や仕入れで変わります。</p>
+  </section>
+<style>
+.sig-tanzaku{padding:clamp(70px,12vh,140px) 0;background:repeating-linear-gradient(90deg,#2a1d14 0 140px,#2f2117 140px 141px),linear-gradient(#2a1d14,#1d140e);overflow:hidden}
+.tz-head{padding:0 var(--gut);margin-bottom:40px}
+.tz-head h2{font-family:var(--display);font-size:clamp(32px,4vw,58px);margin:0 0 8px}
+.tz-head p{margin:0;color:var(--mute)}
+.tz-wall{position:relative;padding:0 var(--gut);overflow-x:auto;scrollbar-width:none}
+.tz-wall::-webkit-scrollbar{display:none}
+.tz-rail{position:absolute;left:0;right:0;top:0;height:12px;background:linear-gradient(#6b4a2f,#3d2918);box-shadow:0 6px 12px rgba(0,0,0,.4)}
+.tz-list{list-style:none;margin:0;padding:12px 0 30px;display:flex;gap:clamp(10px,1.4vw,20px);width:max-content;margin:0 auto}
+.tz{position:relative;width:74px;height:360px;perspective:600px;transform-origin:50% 0;cursor:pointer}
+.tz-inner{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.3,.7,.2,1)}
+.tz.flip .tz-inner{transform:rotateY(180deg)}
+.tz-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:linear-gradient(#f6efdd,#ece0c4);box-shadow:0 10px 20px rgba(0,0,0,.45);display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:22px 0 18px;writing-mode:vertical-rl}
+.tz-face::before{content:"";position:absolute;top:6px;left:50%;width:6px;height:6px;margin-left:-3px;border-radius:50%;background:#3a2a1c}
+.tz-name{font-family:var(--display);font-size:25px;line-height:1.1;letter-spacing:.06em;color:#1b130d;white-space:nowrap}
+.tz-price{font-family:var(--display);font-size:17px;color:#a3271d;letter-spacing:.04em}
+.tz-back{transform:rotateY(180deg);background:linear-gradient(#efe4cb,#e3d4b1);justify-content:center;padding:18px 0}
+.tz-back p{margin:0;font-size:13px;line-height:1.7;color:#3a2a1c;max-height:300px}
+.tz:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.tz-note{padding:0 var(--gut);margin:18px 0 0;font-size:13px;color:var(--mute)}
+@media (max-width:860px){.tz{width:62px;height:350px}.tz-name{font-size:21px}.tz-list{margin:0}}
+</style>
+<script>
+(function () {
+  var MENU = [
+    ['鹿肉のステーキ', 1380, '上質なエゾジカのもも肉を、絶妙の焼き具合で。自家製柚子こしょう付き。'],
+    ['鶏手羽と大根の煮物', 980, 'お箸でほぐれる柔らかさ。くりやの煮物の定番です。'],
+    ['鶏の唐揚げ', 870, '生姜とにんにくの効いた、竜田揚げ風。'],
+    ['ポテトサラダ', 650, '自家製マヨネーズで、クリーミィに。'],
+    ['牛すじ塩煮込み', 870, 'お出汁の効いた塩味。薬味は自家製柚子こしょう。'],
+    ['鯛の昆布締め', 980, '真鯛の昆布締めを、自家製柚子こしょうで。'],
+    ['あじのなめろう', 920, '人気の味噌なめろう。酒のあてに。'],
+    ['アジフライ', 1280, '刺身用の大ぶりのアジを、フライに。'],
+    ['魚のテリーヌ', 1280, '鯛とホタテをベースにした、クリーミィなテリーヌ。'],
+    ['うにごはん', 1280, '炊きたての釜飯（一合）。'],
+  ];
+  var D = '〇一二三四五六七八九';
+  function kanji(n) {
+    var s = '', th = Math.floor(n / 1000), h = Math.floor(n % 1000 / 100), t = Math.floor(n % 100 / 10), o = n % 10;
+    if (th) s += (th > 1 ? D[th] : '') + '千';
+    if (h) s += (h > 1 ? D[h] : '') + '百';
+    if (t) s += (t > 1 ? D[t] : '') + '十';
+    if (o) s += D[o];
+    return s + '円';
+  }
+  var list = document.getElementById('tz-list');
+  MENU.forEach(function (m) {
+    var li = document.createElement('li');
+    li.className = 'tz'; li.tabIndex = 0; li.setAttribute('role', 'button');
+    li.setAttribute('aria-label', m[0] + ' ' + m[1] + '円。押すと説明を表示');
+    var fs = m[0].length > 8 ? 18 : m[0].length > 6 ? 21 : 25;
+    li.innerHTML = '<div class="tz-inner"><div class="tz-face"><span class="tz-name" style="font-size:' + fs + 'px">' + m[0] + '</span><span class="tz-price">' + kanji(m[1]) + '</span></div><div class="tz-face tz-back"><p>' + m[2] + '</p></div></div>';
+    var flip = function () { li.classList.toggle('flip'); };
+    li.addEventListener('click', flip);
+    li.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); } });
+    list.appendChild(li);
+  });
+
+  // ばねのように揺れる
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var items = [].slice.call(list.children).map(function (el) { return { el: el, a: 0, v: 0 }; });
+  var px = -1e4, py = -1e4, pvx = 0, lastX = null, lastY = scrollY;
+  addEventListener('pointermove', function (e) { if (lastX !== null) pvx = e.clientX - lastX; lastX = e.clientX; px = e.clientX; py = e.clientY; }, { passive: true });
+  (function loop() {
+    requestAnimationFrame(loop);
+    if (reduce) return;
+    var sv = scrollY - lastY; lastY = scrollY;
+    if (Math.abs(sv) > 120) sv = 0;
+    items.forEach(function (it, i) {
+      var r = it.el.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > innerHeight) return;
+      var cx = r.left + r.width / 2, near = Math.abs(px - cx) < 70 && py > r.top - 20 && py < r.bottom;
+      if (near) it.v += pvx * .0016;
+      it.v += Math.sin(i * 1.7) * sv * .00012;
+      it.v += -it.a * .06; it.v *= .93; it.a = Math.max(-.16, Math.min(.16, it.a + it.v));
+      it.el.style.transform = 'rotate(' + (it.a * 57.3).toFixed(2) + 'deg)';
+    });
+    pvx *= .8;
+  })();
+})();
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="2013" data-from="1960">2013</span><small>10月15日　四谷三丁目に開店</small></div></div>
+    <div class="rv"><h2>一日限りのメニューも。</h2><p>季節ならではのお料理や限定品など、その日のおすすめをご案内しています。秋田から届く天然の山菜や、冬の牡蠣のかぶら蒸しなど、季節の楽しみを。</p><p>ご予約はお電話で承ります。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>酒</span><span>肴</span><span>季節の一品</span><span>四谷三丁目</span><span>酒</span><span>肴</span><span>季節の一品</span><span>四谷三丁目</span><span>酒</span><span>肴</span><span>季節の一品</span><span>四谷三丁目</span><span>酒</span><span>肴</span><span>季節の一品</span><span>四谷三丁目</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>くりやの楽しみ</h2><span>KURIYA</span></div>
+    <div class="features" style="--cols:2"><article class="feature rv"><div class="ph"><img src="img/counter.jpg" alt="酒瓶が並ぶ居酒屋の店内" loading="lazy" data-speed=".06" data-gl></div><h3>今日のおすすめ</h3><p>季節ならではの料理や、一日限りの品を。</p></article><article class="feature rv"><div class="ph"><img src="img/karaage.jpg" alt="唐揚げとキャベツと味噌汁" loading="lazy" data-speed=".06" data-gl></div><h3>定番の一品</h3><p>生姜とにんにくの効いた竜田揚げ風の唐揚げなど。</p></article></div>
+  </section>
+  
+  
+  <section class="sec" id="price">
+    <div class="sec-head rv"><h2>お品書き（一部）</h2><span>MENU</span></div>
+    <dl class="prices rv"><div><dt>鹿肉のステーキ<small>大／小</small></dt><dd>1,380円／1,080円</dd></div><div><dt>鶏手羽と大根の煮物</dt><dd>980円</dd></div><div><dt>鶏の唐揚げ</dt><dd>870円</dd></div><div><dt>あじのなめろう</dt><dd>920円</dd></div><div><dt>アジフライ</dt><dd>1,280円</dd></div><div><dt>魚のテリーヌ<small>ハーフ 780円</small></dt><dd>1,280円</dd></div><div><dt>うにごはん<small>炊きたて釜飯・一合</small></dt><dd>1,280円</dd></div></dl>
+    <p class="prices-note rv">現在のホームページに掲載のメニュー・価格です。季節や仕入れで変わります。</p>
+  </section>
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">営業時間</h2></div>
+      <p class="status" id="status"><i></i><b>…</b></p>
+      <table class="hours"><tr data-wd="1,2,3,4,5"><th>平日</th><td>17:30〜24:00</td></tr><tr data-wd="6"><th>土曜・祝日</th><td>15:00〜23:00</td></tr><tr data-wd="0"><th>定休日</th><td>日曜</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>〒160-0004 東京都新宿区四谷3丁目1 村越ビル地下1階</p>
+      <p class="mute">東京メトロ丸ノ内線 四谷三丁目駅3番出口から徒歩3分。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%96%B0%E5%AE%BF%E5%8C%BA%E5%9B%9B%E8%B0%B73%E4%B8%81%E7%9B%AE1%20%E6%9D%91%E8%B6%8A%E3%83%93%E3%83%AB%20%E3%81%8F%E3%82%8A%E3%82%84" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:0362730969" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">ご予約は、お電話で。</h2>
+    <a class="tel" href="tel:0362730969">03-6273-0969</a>
+    <p>宴会や貸切のご相談もお気軽にどうぞ。</p>
+    <div class="btns"><a class="btn" href="mailto:kuriya@epice-inc.com" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>酒・肴 くりや　〒160-0004 東京都新宿区四谷3丁目1 村越ビル地下1階　TEL 03-6273-0969</p>
+  <p>この試作は森川ウェブ（mahmoris98@gmail.com）が、酒・肴 くりや様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:0362730969" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+<script>window.SCHEDULE = {"days": {"1": [[1050, 1440]], "2": [[1050, 1440]], "3": [[1050, 1440]], "4": [[1050, 1440]], "5": [[1050, 1440]], "6": [[900, 1380]]}};</script>
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

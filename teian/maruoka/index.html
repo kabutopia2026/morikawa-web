@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>株式会社 丸岡陶苑｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#F6F6F3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#F6F6F3;--ink:#1E2638;--mute:#6C7386;--accent:#2B4C8C;--accent-ink:#fff;--panel:#ECEEF1;--line:#D9DCE3;--seal:#E9EEF8;--display:"Shippori Mincho",serif;--display-weight:800;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 55%;--top-ink:var(--ink)}
+
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>が株式会社 丸岡陶苑様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">和食器　神楽坂三丁目</p><p class="pl-name">丸岡陶苑</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">丸岡陶苑</a>
+  <nav aria-label="ページ内の案内"><a href="#story">店のこと</a><a href="#features">器</a><a href="#info">営業時間</a></nav>
+  
+  <a class="call" href="tel:0332690675"><span data-en="Call">電話</span><span class="num">03-3269-0675</span></a>
+</header>
+
+<main>
+  <section class="hero tate" hidden>
+    <div class="hero-img"><img src="img/hero.jpg" alt="棚と台に器が並ぶ食器店の店内" ></div>
+    <div class="hero-copy">
+      <p class="kind">和食器　神楽坂三丁目</p>
+      <h1 aria-label="料理への心使いを、器でお手伝い。"><span class="ch" style="--i:0">料</span><span class="ch" style="--i:1">理</span><span class="ch" style="--i:2">へ</span><span class="ch" style="--i:3">の</span><span class="ch" style="--i:4">心</span><span class="ch" style="--i:5">使</span><span class="ch" style="--i:6">い</span><span class="ch" style="--i:7">を</span><span class="ch" style="--i:8">、</span><br><span class="ch" style="--i:9">器</span><span class="ch" style="--i:10">で</span><span class="ch" style="--i:11">お</span><span class="ch" style="--i:12">手</span><span class="ch" style="--i:13">伝</span><span class="ch" style="--i:14">い</span><span class="ch" style="--i:15">。</span></h1>
+      <span class="seal" aria-hidden="true">丸岡陶苑</span>
+      <p class="sub">明治25年創業。清水焼・有田焼・萩焼・備前焼・江戸切子など、職人仕事の美しさが感じられる器をそろえています。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-bowl hero-sig" id="sig" aria-label="器の焼き物を見比べる3Dのイメージ">
+    <div class="sb-stick hero tate">
+      <canvas id="bowl3d" aria-hidden="true"></canvas>
+      <div class="hero-copy hs-copy" id="hs-copy"><p class="kind">和食器　神楽坂三丁目</p><h1 aria-label="料理への心使いを、器でお手伝い。"><span class="ch" style="--i:0">料</span><span class="ch" style="--i:1">理</span><span class="ch" style="--i:2">へ</span><span class="ch" style="--i:3">の</span><span class="ch" style="--i:4">心</span><span class="ch" style="--i:5">使</span><span class="ch" style="--i:6">い</span><span class="ch" style="--i:7">を</span><span class="ch" style="--i:8">、</span><br><span class="ch" style="--i:9">器</span><span class="ch" style="--i:10">で</span><span class="ch" style="--i:11">お</span><span class="ch" style="--i:12">手</span><span class="ch" style="--i:13">伝</span><span class="ch" style="--i:14">い</span><span class="ch" style="--i:15">。</span></h1><span class="seal" aria-hidden="true">丸岡陶苑</span><p class="sub">明治25年創業。清水焼・有田焼・萩焼・備前焼・江戸切子など、職人仕事の美しさが感じられる器をそろえています。</p></div>
+      <div class="sb-copy" id="sb-copy">
+        <h2>手のひらで、<br>器を回すように。</h2>
+        <p>ドラッグすると、器を回して眺められます。焼き物の違いも、ボタンやスクロールで見比べられます。</p>
+        <div class="sb-tabs" role="group" aria-label="焼き物を選ぶ">
+          <button type="button" data-g="0" aria-pressed="true">染付<small>有田焼の趣</small></button>
+          <button type="button" data-g="1" aria-pressed="false">萩焼<small>やわらかな土味</small></button>
+          <button type="button" data-g="2" aria-pressed="false">備前焼<small>釉薬を使わない焼締め</small></button>
+        </div>
+      </div>
+      <p class="sb-note">3Dのイメージです。実際の商品ではありません</p>
+    </div>
+  </section>
+<style>
+.sig-bowl{position:relative;height:380vh;background:radial-gradient(70% 60% at 62% 50%,#ffffff,#e9ebee 70%)}
+.sb-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;color:var(--ink);background:transparent}
+.sb-stick .hs-copy{z-index:3}
+.sb-stick .hs-copy .sub{color:var(--mute)}
+#bowl3d{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;touch-action:pan-y}
+#bowl3d:active{cursor:grabbing}
+.sb-copy{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);max-width:380px;opacity:0;z-index:3}
+.sb-copy h2{font-family:var(--display);font-weight:800;font-size:clamp(30px,3.6vw,52px);line-height:1.4;margin:0 0 16px}
+.sb-copy p{margin:0 0 26px;color:var(--mute)}
+.sb-tabs{display:grid;gap:8px}
+.sb-tabs button{display:flex;justify-content:space-between;align-items:baseline;gap:16px;font:inherit;font-weight:700;font-size:17px;text-align:left;padding:14px 18px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.7);color:var(--ink);cursor:pointer;transition:background .25s,border-color .25s,color .25s}
+.sb-tabs button small{font-weight:400;font-size:12px;color:var(--mute)}
+.sb-tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.sb-tabs button[aria-pressed="true"] small{color:#d7e0f3}
+.sb-note{position:absolute;right:var(--gut);bottom:22px;margin:0;font-size:12px;color:var(--mute)}
+@media (max-width:860px){
+  .sb-copy{top:auto;bottom:0;transform:none;left:0;right:0;max-width:none;padding:40px var(--gut) 86px;background:linear-gradient(to top,rgba(246,246,243,.97) 70%,rgba(246,246,243,0))}
+  .sb-copy p{display:none}
+  .sb-tabs{grid-template-columns:repeat(3,1fr)}
+  .sb-tabs button{flex-direction:column;gap:2px;padding:10px 12px;font-size:15px}
+  .sb-note{top:74px;bottom:auto}
+}
+</style>
+<script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+const canvas = document.getElementById('bowl3d');
+const section = canvas.closest('section');
+const buttons = section.querySelectorAll('.sb-tabs button');
+const hero = document.getElementById('hs-copy'), sbCopy = document.getElementById('sb-copy'), note = section.querySelector('.sb-note');
+const qa = /[?&]qa/.test(location.search);
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let renderer;
+try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true }); } catch (e) {}
+
+if (renderer) {
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  const scene = new THREE.Scene();
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  scene.environment = pmrem.fromScene(new RoomEnvironment(), .04).texture;
+  const camera = new THREE.PerspectiveCamera(30, 1, .1, 100);
+
+  const tex = (draw) => { const c = document.createElement('canvas'); c.width = 1024; c.height = 512; draw(c.getContext('2d'), 1024, 512); const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; t.wrapS = THREE.RepeatWrapping; return t; };
+  const rnd = (a, b) => a + Math.random() * (b - a);
+
+  // 染付：白地に藍の青海波と見込みの丸紋
+  const sometsuke = tex((g, w, h) => {
+    g.fillStyle = '#f7f6f1'; g.fillRect(0, 0, w, h);
+    g.strokeStyle = '#27407a'; g.lineCap = 'round';
+    const band = (y0, y1) => {
+      g.lineWidth = 2.4;
+      const st = w / 24;
+      for (let y = y0, row = 0; y < y1; y += st / 2, row++) for (let x = row % 2 ? 0 : st / 2; x < w + st; x += st) for (let r = st * .46; r > 4; r -= 6) { g.beginPath(); g.arc(x, y + st / 2, r, Math.PI, 0); g.stroke(); }
+    };
+    band(h * .52, h * .8);
+    g.lineWidth = 7; g.beginPath(); g.moveTo(0, h * .84); g.lineTo(w, h * .84); g.stroke();
+    g.lineWidth = 3; g.beginPath(); g.moveTo(0, h * .49); g.lineTo(w, h * .49); g.stroke();
+    g.lineWidth = 3; g.beginPath(); g.moveTo(0, h * .1); g.lineTo(w, h * .1); g.stroke();
+    g.fillStyle = 'rgba(39,64,122,.85)';
+    for (let x = w / 16; x < w; x += w / 8) { g.beginPath(); g.arc(x, h * .22, 11, 0, Math.PI * 2); g.fill(); }
+  });
+  // 萩焼：枇杷色の地に細かな貫入
+  const hagi = tex((g, w, h) => {
+    const gr = g.createLinearGradient(0, h, 0, 0);
+    gr.addColorStop(0, '#d9b9a0'); gr.addColorStop(.5, '#ead2c0'); gr.addColorStop(1, '#f1e1d4');
+    g.fillStyle = gr; g.fillRect(0, 0, w, h);
+    g.strokeStyle = 'rgba(120,80,60,.32)'; g.lineWidth = 1;
+    for (let i = 0; i < 900; i++) { let x = rnd(0, w), y = rnd(0, h); g.beginPath(); g.moveTo(x, y); for (let k = 0; k < 4; k++) { x += rnd(-22, 22); y += rnd(-16, 16); g.lineTo(x, y); } g.stroke(); }
+    g.fillStyle = 'rgba(255,240,230,.25)';
+    for (let i = 0; i < 40; i++) { g.beginPath(); g.arc(rnd(0, w), rnd(0, h), rnd(10, 40), 0, Math.PI * 2); g.fill(); }
+  });
+  // 備前焼：焼締めの赤褐色に、胡麻と緋襷
+  const bizen = tex((g, w, h) => {
+    g.fillStyle = '#7d3f26'; g.fillRect(0, 0, w, h);
+    for (let i = 0; i < 6000; i++) { g.fillStyle = `rgba(${Math.random() < .5 ? '40,18,10' : '160,90,50'},${rnd(.05, .25)})`; g.fillRect(rnd(0, w), rnd(0, h), rnd(1, 3), rnd(1, 3)); }
+    // 胡麻：窯の灰が降りかかった片側の、口縁のあたりに細かな粒とにじみ
+    for (let i = 0; i < 4; i++) { const cx = rnd(w * .2, w * .34), cy = rnd(h * .4, h * .56), r = g.createRadialGradient(cx, cy, 8, cx, cy, rnd(110, 170)); r.addColorStop(0, 'rgba(186,146,78,.42)'); r.addColorStop(1, 'rgba(186,146,78,0)'); g.fillStyle = r; g.fillRect(0, 0, w, h); }
+    for (let i = 0; i < 2200; i++) {
+      const x = rnd(0, w * .5), y = rnd(h * .34, h * .64);
+      if (Math.random() > Math.sin(x / (w * .5) * Math.PI) * (1 - Math.abs(y / h - .49) / .15)) continue;
+      g.fillStyle = `rgba(214,178,98,${rnd(.35, .85)})`; g.beginPath(); g.ellipse(x, y, rnd(.8, 2.2), rnd(1, 3.6), 0, 0, Math.PI * 2); g.fill();
+    }
+    // 緋襷：藁を巻いて焼いた跡の、交差する赤い筋（外側）
+    const streak = (x0, x1) => [[22, .1], [13, .16], [6, .32]].forEach(([lw, a]) => {
+      g.strokeStyle = `rgba(206,84,44,${a})`; g.lineWidth = lw; g.lineCap = 'round';
+      g.beginPath(); g.moveTo(x0, h * .58); g.bezierCurveTo(x0 + (x1 - x0) * .3, h * .7, x0 + (x1 - x0) * .7, h * .8, x1, h * .94); g.stroke();
+    });
+    const sx = rnd(w * .58, w * .7);
+    streak(sx, sx + 170); streak(sx + 170, sx); streak(sx + 230, sx + 330);
+  });
+  const GLAZES = [
+    new THREE.MeshPhysicalMaterial({ map: sometsuke, roughness: .18, clearcoat: 1, clearcoatRoughness: .08, side: THREE.DoubleSide }),
+    new THREE.MeshPhysicalMaterial({ map: hagi, roughness: .3, clearcoat: .7, clearcoatRoughness: .25, side: THREE.DoubleSide }),
+    new THREE.MeshPhysicalMaterial({ map: bizen, roughness: .88, clearcoat: 0, side: THREE.DoubleSide }),
+  ];
+
+  // 茶碗の断面（外側を高台から口縁へ、内側を口縁から見込みへ）
+  const P = [[0, 0], [.5, 0], [.56, .06], [.52, .13], [.64, .15], [.98, .46], [1.14, .9], [1.2, 1.24], [1.17, 1.3], [1.1, 1.26], [1.04, .92], [.86, .5], [.44, .26], [0, .23]];
+  const geo = new THREE.LatheGeometry(P.map(([r, y]) => new THREE.Vector2(r, y)), 160);
+  geo.translate(0, -.6, 0);
+  const bowl = new THREE.Mesh(geo, GLAZES[0]);
+  const stage = new THREE.Group(); stage.add(bowl); scene.add(stage);
+
+  const shadowTex = (() => { const c = document.createElement('canvas'); c.width = c.height = 256; const g = c.getContext('2d'); const r = g.createRadialGradient(128, 128, 10, 128, 128, 128); r.addColorStop(0, 'rgba(20,30,50,.45)'); r.addColorStop(1, 'rgba(20,30,50,0)'); g.fillStyle = r; g.fillRect(0, 0, 256, 256); return new THREE.CanvasTexture(c); })();
+  const shadow = new THREE.Mesh(new THREE.PlaneGeometry(3.4, 3.4), new THREE.MeshBasicMaterial({ map: shadowTex, transparent: true, depthWrite: false }));
+  shadow.rotation.x = -Math.PI / 2; shadow.position.y = -.61; stage.add(shadow);
+
+  const key = new THREE.DirectionalLight('#ffffff', 1.6); key.position.set(3, 5, 4); scene.add(key);
+  scene.add(new THREE.AmbientLight('#ffffff', .35));
+
+  function resize() { const w = canvas.clientWidth, h = canvas.clientHeight; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); }
+  resize(); addEventListener('resize', resize);
+
+  let glaze = 0, pop = 1;
+  function setGlaze(i) {
+    if (i === glaze) return;
+    glaze = i; bowl.material = GLAZES[i]; pop = .9;
+    buttons.forEach(b => b.setAttribute('aria-pressed', +b.dataset.g === i));
+  }
+  buttons.forEach(b => b.addEventListener('click', () => {
+    const i = +b.dataset.g, r = section.getBoundingClientRect(), span = r.height - innerHeight;
+    setGlaze(i); manual = performance.now();
+    scrollTo({ top: scrollY + r.top + span * (.15 + .85 * (i + .5) / 3), behavior: 'smooth' });
+  }));
+  let manual = 0;
+
+  let rotY = 0, vel = .004, drag = null;
+  canvas.addEventListener('pointerdown', e => { drag = { x: e.clientX }; canvas.setPointerCapture(e.pointerId); });
+  canvas.addEventListener('pointermove', e => { if (!drag) return; const dx = e.clientX - drag.x; drag.x = e.clientX; vel = dx * .004; rotY += dx * .008; });
+  const end = () => { drag = null; };
+  canvas.addEventListener('pointerup', end); canvas.addEventListener('pointercancel', end);
+
+  let visible = true;
+  new IntersectionObserver(e => { visible = e[0].isIntersecting; }).observe(section);
+  (function loop() {
+    requestAnimationFrame(loop);
+    if (!visible && !qa) return;
+    const r = section.getBoundingClientRect(), p = qa ? +(new URLSearchParams(location.search).get('p') || .5) : Math.max(0, Math.min(.999, -r.top / (r.height - innerHeight)));
+    const heroK = 1 - Math.max(0, Math.min(1, p / .14));
+    if (hero) hero.style.opacity = heroK;
+    sbCopy.style.opacity = note.style.opacity = 1 - heroK;
+    sbCopy.style.pointerEvents = heroK < .5 ? 'auto' : 'none';
+    if (performance.now() - manual > 1200) setGlaze(Math.min(2, Math.floor(Math.max(0, p - .15) / .85 * 3)));
+    if (!drag) { vel += (.004 - vel) * .02; rotY += reduce ? 0 : vel; }
+    pop += (1 - pop) * .12;
+    bowl.rotation.y = rotY;
+    bowl.rotation.x = .12;
+    bowl.scale.setScalar(pop);
+    const portrait = camera.aspect < .9;
+    // スマホの最初の画面では、縦書きの見出しに重ならないよう左下に小さく置く
+    const hk = portrait ? heroK : 0;
+    stage.position.set(-hk * .4, -hk * 2.3, 0);
+    stage.scale.setScalar(1 - hk * .38);
+    camera.position.set(0, portrait ? 3 : 2.3, portrait ? 10.5 : 6.6);
+    camera.lookAt(portrait ? 0 : -1.25 + heroK * 2.6, portrait ? -1.3 + heroK * .3 : -.05, 0);
+    renderer.render(scene, camera);
+  })();
+}
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="1892" data-from="1830">1892</span><small>明治25年　神楽坂で創業</small></div></div>
+    <div class="rv"><h2>130年、神楽坂の食卓とともに。</h2><p>使いやすい器、お料理の邪魔をしない控えめな器、口当たりの良いグラスや盃。季節感を大切に、春夏秋冬で品ぞろえを変えています。</p><p>器は手に持って使うもの。重さや厚み、手の中へのおさまり具合を、ぜひ実際に手に取って選んでください。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>清水焼</span><span>有田焼</span><span>萩焼</span><span>備前焼</span><span>江戸切子</span><span>明治二十五年創業</span><span>清水焼</span><span>有田焼</span><span>萩焼</span><span>備前焼</span><span>江戸切子</span><span>明治二十五年創業</span><span>清水焼</span><span>有田焼</span><span>萩焼</span><span>備前焼</span><span>江戸切子</span><span>明治二十五年創業</span><span>清水焼</span><span>有田焼</span><span>萩焼</span><span>備前焼</span><span>江戸切子</span><span>明治二十五年創業</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>器のこと</h2><span>UTSUWA</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/bowl.jpg" alt="窓辺に置かれた白と藍の器" loading="lazy" data-speed=".06" data-gl></div><h3>清水焼・有田焼</h3><p>日々の食卓に、凛とした一枚を。</p></article><article class="feature rv"><div class="ph"><img src="img/white.jpg" alt="黒い台に置かれた白い器" loading="lazy" data-speed=".06" data-gl></div><h3>萩焼・備前焼</h3><p>使うほどに表情が育つ、土の器。</p></article><article class="feature rv"><div class="ph"><img src="img/shelf.jpg" alt="棚に並ぶ茶器と器" loading="lazy" data-speed=".06" data-gl></div><h3>江戸切子・グラス</h3><p>口当たりの良いグラスや盃を、季節ごとに。</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/hero.jpg" alt="器が並ぶ食器店の店内" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">器は、手に取って選ぶもの。</figcaption></figure>
+  
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">営業時間</h2></div>
+      <p class="status" id="status"><i></i><b>…</b></p>
+      <table class="hours"><tr data-wd="2,3,4,5"><th>火〜金</th><td>10:00〜19:00</td></tr><tr data-wd="6"><th>土曜</th><td>11:00〜18:00</td></tr><tr data-wd="0"><th>日曜・祝日</th><td>12:00〜18:00</td></tr><tr data-wd="1"><th>定休日</th><td>月曜（仕入れなどで臨時休業あり）</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>〒162-0825 東京都新宿区神楽坂3-6</p>
+      <p class="mute">JR・東京メトロ飯田橋駅、大江戸線牛込神楽坂駅、東西線神楽坂駅から、いずれも徒歩5分。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%96%B0%E5%AE%BF%E5%8C%BA%E7%A5%9E%E6%A5%BD%E5%9D%823-6%20%E4%B8%B8%E5%B2%A1%E9%99%B6%E8%8B%91" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:0332690675" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">贈りものの器選びも、ご相談ください。</h2>
+    <a class="tel" href="tel:0332690675">03-3269-0675</a>
+    <p>在庫や取り寄せのお問い合わせは、お電話かメールでどうぞ。</p>
+    <div class="btns"><a class="btn" href="mailto:maruoka@kagurazaka.net" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>株式会社 丸岡陶苑　〒162-0825 東京都新宿区神楽坂3-6　TEL 03-3269-0675</p>
+  <p>この試作は森川ウェブ（mahmoris98@gmail.com）が、株式会社 丸岡陶苑様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:0332690675" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+<script>window.SCHEDULE = {"days": {"2": [[600, 1140]], "3": [[600, 1140]], "4": [[600, 1140]], "5": [[600, 1140]], "6": [[660, 1080]], "0": [[720, 1080]]}};</script>
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>オザキヤ靴店｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#1E1612">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@700;900&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#1E1612;--ink:#F1E9DF;--mute:#BBA996;--accent:#C68A4E;--accent-ink:#1E1612;--panel:#281D17;--line:rgba(241,233,223,.14);--display:"Zen Old Mincho",serif;--display-weight:900;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 40%}
+
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>がオザキヤ靴店様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">靴　神楽坂二丁目・坂下</p><p class="pl-name">オザキヤ靴店</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">オザキヤ靴店</a>
+  <nav aria-label="ページ内の案内"><a href="#story">店のこと</a><a href="#features">靴</a><a href="#info">営業時間</a></nav>
+  
+  <a class="call" href="tel:0332601557"><span data-en="Call">電話</span><span class="num">03-3260-1557</span></a>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-img"><img src="img/hero.jpg" alt="使い込まれた茶色の革靴の紐とステッチ"  data-gl="wipe" data-gl-hero></div>
+    <div class="hero-copy">
+      <p class="kind">靴　神楽坂二丁目・坂下</p>
+      <h1><span class="ln"><span style="--i:0">坂の多い神楽坂で、</span></span><span class="ln"><span style="--i:1">歩きやすい靴を。</span></span></h1>
+      
+      <p class="sub">明治から三代、神楽坂で靴を商って100年余り。足にやさしくフィットする、はきよい靴をそろえています。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-walk" id="sig" aria-label="坂を上る足あとの演出">
+    <div class="sw-stick">
+      <canvas id="walk" aria-hidden="true"></canvas>
+      <div class="sw-copy">
+        <h2>坂下から、<br>坂上まで。</h2>
+        <p>神楽坂は、坂の町。毎日の上り下りがらくになる靴を、坂下の店からご提案します。<br>画面の上でマウスや指を動かすと、足あとが付きます。</p>
+      </div>
+      <p class="sw-label sw-down">坂下　オザキヤ靴店</p>
+      <p class="sw-label sw-up">坂上</p>
+    </div>
+  </section>
+<style>
+.sig-walk{position:relative;height:280vh;background:#18110d}
+.sw-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+#walk{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:pan-y}
+.sw-copy{position:absolute;left:var(--gut);top:16vh;max-width:420px;pointer-events:none}
+.sw-copy h2{font-family:var(--display);font-weight:900;font-size:clamp(34px,4.6vw,66px);line-height:1.3;margin:0 0 16px}
+.sw-copy p{margin:0;color:var(--mute)}
+.sw-label{position:absolute;margin:0;font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--accent);pointer-events:none}
+.sw-down{left:6%;bottom:9%}
+.sw-up{right:6%;top:15%}
+@media (max-width:860px){.sw-copy{top:12vh}.sw-copy p br{display:none}.sw-down{bottom:14%}.sw-up{top:auto;bottom:52%}}
+</style>
+<script>
+(function () {
+  var canvas = document.getElementById('walk'), section = canvas.closest('section'), g = canvas.getContext('2d');
+  var qa = /[?&]qa/.test(location.search), reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W = 0, H = 0, dpr = Math.min(devicePixelRatio, 2), trail = [], visible = true, cur = 0;
+  function resize() { W = canvas.clientWidth; H = canvas.clientHeight; canvas.width = W * dpr; canvas.height = H * dpr; g.setTransform(dpr, 0, 0, dpr, 0, 0); }
+  resize(); addEventListener('resize', resize);
+  new IntersectionObserver(function (e) { visible = e[0].isIntersecting; }).observe(section);
+
+  // 坂の道筋（左下から右上へ）
+  function pt(t) {
+    var portrait = W < H;
+    var x0 = W * .07, y0 = H * (portrait ? .82 : .86), x3 = W * .93, y3 = H * (portrait ? .44 : .2);
+    var x1 = W * .4, y1 = H * (portrait ? .8 : .82), x2 = W * .6, y2 = H * (portrait ? .5 : .3);
+    var u = 1 - t;
+    return [u * u * u * x0 + 3 * u * u * t * x1 + 3 * u * t * t * x2 + t * t * t * x3, u * u * u * y0 + 3 * u * u * t * y1 + 3 * u * t * t * y2 + t * t * t * y3];
+  }
+  function print(x, y, ang, left, a) {
+    g.save(); g.translate(x, y); g.rotate(ang + Math.PI / 2); if (left) g.scale(-1, 1);
+    g.fillStyle = 'rgba(241,233,223,' + a + ')';
+    g.beginPath(); g.ellipse(1.5, -9, 8.5, 13, .12, 0, Math.PI * 2); g.fill();
+    g.beginPath(); g.ellipse(0, 12, 6.5, 7, 0, 0, Math.PI * 2); g.fill();
+    g.fillStyle = 'rgba(24,17,13,' + a * .5 + ')';
+    for (var i = -2; i <= 2; i++) g.fillRect(-6, -14 + i * 4, 13, 1.2);
+    g.restore();
+  }
+  var last = null, dist = 0, side = 0;
+  addEventListener('pointermove', function (e) {
+    var r = canvas.getBoundingClientRect(); if (e.clientY < r.top || e.clientY > r.bottom) return;
+    var x = e.clientX - r.left, y = e.clientY - r.top;
+    if (last) {
+      var dx = x - last[0], dy = y - last[1]; dist += Math.hypot(dx, dy);
+      if (dist > 46) { dist = 0; side = 1 - side; var ang = Math.atan2(dy, dx), off = side ? 9 : -9; trail.push({ x: x - Math.sin(ang) * off, y: y + Math.cos(ang) * off, ang: ang, left: side, t: performance.now() }); }
+    }
+    last = [x, y];
+  }, { passive: true });
+
+  (function loop() {
+    requestAnimationFrame(loop);
+    if (!visible && !qa) return;
+    var r = section.getBoundingClientRect(), p = qa ? 1 : Math.max(0, Math.min(1, -r.top / (r.height - innerHeight)));
+    cur += (p - cur) * (reduce || qa ? 1 : .1);
+    g.clearRect(0, 0, W, H);
+    // 坂道
+    g.lineCap = 'round';
+    g.strokeStyle = 'rgba(198,138,78,.09)'; g.lineWidth = Math.max(70, W * .07);
+    g.beginPath(); for (var i = 0; i <= 60; i++) { var q = pt(i / 60); i ? g.lineTo(q[0], q[1]) : g.moveTo(q[0], q[1]); } g.stroke();
+    g.strokeStyle = 'rgba(198,138,78,.35)'; g.lineWidth = 1; g.setLineDash([3, 9]);
+    g.beginPath(); for (i = 0; i <= 60; i++) { q = pt(i / 60); i ? g.lineTo(q[0], q[1]) : g.moveTo(q[0], q[1]); } g.stroke(); g.setLineDash([]);
+    // スクロールで坂を上る足あと
+    var N = 26, shown = cur * N;
+    for (i = 0; i < Math.min(N, Math.ceil(shown)); i++) {
+      var t = (i + .5) / N, a = pt(t), b = pt(Math.min(1, t + .01)), ang = Math.atan2(b[1] - a[1], b[0] - a[0]), off = i % 2 ? 11 : -11;
+      var alpha = Math.min(1, shown - i) * (.35 + .55 * Math.max(0, 1 - (shown - i) / 9));
+      print(a[0] - Math.sin(ang) * off, a[1] + Math.cos(ang) * off, ang, i % 2, Math.max(.18, alpha));
+    }
+    // マウスの足あと
+    var now = performance.now();
+    trail = trail.filter(function (f) { return now - f.t < 2600; });
+    trail.forEach(function (f) { print(f.x, f.y, f.ang, f.left, .8 * (1 - (now - f.t) / 2600)); });
+  })();
+})();
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="100" data-from="0">100</span><small>年余り　明治から三代、神楽坂で</small></div></div>
+    <div class="rv"><h2>初代は、靴づくりの名人でした。</h2><p>初代・政次郎は腕の良い靴職人で、銀座の老舗靴店の初代と腕前を競い合った仲だったと伝わっています。</p><p>二代目、三代目と受け継ぎ、今も神楽坂の坂下で店を開けています。足の形や歩き方をうかがいながら、一足ずつご提案します。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>神楽坂</span><span>坂下の靴屋</span><span>はきよい靴</span><span>明治から三代</span><span>神楽坂</span><span>坂下の靴屋</span><span>はきよい靴</span><span>明治から三代</span><span>神楽坂</span><span>坂下の靴屋</span><span>はきよい靴</span><span>明治から三代</span><span>神楽坂</span><span>坂下の靴屋</span><span>はきよい靴</span><span>明治から三代</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>靴のこと</h2><span>SHOES</span></div>
+    <div class="features" style="--cols:2"><article class="feature rv"><div class="ph"><img src="img/pair.jpg" alt="茶色の革のレースアップシューズ" loading="lazy" data-speed=".06" data-gl></div><h3>はきよい靴「快歩主義」</h3><p>軽く、履きやすく、足にやさしくフィット。毎日たくさん歩く方に。</p></article><article class="feature rv"><div class="ph"><img src="img/repair.jpg" alt="作業台で靴を手入れする職人" loading="lazy" data-speed=".06" data-gl></div><h3>足に合わせて選ぶ</h3><p>サイズだけでなく、足の幅や甲の高さも見ながら、合う一足を探します。</p></article></div>
+  </section>
+  
+  
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">営業時間</h2></div>
+      <p class="status" id="status"><i></i><b>…</b></p>
+      <table class="hours"><tr data-wd="1,2,3,4,5,6"><th>営業時間</th><td>10:00〜20:00</td></tr><tr><th>定休日</th><td>日曜</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>東京都新宿区神楽坂2-3（坂下）</p>
+      <p class="mute">JR・東京メトロ飯田橋駅から、神楽坂を上ってすぐ。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%96%B0%E5%AE%BF%E5%8C%BA%E7%A5%9E%E6%A5%BD%E5%9D%822-3%20%E3%82%AA%E3%82%B6%E3%82%AD%E3%83%A4%E9%9D%B4%E5%BA%97" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:0332601557" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">お気に入りの一足を、一緒に。</h2>
+    <a class="tel" href="tel:0332601557">03-3260-1557</a>
+    <p>在庫やサイズのお問い合わせは、お電話かメールでどうぞ。</p>
+    <div class="btns"><a class="btn" href="mailto:yama-kagura@k2.dion.ne.jp" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>オザキヤ靴店　東京都新宿区神楽坂2-3（坂下）　TEL 03-3260-1557</p>
+  <p>この試作は森川ウェブ（mahmoris98@gmail.com）が、オザキヤ靴店様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:0332601557" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+<script>window.SCHEDULE = {"days": {"1": [[600, 1200]], "2": [[600, 1200]], "3": [[600, 1200]], "4": [[600, 1200]], "5": [[600, 1200]], "6": [[600, 1200]]}};</script>
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>
