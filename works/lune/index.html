@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>hair salon lune（制作見本）</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#25213A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500&family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#25213A;
+  --night-2:#2F2A48;
+  --line:#463F66;
+  --text:#ECE9F4;
+  --mute:#ABA5C4;
+  --moon:#F1E6C8;
+  --lavender:#B3A6E0;
+  --serif:"Shippori Mincho","Hiragino Mincho ProN",serif;
+  --latin:"Cormorant Garamond",Georgia,serif;
+  --body:"Zen Kaku Gothic New","Hiragino Sans",sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--night);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.9}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--moon);outline-offset:3px}
+.nb{display:inline-block}
+.wrap{max-width:880px;margin:0 auto;padding:0 22px}
+
+.sample-bar{background:#14111F;color:#bbb;font-size:12px;text-align:center;padding:6px 12px}
+.sample-bar a{color:#fff;font-weight:700}
+
+/* 月 */
+.hero{position:relative;padding:44px 0 56px;text-align:center;overflow:hidden}
+.moon-wrap{position:relative;width:min(64vw,280px);margin:0 auto}
+.moon-wrap::before{content:"";position:absolute;inset:-30%;border-radius:50%;background:radial-gradient(circle,rgba(241,230,200,.18),rgba(241,230,200,0) 62%)}
+.moon{position:relative;width:100%;height:auto}
+.moon-label{margin:14px 0 0;font-size:13px;color:var(--mute);letter-spacing:.06em}
+.wordmark{font-family:var(--latin);font-style:italic;font-weight:500;font-size:clamp(64px,17vw,120px);line-height:1;margin:28px 0 4px;color:var(--moon)}
+.kind{margin:0 0 26px;font-size:13px;color:var(--mute);letter-spacing:.12em}
+.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(26px,6vw,40px);line-height:1.5;margin:0 0 14px}
+.hero p.sub{max-width:28em;margin:0 auto 30px;color:var(--mute)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 32px;border-radius:999px;background:var(--moon);color:var(--night);font-weight:700;text-decoration:none}
+.btn:hover{background:#fff}
+
+.section{padding:64px 0;border-top:1px solid var(--line)}
+.section h2{font-family:var(--serif);font-weight:500;font-size:26px;margin:0 0 6px}
+.section .note{color:var(--mute);font-size:14px;margin:0 0 28px}
+
+/* メニュー */
+.menu{margin:0}
+.menu div{display:flex;align-items:baseline;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.menu dt{font-family:var(--serif);font-weight:500;font-size:17px}
+.menu dt small{display:block;font-family:var(--body);font-size:13px;color:var(--mute)}
+.menu dd{margin:0 0 0 auto;font-family:var(--latin);font-size:24px;white-space:nowrap}
+.menu dd span{font-family:var(--body);font-size:13px}
+
+/* スタッフ */
+.staff{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.person{display:flex;gap:16px;align-items:flex-start}
+.mono{flex:none;width:64px;height:64px;border-radius:50%;border:1px solid var(--lavender);display:grid;place-items:center;font-family:var(--latin);font-style:italic;font-size:30px;color:var(--lavender)}
+.person h3{font-family:var(--serif);font-weight:500;font-size:18px;margin:0}
+.person .role{font-size:13px;color:var(--mute);margin:0 0 6px}
+.person p{margin:0;font-size:15px}
+
+/* 空き状況 */
+.cal-scroll{overflow-x:auto;margin:0 -22px;padding:0 22px}
+.cal{width:100%;min-width:300px;border-collapse:collapse;text-align:center;font-size:15px}
+.cal th{font-weight:400;font-size:13px;color:var(--mute);padding:6px 2px 10px}
+.cal th b{display:block;font-family:var(--latin);font-size:20px;color:var(--text);font-weight:500}
+.cal th.sat b{color:#9DB6F0}.cal th.sun b{color:#F0A3A3}
+.cal td{padding:3px}
+.cal td.time{font-family:var(--latin);font-size:17px;color:var(--mute);text-align:left;padding-right:8px;width:3.2em}
+.slot{width:100%;min-width:30px;height:40px;border-radius:8px;border:1px solid var(--line);background:transparent;color:var(--text);font:inherit;font-size:16px;cursor:pointer}
+.slot.ok{border-color:var(--lavender);color:var(--moon)}
+.slot.ok:hover{background:var(--night-2)}
+.slot.few{color:var(--lavender)}
+.slot.full{color:#6E6890;cursor:default}
+.slot.off{border-style:dashed;color:#6E6890;font-size:11px;cursor:default}
+.slot.past{border-color:transparent;color:#5A5478;cursor:default}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;margin:16px 0 0;font-size:13px;color:var(--mute)}
+
+/* アクセス */
+.info{margin:0}
+.info div{display:grid;grid-template-columns:6em 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.info dt{color:var(--mute);font-size:14px}
+.info dd{margin:0}
+
+.site-footer{padding:40px 0 60px;text-align:center;font-size:13px;color:var(--mute)}
+.site-footer .wordmark{font-size:40px;margin:0 0 6px}
+
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,10px);background:var(--moon);color:var(--night);font-size:14px;padding:12px 18px;border-radius:12px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:20;width:max-content;max-width:calc(100% - 32px)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media (max-width:600px){
+  .staff{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:no-preference){
+  .moon{animation:rise 1.8s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+}
+@media (prefers-reduced-motion:reduce){.toast{transition:none}}
+</style>
+</head>
+<body>
+
+<div class="sample-bar">これは<a href="../../">森川ウェブ</a>の制作見本です。お店は実在しません。</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="moon-wrap">
+      <svg class="moon" viewBox="0 0 200 200" role="img" aria-labelledby="moon-label">
+        <circle cx="100" cy="100" r="92" fill="#3A3458"/>
+        <path id="moon-lit" fill="#F1E6C8"/>
+      </svg>
+    </div>
+    <p class="moon-label" id="moon-label">今夜の月</p>
+    <p class="wordmark">lune</p>
+    <p class="kind">hair salon</p>
+    <h1><span class="nb">仕事帰りに、</span><span class="nb">夜9時まで。</span></h1>
+    <p class="sub">駅から歩いて2分、席数4つの小さな美容室です。平日も土日も、最終受付は20時。</p>
+    <a class="btn" href="#reserve">空き状況を見る</a>
+  </div>
+</header>
+
+<main>
+  <section class="section" id="menu">
+    <div class="wrap">
+      <h2>メニューと料金</h2>
+      <p class="note">表示はすべて税込です。髪の長さによる追加料金はありません。</p>
+      <dl class="menu">
+        <div><dt>カット<small>シャンプー・ブロー込み</small></dt><dd>5,500<span>円</span></dd></div>
+        <div><dt>カット＋カラー</dt><dd>11,000<span>円〜</span></dd></div>
+        <div><dt>カット＋パーマ</dt><dd>12,100<span>円〜</span></dd></div>
+        <div><dt>縮毛矯正</dt><dd>16,500<span>円〜</span></dd></div>
+        <div><dt>ヘッドスパ<small>30分</small></dt><dd>4,400<span>円</span></dd></div>
+        <div><dt>前髪カット</dt><dd>1,100<span>円</span></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section" id="staff">
+    <div class="wrap">
+      <h2>スタッフ</h2>
+      <p class="note">指名料はかかりません。</p>
+      <div class="staff">
+        <div class="person">
+          <div class="mono" aria-hidden="true">A</div>
+          <div>
+            <h3>あかり</h3>
+            <p class="role">店長・美容師歴14年</p>
+            <p>ショートヘアと、くせ毛を活かしたカットが得意です。</p>
+          </div>
+        </div>
+        <div class="person">
+          <div class="mono" aria-hidden="true">Y</div>
+          <div>
+            <h3>ゆう</h3>
+            <p class="role">美容師歴6年</p>
+            <p>透明感のあるカラーと、ヘッドスパを担当しています。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="reserve">
+    <div class="wrap">
+      <h2>空き状況</h2>
+      <p class="note">○を押すと、その時間の予約に進みます。（見本のため、空き状況は仮のものです）</p>
+      <div class="cal-scroll">
+        <table class="cal" id="cal"></table>
+      </div>
+      <p class="legend"><span>○ 空きあり</span><span>△ 残りわずか</span><span>× 満席</span></p>
+    </div>
+  </section>
+
+  <section class="section" id="access">
+    <div class="wrap">
+      <h2>お店の情報</h2>
+      <p class="note">駐車場はありません。近くのコインパーキングをご利用ください。</p>
+      <dl class="info">
+        <div><dt>営業時間</dt><dd>12:00 – 21:00（最終受付 20:00）</dd></div>
+        <div><dt>定休日</dt><dd>毎週火曜日</dd></div>
+        <div><dt>住所</dt><dd>〒000-0000 見本市 駅前通り2-5 2階</dd></div>
+        <div><dt>お支払い</dt><dd>現金・クレジットカード・QR決済</dd></div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p class="wordmark">lune</p>
+  <p>架空のお店・制作見本</p>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  // 今夜の月の形を描く（2000年1月6日の新月から数える）
+  var SYN = 29.530588853;
+  var age = ((Date.now() - Date.UTC(2000,0,6,18,14)) / 86400000) % SYN;
+  if(age < 0) age += SYN;
+  var p = age / SYN, cx = 100, cy = 100, r = 92;
+  var rx = Math.abs(Math.cos(2 * Math.PI * p)) * r;
+  var outer, inner;
+  if(p < .5){ outer = 1; inner = p < .25 ? 0 : 1; }
+  else      { outer = 0; inner = p < .75 ? 0 : 1; }
+  var d = 'M' + cx + ' ' + (cy - r) +
+          ' A' + r + ' ' + r + ' 0 0 ' + outer + ' ' + cx + ' ' + (cy + r) +
+          ' A' + rx.toFixed(2) + ' ' + r + ' 0 0 ' + inner + ' ' + cx + ' ' + (cy - r) + 'Z';
+  document.getElementById('moon-lit').setAttribute('d', d);
+  document.getElementById('moon-label').textContent = '今夜の月　月齢 ' + age.toFixed(1);
+
+  // 7日分の空き状況（見本用に日付から決まる仮の値）
+  var cal = document.getElementById('cal');
+  var times = ['12:00','14:00','16:00','18:00','20:00'];
+  var week = ['日','月','火','水','木','金','土'];
+  var start = new Date(); start.setHours(0,0,0,0);
+  var days = [];
+  for(var i = 0; i < 7; i++){ var dt = new Date(start); dt.setDate(start.getDate() + i); days.push(dt); }
+  function seed(n){ var x = Math.sin(n) * 10000; return x - Math.floor(x); }
+
+  var head = '<thead><tr><td></td>';
+  days.forEach(function(dt){
+    var w = dt.getDay();
+    head += '<th scope="col" class="' + (w === 6 ? 'sat' : w === 0 ? 'sun' : '') + '"><b>' + dt.getDate() + '</b>' + week[w] + '</th>';
+  });
+  head += '</tr></thead>';
+  var body = '<tbody>';
+  times.forEach(function(t, ti){
+    body += '<tr><td class="time">' + t + '</td>';
+    days.forEach(function(dt, di){
+      var label = (dt.getMonth() + 1) + '月' + dt.getDate() + '日 ' + t;
+      if(dt.getDay() === 2){ body += '<td><button class="slot off" type="button" disabled aria-label="' + label + ' 定休日">休</button></td>'; return; }
+      if(di === 0 && new Date().getHours() >= +t.slice(0, 2)){ body += '<td><button class="slot past" type="button" disabled aria-label="' + label + ' 受付終了">－</button></td>'; return; }
+      var v = seed(dt.getDate() * 31 + dt.getMonth() * 7 + ti * 3);
+      var cls = v < .5 ? 'ok' : v < .72 ? 'few' : 'full';
+      var mark = cls === 'ok' ? '○' : cls === 'few' ? '△' : '×';
+      var text = cls === 'ok' ? '空きあり' : cls === 'few' ? '残りわずか' : '満席';
+      body += '<td><button class="slot ' + cls + '" type="button"' + (cls === 'full' ? ' disabled' : '') + ' data-when="' + label + '" aria-label="' + label + ' ' + text + '">' + mark + '</button></td>';
+    });
+    body += '</tr>';
+  });
+  cal.innerHTML = head + body + '</tbody>';
+
+  var toast = document.getElementById('toast'), timer;
+  cal.addEventListener('click', function(e){
+    var b = e.target.closest('.slot');
+    if(!b || b.disabled) return;
+    toast.textContent = b.dataset.when + '：見本のため予約はできません。実際のサイトでは、ここから予約画面に進みます。';
+    toast.classList.add('show');
+    clearTimeout(timer);
+    timer = setTimeout(function(){ toast.classList.remove('show'); }, 3600);
+  });
+})();
+</script>
+</body>
+</html>

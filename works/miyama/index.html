@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>食堂 みやま（制作見本）</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#A8262B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&family=Zen+Antique+Soft&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --noren:#A8262B;
+  --noren-dark:#86191E;
+  --rod:#6B4528;
+  --board:#2C4536;
+  --frame:#7A5232;
+  --chalk:#F2EFE6;
+  --egg:#F3C64B;
+  --ink:#1E1E1E;
+  --mute:#5E5E5E;
+  --line:#E4E0DA;
+  --open:#2E9B4F;
+  --antique:"Zen Antique Soft","Hiragino Mincho ProN",serif;
+  --hand:"Yusei Magic","Zen Kaku Gothic New",sans-serif;
+  --body:"Zen Kaku Gothic New","Hiragino Sans",sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#fff;color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.8}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--egg);outline-offset:2px}
+.nb{display:inline-block}
+
+.sample-bar{background:#1E1E1E;color:#ddd;font-size:12px;text-align:center;padding:6px 12px}
+.sample-bar a{color:#fff;font-weight:700}
+
+.top{display:flex;justify-content:flex-end;padding:12px 16px 0;max-width:960px;margin:0 auto}
+.lang{display:inline-flex;border:1.5px solid var(--ink);border-radius:999px;overflow:hidden}
+.lang button{font:inherit;font-size:13px;font-weight:700;border:0;background:#fff;color:var(--ink);padding:5px 14px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:#fff}
+
+/* のれん */
+.hero{max-width:960px;margin:0 auto;padding:12px 16px 0}
+.rod{height:12px;border-radius:6px;background:var(--rod);margin:0 -4px;position:relative;z-index:1}
+.noren{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:0 6px}
+.noren span{display:grid;place-items:center;height:clamp(150px,42vw,300px);background:var(--noren);color:#fff;font-family:var(--antique);font-size:clamp(54px,15vw,120px);line-height:1;border-radius:0 0 4px 4px;transform-origin:top center;box-shadow:inset 0 -10px 0 var(--noren-dark)}
+@media (prefers-reduced-motion:no-preference){
+  .noren span{animation:sway 1.6s cubic-bezier(.3,.7,.4,1) both}
+  .noren span:nth-child(2){animation-delay:.08s}
+  .noren span:nth-child(3){animation-delay:.16s}
+}
+@keyframes sway{0%{transform:rotate(3deg) scaleY(.96)}45%{transform:rotate(-1.6deg)}75%{transform:rotate(.6deg)}100%{transform:none}}
+
+.intro{max-width:960px;margin:0 auto;padding:28px 20px 8px}
+.kind{margin:0;font-size:14px;font-weight:700;color:var(--noren)}
+.intro h1{font-family:var(--antique);font-weight:400;font-size:clamp(30px,7vw,52px);line-height:1.35;margin:4px 0 12px}
+.intro p.sub{margin:0 0 18px;color:var(--mute);max-width:32em}
+.status{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;padding:6px 14px;border-radius:999px;background:#EEF6F0;color:#22603A}
+.status i{width:10px;height:10px;border-radius:50%;background:var(--open)}
+.status.closed{background:#F3F1EE;color:var(--mute)}
+.status.closed i{background:#B5B0A8}
+
+/* 黒板メニュー */
+.menu-wrap{max-width:960px;margin:0 auto;padding:36px 16px}
+.board{background:var(--board);color:var(--chalk);border:12px solid var(--frame);border-radius:10px;padding:26px 22px 22px;box-shadow:inset 0 0 40px rgba(0,0,0,.25)}
+.board h2{font-family:var(--hand);font-weight:400;font-size:28px;margin:0 0 14px;text-align:center}
+.menu{list-style:none;margin:0;padding:0;font-family:var(--hand);font-size:20px}
+.menu li{display:flex;align-items:baseline;gap:10px;padding:8px 0}
+.menu .dots{flex:1;border-bottom:2px dotted rgba(242,239,230,.35);transform:translateY(-6px)}
+.menu .yen{color:var(--egg);white-space:nowrap}
+.board-note{margin:16px 0 0;text-align:center;font-family:var(--hand);font-size:16px;color:#CFE0D3}
+
+/* 営業時間 */
+.block{max-width:960px;margin:0 auto;padding:28px 20px}
+.block h2{font-family:var(--antique);font-weight:400;font-size:26px;margin:0 0 14px;padding-bottom:10px;border-bottom:3px solid var(--noren)}
+.hours{width:100%;border-collapse:collapse;font-size:16px}
+.hours th,.hours td{text-align:left;padding:12px 4px;border-bottom:1px solid var(--line)}
+.hours th{width:7em;font-weight:700;color:var(--mute)}
+
+/* アクセス */
+.map{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#F6F4F0}
+.map svg{display:block;width:100%;height:auto}
+.addr{margin:14px 0 0}
+.addr small{color:var(--mute)}
+
+.site-footer{max-width:960px;margin:0 auto;padding:32px 20px 120px;font-size:13px;color:var(--mute)}
+
+/* 下に固定のボタン */
+.callbar{position:fixed;left:0;right:0;bottom:0;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);border-top:1px solid var(--line);z-index:10}
+.callbar a{display:flex;align-items:center;justify-content:center;gap:8px;height:52px;border-radius:12px;font-weight:700;font-size:16px;text-decoration:none;color:#fff;background:var(--noren)}
+.callbar a+a{background:var(--ink)}
+.callbar svg{width:20px;height:20px}
+
+.toast{position:fixed;left:50%;bottom:92px;transform:translate(-50%,10px);background:var(--ink);color:#fff;font-size:14px;padding:10px 16px;border-radius:10px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:20;width:max-content;max-width:calc(100% - 32px)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media (min-width:760px){
+  .menu-wrap{display:grid}
+  .board{max-width:640px;margin:0 auto;width:100%}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:960px;margin:0 auto}
+  .two .block{margin:0}
+  .callbar{left:auto;right:24px;bottom:24px;width:360px;border:1px solid var(--line);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.12)}
+}
+@media (prefers-reduced-motion:reduce){.toast{transition:none}}
+</style>
+</head>
+<body>
+
+<div class="sample-bar">これは<a href="../../">森川ウェブ</a>の制作見本です。お店は実在しません。</div>
+
+<div class="top">
+  <div class="lang" role="group" aria-label="表示する言語">
+    <button type="button" data-lang="ja" aria-pressed="true">日本語</button>
+    <button type="button" data-lang="en" aria-pressed="false">English</button>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="rod"></div>
+  <div class="noren" role="img" aria-label="食堂 みやま"><span>み</span><span>や</span><span>ま</span></div>
+</header>
+
+<main>
+  <section class="intro">
+    <p class="kind" data-en="Miyama Diner">食堂 みやま</p>
+    <h1 data-en="Set meals every day, from ¥650."><span class="nb">毎日の定食、</span><span class="nb">650円から。</span></h1>
+    <p class="sub" data-en="A neighborhood diner since 1983. Rice refills are free, and every set comes with miso soup and a small side dish.">昭和58年から、同じ場所で。ごはんのおかわりは無料、どの定食にも味噌汁と小鉢が付きます。</p>
+    <p class="status" id="status"><i></i><span></span></p>
+  </section>
+
+  <section class="menu-wrap" id="menu">
+    <div class="board">
+      <h2 data-en="Today's set meals">今日の定食</h2>
+      <ul class="menu">
+        <li><span data-en="Daily special">日替わり定食</span><span class="dots"></span><span class="yen" data-en="¥650">650円</span></li>
+        <li><span data-en="Grilled fish">焼き魚定食</span><span class="dots"></span><span class="yen" data-en="¥750">750円</span></li>
+        <li><span data-en="Fried chicken">唐揚げ定食</span><span class="dots"></span><span class="yen" data-en="¥780">780円</span></li>
+        <li><span data-en="Ginger pork">生姜焼き定食</span><span class="dots"></span><span class="yen" data-en="¥800">800円</span></li>
+        <li><span data-en="Pork cutlet">とんかつ定食</span><span class="dots"></span><span class="yen" data-en="¥900">900円</span></li>
+      </ul>
+      <p class="board-note" data-en="Free rice refills · Cash and QR payments">ごはんおかわり無料　現金・QR決済OK</p>
+    </div>
+  </section>
+
+  <div class="two">
+    <section class="block" id="hours">
+      <h2 data-en="Hours">営業時間</h2>
+      <table class="hours">
+        <tr><th data-en="Lunch">お昼</th><td>11:00 – 14:30</td></tr>
+        <tr><th data-en="Dinner">夜</th><td>17:30 – 21:00</td></tr>
+        <tr><th data-en="Closed">定休日</th><td data-en="Sundays and national holidays">日曜・祝日</td></tr>
+        <tr><th data-en="Seats">席数</th><td data-en="12 (counter 6, tables 6)">12席（カウンター6・テーブル6）</td></tr>
+      </table>
+    </section>
+
+    <section class="block" id="access">
+      <h2 data-en="Access">アクセス</h2>
+      <div class="map" role="img" aria-label="駅からお店までの地図。駅の改札を出て、商店街をまっすぐ進み、2つ目の角の右手にあります。">
+        <svg viewBox="0 0 400 240" aria-hidden="true">
+          <rect width="400" height="240" fill="#F6F4F0"/>
+          <rect x="0" y="104" width="400" height="30" fill="#fff"/>
+          <rect x="120" y="0" width="22" height="240" fill="#fff"/>
+          <rect x="260" y="0" width="22" height="240" fill="#fff"/>
+          <rect x="0" y="210" width="400" height="10" fill="#C9C3BA"/>
+          <rect x="18" y="168" width="70" height="34" rx="6" fill="#1E1E1E"/>
+          <text x="53" y="190" fill="#fff" font-size="13" font-weight="700" text-anchor="middle" font-family="sans-serif" class="map-station">駅</text>
+          <path d="M53 168 V119 H300" fill="none" stroke="#A8262B" stroke-width="4" stroke-dasharray="2 8" stroke-linecap="round"/>
+          <g transform="translate(300 64)">
+            <path d="M0 40 C-16 18 -18 4 -18 -2 A18 18 0 0 1 18 -2 C18 4 16 18 0 40Z" fill="#A8262B"/>
+            <circle cx="0" cy="-2" r="7" fill="#fff"/>
+          </g>
+          <text x="326" y="58" fill="#1E1E1E" font-size="14" font-weight="700" font-family="sans-serif" class="map-shop">みやま</text>
+          <text x="190" y="98" fill="#8A847B" font-size="11" font-family="sans-serif" class="map-street">商店街</text>
+        </svg>
+      </div>
+      <p class="addr"><span data-en="3 minutes' walk from the station. Go straight down the shopping street; we're on the right after the second corner.">駅から歩いて3分。商店街をまっすぐ進み、2つ目の角を過ぎた右手です。</span><br><small data-en="Sample address: 1-2-3 Naka-machi, Mihon City">〒000-0000 見本市 中町1-2-3</small></p>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <p>© 食堂 みやま　<span data-en="(fictional restaurant, sample site)">（架空のお店・制作見本）</span></p>
+</footer>
+
+<nav class="callbar" aria-label="お店への連絡">
+  <a href="#" data-demo="call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span data-en="Call">電話する</span></a>
+  <a href="#access"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><span data-en="Map">地図を見る</span></a>
+</nav>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  var lang = 'ja';
+  var toast = document.getElementById('toast'), toastTimer;
+
+  // 東京の現在時刻から営業中かどうかを出す
+  function tokyoNow(){
+    var parts = new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Tokyo',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
+    var o = {}; parts.forEach(function(p){ o[p.type] = p.value; });
+    return {day:o.weekday, min:(+o.hour % 24) * 60 + (+o.minute)};
+  }
+  var T = {
+    open:   {ja:'ただいま営業中・{t}まで', en:'Open now · until {t}'},
+    soon:   {ja:'準備中・{t}から', en:'Opens at {t}'},
+    ended:  {ja:'本日の営業は終了しました', en:'Closed for today'},
+    holiday:{ja:'本日は定休日です', en:'Closed today'}
+  };
+  function renderStatus(){
+    var n = tokyoNow(), el = document.getElementById('status'), key, t = '';
+    var slots = [[660,870,'11:00','14:30'],[1050,1260,'17:30','21:00']];
+    if(n.day === 'Sun'){ key = 'holiday'; }
+    else {
+      key = 'ended';
+      for(var i = 0; i < slots.length; i++){
+        if(n.min < slots[i][0]){ key = 'soon'; t = slots[i][2]; break; }
+        if(n.min < slots[i][1]){ key = 'open'; t = slots[i][3]; break; }
+      }
+    }
+    el.className = 'status' + (key === 'open' ? '' : ' closed');
+    el.querySelector('span').textContent = T[key][lang].replace('{t}', t);
+  }
+
+  // 日本語と英語の切り替え
+  var items = document.querySelectorAll('[data-en]');
+  items.forEach(function(el){ el.dataset.ja = el.innerHTML; });
+  var mapText = {'.map-station':['駅','Sta.'],'.map-shop':['みやま','Miyama'],'.map-street':['商店街','Shopping St.']};
+  document.querySelectorAll('.lang button').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      lang = btn.dataset.lang;
+      document.documentElement.lang = lang;
+      document.querySelectorAll('.lang button').forEach(function(b){ b.setAttribute('aria-pressed', b === btn); });
+      items.forEach(function(el){ if(lang === 'en'){ el.textContent = el.dataset.en; } else { el.innerHTML = el.dataset.ja; } });
+      Object.keys(mapText).forEach(function(sel){ document.querySelector(sel).textContent = mapText[sel][lang === 'en' ? 1 : 0]; });
+      renderStatus();
+    });
+  });
+
+  // 見本なので電話はかけない
+  document.querySelectorAll('[data-demo]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      toast.textContent = lang === 'en' ? 'This is a sample site, so no call is made.' : '見本のため電話はかかりません。実際のサイトでは、押すとすぐ電話がかかります。';
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(function(){ toast.classList.remove('show'); }, 3200);
+    });
+  });
+
+  renderStatus();
+  setInterval(renderStatus, 60000);
+})();
+</script>
+</body>
+</html>

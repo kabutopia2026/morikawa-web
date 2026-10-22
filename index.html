@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>森川ウェブ｜店に、灯りを。</title>
+<meta name="description" content="東京のホームページ制作、森川ウェブ。お店や会社のホームページを、ご依頼の前に無料で試作してお送りします。3Dやスクロールの演出から、予約・多言語まで。">
+<meta property="og:title" content="森川ウェブ｜店に、灯りを。">
+<meta property="og:description" content="作り直したホームページを、先に見てから決められます。">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0E1430">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E1430'/%3E%3Crect x='29' y='8' width='6' height='8' fill='%23FFB547'/%3E%3Cellipse cx='32' cy='35' rx='15' ry='19' fill='%23E8452C'/%3E%3Cpath d='M17 30h30M17 40h30' stroke='%23FFB547' stroke-width='2'/%3E%3Crect x='26' y='52' width='12' height='5' fill='%23FFB547'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap" rel="stylesheet">
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+<style>
+:root{
+  --night:#0E1430;
+  --night-2:#161D42;
+  --akari:#FFB547;
+  --chochin:#E8452C;
+  --neon:#A99BFF;
+  --text:#F3F1EC;
+  --mute:#AEB4CF;
+  --line:rgba(243,241,236,.16);
+  --mincho:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --gothic:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--night);color:var(--text);font-family:var(--gothic);font-size:16px;line-height:1.85;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--akari);outline-offset:4px;border-radius:4px}
+.nb{display:inline-block}
+h1,h2,h3{word-break:auto-phrase}
+
+#webgl{position:fixed;inset:0;width:100%;height:100%;display:block;z-index:0}
+html.no-webgl #webgl{display:none}
+html.no-webgl body{background:radial-gradient(50% 35% at 18% 75%,rgba(255,150,60,.22),transparent),radial-gradient(45% 35% at 85% 40%,rgba(169,155,255,.2),transparent),var(--night)}
+
+/* 読み込み */
+.loader{position:fixed;inset:0;z-index:50;display:grid;place-items:center;background:var(--night);transition:opacity .9s ease,visibility .9s}
+.loader.done{opacity:0;visibility:hidden}
+.loader-inner{width:min(240px,64vw);text-align:center}
+.loader-logo{font-family:var(--mincho);font-weight:800;font-size:22px;letter-spacing:.12em}
+.loader-bar{height:1px;margin-top:20px;background:var(--line);overflow:hidden}
+.loader-bar i{display:block;width:0;height:100%;background:var(--akari);transition:width .5s ease}
+.loader-pct{margin-top:10px;font-size:12px;color:var(--mute);font-variant-numeric:tabular-nums}
+
+/* カーソル */
+.cursor{position:fixed;top:0;left:0;z-index:60;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--akari);pointer-events:none;display:none;transition:width .25s,height .25s,margin .25s,background-color .25s,border-color .25s;border:1px solid transparent}
+.cursor.big{width:56px;height:56px;margin:-28px 0 0 -28px;background:rgba(255,181,71,.14);border-color:var(--akari)}
+@media (pointer:fine){.cursor{display:block}}
+
+/* ヘッダー */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;gap:28px;padding:20px clamp(16px,4vw,48px) 28px;pointer-events:none;background:linear-gradient(rgba(14,20,48,.82),rgba(14,20,48,0))}
+.site-header a{pointer-events:auto}
+.logo{font-family:var(--mincho);font-weight:800;font-size:20px;letter-spacing:.08em;text-decoration:none}
+.site-nav{margin-left:auto;display:flex;gap:26px;font-size:14px}
+.site-nav a{color:var(--mute);text-decoration:none}
+.site-nav a:hover{color:var(--text)}
+.header-cta{border:1px solid var(--akari);color:var(--akari);border-radius:999px;padding:6px 16px;font-size:14px;font-weight:700;text-decoration:none;background:rgba(14,20,48,.35)}
+.header-cta:hover{background:var(--akari);color:var(--night)}
+
+/* 3Dの上を流れる場面 */
+main{position:relative;z-index:2}
+.scene{position:relative;height:var(--h,170vh);scroll-margin-top:-30vh}
+.stick{position:sticky;top:0;height:100vh;height:100svh;display:flex;align-items:center;padding:0 clamp(20px,6vw,96px)}
+.scene.right .stick{justify-content:flex-end}
+.panel{position:relative;max-width:520px;will-change:opacity,transform}
+.scene:not(.hero) .panel::before{content:"";position:absolute;inset:-18% -22%;z-index:-1;background:radial-gradient(closest-side,rgba(14,20,48,.72),rgba(14,20,48,0));pointer-events:none}
+.panel h2{font-family:var(--mincho);font-weight:800;font-size:clamp(40px,5.6vw,76px);line-height:1.18;margin:0 0 6px;text-shadow:0 2px 30px rgba(14,20,48,.8)}
+.panel p{margin:0 0 16px;color:#DCDFEC;text-shadow:0 1px 16px rgba(14,20,48,.9)}
+.panel .type{color:var(--akari);font-weight:700;font-size:14px;margin:0 0 18px}
+.panel-wide{max-width:640px}
+.panel-intro h2{font-size:clamp(32px,4.4vw,58px);line-height:1.35;margin-bottom:20px}
+
+.hero .stick{align-items:flex-end;padding-bottom:13vh}
+.hero .panel{max-width:none}
+.hero h1{font-family:var(--mincho);font-weight:800;font-size:clamp(76px,15vw,224px);line-height:1.04;letter-spacing:-.02em;margin:0}
+.hero h1 .line{display:block}
+.hero h1 .ch{display:inline-block;opacity:0}
+.hero h1 .ch.on{opacity:1;text-shadow:0 0 18px rgba(255,181,71,.55),0 0 70px rgba(255,140,40,.35);animation:flick .8s steps(1) both}
+@keyframes flick{0%{opacity:0}12%{opacity:1}22%{opacity:.15}34%{opacity:1}48%{opacity:.45}58%,100%{opacity:1}}
+.hero-sub{margin:26px 0 0;font-size:15px;color:var(--mute)}
+.scroll-hint{position:absolute;right:clamp(20px,6vw,96px);bottom:13vh;margin:0;writing-mode:vertical-rl;font-size:13px;letter-spacing:.24em;color:var(--mute)}
+.scroll-hint::after{content:"";display:block;width:1px;height:72px;margin:16px auto 0;background:linear-gradient(var(--akari),transparent);animation:drip 2.2s ease-in-out infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 30px;border-radius:999px;background:var(--akari);color:var(--night);font-weight:700;text-decoration:none;box-shadow:0 0 40px rgba(255,181,71,.35)}
+.btn:hover{background:#FFC870;box-shadow:0 0 60px rgba(255,181,71,.55)}
+.textlink{display:inline-block;padding:10px 0 6px;border-bottom:1px solid var(--akari);font-weight:700;text-decoration:none}
+.textlink:hover{color:var(--akari)}
+
+.tags{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:26px 0 0;padding:0}
+.tags li{padding:6px 16px;border:1px solid var(--line);border-radius:999px;font-size:14px;background:rgba(14,20,48,.55)}
+
+/* 3Dの後の情報 */
+.solid{position:relative;background:linear-gradient(to bottom,rgba(14,20,48,0),rgba(14,20,48,.86) 34vh)}
+.solid-inner{max-width:1080px;margin:0 auto;padding:40vh clamp(20px,5vw,48px) 0}
+.block{padding:80px 0;border-top:1px solid var(--line)}
+.block h2{font-family:var(--mincho);font-weight:800;font-size:clamp(34px,4.8vw,60px);line-height:1.25;margin:0 0 16px}
+.lead{max-width:36em;margin:0 0 44px;color:var(--mute)}
+
+.price-row{display:grid;grid-template-columns:10em 1fr auto;gap:8px 32px;align-items:baseline;padding:28px 0;border-bottom:1px solid var(--line)}
+.price-row:first-child{border-top:1px solid var(--text)}
+.price-name{font-weight:700;font-size:18px}
+.price-desc{color:var(--mute)}
+.price-amount{font-family:var(--mincho);font-weight:800;font-size:clamp(30px,3.6vw,44px);line-height:1;white-space:nowrap;text-align:right}
+.price-amount small{font-family:var(--gothic);font-size:15px;font-weight:700;margin-left:4px}
+.price-amount .per{font-family:var(--gothic);font-size:15px;font-weight:700;margin-right:6px}
+.notes{margin:28px 0 0;padding-left:1.2em;color:var(--mute);font-size:15px}
+.notes li{margin-bottom:6px}
+.notes strong{color:var(--text)}
+
+.flow{list-style:none;margin:0;padding:0;counter-reset:step;display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.flow li{counter-increment:step;position:relative;padding-top:76px}
+.flow li::before{content:counter(step);position:absolute;top:0;left:0;font-family:var(--mincho);font-weight:800;font-size:56px;line-height:1;color:var(--akari);text-shadow:0 0 30px rgba(255,181,71,.45)}
+.flow h3{font-size:18px;margin:0 0 8px}
+.flow p{margin:0;color:var(--mute);font-size:15px}
+
+.faq{max-width:820px;border-top:1px solid var(--text)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:22px 0;font-weight:700;font-size:17px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";flex:none;width:11px;height:11px;margin-top:8px;border-right:2px solid var(--akari);border-bottom:2px solid var(--akari);transform:rotate(45deg);transition:transform .2s ease}
+.faq details[open] summary::after{transform:rotate(-135deg);margin-top:14px}
+.faq details p{margin:0 0 24px;max-width:40em;color:var(--mute)}
+
+.contact p{max-width:34em;color:var(--mute)}
+.mail-big{display:block;margin:28px 0 36px;font-family:var(--mincho);font-weight:800;font-size:clamp(22px,6.8vw,92px);line-height:1.1;text-decoration:none;overflow-wrap:anywhere;transition:color .25s,text-shadow .25s}
+.mail-big:hover{color:var(--akari);text-shadow:0 0 40px rgba(255,181,71,.5)}
+
+.info h2{font-family:var(--gothic);font-size:18px;font-weight:700}
+.info dl{margin:0;max-width:680px}
+.info dl div{display:grid;grid-template-columns:7em 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
+.info dt{color:var(--mute)}
+.info dd{margin:0}
+.site-footer{padding:40px clamp(20px,5vw,48px);text-align:center;font-size:13px;color:var(--mute);background:rgba(14,20,48,.86)}
+
+@media (max-width:860px){
+  .site-nav{display:none}
+  .header-cta{margin-left:auto}
+  .flow{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  .stick{align-items:flex-end;padding:0 20px 7vh}
+  .scene.right .stick{justify-content:flex-start}
+  .scene:not(.hero) .panel::before{display:none}
+  .scene:not(.hero) .panel{max-width:none;width:calc(100% + 40px);margin:0 -20px;padding:72px 20px 8px;background:linear-gradient(to top,rgba(14,20,48,.94) 62%,rgba(14,20,48,0))}
+  .panel h2{font-size:clamp(34px,10vw,48px)}
+  .panel-intro h2{font-size:clamp(26px,7.4vw,36px)}
+  .hero .stick{padding-bottom:16vh}
+  .scroll-hint{bottom:auto;top:96px}
+  .price-row{grid-template-columns:1fr auto}
+  .price-desc{grid-column:1/-1;grid-row:2;font-size:15px}
+  .flow{grid-template-columns:1fr}
+  .flow li{padding:0 0 0 64px;min-height:56px}
+  .flow li::before{font-size:44px}
+  .btn{width:100%}
+  .solid-inner{padding-top:30vh}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hero h1 .ch{opacity:1}
+  .hero h1 .ch.on{animation:none}
+  .scroll-hint::after{animation:none}
+  .loader,.cursor{transition:none}
+}
+</style>
+</head>
+<body>
+
+<canvas id="webgl" aria-hidden="true"></canvas>
+
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-inner">
+    <div class="loader-logo">森川ウェブ</div>
+    <div class="loader-bar"><i></i></div>
+    <div class="loader-pct">0%</div>
+  </div>
+</div>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+
+<header class="site-header">
+  <a class="logo" href="#top">森川ウェブ</a>
+  <nav class="site-nav" aria-label="ページ内の案内">
+    <a href="#works">見本</a>
+    <a href="#price">料金</a>
+    <a href="#flow">進め方</a>
+    <a href="#faq">よくある質問</a>
+  </nav>
+  <a class="header-cta" href="#contact">試作を頼む</a>
+</header>
+
+<main>
+  <section class="scene hero" id="top" data-cam="hero" style="--h:150vh">
+    <div class="stick">
+      <div class="panel">
+        <h1 aria-label="店に、灯りを。"><span class="line" aria-hidden="true"><span class="ch">店</span><span class="ch">に</span><span class="ch">、</span></span><span class="line" aria-hidden="true"><span class="ch">灯</span><span class="ch">り</span><span class="ch">を</span><span class="ch">。</span></span></h1>
+        <p class="hero-sub">お店と会社のホームページ制作　森川ウェブ</p>
+      </div>
+      <p class="scroll-hint" aria-hidden="true">スクロールで街に灯りがともります</p>
+    </div>
+  </section>
+
+  <section class="scene" data-cam="intro" style="--h:160vh">
+    <div class="stick">
+      <div class="panel panel-intro">
+        <h2><span class="nb">作り直した</span><span class="nb">ホームページを、</span><span class="nb">先に見てから</span><span class="nb">決められます。</span></h2>
+        <p>お店や会社のホームページを、ご依頼の前に無料で試作してお送りします。気に入っていただけたら、そこから仕上げて公開します。試作だけで終わっても、費用はかかりません。</p>
+        <a class="btn" href="#contact">無料で試作を頼む</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="scene right" id="works" data-cam="miyama" style="--h:170vh">
+    <div class="stick">
+      <div class="panel">
+        <h2>食堂 みやま</h2>
+        <p class="type">飲食店の見本</p>
+        <p>今日の定食と、今が営業中かどうかがひと目でわかる。英語にも切り替えられる、町の食堂のホームページです。</p>
+        <a class="textlink" href="works/miyama/" target="_blank" rel="noopener">見本を開く</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="scene" data-cam="lune" style="--h:170vh">
+    <div class="stick">
+      <div class="panel">
+        <h2>hair salon lune</h2>
+        <p class="type">美容室の見本</p>
+        <p>夜9時まで営業の美容室。その日の月の形が表示され、メニューと料金から空き状況の確認まで、ひと続きで見られます。</p>
+        <a class="textlink" href="works/lune/" target="_blank" rel="noopener">見本を開く</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="scene right" data-cam="hinata" style="--h:170vh">
+    <div class="stick">
+      <div class="panel">
+        <h2>ひなた工務店</h2>
+        <p class="type">住宅リフォームの見本</p>
+        <p>工事の種類ごとの費用の目安と、施工例。見積もりの依頼は、入力しやすいフォームから。</p>
+        <a class="textlink" href="works/hinata/" target="_blank" rel="noopener">見本を開く</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="scene" data-cam="skills" style="--h:170vh">
+    <div class="stick">
+      <div class="panel panel-wide">
+        <h2><span class="nb">この街の動きも、</span><span class="nb">お店のために</span><span class="nb">作れます。</span></h2>
+        <p>3Dの街並みも、スクロールに合わせて灯る看板も、このサイトのために一から作りました。お店の雰囲気に合わせて、必要な演出を選んで組み込みます。</p>
+        <ul class="tags">
+          <li>3Dの演出</li>
+          <li>スクロールに合わせた動き</li>
+          <li>スマホで読みやすい作り</li>
+          <li>予約・問い合わせフォーム</li>
+          <li>英語・中国語・韓国語</li>
+          <li>検索で見つけてもらう設定</li>
+          <li>公開後の更新</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="solid" data-cam="end">
+    <div class="solid-inner">
+      <section class="block" id="price">
+        <h2>料金</h2>
+        <p class="lead">表示はすべて税込です。後から費用が増えないよう、最初にお見積もりをお出しします。</p>
+        <div class="price-list">
+          <div class="price-row">
+            <div class="price-name">1ページ</div>
+            <div class="price-desc">お店の紹介、メニューや料金、地図、連絡先を1ページにまとめます。はじめてのホームページにも。</div>
+            <div class="price-amount">50,000<small>円</small></div>
+          </div>
+          <div class="price-row">
+            <div class="price-name">5ページまで</div>
+            <div class="price-desc">トップ、メニュー、お店の紹介、お知らせ、お問い合わせなど。今あるホームページの作り直しに。</div>
+            <div class="price-amount">100,000<small>円</small></div>
+          </div>
+          <div class="price-row">
+            <div class="price-name">更新・管理</div>
+            <div class="price-desc">公開後のホームページの管理と、月2回までの文章や写真の差し替え。</div>
+            <div class="price-amount"><span class="per">月</span>3,000<small>円</small></div>
+          </div>
+        </div>
+        <ul class="notes">
+          <li><strong>試作は無料です。</strong></li>
+          <li>3Dやスクロールの演出を加える場合は、内容に合わせてお見積もりします。</li>
+          <li>ドメイン（ホームページの住所）の費用は実費です。今お使いのものがあれば、そのまま使えます。</li>
+          <li>お支払いは仕上がりを確認していただいた後です。ご入金を確認してから公開します。</li>
+        </ul>
+      </section>
+
+      <section class="block" id="flow">
+        <h2>進め方</h2>
+        <p class="lead">やりとりはメールで完結します。お店に伺ったり、パソコンを操作していただいたりする必要はありません。</p>
+        <ol class="flow">
+          <li><h3>試作をお送りします</h3><p>今のホームページやGoogleマップの情報をもとに、トップページの試作を作ってお送りします。</p></li>
+          <li><h3>ご要望を伺います</h3><p>試作を見ながら、載せたい内容や変えたいところをメールで教えてください。</p></li>
+          <li><h3>仕上げます</h3><p>写真や文章を入れて仕上げ、確認していただきます。修正にも対応します。目安は1〜2週間です。</p></li>
+          <li><h3>お支払いの後に公開</h3><p>ご入金を確認してから公開します。公開後の変更もお任せください。</p></li>
+        </ol>
+      </section>
+
+      <section class="block" id="faq">
+        <h2>よくある質問</h2>
+        <div class="faq">
+          <details><summary>試作は本当に無料ですか？</summary><p>はい。試作を見て、頼まないことにした場合も費用は一切かかりません。</p></details>
+          <details><summary>このサイトのような3Dの演出も頼めますか？</summary><p>頼めます。お店の雰囲気に合う演出をご提案します。古いスマホでも重くならないよう、演出の量は調整します。</p></details>
+          <details><summary>パソコンに詳しくなくても大丈夫ですか？</summary><p>大丈夫です。設定などの作業はこちらで行います。お願いしたいことがあるときは、何をすればいいかを具体的にお伝えします。</p></details>
+          <details><summary>今のホームページのアドレスのまま作り直せますか？</summary><p>多くの場合はそのまま切り替えられます。今お使いのサービスを教えていただければ、確認してお答えします。</p></details>
+          <details><summary>お店の写真がありません。</summary><p>スマホで撮った写真で十分きれいに仕上がります。明るく見える撮り方のコツもお伝えします。</p></details>
+          <details><summary>遠くの地域でも頼めますか？</summary><p>全国どこからでもご依頼いただけます。やりとりはメールで行います。</p></details>
+        </div>
+      </section>
+
+      <section class="block contact" id="contact">
+        <h2>まずは、試作から。</h2>
+        <p>お店・会社の名前と、今のホームページのアドレス（なければGoogleマップのリンク）を送ってください。試作を作ってお送りします。</p>
+        <a class="mail-big" href="mailto:mahmoris98@gmail.com">mahmoris98@gmail.com</a>
+        <a class="btn" id="mail-btn" href="mailto:mahmoris98@gmail.com">メールで試作を頼む</a>
+      </section>
+
+      <section class="block info" id="info">
+        <h2>運営者情報</h2>
+        <dl>
+          <div><dt>屋号</dt><dd>森川ウェブ</dd></div>
+          <div><dt>代表</dt><dd>森川 幸星</dd></div>
+          <div><dt>所在地</dt><dd>東京都新宿区矢来町41-10</dd></div>
+          <div><dt>メール</dt><dd>mahmoris98@gmail.com</dd></div>
+          <div><dt>事業内容</dt><dd>ホームページの企画・制作・更新管理</dd></div>
+        </dl>
+      </section>
+    </div>
+    <footer class="site-footer">© 2026 森川ウェブ</footer>
+  </div>
+</main>
+
+<script>
+  // 3Dの読み込みに失敗しても、文字は読めるようにしておく
+  setTimeout(function(){
+    var l = document.getElementById('loader');
+    if (l.classList.contains('done')) return;
+    l.classList.add('done');
+    document.documentElement.classList.add('no-webgl');
+    document.querySelectorAll('.hero .ch').forEach(function(c){ c.classList.add('on'); });
+  }, 9000);
+</script>
+<script type="module" src="assets/main.js"></script>
+</body>
+</html>

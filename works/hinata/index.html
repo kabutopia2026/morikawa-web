@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ひなた工務店（制作見本）</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#2F5E3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#2F5E3E;
+  --green-soft:#E6EFE3;
+  --sky:#DCEEF5;
+  --sun:#F4B63F;
+  --wood:#B07A48;
+  --ink:#263028;
+  --mute:#5D6A60;
+  --line:#D8E0D6;
+  --white:#FFFFFF;
+  --font:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Hiragino Sans",sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--white);color:var(--ink);font-family:var(--font);font-weight:500;font-size:16px;line-height:1.85}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.nb{display:inline-block}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+
+.sample-bar{background:var(--ink);color:#ddd;font-size:12px;text-align:center;padding:6px 12px}
+.sample-bar a{color:#fff;font-weight:700}
+
+.site-header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px;max-width:1000px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:20px;text-decoration:none;color:var(--green)}
+.logo svg{width:34px;height:34px}
+.tel{text-align:right;line-height:1.3;text-decoration:none}
+.tel b{display:block;font-size:20px;color:var(--green);font-weight:900}
+.tel small{font-size:12px;color:var(--mute)}
+
+/* ファーストビュー */
+.hero{background:var(--sky);position:relative;overflow:hidden}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:20px;max-width:1000px;margin:0 auto;padding:48px 20px 0}
+.hero-text{padding-bottom:56px}
+.hero h1{font-weight:900;font-size:clamp(28px,5.6vw,46px);line-height:1.45;margin:0 0 16px;color:var(--ink)}
+.hero p{margin:0 0 28px;max-width:26em}
+.actions{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 26px;border-radius:14px;font-weight:700;text-decoration:none;font-size:16px;font-family:inherit;border:0;cursor:pointer}
+.btn-main{background:var(--green);color:#fff}
+.btn-main:hover{background:#244A31}
+.btn-sub{background:#fff;color:var(--green);box-shadow:inset 0 0 0 2px var(--green)}
+.house{width:100%;height:auto;display:block}
+
+/* できる工事 */
+.section{padding:72px 0}
+.section h2{font-weight:900;font-size:clamp(24px,4.4vw,32px);line-height:1.45;margin:0 0 8px}
+.section .lead{color:var(--mute);margin:0 0 36px;max-width:36em}
+.services{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.service{display:grid;grid-template-columns:56px 1fr;gap:16px;padding:22px;border-radius:18px;background:var(--green-soft)}
+.service svg{width:56px;height:56px}
+.service h3{font-weight:900;font-size:19px;margin:0 0 2px}
+.service p{margin:0 0 10px;font-size:15px;color:var(--mute)}
+.service ul{list-style:none;margin:0;padding:0;font-size:15px}
+.service li{display:flex;justify-content:space-between;gap:12px;padding:5px 0;border-top:1px dashed #BFD0BB}
+.service li b{white-space:nowrap;color:var(--green)}
+
+/* 施工例 */
+.cases{display:grid;gap:0;border-top:3px solid var(--ink)}
+.case{display:grid;grid-template-columns:1fr auto auto;gap:6px 32px;align-items:baseline;padding:24px 0;border-bottom:1px solid var(--line)}
+.case h3{font-weight:700;font-size:18px;margin:0}
+.case p{grid-column:1/-1;margin:0;color:var(--mute);font-size:15px;max-width:40em}
+.case .fact{font-size:13px;color:var(--mute);white-space:nowrap}
+.case .fact b{display:block;font-size:22px;font-weight:900;color:var(--ink);line-height:1.3}
+
+/* 見積もりフォーム */
+.estimate{background:var(--green-soft)}
+.form{display:grid;gap:22px;max-width:640px;background:#fff;padding:28px;border-radius:20px}
+.field label,.field legend{display:block;font-weight:700;margin:0 0 6px;padding:0}
+.req{display:inline-block;margin-left:8px;font-size:12px;color:#fff;background:#C2553A;border-radius:4px;padding:0 6px;vertical-align:2px}
+.field input[type=text],.field input[type=tel],.field textarea{width:100%;font:inherit;font-size:16px;padding:12px 14px;border:2px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+.field textarea{min-height:120px;resize:vertical}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--green)}
+fieldset.field{border:0;margin:0;padding:0}
+.checks{display:flex;flex-wrap:wrap;gap:8px}
+.checks label{display:inline-flex;align-items:center;gap:6px;font-weight:500;margin:0;padding:8px 14px;border:2px solid var(--line);border-radius:999px;cursor:pointer}
+.checks input{accent-color:var(--green);width:18px;height:18px;margin:0}
+.checks label:has(input:checked){border-color:var(--green);background:var(--green-soft)}
+.error{color:#B23A22;font-size:14px;margin:6px 0 0}
+.field.invalid input{border-color:#B23A22}
+.done{display:none;padding:22px;border-radius:14px;background:#fff;border:2px solid var(--green)}
+.done h3{margin:0 0 6px;font-weight:900;color:var(--green)}
+.done p{margin:0}
+
+/* 会社情報 */
+.company{margin:0}
+.company div{display:grid;grid-template-columns:7em 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.company dt{color:var(--mute)}
+.company dd{margin:0}
+
+.site-footer{background:var(--ink);color:#C9D2CB;font-size:13px;padding:28px 20px;text-align:center}
+
+@media (max-width:760px){
+  .tel small{display:none}
+  .hero-inner{grid-template-columns:1fr;padding-top:32px}
+  .hero-text{padding-bottom:8px}
+  .house{max-width:420px;margin:0 auto}
+  .services{grid-template-columns:1fr}
+  .service{grid-template-columns:1fr;gap:10px}
+  .service svg{width:44px;height:44px}
+  .case{grid-template-columns:1fr 1fr}
+  .case h3{grid-column:1/-1}
+  .form{padding:20px}
+  .btn{flex:1 1 100%}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="sample-bar">これは<a href="../../">森川ウェブ</a>の制作見本です。会社は実在しません。</div>
+
+<header class="site-header">
+  <a class="logo" href="#">
+    <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="28" cy="12" r="7" fill="#F4B63F"/><path d="M4 22 L18 10 L32 22 V36 H4Z" fill="#2F5E3E"/><rect x="14" y="26" width="8" height="10" fill="#fff"/></svg>
+    ひなた工務店
+  </a>
+  <a class="tel" href="#" data-demo="call"><b>000-000-0000</b><small>受付 8:00〜18:00（日曜休み）</small></a>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1><span class="nb">床のきしみ</span><span class="nb">ひとつから、</span><span class="nb">相談できます。</span></h1>
+        <p>見本市を中心に、水まわり・外壁・内装のリフォームを手がける工務店です。見積もりは無料。その場で契約をお願いすることはありません。</p>
+        <div class="actions">
+          <a class="btn btn-main" href="#estimate">無料で見積もりを頼む</a>
+          <a class="btn btn-sub" href="#cases">施工例を見る</a>
+        </div>
+      </div>
+      <svg class="house" viewBox="0 0 440 300" role="img" aria-label="日差しの当たる平屋の家のイラスト">
+        <circle cx="360" cy="70" r="40" fill="#F4B63F"/>
+        <g stroke="#F4B63F" stroke-width="5" stroke-linecap="round">
+          <path d="M360 12v-8M360 136v-8M302 70h-8M426 70h-8M319 29l-6-6M407 117l-6-6M319 111l-6 6M407 23l-6 6"/>
+        </g>
+        <rect x="0" y="262" width="440" height="38" fill="#8DB57A"/>
+        <path d="M60 150 L200 70 L340 150Z" fill="#3E4A44"/>
+        <path d="M44 156 L200 66 L356 156 L344 162 L200 80 L56 162Z" fill="#2B3530"/>
+        <rect x="80" y="150" width="240" height="114" fill="#F4EAD9"/>
+        <rect x="80" y="150" width="240" height="10" fill="#E2D3BA"/>
+        <rect x="110" y="182" width="64" height="50" rx="4" fill="#B9DDEB" stroke="#B07A48" stroke-width="6"/>
+        <path d="M142 182v50M110 207h64" stroke="#B07A48" stroke-width="4"/>
+        <rect x="222" y="186" width="56" height="78" rx="4" fill="#B07A48"/>
+        <circle cx="266" cy="228" r="4" fill="#F4B63F"/>
+        <rect x="212" y="258" width="76" height="8" rx="2" fill="#9D9282"/>
+        <path d="M30 262c0-26 14-44 30-44s30 18 30 44Z" fill="#5E9A55"/>
+        <path d="M350 262c0-18 10-32 22-32s22 14 22 32Z" fill="#5E9A55"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="wrap">
+      <h2>できる工事と、費用の目安</h2>
+      <p class="lead">家の状態によって変わるため、正確な金額は現地を見てからお出しします。目安はすべて税込・工事費込みです。</p>
+      <div class="services">
+        <div class="service">
+          <svg viewBox="0 0 56 56" aria-hidden="true"><rect width="56" height="56" rx="14" fill="#fff"/><path d="M14 30h28v6a8 8 0 0 1-8 8H22a8 8 0 0 1-8-8z" fill="#2F5E3E"/><path d="M20 30V16a4 4 0 0 1 8 0" fill="none" stroke="#2F5E3E" stroke-width="3" stroke-linecap="round"/><circle cx="28" cy="22" r="2" fill="#7FB8D0"/></svg>
+          <div>
+            <h3>水まわり</h3>
+            <p>キッチン・お風呂・トイレ・洗面台</p>
+            <ul>
+              <li><span>トイレの交換</span><b>15万円〜</b></li>
+              <li><span>お風呂をユニットバスに</span><b>90万円〜</b></li>
+            </ul>
+          </div>
+        </div>
+        <div class="service">
+          <svg viewBox="0 0 56 56" aria-hidden="true"><rect width="56" height="56" rx="14" fill="#fff"/><path d="M10 28 28 14l18 14" fill="none" stroke="#2F5E3E" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M16 26v16h24V26" fill="none" stroke="#2F5E3E" stroke-width="3.5"/><path d="M16 32h24M16 37h24" stroke="#B07A48" stroke-width="2"/></svg>
+          <div>
+            <h3>外壁・屋根</h3>
+            <p>塗り替え・雨もりの修理・雨どい</p>
+            <ul>
+              <li><span>雨どいの交換</span><b>8万円〜</b></li>
+              <li><span>外壁の塗り替え（30坪）</span><b>95万円〜</b></li>
+            </ul>
+          </div>
+        </div>
+        <div class="service">
+          <svg viewBox="0 0 56 56" aria-hidden="true"><rect width="56" height="56" rx="14" fill="#fff"/><rect x="12" y="14" width="32" height="28" rx="2" fill="none" stroke="#2F5E3E" stroke-width="3"/><path d="M12 34h32" stroke="#2F5E3E" stroke-width="3"/><path d="M18 34v8M26 34v8M34 34v8" stroke="#B07A48" stroke-width="2"/></svg>
+          <div>
+            <h3>内装</h3>
+            <p>床・壁紙・ふすま・ドア</p>
+            <ul>
+              <li><span>壁紙の張り替え（6畳）</span><b>5万円〜</b></li>
+              <li><span>和室を洋室に</span><b>45万円〜</b></li>
+            </ul>
+          </div>
+        </div>
+        <div class="service">
+          <svg viewBox="0 0 56 56" aria-hidden="true"><rect width="56" height="56" rx="14" fill="#fff"/><path d="M12 42h10v-8h10v-8h12" fill="none" stroke="#2F5E3E" stroke-width="3.5" stroke-linejoin="round"/><path d="M14 30c6-8 20-12 30-12" fill="none" stroke="#B07A48" stroke-width="3" stroke-linecap="round"/></svg>
+          <div>
+            <h3>手すり・段差</h3>
+            <p>手すりの取り付け・段差をなくす工事</p>
+            <ul>
+              <li><span>手すりの取り付け（1か所）</span><b>2万円〜</b></li>
+              <li><span>玄関にスロープ</span><b>12万円〜</b></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="cases">
+    <div class="wrap">
+      <h2>最近の施工例</h2>
+      <p class="lead">見本のため、内容は架空のものです。</p>
+      <div class="cases">
+        <article class="case">
+          <h3>築35年の在来浴室を、冬も寒くないユニットバスに</h3>
+          <span class="fact"><b>5日</b>工期</span>
+          <span class="fact"><b>98万円</b>費用</span>
+          <p>タイルの床が冷たく、段差が気になるとのご相談。床の段差をなくし、手すりと浴室暖房も付けました。</p>
+        </article>
+        <article class="case">
+          <h3>使っていない和室を、在宅ワーク用の洋室に</h3>
+          <span class="fact"><b>4日</b>工期</span>
+          <span class="fact"><b>52万円</b>費用</span>
+          <p>畳をフローリングに、押し入れを机が置けるスペースに変えました。コンセントも2か所増やしています。</p>
+        </article>
+        <article class="case">
+          <h3>玄関の段差に、手すりとゆるやかなスロープ</h3>
+          <span class="fact"><b>1日</b>工期</span>
+          <span class="fact"><b>14万円</b>費用</span>
+          <p>介護保険の住宅改修の申請もお手伝いし、ご負担を抑えられました。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section estimate" id="estimate">
+    <div class="wrap">
+      <h2>無料で見積もりを頼む</h2>
+      <p class="lead">2営業日以内に、お電話かメールでご連絡します。わかる範囲で大丈夫です。</p>
+      <form class="form" id="form" novalidate>
+        <div class="field" id="f-name">
+          <label for="name">お名前<span class="req">必須</span></label>
+          <input type="text" id="name" name="name" autocomplete="name" aria-describedby="name-err">
+          <p class="error" id="name-err" hidden>お名前を入れてください。</p>
+        </div>
+        <div class="field" id="f-tel">
+          <label for="tel">電話番号<span class="req">必須</span></label>
+          <input type="tel" id="tel" name="tel" autocomplete="tel" inputmode="tel" aria-describedby="tel-err">
+          <p class="error" id="tel-err" hidden>電話番号を数字で入れてください。</p>
+        </div>
+        <div class="field">
+          <label for="area">工事をしたい場所の住所（市町村まで）</label>
+          <input type="text" id="area" name="area" autocomplete="address-level2">
+        </div>
+        <fieldset class="field">
+          <legend>相談したいところ（いくつでも）</legend>
+          <div class="checks">
+            <label><input type="checkbox" name="place" value="キッチン">キッチン</label>
+            <label><input type="checkbox" name="place" value="お風呂">お風呂</label>
+            <label><input type="checkbox" name="place" value="トイレ">トイレ</label>
+            <label><input type="checkbox" name="place" value="外壁・屋根">外壁・屋根</label>
+            <label><input type="checkbox" name="place" value="内装">内装</label>
+            <label><input type="checkbox" name="place" value="手すり・段差">手すり・段差</label>
+            <label><input type="checkbox" name="place" value="その他">その他</label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="detail">困っていること・やりたいこと</label>
+          <textarea id="detail" name="detail" placeholder="例：お風呂の床が冷たくて、段差もつらくなってきました。"></textarea>
+        </div>
+        <button class="btn btn-main" type="submit">この内容で見積もりを頼む</button>
+      </form>
+      <div class="done" id="done" role="status" aria-live="polite">
+        <h3>見積もりの依頼を受け付けました（見本）</h3>
+        <p>見本のため、実際には送信されていません。本番のサイトでは、この内容がそのまま工務店にメールで届きます。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="company">
+    <div class="wrap">
+      <h2>会社のこと</h2>
+      <p class="lead">地元で30年。大工が2人、職人仲間と一緒に、一軒ずつ丁寧に仕上げます。</p>
+      <dl class="company">
+        <div><dt>会社名</dt><dd>ひなた工務店</dd></div>
+        <div><dt>所在地</dt><dd>〒000-0000 見本市 日向町4-5-6</dd></div>
+        <div><dt>対応エリア</dt><dd>見本市と、その周辺の市町村</dd></div>
+        <div><dt>受付時間</dt><dd>8:00〜18:00（日曜休み）</dd></div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">© ひなた工務店（架空の会社・制作見本）</footer>
+
+<script>
+(function(){
+  var form = document.getElementById('form'), done = document.getElementById('done');
+
+  function check(id, ok){
+    var f = document.getElementById('f-' + id), err = document.getElementById(id + '-err');
+    f.classList.toggle('invalid', !ok);
+    err.hidden = ok;
+    document.getElementById(id).setAttribute('aria-invalid', !ok);
+    return ok;
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var nameOk = check('name', form.name.value.trim() !== '');
+    var telOk = check('tel', /^[0-9０-９\-－ ]{10,}$/.test(form.tel.value.trim()));
+    if(!nameOk){ form.name.focus(); return; }
+    if(!telOk){ form.tel.focus(); return; }
+    form.style.display = 'none';
+    done.style.display = 'block';
+  });
+
+  document.querySelectorAll('[data-demo]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      alert('見本のため電話はかかりません。実際のサイトでは、押すとすぐ電話がかかります。');
+    });
+  });
+})();
+</script>
+</body>
+</html>
