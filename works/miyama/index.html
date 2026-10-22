@@ -5,253 +5,601 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>食堂 みやま（制作見本）</title>
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#A8262B">
+<meta name="theme-color" content="#17120E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&family=Zen+Antique+Soft&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Yuji+Boku&family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap" rel="stylesheet">
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
 <style>
 :root{
-  --noren:#A8262B;
-  --noren-dark:#86191E;
-  --rod:#6B4528;
-  --board:#2C4536;
-  --frame:#7A5232;
-  --chalk:#F2EFE6;
-  --egg:#F3C64B;
-  --ink:#1E1E1E;
-  --mute:#5E5E5E;
-  --line:#E4E0DA;
-  --open:#2E9B4F;
-  --antique:"Zen Antique Soft","Hiragino Mincho ProN",serif;
-  --hand:"Yusei Magic","Zen Kaku Gothic New",sans-serif;
+  --sumi:#17120E;
+  --sumi-2:#211913;
+  --kinari:#F1E8D8;
+  --mute:#B9AC97;
+  --ai:#22325A;
+  --shu:#D2452B;
+  --sumibi:#F2A33A;
+  --line:rgba(241,232,216,.16);
+  --brush:"Yuji Boku","Hiragino Mincho ProN",serif;
   --body:"Zen Kaku Gothic New","Hiragino Sans",sans-serif;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:#fff;color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.8}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{margin:0;background:var(--sumi);color:var(--kinari);font-family:var(--body);font-size:16px;line-height:1.85;overflow-x:hidden}
 a{color:inherit}
-:focus-visible{outline:3px solid var(--egg);outline-offset:2px}
+img{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--sumibi);outline-offset:3px}
 .nb{display:inline-block}
+h1,h2,h3{word-break:auto-phrase}
 
-.sample-bar{background:#1E1E1E;color:#ddd;font-size:12px;text-align:center;padding:6px 12px}
+.sample-bar{position:relative;z-index:30;display:flex;justify-content:center;gap:14px;flex-wrap:wrap;background:#0d0a08;color:#cfc4b2;font-size:12px;padding:7px 12px}
 .sample-bar a{color:#fff;font-weight:700}
 
-.top{display:flex;justify-content:flex-end;padding:12px 16px 0;max-width:960px;margin:0 auto}
-.lang{display:inline-flex;border:1.5px solid var(--ink);border-radius:999px;overflow:hidden}
-.lang button{font:inherit;font-size:13px;font-weight:700;border:0;background:#fff;color:var(--ink);padding:5px 14px;cursor:pointer}
-.lang button[aria-pressed="true"]{background:var(--ink);color:#fff}
+/* ヘッダー */
+.top{position:fixed;top:34px;left:0;right:0;z-index:20;display:flex;align-items:center;gap:14px;padding:12px clamp(16px,3vw,32px);pointer-events:none;transition:top .3s}
+.top.stuck{top:0;background:linear-gradient(rgba(23,18,14,.85),rgba(23,18,14,0))}
+.top > *{pointer-events:auto}
+.mark{font-family:var(--brush);font-size:22px;text-decoration:none;letter-spacing:.06em}
+.status{margin-left:auto;display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;padding:5px 13px;border-radius:999px;background:rgba(23,18,14,.6);border:1px solid var(--line)}
+.status i{width:8px;height:8px;border-radius:50%;background:#7a6f60}
+.status.open i{background:#5bd17a;box-shadow:0 0 10px #5bd17a}
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:rgba(23,18,14,.6)}
+.lang button{font:inherit;font-size:12px;font-weight:700;border:0;background:transparent;color:var(--mute);padding:5px 12px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--kinari);color:var(--sumi)}
 
 /* のれん */
-.hero{max-width:960px;margin:0 auto;padding:12px 16px 0}
-.rod{height:12px;border-radius:6px;background:var(--rod);margin:0 -4px;position:relative;z-index:1}
-.noren{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:0 6px}
-.noren span{display:grid;place-items:center;height:clamp(150px,42vw,300px);background:var(--noren);color:#fff;font-family:var(--antique);font-size:clamp(54px,15vw,120px);line-height:1;border-radius:0 0 4px 4px;transform-origin:top center;box-shadow:inset 0 -10px 0 var(--noren-dark)}
-@media (prefers-reduced-motion:no-preference){
-  .noren span{animation:sway 1.6s cubic-bezier(.3,.7,.4,1) both}
-  .noren span:nth-child(2){animation-delay:.08s}
-  .noren span:nth-child(3){animation-delay:.16s}
-}
-@keyframes sway{0%{transform:rotate(3deg) scaleY(.96)}45%{transform:rotate(-1.6deg)}75%{transform:rotate(.6deg)}100%{transform:none}}
+.hero{position:relative;height:230vh}
+.hero-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.hero-photo{position:absolute;inset:0;transform-origin:50% 60%}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 45%;filter:brightness(.55) saturate(1.1)}
+.hero-photo::after{content:"";position:absolute;inset:0;background:radial-gradient(80% 70% at 50% 60%,rgba(23,18,14,0),rgba(23,18,14,.85))}
+#noren{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:pan-y}
+.noren-fallback{position:absolute;top:0;left:0;right:0;height:72%;display:none;grid-template-columns:repeat(3,1fr);gap:1vw}
+.noren-fallback span{display:grid;place-items:center;background:var(--ai);font-family:var(--brush);font-size:18vw;color:var(--kinari)}
+html.no-webgl #noren{display:none}
+html.no-webgl .noren-fallback{display:grid}
+.hero-copy{position:absolute;left:clamp(20px,6vw,90px);right:clamp(20px,6vw,90px);bottom:12vh;opacity:0;transform:translateY(40px);pointer-events:none}
+.hero-copy h1{font-family:var(--brush);font-weight:400;font-size:clamp(46px,8.4vw,128px);line-height:1.15;margin:0 0 18px;text-shadow:0 4px 40px rgba(0,0,0,.6)}
+.hero-copy p{max-width:30em;margin:0;color:#e3d8c4;font-size:clamp(15px,1.3vw,18px);text-shadow:0 2px 20px rgba(0,0,0,.8)}
+.hint{position:absolute;right:clamp(18px,4vw,48px);bottom:9vh;writing-mode:vertical-rl;margin:0;font-size:13px;letter-spacing:.3em;color:var(--kinari);text-shadow:0 1px 10px rgba(0,0,0,.8)}
+.hint::after{content:"";display:block;width:1px;height:60px;margin:14px auto 0;background:linear-gradient(var(--kinari),transparent)}
 
-.intro{max-width:960px;margin:0 auto;padding:28px 20px 8px}
-.kind{margin:0;font-size:14px;font-weight:700;color:var(--noren)}
-.intro h1{font-family:var(--antique);font-weight:400;font-size:clamp(30px,7vw,52px);line-height:1.35;margin:4px 0 12px}
-.intro p.sub{margin:0 0 18px;color:var(--mute);max-width:32em}
-.status{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;padding:6px 14px;border-radius:999px;background:#EEF6F0;color:#22603A}
-.status i{width:10px;height:10px;border-radius:50%;background:var(--open)}
-.status.closed{background:#F3F1EE;color:var(--mute)}
-.status.closed i{background:#B5B0A8}
+/* 今日の定食（横スクロール） */
+.menu{position:relative}
+.menu-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;gap:4vh}
+.menu-head{display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding:0 clamp(20px,6vw,90px)}
+.menu-head h2{font-family:var(--brush);font-weight:400;font-size:clamp(40px,6vw,88px);line-height:1;margin:0}
+.menu-head p{margin:0;color:var(--mute);font-size:14px}
+.track{display:flex;gap:clamp(18px,3vw,48px);padding:0 clamp(20px,6vw,90px);will-change:transform}
+.card{flex:none;width:clamp(260px,30vw,420px)}
+.card .ph{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:999px 999px 14px 14px;background:#2a211a}
+.card .ph img{position:absolute;inset:-6% -14%;width:128%;height:112%;object-fit:cover;will-change:transform}
+.card .num{position:absolute;left:16px;top:16px;font-size:12px;font-weight:700;color:var(--sumi);background:var(--kinari);border-radius:999px;padding:2px 10px}
+.card h3{font-family:var(--brush);font-weight:400;font-size:clamp(26px,2.6vw,36px);margin:18px 0 2px;line-height:1.3}
+.card .yen{font-weight:900;font-size:22px;color:var(--sumibi)}
+.card p{margin:6px 0 0;color:var(--mute);font-size:14px;max-width:26em}
+.bar-progress{height:2px;margin:0 clamp(20px,6vw,90px);background:var(--line)}
+.bar-progress i{display:block;height:100%;width:0;background:var(--sumibi)}
 
-/* 黒板メニュー */
-.menu-wrap{max-width:960px;margin:0 auto;padding:36px 16px}
-.board{background:var(--board);color:var(--chalk);border:12px solid var(--frame);border-radius:10px;padding:26px 22px 22px;box-shadow:inset 0 0 40px rgba(0,0,0,.25)}
-.board h2{font-family:var(--hand);font-weight:400;font-size:28px;margin:0 0 14px;text-align:center}
-.menu{list-style:none;margin:0;padding:0;font-family:var(--hand);font-size:20px}
-.menu li{display:flex;align-items:baseline;gap:10px;padding:8px 0}
-.menu .dots{flex:1;border-bottom:2px dotted rgba(242,239,230,.35);transform:translateY(-6px)}
-.menu .yen{color:var(--egg);white-space:nowrap}
-.board-note{margin:16px 0 0;text-align:center;font-family:var(--hand);font-size:16px;color:#CFE0D3}
+/* 炭火 */
+.grill{position:relative;height:150vh}
+.grill-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;align-items:flex-end}
+.grill-photo{position:absolute;inset:0}
+.grill-photo img{width:100%;height:100%;object-fit:cover;filter:brightness(.6) contrast(1.05)}
+.grill-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(23,18,14,.95),rgba(23,18,14,0) 60%)}
+#smoke{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;mix-blend-mode:screen}
+.grill-copy{position:relative;padding:0 clamp(20px,6vw,90px) 12vh;max-width:760px}
+.grill-copy h2{font-family:var(--brush);font-weight:400;font-size:clamp(52px,9vw,140px);line-height:1.05;margin:0 0 20px}
+.grill-copy p{margin:0;color:#e3d8c4;max-width:28em}
 
-/* 営業時間 */
-.block{max-width:960px;margin:0 auto;padding:28px 20px}
-.block h2{font-family:var(--antique);font-weight:400;font-size:26px;margin:0 0 14px;padding-bottom:10px;border-bottom:3px solid var(--noren)}
-.hours{width:100%;border-collapse:collapse;font-size:16px}
-.hours th,.hours td{text-align:left;padding:12px 4px;border-bottom:1px solid var(--line)}
-.hours th{width:7em;font-weight:700;color:var(--mute)}
+/* いまの営業状況 */
+.now{padding:18vh clamp(20px,6vw,90px) 12vh;display:grid;grid-template-columns:1.2fr 1fr;gap:6vw;align-items:end}
+.clock{font-weight:900;font-size:clamp(84px,15vw,220px);line-height:.9;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.clock small{display:block;font-size:14px;font-weight:700;letter-spacing:.1em;color:var(--mute);margin-bottom:14px}
+.now-msg{word-break:auto-phrase;font-family:var(--brush);font-size:clamp(26px,3vw,42px);line-height:1.5;margin:24px 0 0}
+.now-msg b{font-weight:400;color:var(--sumibi)}
+.hours{width:100%;border-collapse:collapse}
+.hours th,.hours td{text-align:left;padding:14px 4px;border-bottom:1px solid var(--line);font-size:15px}
+.hours th{color:var(--mute);font-weight:400;width:6em}
+.hours tr.today td,.hours tr.today th{color:var(--kinari)}
+.hours tr.today th::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--sumibi);margin-right:8px;vertical-align:2px}
 
-/* アクセス */
-.map{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#F6F4F0}
-.map svg{display:block;width:100%;height:auto}
-.addr{margin:14px 0 0}
-.addr small{color:var(--mute)}
+/* 行き方 */
+.access{padding:6vh clamp(20px,6vw,90px) 16vh;display:grid;grid-template-columns:1fr 1.3fr;gap:6vw;align-items:center}
+.access h2{font-family:var(--brush);font-weight:400;font-size:clamp(40px,5vw,72px);margin:0 0 16px;line-height:1.1}
+.access p{margin:0 0 10px;color:#e3d8c4}
+.access small{color:var(--mute)}
+.map svg{width:100%;height:auto;display:block}
+.route{stroke-dasharray:1;stroke-dashoffset:1}
 
-.site-footer{max-width:960px;margin:0 auto;padding:32px 20px 120px;font-size:13px;color:var(--mute)}
+/* フッター */
+.foot{position:relative;min-height:90vh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;padding:0 clamp(20px,6vw,90px) 120px}
+.foot-photo{position:absolute;inset:0}
+.foot-photo img{width:100%;height:100%;object-fit:cover;filter:brightness(.45)}
+.foot-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(23,18,14,1),rgba(23,18,14,.2) 40%,rgba(23,18,14,.9))}
+.foot-name{position:relative;font-family:var(--brush);font-size:clamp(110px,26vw,380px);line-height:.9;margin:0}
+.foot-info{position:relative;display:flex;flex-wrap:wrap;gap:8px 28px;color:#e3d8c4;font-size:14px;margin-top:18px}
 
-/* 下に固定のボタン */
-.callbar{position:fixed;left:0;right:0;bottom:0;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);border-top:1px solid var(--line);z-index:10}
-.callbar a{display:flex;align-items:center;justify-content:center;gap:8px;height:52px;border-radius:12px;font-weight:700;font-size:16px;text-decoration:none;color:#fff;background:var(--noren)}
-.callbar a+a{background:var(--ink)}
-.callbar svg{width:20px;height:20px}
-
-.toast{position:fixed;left:50%;bottom:92px;transform:translate(-50%,10px);background:var(--ink);color:#fff;font-size:14px;padding:10px 16px;border-radius:10px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:20;width:max-content;max-width:calc(100% - 32px)}
+/* 下のボタン */
+.callbar{position:fixed;z-index:25;right:20px;bottom:20px;display:flex;gap:8px;padding:8px;border-radius:999px;background:rgba(23,18,14,.82);border:1px solid var(--line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.callbar a{display:inline-flex;align-items:center;gap:8px;height:46px;padding:0 20px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;background:var(--shu);color:#fff}
+.callbar a + a{background:transparent;color:var(--kinari);border:1px solid var(--line)}
+.callbar svg{width:18px;height:18px}
+.toast{position:fixed;left:50%;bottom:92px;z-index:40;transform:translate(-50%,10px);width:max-content;max-width:calc(100% - 32px);background:var(--kinari);color:var(--sumi);font-size:14px;font-weight:700;padding:10px 16px;border-radius:12px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 
-@media (min-width:760px){
-  .menu-wrap{display:grid}
-  .board{max-width:640px;margin:0 auto;width:100%}
-  .two{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:960px;margin:0 auto}
-  .two .block{margin:0}
-  .callbar{left:auto;right:24px;bottom:24px;width:360px;border:1px solid var(--line);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.12)}
+@media (max-width:760px){
+  .mark{font-size:18px}
+  .status span{display:none}
+  .now,.access{grid-template-columns:1fr}
+  .hours-wrap{margin-top:20px}
+  .callbar{left:12px;right:12px;bottom:12px;justify-content:stretch}
+  .callbar a{flex:1;justify-content:center}
+  .card{width:74vw}
+  .menu-head p{display:none}
 }
 @media (prefers-reduced-motion:reduce){.toast{transition:none}}
 </style>
 </head>
 <body>
 
-<div class="sample-bar">これは<a href="../../">森川ウェブ</a>の制作見本です。お店は実在しません。</div>
+<div class="sample-bar"><span>制作見本・架空のお店です</span><a href="../../">森川ウェブに戻る</a></div>
 
-<div class="top">
+<header class="top" id="top">
+  <a class="mark" href="#">食堂 みやま</a>
+  <span class="status" id="status"><i></i><b></b></span>
   <div class="lang" role="group" aria-label="表示する言語">
     <button type="button" data-lang="ja" aria-pressed="true">日本語</button>
-    <button type="button" data-lang="en" aria-pressed="false">English</button>
+    <button type="button" data-lang="en" aria-pressed="false">EN</button>
   </div>
-</div>
-
-<header class="hero">
-  <div class="rod"></div>
-  <div class="noren" role="img" aria-label="食堂 みやま"><span>み</span><span>や</span><span>ま</span></div>
 </header>
 
 <main>
-  <section class="intro">
-    <p class="kind" data-en="Miyama Diner">食堂 みやま</p>
-    <h1 data-en="Set meals every day, from ¥650."><span class="nb">毎日の定食、</span><span class="nb">650円から。</span></h1>
-    <p class="sub" data-en="A neighborhood diner since 1983. Rice refills are free, and every set comes with miso soup and a small side dish.">昭和58年から、同じ場所で。ごはんのおかわりは無料、どの定食にも味噌汁と小鉢が付きます。</p>
-    <p class="status" id="status"><i></i><span></span></p>
-  </section>
-
-  <section class="menu-wrap" id="menu">
-    <div class="board">
-      <h2 data-en="Today's set meals">今日の定食</h2>
-      <ul class="menu">
-        <li><span data-en="Daily special">日替わり定食</span><span class="dots"></span><span class="yen" data-en="¥650">650円</span></li>
-        <li><span data-en="Grilled fish">焼き魚定食</span><span class="dots"></span><span class="yen" data-en="¥750">750円</span></li>
-        <li><span data-en="Fried chicken">唐揚げ定食</span><span class="dots"></span><span class="yen" data-en="¥780">780円</span></li>
-        <li><span data-en="Ginger pork">生姜焼き定食</span><span class="dots"></span><span class="yen" data-en="¥800">800円</span></li>
-        <li><span data-en="Pork cutlet">とんかつ定食</span><span class="dots"></span><span class="yen" data-en="¥900">900円</span></li>
-      </ul>
-      <p class="board-note" data-en="Free rice refills · Cash and QR payments">ごはんおかわり無料　現金・QR決済OK</p>
+  <section class="hero" id="hero">
+    <div class="hero-stick">
+      <div class="hero-photo"><img src="img/interior.jpg" alt="カウンター席の並ぶ、明かりの灯った食堂の店内"></div>
+      <canvas id="noren" aria-hidden="true"></canvas>
+      <div class="noren-fallback" aria-hidden="true"><span>み</span><span>や</span><span>ま</span></div>
+      <div class="hero-copy">
+        <h1 data-en="Set meals every day, from ¥650."><span class="nb">毎日の定食、</span><span class="nb">650円から。</span></h1>
+        <p data-en="A neighborhood diner since 1983. Free rice refills, and every set comes with miso soup and a small side.">昭和58年から、同じ場所で。ごはんのおかわりは無料、どの定食にも味噌汁と小鉢が付きます。</p>
+      </div>
+      <p class="hint" aria-hidden="true" data-en="Scroll to enter">のれんをくぐる</p>
     </div>
   </section>
 
-  <div class="two">
-    <section class="block" id="hours">
-      <h2 data-en="Hours">営業時間</h2>
-      <table class="hours">
-        <tr><th data-en="Lunch">お昼</th><td>11:00 – 14:30</td></tr>
-        <tr><th data-en="Dinner">夜</th><td>17:30 – 21:00</td></tr>
-        <tr><th data-en="Closed">定休日</th><td data-en="Sundays and national holidays">日曜・祝日</td></tr>
-        <tr><th data-en="Seats">席数</th><td data-en="12 (counter 6, tables 6)">12席（カウンター6・テーブル6）</td></tr>
-      </table>
-    </section>
-
-    <section class="block" id="access">
-      <h2 data-en="Access">アクセス</h2>
-      <div class="map" role="img" aria-label="駅からお店までの地図。駅の改札を出て、商店街をまっすぐ進み、2つ目の角の右手にあります。">
-        <svg viewBox="0 0 400 240" aria-hidden="true">
-          <rect width="400" height="240" fill="#F6F4F0"/>
-          <rect x="0" y="104" width="400" height="30" fill="#fff"/>
-          <rect x="120" y="0" width="22" height="240" fill="#fff"/>
-          <rect x="260" y="0" width="22" height="240" fill="#fff"/>
-          <rect x="0" y="210" width="400" height="10" fill="#C9C3BA"/>
-          <rect x="18" y="168" width="70" height="34" rx="6" fill="#1E1E1E"/>
-          <text x="53" y="190" fill="#fff" font-size="13" font-weight="700" text-anchor="middle" font-family="sans-serif" class="map-station">駅</text>
-          <path d="M53 168 V119 H300" fill="none" stroke="#A8262B" stroke-width="4" stroke-dasharray="2 8" stroke-linecap="round"/>
-          <g transform="translate(300 64)">
-            <path d="M0 40 C-16 18 -18 4 -18 -2 A18 18 0 0 1 18 -2 C18 4 16 18 0 40Z" fill="#A8262B"/>
-            <circle cx="0" cy="-2" r="7" fill="#fff"/>
-          </g>
-          <text x="326" y="58" fill="#1E1E1E" font-size="14" font-weight="700" font-family="sans-serif" class="map-shop">みやま</text>
-          <text x="190" y="98" fill="#8A847B" font-size="11" font-family="sans-serif" class="map-street">商店街</text>
-        </svg>
+  <section class="menu" id="menu">
+    <div class="menu-stick">
+      <div class="menu-head">
+        <h2 data-en="Today's sets">今日の定食</h2>
+        <p data-en="Scroll to see all six">スクロールで6品ぜんぶ見られます</p>
       </div>
-      <p class="addr"><span data-en="3 minutes' walk from the station. Go straight down the shopping street; we're on the right after the second corner.">駅から歩いて3分。商店街をまっすぐ進み、2つ目の角を過ぎた右手です。</span><br><small data-en="Sample address: 1-2-3 Naka-machi, Mihon City">〒000-0000 見本市 中町1-2-3</small></p>
-    </section>
-  </div>
+      <div class="track" id="track">
+        <article class="card">
+          <div class="ph"><img src="img/washoku.jpg" alt="小鉢が並ぶ和定食" loading="lazy"><span class="num" data-en="Most popular">いちばん人気</span></div>
+          <h3 data-en="Daily special">日替わり定食</h3>
+          <div class="yen" data-en="¥650">650円</div>
+          <p data-en="Main dish and three small sides, decided each morning at the market.">その朝の市場で決める主菜と、小鉢が3品。</p>
+        </article>
+        <article class="card">
+          <div class="ph"><img src="img/salmon.jpg" alt="焼き鮭の定食" loading="lazy"></div>
+          <h3 data-en="Grilled salmon">焼き鮭定食</h3>
+          <div class="yen" data-en="¥750">750円</div>
+          <p data-en="Salted salmon grilled over charcoal, crisp skin and all.">皮までパリッと、炭火で焼いた塩鮭。</p>
+        </article>
+        <article class="card">
+          <div class="ph"><img src="img/karaage.jpg" alt="唐揚げと味噌汁の定食" loading="lazy"></div>
+          <h3 data-en="Fried chicken">唐揚げ定食</h3>
+          <div class="yen" data-en="¥780">780円</div>
+          <p data-en="Marinated overnight in soy and ginger. Five big pieces.">醤油と生姜にひと晩漬けた、大きめの5個。</p>
+        </article>
+        <article class="card">
+          <div class="ph"><img src="img/chickenkatsu.jpg" alt="チキンカツの定食" loading="lazy"></div>
+          <h3 data-en="Chicken katsu">チキンカツ定食</h3>
+          <div class="yen" data-en="¥800">800円</div>
+          <p data-en="Thick-cut chicken in coarse breadcrumbs, with plenty of cabbage.">粗めのパン粉で揚げた厚切りの鶏。キャベツたっぷり。</p>
+        </article>
+        <article class="card">
+          <div class="ph"><img src="img/hokke.jpg" alt="焼いたほっけ" loading="lazy"></div>
+          <h3 data-en="Grilled hokke">ほっけ定食</h3>
+          <div class="yen" data-en="¥850">850円</div>
+          <p data-en="A whole opened atka mackerel. Big enough to share.">開きを一枚まるごと。ふたりで分けても十分な大きさ。</p>
+        </article>
+        <article class="card">
+          <div class="ph"><img src="img/tonkatsu.jpg" alt="とんかつの定食" loading="lazy"></div>
+          <h3 data-en="Pork cutlet">とんかつ定食</h3>
+          <div class="yen" data-en="¥900">900円</div>
+          <p data-en="Loin cutlet fried twice at low heat, juicy to the middle.">低い温度で二度揚げしたロース。中までしっとり。</p>
+        </article>
+      </div>
+      <div class="bar-progress"><i id="menu-bar"></i></div>
+    </div>
+  </section>
+
+  <section class="grill" id="grill">
+    <div class="grill-stick">
+      <div class="grill-photo"><img src="img/grill.jpg" alt="炭火の上で煙を上げて焼ける魚" loading="lazy"></div>
+      <canvas id="smoke" aria-hidden="true"></canvas>
+      <div class="grill-copy">
+        <h2 data-en="Over charcoal.">炭火で、焼く。</h2>
+        <p data-en="Fish is grilled over charcoal only after you order. Listen to it sizzle while you wait a moment.">焼き魚は、注文を受けてから炭火で焼きます。脂の落ちる音を聞きながら、少しだけお待ちください。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="now" id="now">
+    <div>
+      <div class="clock" id="clock"><small data-en="Time in Tokyo">いまの時刻</small><span>--:--</span></div>
+      <p class="now-msg" id="now-msg"></p>
+    </div>
+    <div class="hours-wrap">
+      <table class="hours" id="hours">
+        <tr data-day="lunch"><th data-en="Lunch">お昼</th><td data-en="11:00 – 14:30 (last order 14:00)">11:00 – 14:30（ラストオーダー 14:00）</td></tr>
+        <tr data-day="dinner"><th data-en="Dinner">夜</th><td data-en="17:30 – 21:00 (last order 20:30)">17:30 – 21:00（ラストオーダー 20:30）</td></tr>
+        <tr><th data-en="Closed">定休日</th><td data-en="Sundays and national holidays">日曜・祝日</td></tr>
+        <tr><th data-en="Seats">席</th><td data-en="12 (counter 6, tables 6)">12席（カウンター6・テーブル6）</td></tr>
+        <tr><th data-en="Payment">お支払い</th><td data-en="Cash, QR payments">現金・QR決済</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section class="access" id="access">
+    <div>
+      <h2 data-en="Getting here">行き方</h2>
+      <p data-en="3 minutes from the station. Walk straight down the shopping street; we're on the right after the second corner.">駅から歩いて3分。商店街をまっすぐ進み、2つ目の角を過ぎた右手です。</p>
+      <small data-en="Sample address: 1-2-3 Naka-machi, Mihon City">〒000-0000 見本市 中町1-2-3</small>
+    </div>
+    <div class="map" role="img" aria-label="駅からお店までの地図。改札を出て商店街をまっすぐ進み、2つ目の角の右手にあります。">
+      <svg viewBox="0 0 600 360" aria-hidden="true">
+        <rect width="600" height="360" rx="18" fill="#211913"/>
+        <g fill="#2c2219">
+          <rect x="30" y="30" width="150" height="110" rx="6"/><rect x="220" y="30" width="160" height="110" rx="6"/><rect x="420" y="30" width="150" height="110" rx="6"/>
+          <rect x="30" y="210" width="150" height="120" rx="6"/><rect x="220" y="210" width="160" height="120" rx="6"/><rect x="420" y="210" width="150" height="120" rx="6"/>
+        </g>
+        <path d="M0 175H600M200 0V360M400 0V360" stroke="#3a2e24" stroke-width="40"/>
+        <path d="M0 175H600" stroke="#4a3b2e" stroke-width="2" stroke-dasharray="8 10"/>
+        <text x="300" y="168" fill="#8d7f6b" font-size="13" text-anchor="middle" font-family="sans-serif" class="map-street">商店街</text>
+        <rect x="40" y="250" width="110" height="46" rx="8" fill="#F1E8D8"/>
+        <text x="95" y="279" fill="#17120E" font-size="16" font-weight="700" text-anchor="middle" font-family="sans-serif" class="map-station">駅</text>
+        <path class="route" pathLength="1" d="M95 250V175H470V140" fill="none" stroke="#F2A33A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <g transform="translate(470 96)">
+          <circle r="30" fill="#D2452B"/>
+          <text y="9" fill="#fff" font-size="26" text-anchor="middle" font-family="Yuji Boku, serif">み</text>
+        </g>
+      </svg>
+    </div>
+  </section>
 </main>
 
-<footer class="site-footer">
-  <p>© 食堂 みやま　<span data-en="(fictional restaurant, sample site)">（架空のお店・制作見本）</span></p>
+<footer class="foot">
+  <div class="foot-photo"><img src="img/lanterns.jpg" alt="" loading="lazy"></div>
+  <p class="foot-name">みやま</p>
+  <div class="foot-info">
+    <span data-en="Miyama Diner (fictional, sample site)">食堂 みやま（架空のお店・制作見本）</span>
+    <span>TEL 000-0000-0000</span>
+    <span data-en="Photos: Unsplash">写真：Unsplash</span>
+  </div>
 </footer>
 
 <nav class="callbar" aria-label="お店への連絡">
-  <a href="#" data-demo="call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span data-en="Call">電話する</span></a>
-  <a href="#access"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><span data-en="Map">地図を見る</span></a>
+  <a href="#" data-demo><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span data-en="Call">電話する</span></a>
+  <a href="#access"><span data-en="Map">地図</span></a>
 </nav>
-
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
 (function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var clamp01 = function(x){ return Math.max(0, Math.min(1, x)); };
   var lang = 'ja';
-  var toast = document.getElementById('toast'), toastTimer;
 
-  // 東京の現在時刻から営業中かどうかを出す
-  function tokyoNow(){
-    var parts = new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Tokyo',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
-    var o = {}; parts.forEach(function(p){ o[p.type] = p.value; });
-    return {day:o.weekday, min:(+o.hour % 24) * 60 + (+o.minute)};
+  /* なめらかなスクロール */
+  window.addEventListener('DOMContentLoaded', function(){
+    if (reduce || !window.Lenis) return;
+    var lenis = new Lenis({ lerp: .09 });
+    (function raf(t){ lenis.raf(t); requestAnimationFrame(raf); })(0);
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click', function(e){
+        var id = a.getAttribute('href');
+        if (id.length < 2 || a.hasAttribute('data-demo')) return;
+        e.preventDefault(); lenis.scrollTo(id, { offset: -20 });
+      });
+    });
+  });
+
+  /* 営業時間（東京時間） */
+  function tokyo(){
+    var o = {};
+    new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Tokyo', weekday: 'short', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false })
+      .formatToParts(new Date()).forEach(function(p){ o[p.type] = p.value; });
+    var h = +o.hour % 24, m = +o.minute;
+    return { day: o.weekday, h: h, m: m, s: +o.second, min: h * 60 + m };
   }
-  var T = {
-    open:   {ja:'ただいま営業中・{t}まで', en:'Open now · until {t}'},
-    soon:   {ja:'準備中・{t}から', en:'Opens at {t}'},
-    ended:  {ja:'本日の営業は終了しました', en:'Closed for today'},
-    holiday:{ja:'本日は定休日です', en:'Closed today'}
-  };
-  function renderStatus(){
-    var n = tokyoNow(), el = document.getElementById('status'), key, t = '';
-    var slots = [[660,870,'11:00','14:30'],[1050,1260,'17:30','21:00']];
-    if(n.day === 'Sun'){ key = 'holiday'; }
-    else {
-      key = 'ended';
-      for(var i = 0; i < slots.length; i++){
-        if(n.min < slots[i][0]){ key = 'soon'; t = slots[i][2]; break; }
-        if(n.min < slots[i][1]){ key = 'open'; t = slots[i][3]; break; }
+  var SLOTS = [{ open: 660, close: 870, lo: 840, key: 'lunch' }, { open: 1050, close: 1260, lo: 1230, key: 'dinner' }];
+  function dur(min){
+    var h = Math.floor(min / 60), m = min % 60;
+    if (lang === 'en') return (h ? h + 'h ' : '') + m + 'min';
+    return (h ? h + '時間' : '') + m + '分';
+  }
+  function state(){
+    var t = tokyo();
+    if (t.day === 'Sun') return { t: t, open: false, ja: '今日は定休日です。また明日、お待ちしています。', en: 'Closed on Sundays. See you tomorrow.', pill: ['定休日', 'Closed'] };
+    for (var i = 0; i < SLOTS.length; i++) {
+      var s = SLOTS[i];
+      if (t.min < s.open) return { t: t, open: false, slot: s.key, ja: '開店まで、あと<b>' + dur(s.open - t.min) + '</b>。', en: 'Opening in <b>' + dur(s.open - t.min) + '</b>.', pill: ['準備中', 'Opening soon'] };
+      if (t.min < s.close) {
+        var lo = s.lo - t.min;
+        return lo > 0
+          ? { t: t, open: true, slot: s.key, ja: 'ただいま営業中。ラストオーダーまで、あと<b>' + dur(lo) + '</b>。', en: 'Open now. Last order in <b>' + dur(lo) + '</b>.', pill: ['営業中', 'Open now'] }
+          : { t: t, open: true, slot: s.key, ja: 'ラストオーダーを過ぎました。また次の営業で。', en: 'Past last order. See you next time.', pill: ['まもなく閉店', 'Closing soon'] };
       }
     }
-    el.className = 'status' + (key === 'open' ? '' : ' closed');
-    el.querySelector('span').textContent = T[key][lang].replace('{t}', t);
+    return { t: t, open: false, ja: '今日の営業は終わりました。また明日、お待ちしています。', en: "We're closed for today. See you tomorrow.", pill: ['本日終了', 'Closed for today'] };
   }
+  function renderStatus(){
+    var st = state(), pad = function(n){ return (n < 10 ? '0' : '') + n; };
+    document.querySelector('#clock span').textContent = pad(st.t.h) + ':' + pad(st.t.m);
+    document.getElementById('now-msg').innerHTML = lang === 'en' ? st.en : st.ja;
+    var pill = document.getElementById('status');
+    pill.classList.toggle('open', st.open);
+    pill.querySelector('b').textContent = st.pill[lang === 'en' ? 1 : 0];
+    document.querySelectorAll('#hours tr[data-day]').forEach(function(tr){ tr.classList.toggle('today', tr.dataset.day === st.slot); });
+  }
+  renderStatus();
+  setInterval(renderStatus, 15000);
 
-  // 日本語と英語の切り替え
+  /* 日本語と英語 */
   var items = document.querySelectorAll('[data-en]');
   items.forEach(function(el){ el.dataset.ja = el.innerHTML; });
-  var mapText = {'.map-station':['駅','Sta.'],'.map-shop':['みやま','Miyama'],'.map-street':['商店街','Shopping St.']};
+  var mapText = { '.map-station': ['駅', 'Sta.'], '.map-street': ['商店街', 'Shopping St.'] };
   document.querySelectorAll('.lang button').forEach(function(btn){
     btn.addEventListener('click', function(){
       lang = btn.dataset.lang;
       document.documentElement.lang = lang;
       document.querySelectorAll('.lang button').forEach(function(b){ b.setAttribute('aria-pressed', b === btn); });
-      items.forEach(function(el){ if(lang === 'en'){ el.textContent = el.dataset.en; } else { el.innerHTML = el.dataset.ja; } });
+      items.forEach(function(el){ if (lang === 'en') el.textContent = el.dataset.en; else el.innerHTML = el.dataset.ja; });
       Object.keys(mapText).forEach(function(sel){ document.querySelector(sel).textContent = mapText[sel][lang === 'en' ? 1 : 0]; });
       renderStatus();
+      measure();
     });
   });
 
-  // 見本なので電話はかけない
+  /* 電話（見本なのでかけない） */
+  var toast = document.getElementById('toast'), toastTimer;
   document.querySelectorAll('[data-demo]').forEach(function(a){
     a.addEventListener('click', function(e){
       e.preventDefault();
-      toast.textContent = lang === 'en' ? 'This is a sample site, so no call is made.' : '見本のため電話はかかりません。実際のサイトでは、押すとすぐ電話がかかります。';
+      toast.textContent = lang === 'en' ? 'Sample site — no call is made.' : '見本のため電話はかかりません。本番では、押すとすぐ電話がかかります。';
       toast.classList.add('show');
       clearTimeout(toastTimer);
-      toastTimer = setTimeout(function(){ toast.classList.remove('show'); }, 3200);
+      toastTimer = setTimeout(function(){ toast.classList.remove('show'); }, 3000);
     });
   });
 
-  renderStatus();
-  setInterval(renderStatus, 60000);
+  /* スクロールに合わせた動き */
+  var hero = document.getElementById('hero'), heroPhoto = document.querySelector('.hero-photo'), heroCopy = document.querySelector('.hero-copy'), hint = document.querySelector('.hint');
+  var menu = document.getElementById('menu'), track = document.getElementById('track'), menuBar = document.getElementById('menu-bar');
+  var cardImgs = track.querySelectorAll('.ph img');
+  var grill = document.getElementById('grill'), grillImg = document.querySelector('.grill-photo img');
+  var route = document.querySelector('.route'), access = document.getElementById('access');
+  var topBar = document.getElementById('top');
+  var trackMax = 0;
+
+  function measure(){
+    trackMax = Math.max(0, track.scrollWidth - innerWidth);
+    menu.style.height = (trackMax + innerHeight * 1.15) + 'px';
+  }
+  function prog(el){ var r = el.getBoundingClientRect(); return clamp01(-r.top / Math.max(1, r.height - innerHeight)); }
+
+  window.norenProgress = 0;
+  function onScroll(){
+    var e = prog(hero);
+    window.norenProgress = clamp01(e / .7);
+    var k = clamp01((e - .35) / .4);
+    heroPhoto.style.transform = 'scale(' + (1.18 - .18 * clamp01(e / .8)) + ')';
+    heroPhoto.querySelector('img').style.filter = 'brightness(' + (.45 + .25 * clamp01(e / .8)) + ') saturate(1.1)';
+    heroCopy.style.opacity = k;
+    heroCopy.style.transform = 'translateY(' + ((1 - k) * 40) + 'px)';
+    hint.style.opacity = 1 - clamp01(e / .2);
+    topBar.classList.toggle('stuck', scrollY > 40);
+
+    var m = prog(menu);
+    track.style.transform = 'translate3d(' + (-m * trackMax) + 'px,0,0)';
+    menuBar.style.width = (m * 100) + '%';
+    cardImgs.forEach(function(img){
+      var r = img.parentNode.getBoundingClientRect();
+      var c = (r.left + r.width / 2) / innerWidth - .5;
+      img.style.transform = 'translate3d(' + (c * -9) + '%,0,0)';
+    });
+
+    var g = prog(grill);
+    grillImg.style.transform = 'scale(' + (1.12 - g * .12) + ') translateY(' + (g * -3) + '%)';
+
+    var ra = access.getBoundingClientRect();
+    route.style.strokeDashoffset = 1 - clamp01((innerHeight - ra.top) / (innerHeight * .8));
+  }
+  measure();
+  onScroll();
+  addEventListener('scroll', onScroll, { passive: true });
+  // スクロールイベントが間引かれる環境でも、毎フレーム位置を見て追従させる
+  (function follow(y){ if (scrollY !== y) onScroll(); var n = scrollY; requestAnimationFrame(function(){ follow(n); }); })(-1);
+  addEventListener('resize', function(){ measure(); onScroll(); });
+  window.addEventListener('load', function(){ measure(); onScroll(); });
+
+  /* 炭火の煙 */
+  var sm = document.getElementById('smoke'), sx = sm.getContext('2d'), puffs = [], smokeOn = false;
+  function sizeSmoke(){ sm.width = sm.clientWidth * .5; sm.height = sm.clientHeight * .5; }
+  sizeSmoke(); addEventListener('resize', sizeSmoke);
+  new IntersectionObserver(function(en){ smokeOn = en[0].isIntersecting; if (smokeOn && !reduce) requestAnimationFrame(drawSmoke); }).observe(grill);
+  function drawSmoke(){
+    if (!smokeOn) return;
+    var w = sm.width, h = sm.height;
+    sx.clearRect(0, 0, w, h);
+    if (puffs.length < 70 && Math.random() < .5) puffs.push({ x: w * (.25 + Math.random() * .5), y: h * (.65 + Math.random() * .2), r: 20 + Math.random() * 30, vx: (Math.random() - .5) * .4, vy: -.4 - Math.random() * .6, a: 0, life: 0, max: 240 + Math.random() * 200 });
+    sx.globalCompositeOperation = 'lighter';
+    puffs = puffs.filter(function(p){
+      p.life++; p.x += p.vx + Math.sin(p.life * .02 + p.r) * .3; p.y += p.vy; p.r += .25;
+      var t = p.life / p.max, a = Math.sin(Math.PI * t) * .07;
+      var gr = sx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r);
+      gr.addColorStop(0, 'rgba(235,225,210,' + a + ')'); gr.addColorStop(1, 'rgba(235,225,210,0)');
+      sx.fillStyle = gr; sx.beginPath(); sx.arc(p.x, p.y, p.r, 0, Math.PI * 2); sx.fill();
+      return p.life < p.max;
+    });
+    requestAnimationFrame(drawSmoke);
+  }
 })();
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+
+const canvas = document.getElementById('noren');
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let renderer;
+try { renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true }); }
+catch (e) { document.documentElement.classList.add('no-webgl'); }
+
+if (renderer) {
+  await Promise.race([document.fonts.load('400 200px "Yuji Boku"', 'みやま定食めし'), new Promise(r => setTimeout(r, 2500))]).catch(() => {});
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(35, 1, .1, 100);
+  scene.add(new THREE.AmbientLight('#ffe6c4', 1.1));
+  const key = new THREE.DirectionalLight('#ffd9a8', 2.2);
+  key.position.set(1.5, 2, 6);
+  scene.add(key);
+  const rim = new THREE.DirectionalLight('#ffae5c', 1.2);
+  rim.position.set(0, -1, -4);
+  scene.add(rim);
+
+  // のれんの布の模様
+  function clothTex(ch, wpx, hpx, small) {
+    const c = document.createElement('canvas'); c.width = wpx; c.height = hpx;
+    const g = c.getContext('2d');
+    g.fillStyle = '#22325A'; g.fillRect(0, 0, wpx, hpx);
+    for (let i = 0; i < 9000; i++) { g.fillStyle = `rgba(${Math.random() < .5 ? '0,0,0' : '255,255,255'},${Math.random() * .045})`; g.fillRect(Math.random() * wpx, Math.random() * hpx, 2, 2); }
+    for (let y = 0; y < hpx; y += 3) { g.fillStyle = 'rgba(0,0,0,.05)'; g.fillRect(0, y, wpx, 1); }
+    g.fillStyle = '#1a2746'; g.fillRect(0, 0, wpx, hpx * .07);
+    g.fillStyle = '#F1E8D8'; g.textAlign = 'center'; g.textBaseline = 'middle';
+    g.font = `400 ${Math.round(wpx * .74)}px "Yuji Boku"`;
+    g.fillText(ch, wpx / 2, hpx * .46);
+    if (small) { g.font = `400 ${Math.round(wpx * .13)}px "Yuji Boku"`; g.fillText(small, wpx / 2, hpx * .86); }
+    const t = new THREE.CanvasTexture(c);
+    t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8;
+    return t;
+  }
+
+  const COLS = 11, ROWS = 17;
+  let panels = [], W = 0, H = 0, visW = 0, visH = 0;
+  const mouse = { x: 0, y: 0, px: 0, py: 0, on: false };
+
+  function build() {
+    panels.forEach(p => { scene.remove(p.mesh); p.mesh.geometry.dispose(); p.mesh.material.map.dispose(); p.mesh.material.dispose(); });
+    panels = [];
+    W = canvas.clientWidth; H = canvas.clientHeight;
+    renderer.setSize(W, H, false);
+    camera.aspect = W / H; camera.updateProjectionMatrix();
+    camera.position.set(0, 0, 10);
+    visH = 2 * 10 * Math.tan(THREE.MathUtils.degToRad(17.5)); visW = visH * camera.aspect;
+    const total = visW * 1.04, gap = visW * .012, pw = (total - gap * 2) / 3, ph = visH * (W < H ? .66 : .74);
+    const top = visH / 2 + .05;
+    ['み', 'や', 'ま'].forEach((ch, i) => {
+      const geo = new THREE.PlaneGeometry(pw, ph, COLS - 1, ROWS - 1);
+      const mat = new THREE.MeshStandardMaterial({ map: clothTex(ch, 256, Math.round(256 * ph / pw), i === 1 ? '定食・めし' : ''), side: THREE.DoubleSide, roughness: .95 });
+      const mesh = new THREE.Mesh(geo, mat);
+      scene.add(mesh);
+      const cx = -total / 2 + pw / 2 + i * (pw + gap);
+      const n = COLS * ROWS, pos = new Float32Array(n * 3), prev = new Float32Array(n * 3), rest = new Float32Array(n * 3);
+      const arr = geo.attributes.position.array;
+      for (let k = 0; k < n; k++) {
+        const x = arr[k * 3] + cx, y = arr[k * 3 + 1] + top - ph / 2;
+        pos.set([x, y, 0], k * 3); prev.set([x, y, 0], k * 3); rest.set([x, y, 0], k * 3);
+      }
+      mesh.geometry.attributes.position.array.set(pos);
+      panels.push({ mesh, pos, prev, rest, dx: pw / (COLS - 1), dy: ph / (ROWS - 1), side: i - 1 });
+    });
+  }
+
+  function step(t, e) {
+    const dt = 1 / 60, damp = .985;
+    const mvx = (mouse.x - mouse.px), mvy = (mouse.y - mouse.py);
+    const speed = Math.min(1.5, Math.hypot(mvx, mvy) * 40);
+    for (const p of panels) {
+      const { pos, prev } = p;
+      for (let r = 1; r < ROWS; r++) for (let c = 0; c < COLS; c++) {
+        const k = (r * COLS + c) * 3, fr = r / (ROWS - 1);
+        let ax = 0, ay = -6, az = 0;
+        az += Math.sin(t * 1.3 + c * .4 + p.side * 2) * 1.1 * fr + Math.sin(t * .7 + r * .3) * .6 * fr;
+        // スクロールでのれんをくぐる
+        ax += p.side * e * 34 * fr;
+        ay += e * 30 * fr;
+        az -= e * 26 * fr * (p.side === 0 ? 1.4 : 1);
+        if (mouse.on) {
+          const dx = pos[k] - mouse.x, dy = pos[k + 1] - mouse.y, d = Math.hypot(dx, dy), R = .9;
+          if (d < R) { const f = (1 - d / R); az -= f * (8 + speed * 60); ax += dx / (d + .05) * f * speed * 14; }
+        }
+        const x = pos[k], y = pos[k + 1], z = pos[k + 2];
+        pos[k] += (x - prev[k]) * damp + ax * dt * dt;
+        pos[k + 1] += (y - prev[k + 1]) * damp + ay * dt * dt;
+        pos[k + 2] += (z - prev[k + 2]) * damp + az * dt * dt;
+        prev[k] = x; prev[k + 1] = y; prev[k + 2] = z;
+      }
+      for (let it = 0; it < 5; it++) {
+        for (let r = 0; r < ROWS; r++) for (let c = 0; c < COLS; c++) {
+          const a = r * COLS + c;
+          if (c < COLS - 1) solve(pos, a, a + 1, p.dx, r === 0);
+          if (r < ROWS - 1) solve(pos, a, a + COLS, p.dy, false, r === 0);
+        }
+        for (let c = 0; c < COLS; c++) { const k = c * 3; pos[k] = p.rest[k]; pos[k + 1] = p.rest[k + 1]; pos[k + 2] = 0; }
+      }
+      p.mesh.geometry.attributes.position.array.set(pos);
+      p.mesh.geometry.attributes.position.needsUpdate = true;
+      p.mesh.geometry.computeVertexNormals();
+    }
+    mouse.px = mouse.x; mouse.py = mouse.y;
+  }
+  function solve(pos, a, b, rest, pinA, pinA2) {
+    const ia = a * 3, ib = b * 3;
+    const dx = pos[ib] - pos[ia], dy = pos[ib + 1] - pos[ia + 1], dz = pos[ib + 2] - pos[ia + 2];
+    const d = Math.sqrt(dx * dx + dy * dy + dz * dz) || 1e-6, diff = (d - rest) / d;
+    const wa = (pinA || pinA2) ? 0 : .5, wb = (pinA || pinA2) ? 1 : .5;
+    pos[ia] += dx * diff * wa; pos[ia + 1] += dy * diff * wa; pos[ia + 2] += dz * diff * wa;
+    pos[ib] -= dx * diff * wb; pos[ib + 1] -= dy * diff * wb; pos[ib + 2] -= dz * diff * wb;
+  }
+
+  function setMouse(cx, cy) {
+    const r = canvas.getBoundingClientRect();
+    mouse.x = ((cx - r.left) / r.width - .5) * visW;
+    mouse.y = -((cy - r.top) / r.height - .5) * visH;
+    mouse.on = true;
+  }
+  addEventListener('pointermove', e => setMouse(e.clientX, e.clientY), { passive: true });
+  canvas.addEventListener('pointerleave', () => { mouse.on = false; });
+
+  build();
+  addEventListener('resize', build);
+
+  let t = 0, visible = true;
+  new IntersectionObserver(en => { visible = en[0].isIntersecting; }).observe(canvas);
+  function frame() {
+    requestAnimationFrame(frame);
+    const e = window.norenProgress || 0;
+    canvas.style.opacity = 1 - Math.max(0, (e - .7) / .3);
+    if (!visible || e >= 1) return;
+    t += 1 / 60;
+    if (!reduce) step(t, e); else if (t < .05) step(t, e);
+    camera.position.z = 10 - e * 4.5;
+    camera.position.y = -e * .8;
+    renderer.render(scene, camera);
+  }
+  for (let i = 0; i < 90; i++) step(i / 60, 0);
+  frame();
+}
 </script>
 </body>
 </html>

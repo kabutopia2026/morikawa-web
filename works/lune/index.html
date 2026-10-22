@@ -5,259 +5,500 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>hair salon lune（制作見本）</title>
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#25213A">
+<meta name="theme-color" content="#1C1726">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500&family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
 <style>
 :root{
-  --night:#25213A;
-  --night-2:#2F2A48;
-  --line:#463F66;
-  --text:#ECE9F4;
-  --mute:#ABA5C4;
-  --moon:#F1E6C8;
-  --lavender:#B3A6E0;
-  --serif:"Shippori Mincho","Hiragino Mincho ProN",serif;
+  --night:#1C1726;
+  --deep:#120F19;
+  --plum:#2A2238;
+  --moon:#EFE3C4;
+  --lav:#B6A7E8;
+  --text:#EEE9F5;
+  --mute:#A79FB8;
+  --line:rgba(238,233,245,.14);
   --latin:"Cormorant Garamond",Georgia,serif;
+  --mincho:"Shippori Mincho","Hiragino Mincho ProN",serif;
   --body:"Zen Kaku Gothic New","Hiragino Sans",sans-serif;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--night);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.9}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{margin:0;background:var(--night);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.9;overflow-x:hidden}
 a{color:inherit}
-:focus-visible{outline:2px solid var(--moon);outline-offset:3px}
+img{display:block;max-width:100%}
+:focus-visible{outline:1px solid var(--moon);outline-offset:4px}
 .nb{display:inline-block}
-.wrap{max-width:880px;margin:0 auto;padding:0 22px}
+h1,h2,h3{word-break:auto-phrase}
 
-.sample-bar{background:#14111F;color:#bbb;font-size:12px;text-align:center;padding:6px 12px}
+.sample-bar{position:relative;z-index:30;display:flex;justify-content:center;gap:14px;flex-wrap:wrap;background:var(--deep);color:#bdb4cc;font-size:12px;padding:7px 12px}
 .sample-bar a{color:#fff;font-weight:700}
 
-/* 月 */
-.hero{position:relative;padding:44px 0 56px;text-align:center;overflow:hidden}
-.moon-wrap{position:relative;width:min(64vw,280px);margin:0 auto}
-.moon-wrap::before{content:"";position:absolute;inset:-30%;border-radius:50%;background:radial-gradient(circle,rgba(241,230,200,.18),rgba(241,230,200,0) 62%)}
-.moon{position:relative;width:100%;height:auto}
-.moon-label{margin:14px 0 0;font-size:13px;color:var(--mute);letter-spacing:.06em}
-.wordmark{font-family:var(--latin);font-style:italic;font-weight:500;font-size:clamp(64px,17vw,120px);line-height:1;margin:28px 0 4px;color:var(--moon)}
-.kind{margin:0 0 26px;font-size:13px;color:var(--mute);letter-spacing:.12em}
-.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(26px,6vw,40px);line-height:1.5;margin:0 0 14px}
-.hero p.sub{max-width:28em;margin:0 auto 30px;color:var(--mute)}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 32px;border-radius:999px;background:var(--moon);color:var(--night);font-weight:700;text-decoration:none}
-.btn:hover{background:#fff}
+.top{position:fixed;left:0;right:0;top:34px;z-index:20;display:flex;align-items:center;gap:26px;padding:14px clamp(18px,3vw,40px);transition:top .3s,background .3s}
+.top.stuck{top:0;background:linear-gradient(rgba(18,15,25,.85),rgba(18,15,25,0))}
+.mark{font-family:var(--latin);font-style:italic;font-size:30px;line-height:1;text-decoration:none;color:var(--moon)}
+.top nav{margin-left:auto;display:flex;gap:24px;font-size:13px;letter-spacing:.08em}
+.top nav a{text-decoration:none;color:var(--mute)}
+.top nav a:hover{color:var(--text)}
+.top .book{border:1px solid var(--moon);color:var(--moon);border-radius:999px;padding:6px 18px;font-size:13px;text-decoration:none}
+.top .book:hover{background:var(--moon);color:var(--night)}
 
-.section{padding:64px 0;border-top:1px solid var(--line)}
-.section h2{font-family:var(--serif);font-weight:500;font-size:26px;margin:0 0 6px}
-.section .note{color:var(--mute);font-size:14px;margin:0 0 28px}
+/* 月とアーチ */
+.hero{position:relative;height:260vh}
+.hero-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:radial-gradient(60% 50% at 50% 42%,#2b2340,var(--deep))}
+.arch{position:absolute;inset:0;clip-path:inset(var(--t) var(--s) 0 var(--s) round var(--r) var(--r) 0 0);will-change:clip-path}
+.arch img{width:100%;height:100%;object-fit:cover;object-position:50% 60%;transform:scale(var(--z));filter:brightness(.72) sepia(.15) hue-rotate(220deg)}
+.arch::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(18,15,25,.9),rgba(18,15,25,0) 55%)}
+#sky{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}
+.wordmark{position:absolute;left:0;right:0;top:50%;transform:translateY(-52%);text-align:center;margin:0;font-family:var(--latin);font-style:italic;font-weight:400;font-size:clamp(120px,24vw,360px);line-height:1;color:var(--moon);mix-blend-mode:difference;pointer-events:none}
+.hero-sub{position:absolute;left:0;right:0;bottom:8vh;text-align:center;margin:0;font-size:12px;letter-spacing:.4em;color:var(--mute)}
+.hero-copy{position:absolute;left:clamp(20px,6vw,96px);bottom:11vh;max-width:640px;opacity:0}
+.hero-copy h1{font-family:var(--mincho);font-weight:500;font-size:clamp(36px,5.6vw,80px);line-height:1.35;margin:0 0 16px}
+.hero-copy p{margin:0;color:#d9d2e6;max-width:30em}
+.moon-note{position:absolute;right:clamp(18px,4vw,48px);bottom:11vh;margin:0;text-align:right;font-size:12px;color:var(--mute);letter-spacing:.08em;opacity:.9}
+.moon-note b{display:block;font-family:var(--latin);font-style:italic;font-weight:400;font-size:28px;color:var(--moon);letter-spacing:0}
+
+/* 共通 */
+.sec{padding:18vh clamp(20px,6vw,96px)}
+.eyebrow-line{display:flex;align-items:center;gap:18px;margin:0 0 28px;font-family:var(--latin);font-style:italic;font-size:22px;color:var(--lav)}
+.eyebrow-line::after{content:"";flex:1;height:1px;background:var(--line)}
+.sec h2{font-family:var(--mincho);font-weight:500;font-size:clamp(34px,4.6vw,64px);line-height:1.4;margin:0 0 24px}
+
+/* 想い */
+.concept{display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:center}
+.concept .ph{aspect-ratio:3/4;border-radius:999px 999px 0 0;overflow:hidden}
+.concept .ph img{width:100%;height:120%;object-fit:cover;will-change:transform}
+.concept p{color:#d9d2e6;max-width:30em}
 
 /* メニュー */
-.menu{margin:0}
-.menu div{display:flex;align-items:baseline;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
-.menu dt{font-family:var(--serif);font-weight:500;font-size:17px}
-.menu dt small{display:block;font-family:var(--body);font-size:13px;color:var(--mute)}
-.menu dd{margin:0 0 0 auto;font-family:var(--latin);font-size:24px;white-space:nowrap}
-.menu dd span{font-family:var(--body);font-size:13px}
+.menu-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.menu-list li{display:grid;grid-template-columns:1fr auto;gap:4px 24px;align-items:baseline;padding:26px 0;border-bottom:1px solid var(--line);cursor:default;transition:padding .35s}
+.menu-list li:hover{padding-left:18px}
+.menu-list .name{font-family:var(--mincho);font-size:clamp(22px,2.4vw,32px)}
+.menu-list .name small{display:block;font-family:var(--body);font-size:13px;color:var(--mute)}
+.menu-list .price{font-family:var(--latin);font-size:clamp(30px,3.4vw,48px);line-height:1}
+.menu-list .price span{font-family:var(--body);font-size:13px;margin-left:4px;color:var(--mute)}
+.menu-list .thumb{display:none}
+.float{position:fixed;left:0;top:0;z-index:15;width:260px;height:340px;margin:-170px 0 0 -130px;border-radius:999px 999px 8px 8px;overflow:hidden;pointer-events:none;opacity:0;transform:scale(.6);transition:opacity .3s,transform .3s}
+.float.on{opacity:1}
+.float img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .25s}
+.float img.on{opacity:1}
+.menu-note{margin:22px 0 0;font-size:13px;color:var(--mute)}
 
-/* スタッフ */
-.staff{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-.person{display:flex;gap:16px;align-items:flex-start}
-.mono{flex:none;width:64px;height:64px;border-radius:50%;border:1px solid var(--lavender);display:grid;place-items:center;font-family:var(--latin);font-style:italic;font-size:30px;color:var(--lavender)}
-.person h3{font-family:var(--serif);font-weight:500;font-size:18px;margin:0}
-.person .role{font-size:13px;color:var(--mute);margin:0 0 6px}
-.person p{margin:0;font-size:15px}
+/* スタイル */
+.styles{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,2vw,28px);align-items:start}
+.style figure{margin:0}
+.style .ph{aspect-ratio:3/4.4;border-radius:999px 999px 0 0;overflow:hidden;background:var(--plum)}
+.style img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);transition:filter .6s,transform .8s}
+.style:hover img{filter:none;transform:scale(1.05)}
+.style figcaption{margin-top:14px;font-family:var(--latin);font-style:italic;font-size:22px}
+.style figcaption small{display:block;font-family:var(--body);font-style:normal;font-size:12px;color:var(--mute)}
+
+/* 月の暦 */
+.moons{display:grid;grid-template-columns:repeat(15,1fr);gap:10px 6px;margin-top:10px}
+.moons div{text-align:center;font-size:11px;color:var(--mute)}
+.moons svg{width:100%;max-width:40px;height:auto;display:block;margin:0 auto 6px}
+.moons .new b{color:var(--lav)}
+.moons b{display:block;font-family:var(--latin);font-weight:500;font-size:16px;color:var(--text)}
+.promo{display:flex;gap:16px;align-items:center;margin:34px 0 0;padding:20px 24px;border:1px solid var(--line);border-radius:999px;max-width:680px}
+.promo svg{flex:none;width:42px;height:42px}
+.promo p{margin:0;font-size:15px}
+.promo strong{font-family:var(--mincho);font-weight:500;font-size:18px;display:block}
 
 /* 空き状況 */
-.cal-scroll{overflow-x:auto;margin:0 -22px;padding:0 22px}
-.cal{width:100%;min-width:300px;border-collapse:collapse;text-align:center;font-size:15px}
-.cal th{font-weight:400;font-size:13px;color:var(--mute);padding:6px 2px 10px}
-.cal th b{display:block;font-family:var(--latin);font-size:20px;color:var(--text);font-weight:500}
-.cal th.sat b{color:#9DB6F0}.cal th.sun b{color:#F0A3A3}
-.cal td{padding:3px}
-.cal td.time{font-family:var(--latin);font-size:17px;color:var(--mute);text-align:left;padding-right:8px;width:3.2em}
-.slot{width:100%;min-width:30px;height:40px;border-radius:8px;border:1px solid var(--line);background:transparent;color:var(--text);font:inherit;font-size:16px;cursor:pointer}
-.slot.ok{border-color:var(--lavender);color:var(--moon)}
-.slot.ok:hover{background:var(--night-2)}
-.slot.few{color:var(--lavender)}
-.slot.full{color:#6E6890;cursor:default}
-.slot.off{border-style:dashed;color:#6E6890;font-size:11px;cursor:default}
-.slot.past{border-color:transparent;color:#5A5478;cursor:default}
-.legend{display:flex;flex-wrap:wrap;gap:6px 18px;margin:16px 0 0;font-size:13px;color:var(--mute)}
+.cal-scroll{overflow-x:auto}
+.cal{width:100%;min-width:420px;border-collapse:collapse;text-align:center}
+.cal th{font-weight:400;font-size:12px;color:var(--mute);padding:4px 2px 12px}
+.cal th b{display:block;font-family:var(--latin);font-weight:500;font-size:26px;color:var(--text)}
+.cal th.sat b{color:#a9bdf2}.cal th.sun b{color:#f2a9b6}
+.cal td{padding:4px}
+.cal td.time{font-family:var(--latin);font-size:20px;color:var(--mute);text-align:left;width:4em}
+.slot{width:100%;height:46px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--text);font:inherit;font-size:16px;cursor:pointer;transition:background .2s,color .2s}
+.slot.ok{border-color:var(--moon);color:var(--moon)}
+.slot.ok:hover{background:var(--moon);color:var(--night)}
+.slot.few{color:var(--lav);border-color:rgba(182,167,232,.5)}
+.slot.few:hover{background:var(--lav);color:var(--night)}
+.slot[disabled]{color:#5d5570;cursor:default}
+.slot.off{border-style:dashed;font-size:12px}
+.legend{display:flex;gap:20px;flex-wrap:wrap;margin:18px 0 0;font-size:13px;color:var(--mute)}
 
-/* アクセス */
-.info{margin:0}
-.info div{display:grid;grid-template-columns:6em 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+/* スタッフ */
+.staff{display:grid;grid-template-columns:1fr 1fr;gap:5vw}
+.person .ph{aspect-ratio:4/5;overflow:hidden;border-radius:6px}
+.person img{width:100%;height:100%;object-fit:cover;filter:brightness(.85)}
+.person h3{font-family:var(--mincho);font-weight:500;font-size:28px;margin:20px 0 0}
+.person .role{font-size:13px;color:var(--lav);margin:0 0 8px}
+.person p{margin:0;color:#d9d2e6}
+
+/* お店の情報 */
+.info{display:grid;grid-template-columns:1fr 1fr;gap:6vw}
+.info dl{margin:0}
+.info dl div{display:grid;grid-template-columns:6em 1fr;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
 .info dt{color:var(--mute);font-size:14px}
 .info dd{margin:0}
 
-.site-footer{padding:40px 0 60px;text-align:center;font-size:13px;color:var(--mute)}
-.site-footer .wordmark{font-size:40px;margin:0 0 6px}
+.foot{position:relative;min-height:80vh;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:0 clamp(20px,6vw,96px) 40px}
+.foot-ph{position:absolute;inset:0}
+.foot-ph img{width:100%;height:100%;object-fit:cover;filter:brightness(.35) saturate(.7)}
+.foot-ph::after{content:"";position:absolute;inset:0;background:linear-gradient(var(--night),rgba(28,23,38,.3) 45%,rgba(18,15,25,.95))}
+.foot-mark{position:relative;font-family:var(--latin);font-style:italic;font-size:clamp(140px,30vw,460px);line-height:.85;margin:0;color:var(--moon)}
+.foot-info{position:relative;display:flex;flex-wrap:wrap;gap:6px 26px;font-size:13px;color:var(--mute);margin-top:12px}
 
-.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,10px);background:var(--moon);color:var(--night);font-size:14px;padding:12px 18px;border-radius:12px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:20;width:max-content;max-width:calc(100% - 32px)}
+.toast{position:fixed;left:50%;bottom:24px;z-index:40;transform:translate(-50%,10px);width:max-content;max-width:calc(100% - 32px);background:var(--moon);color:var(--night);font-size:14px;padding:12px 18px;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 
-@media (max-width:600px){
-  .staff{grid-template-columns:1fr}
+@media (max-width:860px){
+  .top nav{display:none}
+  .top .book{margin-left:auto}
+  .concept,.staff,.info{grid-template-columns:1fr}
+  .styles{grid-template-columns:1fr 1fr}
+  .moons{grid-template-columns:repeat(8,1fr)}
+  .menu-list li{grid-template-columns:64px 1fr auto}
+  .menu-list .thumb{display:block;width:64px;height:80px;border-radius:999px 999px 4px 4px;object-fit:cover;grid-row:span 1}
+  .float{display:none}
+  .moon-note{bottom:auto;top:96px}
 }
-@media (prefers-reduced-motion:no-preference){
-  .moon{animation:rise 1.8s cubic-bezier(.2,.7,.2,1) both}
-  @keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
-}
-@media (prefers-reduced-motion:reduce){.toast{transition:none}}
+@media (prefers-reduced-motion:reduce){.toast,.float,.style img{transition:none}}
 </style>
 </head>
 <body>
 
-<div class="sample-bar">これは<a href="../../">森川ウェブ</a>の制作見本です。お店は実在しません。</div>
+<div class="sample-bar"><span>制作見本・架空のお店です</span><a href="../../">森川ウェブに戻る</a></div>
 
-<header class="hero">
-  <div class="wrap">
-    <div class="moon-wrap">
-      <svg class="moon" viewBox="0 0 200 200" role="img" aria-labelledby="moon-label">
-        <circle cx="100" cy="100" r="92" fill="#3A3458"/>
-        <path id="moon-lit" fill="#F1E6C8"/>
-      </svg>
-    </div>
-    <p class="moon-label" id="moon-label">今夜の月</p>
-    <p class="wordmark">lune</p>
-    <p class="kind">hair salon</p>
-    <h1><span class="nb">仕事帰りに、</span><span class="nb">夜9時まで。</span></h1>
-    <p class="sub">駅から歩いて2分、席数4つの小さな美容室です。平日も土日も、最終受付は20時。</p>
-    <a class="btn" href="#reserve">空き状況を見る</a>
-  </div>
+<header class="top" id="topbar">
+  <a class="mark" href="#">lune</a>
+  <nav aria-label="ページ内の案内">
+    <a href="#menu">メニュー</a>
+    <a href="#styles">スタイル</a>
+    <a href="#calendar">月の暦</a>
+    <a href="#access">お店の情報</a>
+  </nav>
+  <a class="book" href="#reserve">空き状況</a>
 </header>
 
 <main>
-  <section class="section" id="menu">
-    <div class="wrap">
-      <h2>メニューと料金</h2>
-      <p class="note">表示はすべて税込です。髪の長さによる追加料金はありません。</p>
-      <dl class="menu">
-        <div><dt>カット<small>シャンプー・ブロー込み</small></dt><dd>5,500<span>円</span></dd></div>
-        <div><dt>カット＋カラー</dt><dd>11,000<span>円〜</span></dd></div>
-        <div><dt>カット＋パーマ</dt><dd>12,100<span>円〜</span></dd></div>
-        <div><dt>縮毛矯正</dt><dd>16,500<span>円〜</span></dd></div>
-        <div><dt>ヘッドスパ<small>30分</small></dt><dd>4,400<span>円</span></dd></div>
-        <div><dt>前髪カット</dt><dd>1,100<span>円</span></dd></div>
-      </dl>
-    </div>
-  </section>
-
-  <section class="section" id="staff">
-    <div class="wrap">
-      <h2>スタッフ</h2>
-      <p class="note">指名料はかかりません。</p>
-      <div class="staff">
-        <div class="person">
-          <div class="mono" aria-hidden="true">A</div>
-          <div>
-            <h3>あかり</h3>
-            <p class="role">店長・美容師歴14年</p>
-            <p>ショートヘアと、くせ毛を活かしたカットが得意です。</p>
-          </div>
-        </div>
-        <div class="person">
-          <div class="mono" aria-hidden="true">Y</div>
-          <div>
-            <h3>ゆう</h3>
-            <p class="role">美容師歴6年</p>
-            <p>透明感のあるカラーと、ヘッドスパを担当しています。</p>
-          </div>
-        </div>
+  <section class="hero" id="hero">
+    <div class="hero-stick" id="stick" style="--t:56vh;--s:35vw;--r:15vw;--z:1.3">
+      <div class="arch"><img src="img/arches.jpg" alt="アーチ形の鏡と椅子が並ぶ、静かな美容室"></div>
+      <canvas id="sky" aria-hidden="true"></canvas>
+      <p class="wordmark" aria-hidden="true">lune</p>
+      <p class="hero-sub">HAIR SALON · OPEN TILL 21:00</p>
+      <p class="moon-note" id="moon-note"></p>
+      <div class="hero-copy" id="hero-copy">
+        <h1><span class="nb">仕事帰りに、</span><span class="nb">夜9時まで。</span></h1>
+        <p>駅から歩いて2分、席数4つの小さな美容室です。平日も土日も、最終受付は20時。</p>
       </div>
     </div>
   </section>
 
-  <section class="section" id="reserve">
-    <div class="wrap">
-      <h2>空き状況</h2>
-      <p class="note">○を押すと、その時間の予約に進みます。（見本のため、空き状況は仮のものです）</p>
-      <div class="cal-scroll">
-        <table class="cal" id="cal"></table>
-      </div>
-      <p class="legend"><span>○ 空きあり</span><span>△ 残りわずか</span><span>× 満席</span></p>
+  <section class="sec concept">
+    <div>
+      <p class="eyebrow-line">Concept</p>
+      <h2><span class="nb">月がのぼる時間に、</span><span class="nb">ひと息つける場所を。</span></h2>
+      <p>照明を少し落とした店内で、ひとりずつ、急がずに。カットもカラーも、最初から最後まで同じ美容師が担当します。帰り道の夜風が、少し気持ちよくなるような仕上がりを。</p>
+    </div>
+    <div class="ph" data-speed=".14"><img src="img/salon.jpg" alt="丸い鏡が並ぶ、黒い壁の店内" loading="lazy" style="object-position:20% 50%"></div>
+  </section>
+
+  <section class="sec" id="menu">
+    <p class="eyebrow-line">Menu</p>
+    <h2>メニューと料金</h2>
+    <ul class="menu-list">
+      <li data-img="0"><img class="thumb" src="img/cut2.jpg" alt=""><span class="name">カット<small>シャンプー・ブロー込み</small></span><span class="price">5,500<span>円</span></span></li>
+      <li data-img="1"><img class="thumb" src="img/style4.jpg" alt=""><span class="name">カット＋カラー<small>白髪染めも同じ料金</small></span><span class="price">11,000<span>円〜</span></span></li>
+      <li data-img="2"><img class="thumb" src="img/style1.jpg" alt=""><span class="name">カット＋パーマ</span><span class="price">12,100<span>円〜</span></span></li>
+      <li data-img="3"><img class="thumb" src="img/cut1.jpg" alt=""><span class="name">縮毛矯正</span><span class="price">16,500<span>円〜</span></span></li>
+      <li data-img="4"><img class="thumb" src="img/shampoo.jpg" alt=""><span class="name">ヘッドスパ<small>30分・眠ってしまう方が多いです</small></span><span class="price">4,400<span>円</span></span></li>
+      <li data-img="5"><img class="thumb" src="img/products.jpg" alt=""><span class="name">前髪カット</span><span class="price">1,100<span>円</span></span></li>
+    </ul>
+    <p class="menu-note">表示はすべて税込です。髪の長さによる追加料金はありません。</p>
+  </section>
+
+  <section class="sec" id="styles">
+    <p class="eyebrow-line">Styles</p>
+    <h2>最近のスタイル</h2>
+    <div class="styles">
+      <figure class="style" data-speed=".02"><div class="ph"><img src="img/style1.jpg" alt="ベリーショートの女性" loading="lazy"></div><figcaption>Very short<small>ベリーショート</small></figcaption></figure>
+      <figure class="style" data-speed=".1"><div class="ph"><img src="img/style2.jpg" alt="あご下ボブの女性" loading="lazy"></div><figcaption>Soft bob<small>やわらかいボブ</small></figcaption></figure>
+      <figure class="style" data-speed=".05"><div class="ph"><img src="img/style3.jpg" alt="前髪を流したショートの女性" loading="lazy"></div><figcaption>Side part<small>前髪を流すショート</small></figcaption></figure>
+      <figure class="style" data-speed=".13"><div class="ph"><img src="img/style4.jpg" alt="毛先を外にはねさせたボブの女性" loading="lazy"></div><figcaption>Flip bob<small>外はねボブ</small></figcaption></figure>
     </div>
   </section>
 
-  <section class="section" id="access">
-    <div class="wrap">
+  <section class="sec" id="calendar">
+    <p class="eyebrow-line">Lunar calendar</p>
+    <h2>これから30日の、月の暦</h2>
+    <div class="moons" id="moons"></div>
+    <div class="promo">
+      <svg viewBox="0 0 42 42" aria-hidden="true"><circle cx="21" cy="21" r="19" fill="#2A2238" stroke="#B6A7E8"/></svg>
+      <p><strong id="promo-date">新月の夜は、ヘッドスパを10%引きに。</strong>月の見えない夜くらい、ゆっくり眠るように休んでください。</p>
+    </div>
+  </section>
+
+  <section class="sec" id="reserve">
+    <p class="eyebrow-line">Reservation</p>
+    <h2>空き状況</h2>
+    <div class="cal-scroll"><table class="cal" id="cal"></table></div>
+    <p class="legend"><span>○ 空きあり</span><span>△ 残りわずか</span><span>× 満席</span><span>見本のため、空き状況は仮のものです</span></p>
+  </section>
+
+  <section class="sec" id="staff">
+    <p class="eyebrow-line">Stylists</p>
+    <h2>スタッフ</h2>
+    <div class="staff">
+      <article class="person"><div class="ph"><img src="img/cut2.jpg" alt="はさみで黒髪を切りそろえる手元" loading="lazy"></div><h3>あかり</h3><p class="role">店長・美容師歴14年</p><p>ショートヘアと、くせ毛を活かしたカットが得意です。</p></article>
+      <article class="person"><div class="ph"><img src="img/cut1.jpg" alt="長い髪をはさみで切る手元" loading="lazy"></div><h3>ゆう</h3><p class="role">美容師歴6年</p><p>透明感のあるカラーと、ヘッドスパを担当しています。</p></article>
+    </div>
+  </section>
+
+  <section class="sec info" id="access">
+    <div>
+      <p class="eyebrow-line">Access</p>
       <h2>お店の情報</h2>
-      <p class="note">駐車場はありません。近くのコインパーキングをご利用ください。</p>
-      <dl class="info">
-        <div><dt>営業時間</dt><dd>12:00 – 21:00（最終受付 20:00）</dd></div>
-        <div><dt>定休日</dt><dd>毎週火曜日</dd></div>
-        <div><dt>住所</dt><dd>〒000-0000 見本市 駅前通り2-5 2階</dd></div>
-        <div><dt>お支払い</dt><dd>現金・クレジットカード・QR決済</dd></div>
-      </dl>
+      <p style="color:var(--mute)">駐車場はありません。近くのコインパーキングをご利用ください。</p>
     </div>
+    <dl>
+      <div><dt>営業時間</dt><dd>12:00 – 21:00（最終受付 20:00）</dd></div>
+      <div><dt>定休日</dt><dd>毎週火曜日</dd></div>
+      <div><dt>住所</dt><dd>〒000-0000 見本市 駅前通り2-5 2階</dd></div>
+      <div><dt>お支払い</dt><dd>現金・クレジットカード・QR決済</dd></div>
+    </dl>
   </section>
 </main>
 
-<footer class="site-footer">
-  <p class="wordmark">lune</p>
-  <p>架空のお店・制作見本</p>
+<footer class="foot">
+  <div class="foot-ph"><img src="img/cut2.jpg" alt="" loading="lazy"></div>
+  <p class="foot-mark">lune</p>
+  <div class="foot-info"><span>hair salon lune（架空のお店・制作見本）</span><span>写真：Unsplash</span></div>
 </footer>
 
+<div class="float" id="float" aria-hidden="true">
+  <img src="img/cut2.jpg" alt=""><img src="img/style4.jpg" alt=""><img src="img/style1.jpg" alt=""><img src="img/cut1.jpg" alt=""><img src="img/shampoo.jpg" alt=""><img src="img/products.jpg" alt="">
+</div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
 (function(){
-  // 今夜の月の形を描く（2000年1月6日の新月から数える）
-  var SYN = 29.530588853;
-  var age = ((Date.now() - Date.UTC(2000,0,6,18,14)) / 86400000) % SYN;
-  if(age < 0) age += SYN;
-  var p = age / SYN, cx = 100, cy = 100, r = 92;
-  var rx = Math.abs(Math.cos(2 * Math.PI * p)) * r;
-  var outer, inner;
-  if(p < .5){ outer = 1; inner = p < .25 ? 0 : 1; }
-  else      { outer = 0; inner = p < .75 ? 0 : 1; }
-  var d = 'M' + cx + ' ' + (cy - r) +
-          ' A' + r + ' ' + r + ' 0 0 ' + outer + ' ' + cx + ' ' + (cy + r) +
-          ' A' + rx.toFixed(2) + ' ' + r + ' 0 0 ' + inner + ' ' + cx + ' ' + (cy - r) + 'Z';
-  document.getElementById('moon-lit').setAttribute('d', d);
-  document.getElementById('moon-label').textContent = '今夜の月　月齢 ' + age.toFixed(1);
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var clamp01 = function(x){ return Math.max(0, Math.min(1, x)); };
+  var ease = function(x){ x = clamp01(x); return x < .5 ? 4*x*x*x : 1 - Math.pow(-2*x + 2, 3) / 2; };
 
-  // 7日分の空き状況（見本用に日付から決まる仮の値）
-  var cal = document.getElementById('cal');
-  var times = ['12:00','14:00','16:00','18:00','20:00'];
-  var week = ['日','月','火','水','木','金','土'];
-  var start = new Date(); start.setHours(0,0,0,0);
-  var days = [];
-  for(var i = 0; i < 7; i++){ var dt = new Date(start); dt.setDate(start.getDate() + i); days.push(dt); }
-  function seed(n){ var x = Math.sin(n) * 10000; return x - Math.floor(x); }
-
-  var head = '<thead><tr><td></td>';
-  days.forEach(function(dt){
-    var w = dt.getDay();
-    head += '<th scope="col" class="' + (w === 6 ? 'sat' : w === 0 ? 'sun' : '') + '"><b>' + dt.getDate() + '</b>' + week[w] + '</th>';
-  });
-  head += '</tr></thead>';
-  var body = '<tbody>';
-  times.forEach(function(t, ti){
-    body += '<tr><td class="time">' + t + '</td>';
-    days.forEach(function(dt, di){
-      var label = (dt.getMonth() + 1) + '月' + dt.getDate() + '日 ' + t;
-      if(dt.getDay() === 2){ body += '<td><button class="slot off" type="button" disabled aria-label="' + label + ' 定休日">休</button></td>'; return; }
-      if(di === 0 && new Date().getHours() >= +t.slice(0, 2)){ body += '<td><button class="slot past" type="button" disabled aria-label="' + label + ' 受付終了">－</button></td>'; return; }
-      var v = seed(dt.getDate() * 31 + dt.getMonth() * 7 + ti * 3);
-      var cls = v < .5 ? 'ok' : v < .72 ? 'few' : 'full';
-      var mark = cls === 'ok' ? '○' : cls === 'few' ? '△' : '×';
-      var text = cls === 'ok' ? '空きあり' : cls === 'few' ? '残りわずか' : '満席';
-      body += '<td><button class="slot ' + cls + '" type="button"' + (cls === 'full' ? ' disabled' : '') + ' data-when="' + label + '" aria-label="' + label + ' ' + text + '">' + mark + '</button></td>';
+  window.addEventListener('DOMContentLoaded', function(){
+    if (reduce || !window.Lenis) return;
+    var lenis = new Lenis({ lerp: .08 });
+    (function raf(t){ lenis.raf(t); requestAnimationFrame(raf); })(0);
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click', function(e){ var id = a.getAttribute('href'); if (id.length < 2) return; e.preventDefault(); lenis.scrollTo(id); });
     });
-    body += '</tr>';
   });
-  cal.innerHTML = head + body + '</tbody>';
 
-  var toast = document.getElementById('toast'), timer;
-  cal.addEventListener('click', function(e){
-    var b = e.target.closest('.slot');
-    if(!b || b.disabled) return;
-    toast.textContent = b.dataset.when + '：見本のため予約はできません。実際のサイトでは、ここから予約画面に進みます。';
-    toast.classList.add('show');
-    clearTimeout(timer);
-    timer = setTimeout(function(){ toast.classList.remove('show'); }, 3600);
+  /* 月齢 */
+  var SYN = 29.530588853;
+  function ageAt(ms){ var a = ((ms - Date.UTC(2000, 0, 6, 18, 14)) / 86400000) % SYN; return a < 0 ? a + SYN : a; }
+  function moonPath(p, r){
+    var cx = 0, cy = 0, rx = Math.abs(Math.cos(2 * Math.PI * p)) * r, o, i;
+    if (p < .5) { o = 1; i = p < .25 ? 0 : 1; } else { o = 0; i = p < .75 ? 0 : 1; }
+    return 'M0 ' + (-r) + ' A' + r + ' ' + r + ' 0 0 ' + o + ' 0 ' + r + ' A' + rx.toFixed(2) + ' ' + r + ' 0 0 ' + i + ' 0 ' + (-r) + 'Z';
+  }
+  var age = ageAt(Date.now());
+  window.moonPhase = age / SYN;
+  var NAMES = [[1.5, '新月'], [5.5, '三日月'], [9, '上弦の月'], [13.5, '十三夜'], [16.5, '満月'], [20.5, '寝待月'], [24.5, '下弦の月'], [28, '有明月'], [30, '新月']];
+  var name = NAMES.find(function(n){ return age < n[0]; })[1];
+  document.getElementById('moon-note').innerHTML = '今夜の月<b>' + name + '</b>月齢 ' + age.toFixed(1);
+
+  var moons = document.getElementById('moons'), today = new Date(); today.setHours(20, 0, 0, 0);
+  var nextNew = null, html = '';
+  for (var d = 0; d < 30; d++) {
+    var dt = new Date(today.getTime() + d * 86400000), a = ageAt(dt.getTime()), p = a / SYN;
+    var isNew = a < 1 || a > SYN - 1;
+    if (isNew && !nextNew) nextNew = dt;
+    html += '<div class="' + (isNew ? 'new' : '') + '"><svg viewBox="-22 -22 44 44"><circle r="20" fill="#2A2238"/><path d="' + moonPath(p, 20) + '" fill="#EFE3C4"/></svg><b>' + dt.getDate() + '</b>' + (d === 0 ? '今夜' : (dt.getMonth() + 1) + '月') + '</div>';
+  }
+  moons.innerHTML = html;
+  if (nextNew) document.getElementById('promo-date').textContent = '次の新月は ' + (nextNew.getMonth() + 1) + '月' + nextNew.getDate() + '日。新月の夜は、ヘッドスパを10%引きに。';
+
+  /* 空き状況 */
+  var cal = document.getElementById('cal'), times = ['12:00', '14:00', '16:00', '18:00', '20:00'], week = ['日', '月', '火', '水', '木', '金', '土'];
+  var start = new Date(); start.setHours(0, 0, 0, 0);
+  var days = []; for (var i = 0; i < 7; i++) { var x = new Date(start); x.setDate(start.getDate() + i); days.push(x); }
+  function seed(n){ var s = Math.sin(n) * 10000; return s - Math.floor(s); }
+  var h = '<thead><tr><td></td>' + days.map(function(x){ var w = x.getDay(); return '<th class="' + (w === 6 ? 'sat' : w === 0 ? 'sun' : '') + '"><b>' + x.getDate() + '</b>' + week[w] + '</th>'; }).join('') + '</tr></thead><tbody>';
+  times.forEach(function(t, ti){
+    h += '<tr><td class="time">' + t + '</td>';
+    days.forEach(function(x, di){
+      var label = (x.getMonth() + 1) + '月' + x.getDate() + '日 ' + t;
+      if (x.getDay() === 2) { h += '<td><button class="slot off" type="button" disabled aria-label="' + label + ' 定休日">休</button></td>'; return; }
+      if (di === 0 && new Date().getHours() >= +t.slice(0, 2)) { h += '<td><button class="slot" type="button" disabled aria-label="' + label + ' 受付終了">－</button></td>'; return; }
+      var v = seed(x.getDate() * 31 + x.getMonth() * 7 + ti * 3), cls = v < .5 ? 'ok' : v < .72 ? 'few' : 'full';
+      h += '<td><button class="slot ' + cls + '" type="button"' + (cls === 'full' ? ' disabled' : '') + ' data-when="' + label + '" aria-label="' + label + ' ' + (cls === 'ok' ? '空きあり' : cls === 'few' ? '残りわずか' : '満席') + '">' + (cls === 'ok' ? '○' : cls === 'few' ? '△' : '×') + '</button></td>';
+    });
+    h += '</tr>';
   });
+  cal.innerHTML = h + '</tbody>';
+  var toast = document.getElementById('toast'), tt;
+  cal.addEventListener('click', function(e){
+    var b = e.target.closest('.slot'); if (!b || b.disabled) return;
+    toast.textContent = b.dataset.when + '　見本のため予約はできません。本番では、ここから予約画面に進みます。';
+    toast.classList.add('show'); clearTimeout(tt); tt = setTimeout(function(){ toast.classList.remove('show'); }, 3400);
+  });
+
+  /* メニューにカーソルを合わせると写真が出る */
+  var float = document.getElementById('float'), fimgs = float.querySelectorAll('img');
+  var fx = innerWidth / 2, fy = innerHeight / 2, tx = fx, ty = fy, vx = 0;
+  document.querySelectorAll('.menu-list li').forEach(function(li){
+    li.addEventListener('mouseenter', function(){ float.classList.add('on'); fimgs.forEach(function(im, k){ im.classList.toggle('on', k === +li.dataset.img); }); });
+    li.addEventListener('mouseleave', function(){ float.classList.remove('on'); });
+  });
+  addEventListener('pointermove', function(e){ tx = e.clientX; ty = e.clientY; }, { passive: true });
+  (function loop(){
+    var nx = fx + (tx - fx) * .14; vx = nx - fx; fx = nx; fy += (ty - fy) * .14;
+    float.style.transform = 'translate3d(' + fx + 'px,' + fy + 'px,0) rotate(' + Math.max(-12, Math.min(12, vx * .6)) + 'deg) scale(' + (float.classList.contains('on') ? 1 : .6) + ')';
+    requestAnimationFrame(loop);
+  })();
+
+  /* スクロールに合わせた動き */
+  var hero = document.getElementById('hero'), stick = document.getElementById('stick'), copy = document.getElementById('hero-copy');
+  var wm = document.querySelector('.wordmark'), sub = document.querySelector('.hero-sub'), topbar = document.getElementById('topbar');
+  var speeds = document.querySelectorAll('[data-speed]');
+  window.heroProgress = 0;
+  function onScroll(){
+    var r = hero.getBoundingClientRect(), p = clamp01(-r.top / (r.height - innerHeight));
+    window.heroProgress = p;
+    var a = ease((p - .12) / .6);
+    var mobile = innerWidth < 760, startHalf = mobile ? 32 : 15;
+    stick.style.setProperty('--t', ((1 - a) * 56) + 'vh');
+    stick.style.setProperty('--s', ((1 - a) * (50 - startHalf)) + 'vw');
+    stick.style.setProperty('--r', ((1 - a) * startHalf) + 'vw');
+    stick.style.setProperty('--z', (1.3 - .3 * a).toFixed(3));
+    wm.style.opacity = 1 - clamp01(p / .3);
+    wm.style.transform = 'translateY(-52%) scale(' + (1 + p * .5) + ')';
+    sub.style.opacity = 1 - clamp01(p / .15);
+    var c = clamp01((p - .7) / .2);
+    copy.style.opacity = c;
+    copy.style.transform = 'translateY(' + ((1 - c) * 30) + 'px)';
+    topbar.classList.toggle('stuck', scrollY > 40);
+    speeds.forEach(function(el){
+      var rr = el.getBoundingClientRect(), mid = (rr.top + rr.height / 2 - innerHeight / 2) / innerHeight;
+      var target = el.querySelector('img') && el.classList.contains('ph') ? el.querySelector('img') : el;
+      target.style.transform = 'translate3d(0,' + (mid * -100 * +el.dataset.speed) + '%,0)';
+    });
+  }
+  onScroll();
+  addEventListener('scroll', onScroll, { passive: true });
+  // スクロールイベントが間引かれる環境でも、毎フレーム位置を見て追従させる
+  (function follow(y){ if (scrollY !== y) onScroll(); var n = scrollY; requestAnimationFrame(function(){ follow(n); }); })(-1);
+  addEventListener('resize', onScroll);
 })();
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+
+const canvas = document.getElementById('sky');
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let renderer = null;
+try { renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true }); } catch (e) {}
+
+if (renderer) {
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(35, 1, .1, 200);
+  camera.position.set(0, 0, 10);
+
+  // 月
+  const phase = window.moonPhase || .5, ang = phase * Math.PI * 2;
+  const moonMat = new THREE.ShaderMaterial({
+    uniforms: { uLight: { value: new THREE.Vector3(Math.sin(ang), .12, -Math.cos(ang)).normalize() }, uFade: { value: 1 } },
+    vertexShader: `
+      varying vec3 vN; varying vec3 vP;
+      void main(){ vN = normalize(normalMatrix * normal); vP = position; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`,
+    fragmentShader: `
+      uniform vec3 uLight; uniform float uFade;
+      varying vec3 vN; varying vec3 vP;
+      float hash(vec3 p){ p = fract(p * .3183099 + .1); p *= 17.0; return fract(p.x * p.y * p.z * (p.x + p.y + p.z)); }
+      float noise(vec3 x){ vec3 i = floor(x), f = fract(x); f = f * f * (3.0 - 2.0 * f);
+        return mix(mix(mix(hash(i), hash(i + vec3(1,0,0)), f.x), mix(hash(i + vec3(0,1,0)), hash(i + vec3(1,1,0)), f.x), f.y),
+                   mix(mix(hash(i + vec3(0,0,1)), hash(i + vec3(1,0,1)), f.x), mix(hash(i + vec3(0,1,1)), hash(i + vec3(1,1,1)), f.x), f.y), f.z); }
+      float fbm(vec3 p){ float v = 0.0, a = .5; for (int i = 0; i < 5; i++) { v += a * noise(p); p *= 2.03; a *= .5; } return v; }
+      float cells(vec3 p){ vec3 i = floor(p), f = fract(p); float d = 1.0;
+        for (int x = -1; x <= 1; x++) for (int y = -1; y <= 1; y++) for (int z = -1; z <= 1; z++) {
+          vec3 g = vec3(x, y, z); vec3 o = vec3(hash(i + g), hash(i + g + 7.1), hash(i + g + 3.3)); vec3 r = g + o - f; d = min(d, dot(r, r)); }
+        return d; }
+      void main(){
+        vec3 n = normalize(vN), p = normalize(vP);
+        float maria = smoothstep(.47, .64, fbm(p * 1.7 + 2.0));
+        float c = cells(p * 6.0), c2 = cells(p * 15.0);
+        float rim = smoothstep(.015, .05, c) * (1.0 - smoothstep(.05, .1, c)) + .5 * smoothstep(.01, .04, c2) * (1.0 - smoothstep(.04, .08, c2));
+        float bowl = 1.0 - smoothstep(0.0, .04, c);
+        vec3 albedo = mix(vec3(.95, .91, .82), vec3(.56, .55, .56), maria * .8);
+        albedo *= .82 + fbm(p * 14.0) * .32;
+        albedo += rim * .07; albedo -= bowl * .07;
+        float diff = max(dot(n, uLight), 0.0);
+        float lit = smoothstep(0.0, .18, diff) * .45 + diff * .7;
+        vec3 col = albedo * lit * 1.1 + albedo * vec3(.16, .15, .24) * .22;
+        float fres = pow(1.0 - max(n.z, 0.0), 3.0);
+        col += vec3(.7, .64, .95) * fres * .18;
+        gl_FragColor = vec4(col * uFade, 1.0);
+      }`,
+  });
+  const moon = new THREE.Mesh(new THREE.SphereGeometry(1.6, 96, 96), moonMat);
+  scene.add(moon);
+
+  // かすかな光の輪
+  const glowTex = (() => { const c = document.createElement('canvas'); c.width = c.height = 256; const g = c.getContext('2d'); const gr = g.createRadialGradient(128, 128, 40, 128, 128, 128); gr.addColorStop(0, 'rgba(239,227,196,.35)'); gr.addColorStop(1, 'rgba(239,227,196,0)'); g.fillStyle = gr; g.fillRect(0, 0, 256, 256); return new THREE.CanvasTexture(c); })();
+  const glow = new THREE.Sprite(new THREE.SpriteMaterial({ map: glowTex, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, opacity: .4 + .6 * Math.sin(Math.PI * phase) }));
+  glow.scale.set(7, 7, 1);
+  glow.position.z = -.5;
+  scene.add(glow);
+
+  // 星
+  const N = 1400, sp = new Float32Array(N * 3), sd = new Float32Array(N);
+  for (let i = 0; i < N; i++) { sp.set([(Math.random() - .5) * 60, (Math.random() - .5) * 36, -20 - Math.random() * 30], i * 3); sd[i] = Math.random() * 100; }
+  const sg = new THREE.BufferGeometry(); sg.setAttribute('position', new THREE.BufferAttribute(sp, 3)); sg.setAttribute('seed', new THREE.BufferAttribute(sd, 1));
+  const starMat = new THREE.ShaderMaterial({
+    transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
+    uniforms: { uTime: { value: 0 }, uFade: { value: 1 }, uPx: { value: renderer.getPixelRatio() } },
+    vertexShader: `attribute float seed; uniform float uTime; uniform float uPx; varying float vA;
+      void main(){ vec4 mv = modelViewMatrix * vec4(position, 1.0); vA = .35 + .65 * (.5 + .5 * sin(uTime * (.6 + fract(seed) * 1.6) + seed));
+        gl_PointSize = (1.0 + fract(seed * 7.0) * 1.8) * uPx; gl_Position = projectionMatrix * mv; }`,
+    fragmentShader: `uniform float uFade; varying float vA; void main(){ float d = length(gl_PointCoord - .5); if (d > .5) discard; gl_FragColor = vec4(.93, .9, 1.0, (1.0 - d * 2.0) * vA * uFade); }`,
+  });
+  scene.add(new THREE.Points(sg, starMat));
+
+  let W = 0, H = 0;
+  function resize() { W = canvas.clientWidth; H = canvas.clientHeight; renderer.setSize(W, H, false); camera.aspect = W / H; camera.updateProjectionMatrix(); }
+  resize(); addEventListener('resize', resize);
+
+  const mouse = { x: 0, y: 0 };
+  addEventListener('pointermove', e => { mouse.x = e.clientX / innerWidth - .5; mouse.y = e.clientY / innerHeight - .5; }, { passive: true });
+
+  let visible = true;
+  new IntersectionObserver(en => { visible = en[0].isIntersecting; }).observe(canvas);
+  const clock = new THREE.Clock();
+  (function frame() {
+    requestAnimationFrame(frame);
+    if (!visible) return;
+    const t = clock.getElapsedTime(), p = window.heroProgress || 0;
+    const visH = 2 * 10 * Math.tan(THREE.MathUtils.degToRad(17.5)), visW = visH * camera.aspect;
+    const k = Math.min(1, p / .7), e = k * k * (3 - 2 * k);
+    const s = (W < 760 ? .8 : 1) * (1 - e * .62);
+    moon.scale.setScalar(s);
+    moon.position.set(e * (visW / 2 - 1.6), e * (visH / 2 - 1.5), 0);
+    glow.position.set(moon.position.x, moon.position.y, -.5);
+    glow.scale.setScalar(7 * s);
+    if (!reduce) { moon.rotation.y = t * .04 + mouse.x * .5; moon.rotation.x = mouse.y * .3; }
+    starMat.uniforms.uTime.value = t;
+    starMat.uniforms.uFade.value = 1 - Math.min(1, Math.max(0, (p - .25) / .4)) * .85;
+    renderer.render(scene, camera);
+  })();
+}
 </script>
 </body>
 </html>

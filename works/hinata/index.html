@@ -5,331 +5,589 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ひなた工務店（制作見本）</title>
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#2F5E3E">
+<meta name="theme-color" content="#F5F4EE">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
 <style>
 :root{
+  --paper:#F5F4EE;
   --green:#2F5E3E;
-  --green-soft:#E6EFE3;
-  --sky:#DCEEF5;
+  --green-2:#244A31;
   --sun:#F4B63F;
   --wood:#B07A48;
-  --ink:#263028;
-  --mute:#5D6A60;
-  --line:#D8E0D6;
-  --white:#FFFFFF;
+  --ink:#24302A;
+  --mute:#5F6B63;
+  --line:#D9DDD3;
   --font:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Hiragino Sans",sans-serif;
 }
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
-body{margin:0;background:var(--white);color:var(--ink);font-family:var(--font);font-weight:500;font-size:16px;line-height:1.85}
+html{-webkit-text-size-adjust:100%}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-weight:500;font-size:16px;line-height:1.85;overflow-x:hidden}
 a{color:inherit}
-:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+img{display:block;max-width:100%}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
 .nb{display:inline-block}
-.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+h1,h2,h3{word-break:auto-phrase}
 
-.sample-bar{background:var(--ink);color:#ddd;font-size:12px;text-align:center;padding:6px 12px}
+.sample-bar{position:relative;z-index:30;display:flex;justify-content:center;gap:14px;flex-wrap:wrap;background:var(--ink);color:#d6dcd6;font-size:12px;padding:7px 12px}
 .sample-bar a{color:#fff;font-weight:700}
 
-.site-header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px;max-width:1000px;margin:0 auto}
-.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:20px;text-decoration:none;color:var(--green)}
-.logo svg{width:34px;height:34px}
-.tel{text-align:right;line-height:1.3;text-decoration:none}
-.tel b{display:block;font-size:20px;color:var(--green);font-weight:900}
-.tel small{font-size:12px;color:var(--mute)}
+.top{position:fixed;left:0;right:0;top:34px;z-index:20;display:flex;align-items:center;gap:20px;padding:12px clamp(16px,3vw,36px);transition:top .3s,background .3s}
+.top.stuck{top:0;background:rgba(245,244,238,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:19px;color:var(--green);text-decoration:none}
+.logo svg{width:32px;height:32px}
+.top nav{margin-left:auto;display:flex;gap:22px;font-size:14px;font-weight:700}
+.top nav a{text-decoration:none;color:var(--mute)}
+.top nav a:hover{color:var(--green)}
+.top .cta{background:var(--green);color:#fff;border-radius:999px;padding:8px 18px;font-size:14px;font-weight:700;text-decoration:none}
+.top .cta:hover{background:var(--green-2)}
 
-/* ファーストビュー */
-.hero{background:var(--sky);position:relative;overflow:hidden}
-.hero-inner{display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:20px;max-width:1000px;margin:0 auto;padding:48px 20px 0}
-.hero-text{padding-bottom:56px}
-.hero h1{font-weight:900;font-size:clamp(28px,5.6vw,46px);line-height:1.45;margin:0 0 16px;color:var(--ink)}
-.hero p{margin:0 0 28px;max-width:26em}
-.actions{display:flex;flex-wrap:wrap;gap:10px}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 26px;border-radius:14px;font-weight:700;text-decoration:none;font-size:16px;font-family:inherit;border:0;cursor:pointer}
-.btn-main{background:var(--green);color:#fff}
-.btn-main:hover{background:#244A31}
-.btn-sub{background:#fff;color:var(--green);box-shadow:inset 0 0 0 2px var(--green)}
-.house{width:100%;height:auto;display:block}
+/* 家が建つ */
+.build{position:relative;height:640vh}
+.build-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+#house{position:absolute;inset:0;width:100%;height:100%;display:block}
+.intro{position:absolute;left:clamp(20px,6vw,90px);top:22vh;max-width:620px;transition:opacity .4s}
+.intro h1{font-weight:900;font-size:clamp(36px,5.6vw,78px);line-height:1.3;margin:0 0 18px;color:var(--ink)}
+.intro p{margin:0;max-width:26em;font-size:clamp(15px,1.2vw,18px)}
+.steps{position:absolute;left:clamp(20px,6vw,90px);bottom:9vh;list-style:none;margin:0;padding:0;display:grid;gap:4px;opacity:0;transition:opacity .4s}
+.steps li{display:grid;grid-template-columns:56px 1fr;align-items:baseline;gap:10px;color:rgba(36,48,42,.35);transition:color .3s}
+.steps li b{font-size:30px;font-weight:900;line-height:1.2;font-variant-numeric:tabular-nums}
+.steps li span{font-size:18px;font-weight:700}
+.steps li small{display:block;font-size:13px;font-weight:500;max-height:0;overflow:hidden;transition:max-height .4s}
+.steps li.on{color:var(--ink)}
+.steps li.on b{color:var(--green)}
+.steps li.on small{max-height:3em}
+.dusk{position:absolute;right:clamp(20px,6vw,90px);bottom:12vh;max-width:420px;text-align:right;opacity:0;transition:opacity .6s;color:#fff;text-shadow:0 2px 24px rgba(30,20,10,.5)}
+.dusk p{font-weight:900;font-size:clamp(28px,3.6vw,52px);line-height:1.4;margin:0}
+.clock{position:absolute;right:clamp(20px,6vw,90px);top:110px;margin:0;text-align:right;font-weight:900;font-size:14px;color:var(--ink);letter-spacing:.06em}
+.clock b{display:block;font-size:44px;line-height:1;font-variant-numeric:tabular-nums}
 
-/* できる工事 */
-.section{padding:72px 0}
-.section h2{font-weight:900;font-size:clamp(24px,4.4vw,32px);line-height:1.45;margin:0 0 8px}
-.section .lead{color:var(--mute);margin:0 0 36px;max-width:36em}
-.services{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.service{display:grid;grid-template-columns:56px 1fr;gap:16px;padding:22px;border-radius:18px;background:var(--green-soft)}
-.service svg{width:56px;height:56px}
-.service h3{font-weight:900;font-size:19px;margin:0 0 2px}
-.service p{margin:0 0 10px;font-size:15px;color:var(--mute)}
-.service ul{list-style:none;margin:0;padding:0;font-size:15px}
-.service li{display:flex;justify-content:space-between;gap:12px;padding:5px 0;border-top:1px dashed #BFD0BB}
-.service li b{white-space:nowrap;color:var(--green)}
+/* 共通 */
+.sec{padding:16vh clamp(20px,6vw,90px)}
+.sec h2{font-weight:900;font-size:clamp(32px,4.4vw,60px);line-height:1.35;margin:0 0 16px}
+.lead{max-width:34em;color:var(--mute);margin:0 0 48px}
+
+/* 職人 */
+.craft{position:relative;min-height:110vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+.craft-ph{position:absolute;inset:0}
+.craft-ph img{width:100%;height:120%;object-fit:cover;will-change:transform;filter:brightness(.62)}
+.craft-ph::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,26,22,.9),rgba(20,26,22,0) 55%)}
+.craft-copy{position:relative;padding:0 clamp(20px,6vw,90px) 14vh;display:grid;grid-template-columns:1.3fr 1fr;gap:6vw;align-items:end;width:100%}
+.craft-copy h2{font-weight:900;font-size:clamp(40px,6vw,92px);line-height:1.2;margin:0}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.facts div{border-top:2px solid rgba(255,255,255,.4);padding-top:12px}
+.facts b{display:block;font-weight:900;font-size:clamp(36px,4vw,56px);line-height:1;font-variant-numeric:tabular-nums}
+.facts span{font-size:13px;opacity:.85}
 
 /* 施工例 */
-.cases{display:grid;gap:0;border-top:3px solid var(--ink)}
-.case{display:grid;grid-template-columns:1fr auto auto;gap:6px 32px;align-items:baseline;padding:24px 0;border-bottom:1px solid var(--line)}
-.case h3{font-weight:700;font-size:18px;margin:0}
-.case p{grid-column:1/-1;margin:0;color:var(--mute);font-size:15px;max-width:40em}
-.case .fact{font-size:13px;color:var(--mute);white-space:nowrap}
-.case .fact b{display:block;font-size:22px;font-weight:900;color:var(--ink);line-height:1.3}
+.works-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px}
+.drag-hint{font-size:13px;font-weight:700;color:var(--green);white-space:nowrap}
+.rail{overflow:hidden;margin:0 calc(-1 * clamp(20px,6vw,90px));padding:0 clamp(20px,6vw,90px);cursor:grab;touch-action:pan-y}
+.rail.dragging{cursor:grabbing}
+.rail-track{display:flex;gap:clamp(16px,2vw,28px);width:max-content;will-change:transform;user-select:none;-webkit-user-select:none}
+.case{width:clamp(280px,34vw,520px);flex:none}
+.case .ph{aspect-ratio:4/3;border-radius:22px;overflow:hidden;background:#ddd}
+.case .ph img{width:100%;height:100%;object-fit:cover;pointer-events:none;transition:transform .8s}
+.case:hover .ph img{transform:scale(1.04)}
+.case h3{font-weight:700;font-size:19px;margin:16px 0 6px;line-height:1.5}
+.case .meta{display:flex;gap:18px;font-size:14px;color:var(--mute)}
+.case .meta b{color:var(--ink);font-weight:900}
+
+/* 費用の目安 */
+.sim{display:grid;grid-template-columns:1.2fr 1fr;gap:5vw;align-items:start}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chips label{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border:2px solid var(--line);border-radius:999px;cursor:pointer;font-weight:700;background:#fff;transition:border-color .2s,background .2s}
+.chips input{accent-color:var(--green);width:18px;height:18px;margin:0}
+.chips label:has(input:checked){border-color:var(--green);background:#E6EFE3}
+.chips small{font-weight:500;color:var(--mute);font-size:12px}
+.result{position:sticky;top:120px;background:var(--green);color:#fff;border-radius:28px;padding:36px}
+.result p{margin:0}
+.result .label{font-size:14px;opacity:.85}
+.result .total{font-weight:900;font-size:clamp(44px,5vw,72px);line-height:1.1;margin:10px 0 6px;font-variant-numeric:tabular-nums}
+.result .total small{font-size:22px;margin-left:6px}
+.result .note{font-size:13px;opacity:.85;margin-top:16px}
+.result a{display:inline-flex;margin-top:22px;background:var(--sun);color:var(--ink);font-weight:900;text-decoration:none;border-radius:999px;padding:12px 24px}
 
 /* 見積もりフォーム */
-.estimate{background:var(--green-soft)}
-.form{display:grid;gap:22px;max-width:640px;background:#fff;padding:28px;border-radius:20px}
+.estimate{background:#E9EEE4}
+.form{display:grid;gap:22px;max-width:680px;background:#fff;padding:clamp(20px,3vw,40px);border-radius:28px}
 .field label,.field legend{display:block;font-weight:700;margin:0 0 6px;padding:0}
 .req{display:inline-block;margin-left:8px;font-size:12px;color:#fff;background:#C2553A;border-radius:4px;padding:0 6px;vertical-align:2px}
-.field input[type=text],.field input[type=tel],.field textarea{width:100%;font:inherit;font-size:16px;padding:12px 14px;border:2px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+.field input[type=text],.field input[type=tel],.field textarea{width:100%;font:inherit;font-size:16px;padding:13px 15px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink)}
 .field textarea{min-height:120px;resize:vertical}
 .field input:focus,.field textarea:focus{outline:none;border-color:var(--green)}
 fieldset.field{border:0;margin:0;padding:0}
-.checks{display:flex;flex-wrap:wrap;gap:8px}
-.checks label{display:inline-flex;align-items:center;gap:6px;font-weight:500;margin:0;padding:8px 14px;border:2px solid var(--line);border-radius:999px;cursor:pointer}
-.checks input{accent-color:var(--green);width:18px;height:18px;margin:0}
-.checks label:has(input:checked){border-color:var(--green);background:var(--green-soft)}
 .error{color:#B23A22;font-size:14px;margin:6px 0 0}
 .field.invalid input{border-color:#B23A22}
-.done{display:none;padding:22px;border-radius:14px;background:#fff;border:2px solid var(--green)}
+.submit{justify-self:start;font:inherit;font-weight:900;font-size:16px;border:0;border-radius:999px;background:var(--green);color:#fff;padding:16px 32px;cursor:pointer}
+.submit:hover{background:var(--green-2)}
+.done{display:none;padding:28px;border-radius:22px;background:#fff;border:2px solid var(--green);max-width:680px}
 .done h3{margin:0 0 6px;font-weight:900;color:var(--green)}
 .done p{margin:0}
 
-/* 会社情報 */
-.company{margin:0}
-.company div{display:grid;grid-template-columns:7em 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
-.company dt{color:var(--mute)}
-.company dd{margin:0}
+/* フッター */
+.foot{position:relative;min-height:80vh;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;overflow:hidden;padding:0 clamp(20px,6vw,90px) 40px}
+.foot-ph{position:absolute;inset:0}
+.foot-ph img{width:100%;height:100%;object-fit:cover;object-position:50% 70%;filter:brightness(.5)}
+.foot-name{position:relative;font-weight:900;font-size:clamp(64px,12vw,190px);line-height:1;margin:0}
+.foot-info{position:relative;display:flex;flex-wrap:wrap;gap:6px 28px;font-size:14px;margin-top:16px;opacity:.9}
 
-.site-footer{background:var(--ink);color:#C9D2CB;font-size:13px;padding:28px 20px;text-align:center}
-
-@media (max-width:760px){
-  .tel small{display:none}
-  .hero-inner{grid-template-columns:1fr;padding-top:32px}
-  .hero-text{padding-bottom:8px}
-  .house{max-width:420px;margin:0 auto}
-  .services{grid-template-columns:1fr}
-  .service{grid-template-columns:1fr;gap:10px}
-  .service svg{width:44px;height:44px}
-  .case{grid-template-columns:1fr 1fr}
-  .case h3{grid-column:1/-1}
-  .form{padding:20px}
-  .btn{flex:1 1 100%}
+@media (max-width:860px){
+  .top nav{display:none}
+  .top .cta{margin-left:auto}
+  .craft-copy,.sim{grid-template-columns:1fr}
+  .facts{grid-template-columns:repeat(3,1fr)}
+  .result{position:static}
+  .intro{top:16vh}
+  .steps li span{font-size:16px}
+  .steps li:not(.on){display:none}
+  .steps li b{font-size:24px}
+  .clock{top:96px}
+  .clock b{font-size:32px}
+  .dusk{left:20px;right:20px;text-align:left;bottom:auto;top:20vh}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){.intro,.steps,.dusk,.steps li small{transition:none}}
 </style>
 </head>
 <body>
 
-<div class="sample-bar">これは<a href="../../">森川ウェブ</a>の制作見本です。会社は実在しません。</div>
+<div class="sample-bar"><span>制作見本・架空の会社です</span><a href="../../">森川ウェブに戻る</a></div>
 
-<header class="site-header">
-  <a class="logo" href="#">
-    <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="28" cy="12" r="7" fill="#F4B63F"/><path d="M4 22 L18 10 L32 22 V36 H4Z" fill="#2F5E3E"/><rect x="14" y="26" width="8" height="10" fill="#fff"/></svg>
-    ひなた工務店
-  </a>
-  <a class="tel" href="#" data-demo="call"><b>000-000-0000</b><small>受付 8:00〜18:00（日曜休み）</small></a>
+<header class="top" id="topbar">
+  <a class="logo" href="#"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="28" cy="12" r="7" fill="#F4B63F"/><path d="M4 22 L18 10 L32 22 V36 H4Z" fill="#2F5E3E"/><rect x="14" y="26" width="8" height="10" fill="#F5F4EE"/></svg>ひなた工務店</a>
+  <nav aria-label="ページ内の案内">
+    <a href="#works">施工例</a>
+    <a href="#sim">費用の目安</a>
+    <a href="#company">会社のこと</a>
+  </nav>
+  <a class="cta" href="#estimate">無料で見積もり</a>
 </header>
 
 <main>
-  <section class="hero">
-    <div class="hero-inner">
-      <div class="hero-text">
+  <section class="build" id="build">
+    <div class="build-stick">
+      <canvas id="house" aria-hidden="true"></canvas>
+      <p class="clock" id="clock" aria-hidden="true"><b>6:00</b>朝</p>
+      <div class="intro" id="intro">
         <h1><span class="nb">床のきしみ</span><span class="nb">ひとつから、</span><span class="nb">相談できます。</span></h1>
-        <p>見本市を中心に、水まわり・外壁・内装のリフォームを手がける工務店です。見積もりは無料。その場で契約をお願いすることはありません。</p>
-        <div class="actions">
-          <a class="btn btn-main" href="#estimate">無料で見積もりを頼む</a>
-          <a class="btn btn-sub" href="#cases">施工例を見る</a>
-        </div>
+        <p>見本市を中心に、新築からリフォームまで手がける工務店です。スクロールすると、家ができるまでの流れをご覧いただけます。</p>
       </div>
-      <svg class="house" viewBox="0 0 440 300" role="img" aria-label="日差しの当たる平屋の家のイラスト">
-        <circle cx="360" cy="70" r="40" fill="#F4B63F"/>
-        <g stroke="#F4B63F" stroke-width="5" stroke-linecap="round">
-          <path d="M360 12v-8M360 136v-8M302 70h-8M426 70h-8M319 29l-6-6M407 117l-6-6M319 111l-6 6M407 23l-6 6"/>
-        </g>
-        <rect x="0" y="262" width="440" height="38" fill="#8DB57A"/>
-        <path d="M60 150 L200 70 L340 150Z" fill="#3E4A44"/>
-        <path d="M44 156 L200 66 L356 156 L344 162 L200 80 L56 162Z" fill="#2B3530"/>
-        <rect x="80" y="150" width="240" height="114" fill="#F4EAD9"/>
-        <rect x="80" y="150" width="240" height="10" fill="#E2D3BA"/>
-        <rect x="110" y="182" width="64" height="50" rx="4" fill="#B9DDEB" stroke="#B07A48" stroke-width="6"/>
-        <path d="M142 182v50M110 207h64" stroke="#B07A48" stroke-width="4"/>
-        <rect x="222" y="186" width="56" height="78" rx="4" fill="#B07A48"/>
-        <circle cx="266" cy="228" r="4" fill="#F4B63F"/>
-        <rect x="212" y="258" width="76" height="8" rx="2" fill="#9D9282"/>
-        <path d="M30 262c0-26 14-44 30-44s30 18 30 44Z" fill="#5E9A55"/>
-        <path d="M350 262c0-18 10-32 22-32s22 14 22 32Z" fill="#5E9A55"/>
-      </svg>
+      <ol class="steps" id="steps" aria-label="家ができるまで">
+        <li><b>01</b><span>基礎<small>地面を固め、家を支えるコンクリートの土台をつくります。</small></span></li>
+        <li><b>02</b><span>柱<small>乾燥させた国産の杉と檜を、一本ずつ立てていきます。</small></span></li>
+        <li><b>03</b><span>梁と床<small>柱どうしをつなぎ、地震に強い骨組みにします。</small></span></li>
+        <li><b>04</b><span>壁<small>断熱材を入れて、夏は涼しく冬は暖かい壁に。</small></span></li>
+        <li><b>05</b><span>屋根<small>瓦を一枚ずつ。雨もりの点検は引き渡し後もずっと。</small></span></li>
+        <li><b>06</b><span>仕上げ<small>窓、縁側、庭木まで。暮らしの準備が整います。</small></span></li>
+      </ol>
+      <div class="dusk" id="dusk"><p>日が暮れて、<br>家に灯りがともる。</p></div>
     </div>
   </section>
 
-  <section class="section" id="services">
-    <div class="wrap">
-      <h2>できる工事と、費用の目安</h2>
-      <p class="lead">家の状態によって変わるため、正確な金額は現地を見てからお出しします。目安はすべて税込・工事費込みです。</p>
-      <div class="services">
-        <div class="service">
-          <svg viewBox="0 0 56 56" aria-hidden="true"><rect width="56" height="56" rx="14" fill="#fff"/><path d="M14 30h28v6a8 8 0 0 1-8 8H22a8 8 0 0 1-8-8z" fill="#2F5E3E"/><path d="M20 30V16a4 4 0 0 1 8 0" fill="none" stroke="#2F5E3E" stroke-width="3" stroke-linecap="round"/><circle cx="28" cy="22" r="2" fill="#7FB8D0"/></svg>
-          <div>
-            <h3>水まわり</h3>
-            <p>キッチン・お風呂・トイレ・洗面台</p>
-            <ul>
-              <li><span>トイレの交換</span><b>15万円〜</b></li>
-              <li><span>お風呂をユニットバスに</span><b>90万円〜</b></li>
-            </ul>
-          </div>
-        </div>
-        <div class="service">
-          <svg viewBox="0 0 56 56" aria-hidden="true"><rect width="56" height="56" rx="14" fill="#fff"/><path d="M10 28 28 14l18 14" fill="none" stroke="#2F5E3E" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M16 26v16h24V26" fill="none" stroke="#2F5E3E" stroke-width="3.5"/><path d="M16 32h24M16 37h24" stroke="#B07A48" stroke-width="2"/></svg>
-          <div>
-            <h3>外壁・屋根</h3>
-            <p>塗り替え・雨もりの修理・雨どい</p>
-            <ul>
-              <li><span>雨どいの交換</span><b>8万円〜</b></li>
-              <li><span>外壁の塗り替え（30坪）</span><b>95万円〜</b></li>
-            </ul>
-          </div>
-        </div>
-        <div class="service">
-          <svg viewBox="0 0 56 56" aria-hidden="true"><rect width="56" height="56" rx="14" fill="#fff"/><rect x="12" y="14" width="32" height="28" rx="2" fill="none" stroke="#2F5E3E" stroke-width="3"/><path d="M12 34h32" stroke="#2F5E3E" stroke-width="3"/><path d="M18 34v8M26 34v8M34 34v8" stroke="#B07A48" stroke-width="2"/></svg>
-          <div>
-            <h3>内装</h3>
-            <p>床・壁紙・ふすま・ドア</p>
-            <ul>
-              <li><span>壁紙の張り替え（6畳）</span><b>5万円〜</b></li>
-              <li><span>和室を洋室に</span><b>45万円〜</b></li>
-            </ul>
-          </div>
-        </div>
-        <div class="service">
-          <svg viewBox="0 0 56 56" aria-hidden="true"><rect width="56" height="56" rx="14" fill="#fff"/><path d="M12 42h10v-8h10v-8h12" fill="none" stroke="#2F5E3E" stroke-width="3.5" stroke-linejoin="round"/><path d="M14 30c6-8 20-12 30-12" fill="none" stroke="#B07A48" stroke-width="3" stroke-linecap="round"/></svg>
-          <div>
-            <h3>手すり・段差</h3>
-            <p>手すりの取り付け・段差をなくす工事</p>
-            <ul>
-              <li><span>手すりの取り付け（1か所）</span><b>2万円〜</b></li>
-              <li><span>玄関にスロープ</span><b>12万円〜</b></li>
-            </ul>
-          </div>
-        </div>
+  <section class="craft" id="company">
+    <div class="craft-ph"><img src="img/craftsman.jpg" alt="のみで木材を削る大工" loading="lazy"></div>
+    <div class="craft-copy">
+      <h2><span class="nb">大工が2人。</span><span class="nb">地元で30年。</span></h2>
+      <div class="facts">
+        <div><b data-count="30">0</b><span>年、見本市で</span></div>
+        <div><b data-count="2">0</b><span>人の大工が担当</span></div>
+        <div><b data-count="24">0</b><span>時間以内に返信</span></div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="cases">
-    <div class="wrap">
-      <h2>最近の施工例</h2>
-      <p class="lead">見本のため、内容は架空のものです。</p>
-      <div class="cases">
-        <article class="case">
-          <h3>築35年の在来浴室を、冬も寒くないユニットバスに</h3>
-          <span class="fact"><b>5日</b>工期</span>
-          <span class="fact"><b>98万円</b>費用</span>
-          <p>タイルの床が冷たく、段差が気になるとのご相談。床の段差をなくし、手すりと浴室暖房も付けました。</p>
-        </article>
-        <article class="case">
-          <h3>使っていない和室を、在宅ワーク用の洋室に</h3>
-          <span class="fact"><b>4日</b>工期</span>
-          <span class="fact"><b>52万円</b>費用</span>
-          <p>畳をフローリングに、押し入れを机が置けるスペースに変えました。コンセントも2か所増やしています。</p>
-        </article>
-        <article class="case">
-          <h3>玄関の段差に、手すりとゆるやかなスロープ</h3>
-          <span class="fact"><b>1日</b>工期</span>
-          <span class="fact"><b>14万円</b>費用</span>
-          <p>介護保険の住宅改修の申請もお手伝いし、ご負担を抑えられました。</p>
-        </article>
+  <section class="sec" id="works">
+    <div class="works-head">
+      <div>
+        <h2>最近の施工例</h2>
+        <p class="lead">左右にドラッグして見られます。見本のため、内容は架空のものです。</p>
+      </div>
+      <span class="drag-hint" aria-hidden="true">← ドラッグ →</span>
+    </div>
+    <div class="rail" id="rail">
+      <div class="rail-track" id="rail-track">
+        <article class="case"><div class="ph"><img src="img/engawa.jpg" alt="木の床の縁側と障子" loading="lazy"></div><h3>築40年の平屋の縁側を、張り替えて明るく</h3><p class="meta"><span>工期 <b>5日</b></span><span>費用 <b>68万円</b></span></p></article>
+        <article class="case"><div class="ph"><img src="img/kitchen.jpg" alt="木の天板と明るい窓のキッチン" loading="lazy"></div><h3>暗かった台所を、窓のある対面キッチンに</h3><p class="meta"><span>工期 <b>9日</b></span><span>費用 <b>148万円</b></span></p></article>
+        <article class="case"><div class="ph"><img src="img/kitchen2.jpg" alt="木目の扉が並ぶキッチン" loading="lazy"></div><h3>収納を倍に増やした、木目のキッチン</h3><p class="meta"><span>工期 <b>7日</b></span><span>費用 <b>126万円</b></span></p></article>
+        <article class="case"><div class="ph"><img src="img/corridor.jpg" alt="障子と木の柱が続く廊下" loading="lazy"></div><h3>古い廊下の床鳴りを直し、障子を張り替え</h3><p class="meta"><span>工期 <b>3日</b></span><span>費用 <b>32万円</b></span></p></article>
+        <article class="case"><div class="ph"><img src="img/oldhouse.jpg" alt="瓦屋根の古い木造の家" loading="lazy"></div><h3>瓦屋根の葺き替えと、雨どいの交換</h3><p class="meta"><span>工期 <b>12日</b></span><span>費用 <b>210万円</b></span></p></article>
       </div>
     </div>
   </section>
 
-  <section class="section estimate" id="estimate">
-    <div class="wrap">
-      <h2>無料で見積もりを頼む</h2>
-      <p class="lead">2営業日以内に、お電話かメールでご連絡します。わかる範囲で大丈夫です。</p>
-      <form class="form" id="form" novalidate>
-        <div class="field" id="f-name">
-          <label for="name">お名前<span class="req">必須</span></label>
-          <input type="text" id="name" name="name" autocomplete="name" aria-describedby="name-err">
-          <p class="error" id="name-err" hidden>お名前を入れてください。</p>
-        </div>
-        <div class="field" id="f-tel">
-          <label for="tel">電話番号<span class="req">必須</span></label>
-          <input type="tel" id="tel" name="tel" autocomplete="tel" inputmode="tel" aria-describedby="tel-err">
-          <p class="error" id="tel-err" hidden>電話番号を数字で入れてください。</p>
-        </div>
-        <div class="field">
-          <label for="area">工事をしたい場所の住所（市町村まで）</label>
-          <input type="text" id="area" name="area" autocomplete="address-level2">
-        </div>
-        <fieldset class="field">
-          <legend>相談したいところ（いくつでも）</legend>
-          <div class="checks">
-            <label><input type="checkbox" name="place" value="キッチン">キッチン</label>
-            <label><input type="checkbox" name="place" value="お風呂">お風呂</label>
-            <label><input type="checkbox" name="place" value="トイレ">トイレ</label>
-            <label><input type="checkbox" name="place" value="外壁・屋根">外壁・屋根</label>
-            <label><input type="checkbox" name="place" value="内装">内装</label>
-            <label><input type="checkbox" name="place" value="手すり・段差">手すり・段差</label>
-            <label><input type="checkbox" name="place" value="その他">その他</label>
-          </div>
-        </fieldset>
-        <div class="field">
-          <label for="detail">困っていること・やりたいこと</label>
-          <textarea id="detail" name="detail" placeholder="例：お風呂の床が冷たくて、段差もつらくなってきました。"></textarea>
-        </div>
-        <button class="btn btn-main" type="submit">この内容で見積もりを頼む</button>
-      </form>
-      <div class="done" id="done" role="status" aria-live="polite">
-        <h3>見積もりの依頼を受け付けました（見本）</h3>
-        <p>見本のため、実際には送信されていません。本番のサイトでは、この内容がそのまま工務店にメールで届きます。</p>
+  <section class="sec" id="sim">
+    <h2>費用の目安を、その場で。</h2>
+    <p class="lead">気になる工事を選ぶと、おおよその費用がわかります。正確な金額は、現地を見てからお出しします（税込・工事費込み）。</p>
+    <div class="sim">
+      <div class="chips" id="chips">
+        <label><input type="checkbox" value="60,150">キッチン交換<small>60〜150万</small></label>
+        <label><input type="checkbox" value="90,160">お風呂をユニットバスに<small>90〜160万</small></label>
+        <label><input type="checkbox" value="15,35">トイレ交換<small>15〜35万</small></label>
+        <label><input type="checkbox" value="15,40">洗面台<small>15〜40万</small></label>
+        <label><input type="checkbox" value="90,150">外壁の塗り替え<small>90〜150万</small></label>
+        <label><input type="checkbox" value="20,120">屋根の修理<small>20〜120万</small></label>
+        <label><input type="checkbox" value="8,25">壁紙・床（1部屋）<small>8〜25万</small></label>
+        <label><input type="checkbox" value="2,15">手すり・段差<small>2〜15万</small></label>
+      </div>
+      <div class="result" aria-live="polite">
+        <p class="label">選んだ工事の目安</p>
+        <p class="total" id="total">0<small>万円</small></p>
+        <p class="label" id="count">工事を選んでください</p>
+        <p class="note">築年数や家の状態によって変わります。まとめて頼むと、足場代などが安くなることもあります。</p>
+        <a href="#estimate">この内容で見積もりを頼む</a>
       </div>
     </div>
   </section>
 
-  <section class="section" id="company">
-    <div class="wrap">
-      <h2>会社のこと</h2>
-      <p class="lead">地元で30年。大工が2人、職人仲間と一緒に、一軒ずつ丁寧に仕上げます。</p>
-      <dl class="company">
-        <div><dt>会社名</dt><dd>ひなた工務店</dd></div>
-        <div><dt>所在地</dt><dd>〒000-0000 見本市 日向町4-5-6</dd></div>
-        <div><dt>対応エリア</dt><dd>見本市と、その周辺の市町村</dd></div>
-        <div><dt>受付時間</dt><dd>8:00〜18:00（日曜休み）</dd></div>
-      </dl>
+  <section class="sec estimate" id="estimate">
+    <h2>無料で見積もりを頼む</h2>
+    <p class="lead">2営業日以内に、お電話かメールでご連絡します。その場で契約をお願いすることはありません。</p>
+    <form class="form" id="form" novalidate>
+      <div class="field" id="f-name">
+        <label for="name">お名前<span class="req">必須</span></label>
+        <input type="text" id="name" name="name" autocomplete="name" aria-describedby="name-err">
+        <p class="error" id="name-err" hidden>お名前を入れてください。</p>
+      </div>
+      <div class="field" id="f-tel">
+        <label for="tel">電話番号<span class="req">必須</span></label>
+        <input type="tel" id="tel" name="tel" autocomplete="tel" inputmode="tel" aria-describedby="tel-err">
+        <p class="error" id="tel-err" hidden>電話番号を数字で入れてください。</p>
+      </div>
+      <div class="field">
+        <label for="area">工事をしたい場所の住所（市町村まで）</label>
+        <input type="text" id="area" name="area" autocomplete="address-level2">
+      </div>
+      <div class="field">
+        <label for="detail">困っていること・やりたいこと</label>
+        <textarea id="detail" name="detail" placeholder="例：お風呂の床が冷たくて、段差もつらくなってきました。"></textarea>
+      </div>
+      <button class="submit" type="submit">この内容で見積もりを頼む</button>
+    </form>
+    <div class="done" id="done" role="status" aria-live="polite">
+      <h3>見積もりの依頼を受け付けました（見本）</h3>
+      <p>見本のため、実際には送信されていません。本番のサイトでは、この内容がそのまま工務店にメールで届きます。</p>
     </div>
   </section>
 </main>
 
-<footer class="site-footer">© ひなた工務店（架空の会社・制作見本）</footer>
+<footer class="foot">
+  <div class="foot-ph"><img src="img/machiya.jpg" alt="" loading="lazy"></div>
+  <p class="foot-name">ひなた工務店</p>
+  <div class="foot-info"><span>〒000-0000 見本市 日向町4-5-6</span><span>受付 8:00〜18:00（日曜休み）</span><span>架空の会社・制作見本</span><span>写真：Unsplash</span></div>
+</footer>
 
 <script>
 (function(){
-  var form = document.getElementById('form'), done = document.getElementById('done');
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var clamp01 = function(x){ return Math.max(0, Math.min(1, x)); };
 
+  window.addEventListener('DOMContentLoaded', function(){
+    if (reduce || !window.Lenis) return;
+    var lenis = new Lenis({ lerp: .09 });
+    (function raf(t){ lenis.raf(t); requestAnimationFrame(raf); })(0);
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click', function(e){ var id = a.getAttribute('href'); if (id.length < 2) return; e.preventDefault(); lenis.scrollTo(id, { offset: -60 }); });
+    });
+  });
+
+  /* 家が建つ場面 */
+  var build = document.getElementById('build'), intro = document.getElementById('intro'), steps = document.getElementById('steps'), stepEls = steps.querySelectorAll('li');
+  var dusk = document.getElementById('dusk'), clock = document.getElementById('clock'), topbar = document.getElementById('topbar');
+  var craftImg = document.querySelector('.craft-ph img'), craft = document.getElementById('company');
+  window.buildProgress = 0;
+  function onScroll(){
+    var r = build.getBoundingClientRect(), p = clamp01(-r.top / (r.height - innerHeight));
+    window.buildProgress = p;
+    intro.style.opacity = 1 - clamp01((p - .02) / .06);
+    var stage = (p - .08) / .72 * 6;
+    steps.style.opacity = (p > .06 && p < .86) ? 1 : 0;
+    stepEls.forEach(function(li, i){ li.classList.toggle('on', stage >= i && stage < i + 1 || (i === 5 && stage >= 6)); });
+    dusk.style.opacity = p > .88 ? 1 : 0;
+    var hour = 6 + p * 13.5, hh = Math.floor(hour), mm = Math.floor((hour - hh) * 60 / 10) * 10;
+    clock.innerHTML = '<b>' + hh + ':' + (mm < 10 ? '0' : '') + mm + '</b>' + (hour < 10 ? '朝' : hour < 15 ? '昼' : hour < 17.5 ? '夕方' : '夜');
+    clock.style.color = hour > 17.5 ? '#fff' : '';
+    topbar.classList.toggle('stuck', scrollY > 40);
+    var cr = craft.getBoundingClientRect();
+    craftImg.style.transform = 'translate3d(0,' + (((cr.top + cr.height / 2) / innerHeight - .5) * -12 - 8) + '%,0)';
+  }
+  onScroll();
+  addEventListener('scroll', onScroll, { passive: true });
+  // スクロールイベントが間引かれる環境でも、毎フレーム位置を見て追従させる
+  (function follow(y){ if (scrollY !== y) onScroll(); var n = scrollY; requestAnimationFrame(function(){ follow(n); }); })(-1);
+  addEventListener('resize', onScroll);
+
+  /* 数字のカウントアップ */
+  var counted = false;
+  new IntersectionObserver(function(en){
+    if (!en[0].isIntersecting || counted) return;
+    counted = true;
+    document.querySelectorAll('[data-count]').forEach(function(el){
+      var to = +el.dataset.count, t0 = performance.now();
+      (function tick(now){ var k = reduce ? 1 : clamp01((now - t0) / 1400); el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(tick); })(t0);
+    });
+  }, { threshold: .4 }).observe(document.querySelector('.facts'));
+
+  /* 施工例をドラッグ */
+  var rail = document.getElementById('rail'), track = document.getElementById('rail-track');
+  var x = 0, vx = 0, dragging = false, lastX = 0, startX = 0, moved = 0;
+  function maxX(){ return Math.min(0, rail.clientWidth - track.scrollWidth - parseFloat(getComputedStyle(rail).paddingLeft) * 2); }
+  rail.addEventListener('pointerdown', function(e){ dragging = true; moved = 0; startX = lastX = e.clientX; vx = 0; rail.classList.add('dragging'); rail.setPointerCapture(e.pointerId); });
+  rail.addEventListener('pointermove', function(e){ if (!dragging) return; var dx = e.clientX - lastX; lastX = e.clientX; x += dx; vx = dx; moved += Math.abs(dx); });
+  function end(){ dragging = false; rail.classList.remove('dragging'); }
+  rail.addEventListener('pointerup', end); rail.addEventListener('pointercancel', end);
+  rail.addEventListener('wheel', function(e){ if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) { e.preventDefault(); x -= e.deltaX; } }, { passive: false });
+  rail.tabIndex = 0;
+  rail.addEventListener('keydown', function(e){ if (e.key === 'ArrowRight') { x -= 300; vx = 0; } if (e.key === 'ArrowLeft') { x += 300; vx = 0; } });
+  (function loop(){
+    if (!dragging) { x += vx; vx *= .92; }
+    var m = maxX();
+    if (x > 0) x += (0 - x) * .15;
+    if (x < m) x += (m - x) * .15;
+    track.style.transform = 'translate3d(' + x + 'px,0,0)';
+    requestAnimationFrame(loop);
+  })();
+
+  /* 費用の目安 */
+  var chips = document.querySelectorAll('#chips input'), totalEl = document.getElementById('total'), countEl = document.getElementById('count');
+  var shown = [0, 0], target = [0, 0], animT = null;
+  function fmt(v){ return Math.round(v).toLocaleString('ja-JP'); }
+  function recalc(){
+    var lo = 0, hi = 0, n = 0;
+    chips.forEach(function(c){ if (c.checked) { var v = c.value.split(','); lo += +v[0]; hi += +v[1]; n++; } });
+    target = [lo, hi];
+    countEl.textContent = n ? n + '件の工事を選んでいます' : '工事を選んでください';
+    var from = shown.slice(), t0 = performance.now();
+    cancelAnimationFrame(animT);
+    (function tick(now){
+      var k = reduce ? 1 : clamp01((now - t0) / 600), e = 1 - Math.pow(1 - k, 3);
+      shown = [from[0] + (target[0] - from[0]) * e, from[1] + (target[1] - from[1]) * e];
+      totalEl.innerHTML = (target[1] ? fmt(shown[0]) + '〜' + fmt(shown[1]) : '0') + '<small>万円</small>';
+      if (k < 1) animT = requestAnimationFrame(tick);
+    })(t0);
+  }
+  chips.forEach(function(c){ c.addEventListener('change', recalc); });
+
+  /* フォーム */
+  var form = document.getElementById('form'), done = document.getElementById('done');
   function check(id, ok){
-    var f = document.getElementById('f-' + id), err = document.getElementById(id + '-err');
-    f.classList.toggle('invalid', !ok);
-    err.hidden = ok;
+    document.getElementById('f-' + id).classList.toggle('invalid', !ok);
+    document.getElementById(id + '-err').hidden = ok;
     document.getElementById(id).setAttribute('aria-invalid', !ok);
     return ok;
   }
-
   form.addEventListener('submit', function(e){
     e.preventDefault();
-    var nameOk = check('name', form.name.value.trim() !== '');
-    var telOk = check('tel', /^[0-9０-９\-－ ]{10,}$/.test(form.tel.value.trim()));
-    if(!nameOk){ form.name.focus(); return; }
-    if(!telOk){ form.tel.focus(); return; }
-    form.style.display = 'none';
-    done.style.display = 'block';
-  });
-
-  document.querySelectorAll('[data-demo]').forEach(function(a){
-    a.addEventListener('click', function(e){
-      e.preventDefault();
-      alert('見本のため電話はかかりません。実際のサイトでは、押すとすぐ電話がかかります。');
-    });
+    var a = check('name', form.name.value.trim() !== ''), b = check('tel', /^[0-9０-９\-－ ]{10,}$/.test(form.tel.value.trim()));
+    if (!a) { form.name.focus(); return; }
+    if (!b) { form.tel.focus(); return; }
+    form.style.display = 'none'; done.style.display = 'block';
   });
 })();
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+
+const canvas = document.getElementById('house');
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let renderer = null;
+try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true }); } catch (e) {}
+
+if (renderer) {
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+
+  const scene = new THREE.Scene();
+  const SKY = [[0, '#dfe9ee'], [.3, '#cfe5f2'], [.6, '#bfdcef'], [.78, '#f6c79a'], [.9, '#e48e66'], [1, '#2f3557']].map(([k, c]) => [k, new THREE.Color(c)]);
+  scene.background = new THREE.Color('#dfe9ee');
+  scene.fog = new THREE.Fog(scene.background, 30, 70);
+  const camera = new THREE.PerspectiveCamera(32, 1, .1, 200);
+
+  const hemi = new THREE.HemisphereLight('#ffffff', '#9fb38c', .9);
+  scene.add(hemi);
+  const sun = new THREE.DirectionalLight('#fff4e0', 2.4);
+  sun.castShadow = true;
+  sun.shadow.mapSize.setScalar(matchMedia('(pointer: coarse)').matches ? 1024 : 2048);
+  Object.assign(sun.shadow.camera, { left: -12, right: 12, top: 12, bottom: -12, near: 1, far: 60 });
+  sun.shadow.bias = -.0005;
+  scene.add(sun, sun.target);
+
+  // 材料
+  const M = (color, extra = {}) => new THREE.MeshStandardMaterial({ color, roughness: .85, ...extra });
+  const tex = (w, h, draw, rx = 1, ry = 1) => { const c = document.createElement('canvas'); c.width = w; c.height = h; draw(c.getContext('2d'), w, h); const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(rx, ry); t.anisotropy = 8; return t; };
+  const woodTex = tex(256, 256, (g, w, h) => { g.fillStyle = '#c7955e'; g.fillRect(0, 0, w, h); for (let i = 0; i < 60; i++) { g.strokeStyle = `rgba(120,70,30,${Math.random() * .25})`; g.lineWidth = 1 + Math.random() * 2; g.beginPath(); const y = Math.random() * h; g.moveTo(0, y); g.bezierCurveTo(w * .3, y + 8 * Math.random(), w * .7, y - 8 * Math.random(), w, y); g.stroke(); } });
+  const sidingTex = tex(256, 256, (g, w, h) => { g.fillStyle = '#3b312b'; g.fillRect(0, 0, w, h); for (let x = 0; x < w; x += 32) { g.fillStyle = 'rgba(0,0,0,.35)'; g.fillRect(x, 0, 3, h); g.fillStyle = 'rgba(255,255,255,.04)'; g.fillRect(x + 4, 0, 10, h); } }, 3, 1);
+  const tileTex = tex(256, 256, (g, w, h) => { g.fillStyle = '#4a5157'; g.fillRect(0, 0, w, h); for (let y = 0; y < h; y += 22) { g.fillStyle = 'rgba(0,0,0,.35)'; g.fillRect(0, y, w, 5); g.fillStyle = 'rgba(255,255,255,.06)'; g.fillRect(0, y + 6, w, 4); } for (let x = 0; x < w; x += 28) { g.fillStyle = 'rgba(0,0,0,.15)'; g.fillRect(x, 0, 2, h); } }, 4, 3);
+  const mats = {
+    concrete: M('#b9b7b0'),
+    wood: new THREE.MeshStandardMaterial({ map: woodTex, roughness: .8 }),
+    siding: new THREE.MeshStandardMaterial({ map: sidingTex, roughness: .9 }),
+    plaster: M('#efebe2', { roughness: .95 }),
+    tile: new THREE.MeshStandardMaterial({ map: tileTex, roughness: .7, metalness: .1 }),
+    glass: new THREE.MeshStandardMaterial({ color: '#7d93a3', roughness: .15, metalness: .3, emissive: new THREE.Color('#ffb860'), emissiveIntensity: 0 }),
+    deck: new THREE.MeshStandardMaterial({ map: woodTex, roughness: .7, color: '#d8b48a' }),
+    leaf: M('#5e8f4e'), leaf2: M('#7aa35a'), trunk: M('#6b4a32'), grass: M('#a9c48d', { roughness: 1 }), stone: M('#cfcac0'),
+  };
+
+  // 地面
+  const ground = new THREE.Mesh(new THREE.CircleGeometry(60, 64), mats.grass);
+  ground.rotation.x = -Math.PI / 2; ground.receiveShadow = true;
+  scene.add(ground);
+  for (let i = 0; i < 7; i++) { const s = new THREE.Mesh(new THREE.CylinderGeometry(.5, .55, .08, 12), mats.stone); s.position.set(-.6 + Math.sin(i) * .3, .04, 4.6 + i * 1.1); s.receiveShadow = true; scene.add(s); }
+
+  // 組み立てる部品
+  const parts = [];
+  function part(geo, mat, x, y, z, stage, order, mode = 'drop') {
+    const m = new THREE.Mesh(geo, mat);
+    m.position.set(x, y, z); m.castShadow = true; m.receiveShadow = true;
+    m.userData = { base: m.position.clone(), stage, order, mode };
+    m.visible = false;
+    scene.add(m); parts.push(m);
+    return m;
+  }
+  const box = (w, h, d) => new THREE.BoxGeometry(w, h, d);
+  const W = 9, D = 6.4, F1 = 2.8, F2 = 2.6, B = .45;
+
+  // 01 基礎
+  part(box(W + .4, B, D + .4), mats.concrete, 0, B / 2, 0, 0, 0);
+  part(box(W + 3.2, .12, 2), mats.concrete, -1.1, .06, D / 2 + 1.2, 0, .5);
+
+  // 02 柱
+  const xs = [-W / 2, -W / 4, 0, W / 4, W / 2], zs = [-D / 2, 0, D / 2];
+  let o = 0;
+  for (const z of zs) for (const x of xs) {
+    if (z === 0 && Math.abs(x) < W / 2 && x !== 0) continue;
+    const g1 = box(.18, F1, .18); g1.translate(0, F1 / 2, 0);
+    part(g1, mats.wood, x, B, z, 1, (o++ % 13) / 13, 'grow');
+    const g2 = box(.16, F2, .16); g2.translate(0, F2 / 2, 0);
+    part(g2, mats.wood, x, B + F1 + .2, z, 1, .5 + (o % 13) / 26, 'grow');
+  }
+
+  // 03 梁と床
+  for (const z of [-D / 2, D / 2]) {
+    part(box(W + .3, .22, .22), mats.wood, 0, B + F1 + .1, z, 2, 0);
+    part(box(W + .3, .2, .2), mats.wood, 0, B + F1 + F2 + .3, z, 2, .5);
+  }
+  for (const x of [-W / 2, 0, W / 2]) {
+    part(box(.22, .22, D + .3), mats.wood, x, B + F1 + .1, 0, 2, .2);
+    part(box(.2, .2, D + .3), mats.wood, x, B + F1 + F2 + .3, 0, 2, .7);
+  }
+  part(box(W, .12, D), mats.wood, 0, B + F1 + .14, 0, 2, .4);
+
+  // 04 壁（1階は焼杉、2階は漆喰）と窓
+  const glassParts = [];
+  function wall(w, h, x, y, z, ry, mat, order, windows = []) {
+    const g = new THREE.Group();
+    const wallMesh = part(box(w, h, .12), mat, x, y, z, 3, order);
+    wallMesh.rotation.y = ry;
+    windows.forEach(([wx, wy, ww, wh]) => {
+      const gl = part(box(ww, wh, .16), mats.glass, 0, 0, 0, 5, .2 + Math.random() * .5);
+      const v = new THREE.Vector3(wx, wy, 0).applyAxisAngle(new THREE.Vector3(0, 1, 0), ry);
+      gl.position.set(x + v.x, y + v.y, z + v.z); gl.rotation.y = ry; gl.userData.base = gl.position.clone();
+      glassParts.push(gl);
+      const fr = part(box(ww + .14, .08, .2), mats.wood, x + v.x, y + v.y - wh / 2 - .04, z + v.z, 5, .3); fr.rotation.y = ry;
+    });
+    return g;
+  }
+  const y1 = B + F1 / 2, y2 = B + F1 + .2 + F2 / 2;
+  wall(W, F1, 0, y1, D / 2 + .02, 0, mats.siding, .0, [[-2.6, .1, 1.8, 1.5], [.4, -.2, 2.4, 2.1], [3, .2, 1.2, 1.1]]);
+  wall(W, F1, 0, y1, -D / 2 - .02, Math.PI, mats.siding, .25, [[1.5, .2, 1.6, 1.1]]);
+  wall(D, F1, W / 2 + .02, y1, 0, Math.PI / 2, mats.siding, .5, [[0, .2, 1.4, 1.1]]);
+  wall(D, F1, -W / 2 - .02, y1, 0, -Math.PI / 2, mats.siding, .75, []);
+  wall(W, F2, 0, y2, D / 2 + .02, 0, mats.plaster, .1, [[-2.4, .1, 1.6, 1.2], [.2, .1, 1.6, 1.2], [2.8, .1, 1.2, 1.2]]);
+  wall(W, F2, 0, y2, -D / 2 - .02, Math.PI, mats.plaster, .35, [[0, .1, 2, 1.1]]);
+  wall(D, F2, W / 2 + .02, y2, 0, Math.PI / 2, mats.plaster, .6, [[0, .1, 1.2, 1]]);
+  wall(D, F2, -W / 2 - .02, y2, 0, -Math.PI / 2, mats.plaster, .85, [[.6, .1, 1.2, 1]]);
+
+  // 05 屋根（切妻）と下屋
+  const ridgeY = B + F1 + F2 + .4 + 1.8, eaveY = B + F1 + F2 + .4, half = D / 2 + .9;
+  const slope = Math.hypot(half, ridgeY - eaveY), ang = Math.atan2(ridgeY - eaveY, half);
+  for (const s of [1, -1]) {
+    const r = part(box(W + 1.6, .16, slope), mats.tile, 0, (ridgeY + eaveY) / 2, s * half / 2, 4, s > 0 ? 0 : .4);
+    r.rotation.x = s * ang;
+  }
+  part(box(W + 1.7, .22, .3), mats.tile, 0, ridgeY + .05, 0, 4, .8);
+  for (const s of [1, -1]) {
+    const tri = new THREE.Shape(); tri.moveTo(-D / 2, 0); tri.lineTo(D / 2, 0); tri.lineTo(0, ridgeY - eaveY); tri.closePath();
+    const tg = new THREE.ExtrudeGeometry(tri, { depth: .12, bevelEnabled: false });
+    const t = part(tg, mats.plaster, s * (W / 2 + .02), eaveY - .02, 0, 4, .3); t.rotation.y = Math.PI / 2; t.position.x -= s > 0 ? .12 : 0; t.userData.base = t.position.clone();
+  }
+  const lower = part(box(W + .6, .12, 1.6), mats.tile, 0, B + F1 + .55, D / 2 + .7, 4, .6); lower.rotation.x = .28;
+
+  // 06 仕上げ（縁側・扉・庭木）
+  part(box(5.2, .14, 1.3), mats.deck, -1.6, B - .05, D / 2 + .75, 5, 0);
+  for (const x of [-4, -1.6, .8]) part(box(.14, .4, .14), mats.wood, x, .2, D / 2 + 1.3, 5, .1);
+  part(box(1.1, 2.1, .1), mats.wood, 3.1, B + 1.05, D / 2 + .1, 5, .2);
+  function tree(x, z, s, order) {
+    const t = part(new THREE.CylinderGeometry(.12 * s, .16 * s, 1.6 * s, 8), mats.trunk, x, .8 * s, z, 5, order);
+    part(new THREE.IcosahedronGeometry(1.1 * s, 1), mats.leaf, x, 2 * s, z, 5, order + .1);
+    part(new THREE.IcosahedronGeometry(.8 * s, 1), mats.leaf2, x + .5 * s, 2.5 * s, z + .2, 5, order + .2);
+    return t;
+  }
+  tree(6.6, 3.2, 1.2, .3); tree(-6.8, 1.5, 1, .45); tree(-7.4, -2.8, 1.4, .55); tree(7.2, -3.4, .9, .65);
+
+  // 窓の灯り
+  const warm = new THREE.PointLight('#ffb15c', 0, 14, 1.6); warm.position.set(0, 2.2, D / 2 + 1.4); scene.add(warm);
+
+  function resize() { const w = canvas.clientWidth, h = canvas.clientHeight; renderer.setSize(w, h, false); camera.aspect = w / h; camera.fov = camera.aspect < .9 ? 50 : 32; camera.updateProjectionMatrix(); }
+  resize(); addEventListener('resize', resize);
+
+  const ease = t => 1 - Math.pow(1 - t, 3);
+  const back = t => { const c1 = 1.4, c3 = c1 + 1; return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2); };
+  const skyCol = new THREE.Color();
+  function skyAt(p) { for (let i = 1; i < SKY.length; i++) if (p <= SKY[i][0]) { const [a, ca] = SKY[i - 1], [b, cb] = SKY[i]; return skyCol.copy(ca).lerp(cb, (p - a) / (b - a)); } return skyCol.copy(SKY[SKY.length - 1][1]); }
+
+  let cur = 0, visible = true;
+  new IntersectionObserver(en => { visible = en[0].isIntersecting; }).observe(canvas);
+  const mouse = { x: 0 };
+  addEventListener('pointermove', e => { mouse.x = e.clientX / innerWidth - .5; }, { passive: true });
+
+  (function frame() {
+    requestAnimationFrame(frame);
+    if (!visible) return;
+    const p = window.buildProgress || 0;
+    cur += (p - cur) * (reduce ? 1 : .08);
+    const stage = (cur - .08) / .72 * 6;
+
+    for (const m of parts) {
+      const { base, stage: s, order, mode } = m.userData;
+      const k = Math.max(0, Math.min(1, (stage - s - order * .55) / .45));
+      m.visible = k > 0;
+      if (!m.visible) continue;
+      if (mode === 'grow') { m.scale.set(1, Math.max(.001, ease(k)), 1); m.position.copy(base); }
+      else { const e = back(k); m.position.set(base.x, base.y + (1 - e) * 4, base.z); }
+    }
+
+    // 太陽と空（朝から夜へ）
+    const sunA = -.4 + cur * 2.8;
+    sun.position.set(Math.cos(sunA) * 20, Math.max(1.5, Math.sin(Math.min(Math.PI - .25, .5 + cur * 2.4)) * 18), 10 + Math.sin(sunA) * 6);
+    const dusk = Math.max(0, (cur - .7) / .3);
+    sun.color.setRGB(1, .96 - dusk * .4, .88 - dusk * .6);
+    sun.intensity = 2.4 * (1 - Math.max(0, (cur - .88) / .12) * .85);
+    hemi.intensity = .9 - dusk * .55;
+    skyAt(cur); scene.background.copy(skyCol); scene.fog.color.copy(skyCol);
+    const night = Math.max(0, (cur - .84) / .16);
+    mats.glass.emissiveIntensity = night * 2.2;
+    warm.intensity = night * 30;
+    renderer.toneMappingExposure = 1 - night * .15;
+
+    // カメラは家のまわりをゆっくり回る
+    const portrait = camera.aspect < .9;
+    const R = (portrait ? 30 : 27) - cur * 3, a = -.55 + cur * 1.25 + mouse.x * .12;
+    camera.position.set(Math.sin(a) * R, 9.5 - cur * 3 + (portrait ? 2 : 0), Math.cos(a) * R);
+    camera.lookAt(portrait ? 0 : -2.6 + cur * 2.2, portrait ? .4 : 2.6, 0);
+    renderer.render(scene, camera);
+  })();
+}
 </script>
 </body>
 </html>

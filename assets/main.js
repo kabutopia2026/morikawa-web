@@ -3,6 +3,8 @@ import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
 import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
+import { Reflector } from 'three/addons/objects/Reflector.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -11,11 +13,19 @@ const coarse = matchMedia('(pointer: coarse)').matches;
 const clamp01 = x => Math.max(0, Math.min(1, x));
 const smooth = x => { x = clamp01(x); return x * x * (3 - 2 * x); };
 
-/* ================= 読み込み画面 ================= */
+/* ================= 読み込み画面（大きな数字が100まで進む） ================= */
 const loader = document.getElementById('loader');
+const loaderNum = loader.querySelector('.loader-num');
 const loaderBar = loader.querySelector('.loader-bar i');
-const loaderPct = loader.querySelector('.loader-pct');
-function setProgress(v) { loaderBar.style.width = v + '%'; loaderPct.textContent = Math.round(v) + '%'; }
+let loadTarget = 0, loadShown = 0;
+function setProgress(v) { loadTarget = v; }
+(function countUp() {
+  loadShown += (loadTarget - loadShown) * .12;
+  if (loadTarget - loadShown < .5) loadShown = loadTarget;
+  loaderNum.textContent = String(Math.round(loadShown)).padStart(3, '0');
+  loaderBar.style.transform = `scaleX(${loadShown / 100})`;
+  if (!loader.classList.contains('done')) requestAnimationFrame(countUp);
+})();
 
 function lightTitle() {
   document.querySelectorAll('.hero .ch').forEach((ch, i) => {
@@ -32,9 +42,14 @@ mailBtn.href = 'mailto:mahmoris98@gmail.com?subject=' + encodeURIComponent('試�
 /* ================= カーソル ================= */
 if (finePointer) {
   const cursor = document.getElementById('cursor');
+  const label = cursor.querySelector('span');
   let cx = innerWidth / 2, cy = innerHeight / 2, tx = cx, ty = cy;
   addEventListener('pointermove', e => { tx = e.clientX; ty = e.clientY; });
-  document.addEventListener('pointerover', e => cursor.classList.toggle('big', !!e.target.closest('a, button, summary')));
+  document.addEventListener('pointerover', e => {
+    const t = e.target.closest('a, button, summary');
+    cursor.classList.toggle('big', !!t);
+    label.textContent = t && t.dataset.shop ? '入る' : '';
+  });
   (function loop() {
     cx += (tx - cx) * .22; cy += (ty - cy) * .22;
     cursor.style.transform = `translate3d(${cx}px, ${cy}px, 0)`;
@@ -42,10 +57,71 @@ if (finePointer) {
   })();
 }
 
+/* ================= なめらかなスクロール ================= */
+let lenis = null;
+if (!reduceMotion && window.Lenis) {
+  lenis = new window.Lenis({ lerp: .085 });
+  (function raf(t) { lenis.raf(t); requestAnimationFrame(raf); })(0);
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+  const id = a.getAttribute('href');
+  const el = id.length > 1 && document.querySelector(id);
+  if (!el || !lenis) return;
+  e.preventDefault();
+  const dist = Math.abs(el.getBoundingClientRect().top);
+  lenis.scrollTo(el, { duration: Math.min(3.2, 1 + dist / 4000) });
+}));
+
+/* ================= 雨音（Web Audioで合成） ================= */
+const soundBtn = document.getElementById('sound');
+let audio = null;
+function makeRain() {
+  const ctx = new (window.AudioContext || window.webkitAudioContext)();
+  const len = ctx.sampleRate * 2, buf = ctx.createBuffer(1, len, ctx.sampleRate), d = buf.getChannelData(0);
+  for (let i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
+  const src = ctx.createBufferSource(); src.buffer = buf; src.loop = true;
+  const hp = ctx.createBiquadFilter(); hp.type = 'highpass'; hp.frequency.value = 450;
+  const lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 4200;
+  const gain = ctx.createGain(); gain.gain.value = 0;
+  src.connect(hp).connect(lp).connect(gain).connect(ctx.destination);
+  src.start();
+  const a = { ctx, gain, on: false };
+  (function drip() {
+    if (a.on) {
+      const o = ctx.createOscillator(), g = ctx.createGain(), t = ctx.currentTime;
+      o.frequency.setValueAtTime(1600 + Math.random() * 2000, t);
+      o.frequency.exponentialRampToValueAtTime(380, t + .07);
+      g.gain.setValueAtTime(.012 + Math.random() * .02, t);
+      g.gain.exponentialRampToValueAtTime(.0001, t + .09);
+      o.connect(g).connect(ctx.destination); o.start(t); o.stop(t + .1);
+    }
+    setTimeout(drip, 70 + Math.random() * 420);
+  })();
+  return a;
+}
+soundBtn.addEventListener('click', () => {
+  if (!audio) audio = makeRain();
+  audio.on = !audio.on;
+  const t = audio.ctx.currentTime;
+  if (audio.on) audio.ctx.resume();
+  audio.gain.gain.cancelScheduledValues(t);
+  audio.gain.gain.setValueAtTime(audio.gain.gain.value, t);
+  audio.gain.gain.linearRampToValueAtTime(audio.on ? .1 : 0, t + 1);
+  soundBtn.setAttribute('aria-pressed', audio.on);
+  soundBtn.querySelector('.sound-label').textContent = audio.on ? '雨音 ON' : '雨音 OFF';
+});
+
+/* ================= ネオンのように灯る文字 ================= */
+const neonIO = new IntersectionObserver(entries => entries.forEach(en => {
+  if (en.isIntersecting) { en.target.classList.add('lit'); neonIO.unobserve(en.target); }
+}), { threshold: .6 });
+document.querySelectorAll('.neon').forEach(el => neonIO.observe(el));
+
 /* ================= スクロールと場面 ================= */
 const sections = [...document.querySelectorAll('[data-cam]')];
 let anchors = [], panels = [];
 let portrait = innerWidth / innerHeight < .85;
+let scrollVel = 0, lastY = scrollY;
 
 function measure() {
   const vh = innerHeight;
@@ -67,11 +143,11 @@ function updatePanels(sy) {
     p.panel.style.opacity = o.toFixed(3);
     p.panel.style.transform = `translate3d(0, ${((1 - o) * 28).toFixed(1)}px, 0)`;
     p.panel.style.pointerEvents = o > .5 ? 'auto' : 'none';
+    p.panel.classList.toggle('in', o > .6);
     if (p.hint) p.hint.style.opacity = (1 - smooth(l / .25)).toFixed(3);
   }
 }
 
-// キーボードで見えない場面のリンクに移ったときは、その場面まで送る
 sections.forEach(el => el.addEventListener('focusin', () => {
   const p = panels.find(q => q.el === el);
   if (p) { const s = p.top + p.span * .5; if (Math.abs(scrollY - s) > p.span * .3) scrollTo({ top: s, behavior: reduceMotion ? 'auto' : 'smooth' }); }
@@ -81,8 +157,27 @@ measure();
 updatePanels(scrollY);
 addEventListener('scroll', () => updatePanels(scrollY), { passive: true });
 
+/* ================= 見本へ入る演出 ================= */
+const wipe = document.getElementById('wipe');
+const SHOP_COLORS = { miyama: '#17120E', lune: '#1C1726', hinata: '#F5F4EE' };
+let world = null;
+document.querySelectorAll('a[data-shop]').forEach(a => a.addEventListener('click', e => {
+  if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+  e.preventDefault();
+  const key = a.dataset.shop, href = a.href;
+  if (lenis) lenis.stop();
+  wipe.style.background = SHOP_COLORS[key];
+  if (world) world.dive(key);
+  setTimeout(() => wipe.classList.add('on'), reduceMotion ? 0 : 520);
+  setTimeout(() => { location.href = href; }, reduceMotion ? 150 : 1250);
+}));
+addEventListener('pageshow', () => {
+  wipe.classList.remove('on');
+  if (lenis) lenis.start();
+  if (world) world.undive();
+});
+
 /* ================= 3Dの街 ================= */
-// 毎回同じ街並みになるよう、決まった種から乱数を作る
 let seed = 20261022;
 const rand = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
 const pick = a => a[Math.floor(rand() * a.length)];
@@ -102,46 +197,97 @@ const STYLES = [
 ];
 const SIGN_TEXT = WORDS.join('') + '食堂みやま定食めしひなた工務店リフォーム修繕新築見積無料森川ウェブホームページ制作';
 
-const FX = 5.8;                 // 通りに面した壁の位置
-const SHOPS = [[-1, -26], [1, -51], [-1, -77]];  // 見本の3軒（左右, 奥行き）
+const FX = 5.8;
+const SHOPS = [[-1, -26], [1, -51], [-1, -77]];
 const nearShop = (side, z, r) => SHOPS.some(([s, sz]) => s === side && Math.abs(sz - z) < r);
 const faceY = side => (side < 0 ? Math.PI / 2 : -Math.PI / 2);
 
 const CAM = {
-  hero:   { p: [0, 2.3, 12],      l: [0, 3.6, -20],     fog: .034 },
-  intro:  { p: [0, 1.8, 2],       l: [0, 2.8, -30],     fog: .032 },
-  miyama: { p: [1.7, 1.8, -18.5], l: [-5.8, 2.4, -36],  fog: .03, pm: [3, 1.8, -18.5], lm: [-5.8, 1.7, -26.3] },
-  lune:   { p: [-1.7, 1.8, -43.5], l: [5.8, 2.4, -61],  fog: .03, pm: [-3, 1.8, -43.5], lm: [5.8, 1.7, -51.3] },
-  hinata: { p: [1.7, 1.8, -69.5], l: [-5.8, 2.4, -87],  fog: .03, pm: [3, 1.8, -69.5], lm: [-5.8, 1.7, -77.3] },
-  skills: { p: [0, 5.2, -86],     l: [0, 5, -128],      fog: .02 },
-  end:    { p: [0, 17, -56],      l: [0, 3, -124],      fog: .012 },
+  hero:   { p: [0, 2.3, 12],      l: [0, 3.6, -20],    fog: .034, exp: 1 },
+  intro:  { p: [0, 1.8, 2],       l: [0, 2.8, -30],    fog: .032, exp: .95 },
+  miyama: { p: [1.7, 1.8, -18.5], l: [-5.8, 2.4, -36], fog: .03, exp: .78, pm: [3, 1.8, -18.5], lm: [-5.8, 1.7, -26.3] },
+  lune:   { p: [-1.7, 1.8, -43.5], l: [5.8, 2.4, -61], fog: .03, exp: .82, pm: [-3, 1.8, -43.5], lm: [5.8, 1.7, -51.3] },
+  hinata: { p: [1.7, 1.8, -69.5], l: [-5.8, 2.4, -87], fog: .03, exp: .78, pm: [3, 1.8, -69.5], lm: [-5.8, 1.7, -77.3] },
+  skills: { p: [0, 5.2, -86],     l: [0, 5, -128],     fog: .02, exp: .95 },
+  end:    { p: [0, 17, -56],      l: [0, 3, -124],     fog: .012, exp: 1 },
+};
+const DOORS = {
+  miyama: { p: [-2.6, 1.55, -26], l: [-7, 1.4, -26] },
+  lune:   { p: [2.6, 1.55, -51],  l: [7, 1.4, -51] },
+  hinata: { p: [-2.6, 1.55, -77], l: [-7, 1.4, -77] },
+};
+
+// 濡れた路面（映り込み・小さな波紋・霧）
+const WetShader = {
+  name: 'WetShader',
+  uniforms: {
+    color: { value: null }, tDiffuse: { value: null }, textureMatrix: { value: null },
+    uTime: { value: 0 }, uFog: { value: new THREE.Color() }, uFogDensity: { value: .03 }, uBase: { value: new THREE.Color('#0d1024') },
+  },
+  vertexShader: `
+    uniform mat4 textureMatrix; varying vec4 vUv; varying vec3 vWorld;
+    void main(){ vUv = textureMatrix * vec4(position, 1.0); vec4 w = modelMatrix * vec4(position, 1.0); vWorld = w.xyz; gl_Position = projectionMatrix * viewMatrix * w; }`,
+  fragmentShader: `
+    uniform vec3 color; uniform sampler2D tDiffuse; uniform float uTime; uniform vec3 uFog; uniform float uFogDensity; uniform vec3 uBase;
+    varying vec4 vUv; varying vec3 vWorld;
+    float hash(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
+    float noise(vec2 p){ vec2 i = floor(p), f = fract(p); vec2 u = f * f * (3.0 - 2.0 * f);
+      return mix(mix(hash(i), hash(i + vec2(1, 0)), u.x), mix(hash(i + vec2(0, 1)), hash(i + vec2(1, 1)), u.x), u.y); }
+    void main(){
+      vec2 p = vWorld.xz;
+      float n = noise(p * 1.7) * .55 + noise(p * 5.3) * .3 + noise(p * 17.0) * .15;
+      float puddle = smoothstep(.42, .68, noise(p * .28 + vec2(3.1, 7.7)));
+      vec4 uv = vUv;
+      vec2 ripple = vec2(noise(p * 9.0 + uTime * .9), noise(p * 9.0 - uTime * .9)) - .5;
+      uv.xy += ripple * uv.w * mix(.035, .006, puddle);
+      vec3 refl = texture2DProj(tDiffuse, uv).rgb;
+      vec3 col = uBase * (.55 + n * .6) + refl * mix(.16, .7, puddle);
+      float d = length(vWorld - cameraPosition);
+      col = mix(col, uFog, 1.0 - exp(-uFogDensity * uFogDensity * d * d));
+      gl_FragColor = vec4(col, 1.0);
+    }`,
+};
+
+// 仕上げ（周辺減光・粒子・スクロールの速さに応じた色ずれ）
+const FinishShader = {
+  uniforms: { tDiffuse: { value: null }, uTime: { value: 0 }, uVel: { value: 0 } },
+  vertexShader: 'varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }',
+  fragmentShader: `
+    uniform sampler2D tDiffuse; uniform float uTime; uniform float uVel; varying vec2 vUv;
+    float rnd(vec2 p){ return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453); }
+    void main(){
+      vec2 c = vUv - .5;
+      vec2 off = c * (.0018 + uVel * .014);
+      vec3 col = vec3(texture2D(tDiffuse, vUv + off).r, texture2D(tDiffuse, vUv).g, texture2D(tDiffuse, vUv - off).b);
+      col *= mix(.5, 1.0, smoothstep(.9, .25, length(c * vec2(1.0, .85))));
+      col += (rnd(vUv * 900.0 + fract(uTime * 7.0) * 50.0) - .5) * .05;
+      gl_FragColor = vec4(col, 1.0);
+    }`,
 };
 
 async function initWebGL() {
   const canvas = document.getElementById('webgl');
   let renderer;
-  try {
-    renderer = new THREE.WebGLRenderer({ canvas, antialias: false, powerPreference: 'high-performance' });
-  } catch (e) { return false; }
+  try { renderer = new THREE.WebGLRenderer({ canvas, antialias: false, powerPreference: 'high-performance' }); }
+  catch (e) { return null; }
 
-  setProgress(20);
+  setProgress(22);
   await Promise.race([
     Promise.all(FONTS.map(f => document.fonts.load(f.replace('{s}', 64), SIGN_TEXT))),
     new Promise(r => setTimeout(r, 3500)),
   ]).catch(() => {});
-  setProgress(55);
+  setProgress(58);
 
   renderer.setPixelRatio(Math.min(devicePixelRatio, coarse ? 1.3 : 1.75));
   renderer.setSize(innerWidth, innerHeight, false);
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = .95;
+  renderer.toneMappingExposure = 1;
   const maxAniso = Math.min(8, renderer.capabilities.getMaxAnisotropy());
 
   const scene = new THREE.Scene();
   const SKY = new THREE.Color('#141b3d');
   scene.background = SKY;
   scene.fog = new THREE.FogExp2(SKY, CAM.hero.fog);
-
   const camera = new THREE.PerspectiveCamera(50, innerWidth / innerHeight, .1, 320);
 
   scene.add(new THREE.HemisphereLight('#7f8fd6', '#1a1530', .9));
@@ -280,7 +426,7 @@ async function initWebGL() {
   const poleMat = new THREE.MeshLambertMaterial({ color: '#272d4a' });
   const vendBodyMat = new THREE.MeshLambertMaterial({ color: '#b9c1d6' });
   const shutterMat = new THREE.MeshLambertMaterial({ map: shutterTex });
-  const winMats = Array.from({ length: 6 }, () => new THREE.MeshBasicMaterial({ map: windowsTex(), color: new THREE.Color(.5, .5, .52) }));
+  const winMats = Array.from({ length: 6 }, () => new THREE.MeshBasicMaterial({ map: windowsTex(), color: new THREE.Color(.48, .48, .5) }));
   const lampHeadMat = new THREE.MeshBasicMaterial({ color: new THREE.Color(1.6, 1.7, 2) });
   const INTERIORS = [interiorTex('#ffe2b0', '#ff9f4a'), interiorTex('#f4f7ff', '#b9c8ff'), interiorTex('#fff2d6', '#ffc46b')];
 
@@ -299,11 +445,24 @@ async function initWebGL() {
     return m;
   }
 
-  /* ---------- 地面と道 ---------- */
+  /* ---------- 地面と濡れた路面 ---------- */
   const ground = new THREE.Mesh(new THREE.PlaneGeometry(80, 320), new THREE.MeshStandardMaterial({ color: '#1b2142', roughness: .55, metalness: .15 }));
   ground.rotation.x = -Math.PI / 2;
   ground.position.z = -120;
   scene.add(ground);
+
+  let road = null;
+  if (!coarse) {
+    const pr = renderer.getPixelRatio();
+    road = new Reflector(new THREE.PlaneGeometry(7.8, 150), {
+      textureWidth: Math.round(innerWidth * pr * .5), textureHeight: Math.round(innerHeight * pr * .5),
+      clipBias: .003, shader: WetShader,
+    });
+    road.rotation.x = -Math.PI / 2;
+    road.position.set(0, .01, -60);
+    road.material.uniforms.uFog.value.copy(SKY);
+    scene.add(road);
+  }
 
   const walkMat = new THREE.MeshStandardMaterial({ color: '#252b4d', roughness: .8 });
   const lineMat = new THREE.MeshBasicMaterial({ color: '#5f6684' });
@@ -322,14 +481,13 @@ async function initWebGL() {
     const ry = faceY(side);
     const mat = new THREE.MeshBasicMaterial({ map: pick(INTERIORS) });
     plane(mat, w - .5, 2.4, side * (FX - .02), 1.35, zc, ry);
-    const entries = [lampColor(mat, .8)];
-    const pm = pool(side * (FX - 1.7), zc, 5.5, '#ffb35c');
-    entries.push(lampOpacity(pm, .32));
+    const entries = [lampColor(mat, .62)];
+    entries.push(lampOpacity(pool(side * (FX - 1.7), zc, 5.5, '#ffb35c'), .26));
     if (rand() < .6) {
       const st = pick(STYLES);
       const smat = new THREE.MeshBasicMaterial({ map: hSignTex(pick(WORDS), st, pick(FONTS)) });
       plane(smat, Math.min(w - .6, 3.4), .64, side * (FX - .03), 2.95, zc, ry);
-      entries.push(lampColor(smat, st.neon ? 2.2 : 1.6));
+      entries.push(lampColor(smat, st.neon ? 2 : 1.4));
     }
     addLamp(zc, entries);
   }
@@ -352,14 +510,14 @@ async function initWebGL() {
     const mat = new THREE.MeshBasicMaterial({ map: vSignTex(word, st, f, Math.round(128 * hgt / wd)) });
     plane(mat, wd, hgt, x, y, z + .075);
     plane(mat, wd, hgt, x, y, z - .075, Math.PI);
-    addLamp(z, [lampColor(mat, st.neon ? 2.4 : 1.7)]);
+    addLamp(z, [lampColor(mat, st.neon ? 2.2 : 1.6)]);
   }
 
   function vending(side, z) {
     const body = new THREE.BoxGeometry(.75, 1.85, .95); body.translate(side * (FX - .4), 1.07, z); addStatic(vendBodyMat, body);
     const mat = new THREE.MeshBasicMaterial({ map: vendTex });
     plane(mat, .82, 1.5, side * (FX - .785), 1.18, z, faceY(side));
-    addLamp(z, [lampColor(mat, 1.5), lampOpacity(pool(side * (FX - 1.6), z, 3.6, '#bcd6ff'), .45)]);
+    addLamp(z, [lampColor(mat, 1.3), lampOpacity(pool(side * (FX - 1.6), z, 3.6, '#bcd6ff'), .4)]);
   }
 
   for (const side of [-1, 1]) {
@@ -385,16 +543,16 @@ async function initWebGL() {
   }
   for (const [side, z] of [[1, -9], [-1, -35], [1, -66], [-1, -99], [1, -112]]) if (!nearShop(side, z, 4)) vending(side, z);
 
-  /* ---------- 見本の3軒 ---------- */
+  /* ---------- 見本の3軒（まぶしすぎない明るさに） ---------- */
   function shopBase(side, z, top, bottom, lightColor) {
     const ry = faceY(side);
     const imat = new THREE.MeshBasicMaterial({ map: interiorTex(top, bottom) });
     plane(imat, 5, 2.5, side * (FX - .02), 1.4, z, ry);
     const eave = new THREE.BoxGeometry(1.1, .14, 6.2); eave.translate(side * (FX - .55), 3.85, z); addStatic(darkMat, eave);
-    const light = new THREE.PointLight(lightColor, 0, 16, 2);
+    const light = new THREE.PointLight(lightColor, 0, 14, 2);
     light.position.set(side * (FX - 1.6), 2.6, z);
     scene.add(light);
-    return [lampColor(imat, 1.05), lampLight(light, 34), lampOpacity(pool(side * (FX - 2.2), z, 8, lightColor), .5)];
+    return [lampColor(imat, .62), lampLight(light, 14), lampOpacity(pool(side * (FX - 2.2), z, 8, lightColor), .26)];
   }
 
   const swingers = [];
@@ -405,12 +563,12 @@ async function initWebGL() {
     const entries = shopBase(side, z, '#ffe6b8', '#ff9a3d', '#ff9a4a');
     const smat = new THREE.MeshBasicMaterial({ map: hSignTex('食堂 みやま', { bg: '#f6f0e2', fg: '#b3262c', border: '#b3262c' }, FONTS[0], '定食・めし') });
     plane(smat, 4.4, 1.1, side * (FX - .03), 3.15, z, ry);
-    entries.push(lampColor(smat, 1.5));
+    entries.push(lampColor(smat, 1.05));
     ['み', 'や', 'ま'].forEach((c, i) => {
       const nt = tex(128, 176, (g, w, h) => {
-        g.fillStyle = '#a8262b'; g.fillRect(0, 0, w, h);
-        g.fillStyle = '#86191e'; g.fillRect(0, h - 14, w, 14);
-        g.fillStyle = '#fff6ea'; g.textAlign = 'center'; g.textBaseline = 'middle';
+        g.fillStyle = '#22325A'; g.fillRect(0, 0, w, h);
+        g.fillStyle = '#1a2746'; g.fillRect(0, h - 14, w, 14);
+        g.fillStyle = '#F1E8D8'; g.textAlign = 'center'; g.textBaseline = 'middle';
         g.font = font(FONTS[0], 86); g.fillText(c, w / 2, h * .48);
       });
       const m = new THREE.MeshBasicMaterial({ map: nt, side: THREE.DoubleSide });
@@ -419,7 +577,7 @@ async function initWebGL() {
       pivot.position.set(side * (FX - .32), 2.62, z + (1 - i) * 1.07);
       const mesh = new THREE.Mesh(geo, m); pivot.add(mesh); scene.add(pivot);
       swingers.push({ obj: mesh, axis: 'x', amp: .05, speed: 1.2, phase: i * .7 });
-      entries.push(lampColor(m, 1.15));
+      entries.push(lampColor(m, 1.1));
     });
     const lt = tex(512, 128, (g, w, h) => {
       const gr = g.createLinearGradient(0, 0, 0, h);
@@ -440,7 +598,7 @@ async function initWebGL() {
       const cap2 = cap.clone(); cap2.position.y = -1;
       pivot.add(lantern, cap, cap2); scene.add(pivot);
       swingers.push({ obj: pivot, axis: 'z', amp: .06, speed: 1.4, phase: dz });
-      entries.push(lampColor(m, 2));
+      entries.push(lampColor(m, 1.5));
     }
     addLamp(z, entries);
   }
@@ -448,8 +606,8 @@ async function initWebGL() {
   // hair salon lune
   {
     const side = 1, z = -51, ry = faceY(side);
-    const entries = shopBase(side, z, '#f1ecff', '#9f8cff', '#a99bff');
-    const nt = tex(512, 200, (g, w, h) => {
+    const entries = shopBase(side, z, '#e9e3fb', '#8f7ee6', '#a99bff');
+    const nt = tex(512, 200, (g) => {
       g.strokeStyle = '#efe9ff'; g.lineWidth = 5; g.lineJoin = 'round';
       g.shadowColor = '#a99bff'; g.shadowBlur = 24;
       for (let k = 0; k < 2; k++) {
@@ -464,7 +622,7 @@ async function initWebGL() {
     });
     const nmat = new THREE.MeshBasicMaterial({ map: nt, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false });
     plane(nmat, 3.4, 1.33, side * (FX - .05), 3.2, z, ry);
-    entries.push(lampColor(nmat, 2.6));
+    entries.push(lampColor(nmat, 2));
     addLamp(z, entries);
   }
 
@@ -484,7 +642,7 @@ async function initWebGL() {
     });
     const smat = new THREE.MeshBasicMaterial({ map: st });
     plane(smat, 4.3, 1.26, side * (FX - .03), 3.15, z, ry);
-    entries.push(lampColor(smat, 1.4));
+    entries.push(lampColor(smat, 1.05));
     const at = tex(128, 192, (g, w, h) => {
       g.fillStyle = '#fbf6ea'; g.fillRect(0, 0, w, h);
       g.strokeStyle = '#2f5e3e'; g.lineWidth = 6; g.strokeRect(6, 6, w - 12, h - 12);
@@ -495,7 +653,7 @@ async function initWebGL() {
     const amat = new THREE.MeshBasicMaterial({ map: at });
     const a = plane(amat, .55, .82, side * (FX - 2.3), .6, z - 2.7, ry - .5 * side);
     a.rotation.x = -.12;
-    entries.push(lampColor(amat, 1.2));
+    entries.push(lampColor(amat, .9));
     addLamp(z, entries);
   }
 
@@ -514,7 +672,7 @@ async function initWebGL() {
       if (rand() < .5) { const tr = new THREE.CylinderGeometry(.28, .28, .8, 10); tr.translate(xs + side * .42, 7.1, z); addStatic(poleMat, tr); }
       const arm = new THREE.BoxGeometry(1.4, .07, .07); arm.translate(xs - side * .7, 6.3, z); addStatic(poleMat, arm);
       const head = new THREE.BoxGeometry(.5, .1, .24); head.translate(xs - side * 1.3, 6.24, z); addStatic(lampHeadMat, head);
-      pool(xs - side * 1.3, z, 7, '#9fb6ff').opacity = .2;
+      pool(xs - side * 1.3, z, 7, '#9fb6ff').opacity = .18;
       const pts = [[xs - .75, 8.75, z], [xs, 8.75, z], [xs + .75, 8.75, z], [xs - .6, 8.15, z], [xs + .6, 8.15, z]];
       if (prev) pts.forEach((p, i) => wire(prev[i], p, range(.35, .7)));
       prev = pts;
@@ -554,7 +712,7 @@ async function initWebGL() {
   }
 
   for (const [mat, geos] of statics) scene.add(new THREE.Mesh(mergeGeometries(geos), mat));
-  setProgress(85);
+  setProgress(84);
 
   /* ---------- 雨 ---------- */
   const RAIN = reduceMotion ? 0 : (coarse ? 320 : 700);
@@ -568,12 +726,14 @@ async function initWebGL() {
   const rainGeo = new THREE.BufferGeometry().setAttribute('position', new THREE.BufferAttribute(rainPos, 3));
   if (RAIN) scene.add(new THREE.LineSegments(rainGeo, new THREE.LineBasicMaterial({ color: '#8ea2dc', transparent: true, opacity: .3 })));
 
-  /* ---------- 画面の後処理（光のにじみ） ---------- */
+  /* ---------- 画面の後処理 ---------- */
   const composer = new EffectComposer(renderer);
   composer.addPass(new RenderPass(scene, camera));
-  const bloom = new UnrealBloomPass(new THREE.Vector2(innerWidth / 2, innerHeight / 2), .7, .5, .78);
+  const bloom = new UnrealBloomPass(new THREE.Vector2(innerWidth / 2, innerHeight / 2), .6, .5, .84);
   composer.addPass(bloom);
   composer.addPass(new OutputPass());
+  const finish = new ShaderPass(FinishShader);
+  composer.addPass(finish);
 
   function resize() {
     measure();
@@ -583,6 +743,7 @@ async function initWebGL() {
     renderer.setSize(innerWidth, innerHeight, false);
     composer.setSize(innerWidth, innerHeight);
     bloom.resolution.set(innerWidth / 2, innerHeight / 2);
+    if (road) { const pr = renderer.getPixelRatio(); road.getRenderTarget().setSize(Math.round(innerWidth * pr * .5), Math.round(innerHeight * pr * .5)); }
   }
   addEventListener('resize', resize);
   resize();
@@ -591,10 +752,11 @@ async function initWebGL() {
   const P = new THREE.Vector3(), L = new THREE.Vector3();
   const Pa = new THREE.Vector3(), La = new THREE.Vector3(), Pb = new THREE.Vector3(), Lb = new THREE.Vector3();
   const curP = new THREE.Vector3(), curL = new THREE.Vector3();
+  let tgtFog = 0, tgtExp = 1;
   const preset = (key, outP, outL) => {
     const c = CAM[key], m = portrait && c.pm;
     outP.fromArray(m ? c.pm : c.p); outL.fromArray(m ? c.lm : c.l);
-    return c.fog;
+    return c;
   };
   function target(sy) {
     let a = anchors[0], b = a, t = 0;
@@ -603,37 +765,52 @@ async function initWebGL() {
     else for (let i = 0; i < anchors.length - 1; i++) {
       if (sy < anchors[i + 1].s) { a = anchors[i]; b = anchors[i + 1]; t = sy <= a.s ? 0 : smooth((sy - a.s) / (b.s - a.s)); break; }
     }
-    const fa = preset(a.key, Pa, La), fb = preset(b.key, Pb, Lb);
+    const ca = preset(a.key, Pa, La), cb = preset(b.key, Pb, Lb);
     P.lerpVectors(Pa, Pb, t); L.lerpVectors(La, Lb, t);
-    return fa + (fb - fa) * t;
+    tgtFog = ca.fog + (cb.fog - ca.fog) * t;
+    tgtExp = ca.exp + (cb.exp - ca.exp) * t;
   }
-  let fogD = target(scrollY);
+  target(scrollY);
+  let fogD = tgtFog, expo = tgtExp;
   curP.copy(P); curL.copy(L);
 
   const mouse = { x: 0, y: 0 }, par = new THREE.Vector3();
   if (finePointer) addEventListener('pointermove', e => { mouse.x = e.clientX / innerWidth * 2 - 1; mouse.y = e.clientY / innerHeight * 2 - 1; });
 
-  let started = false;
+  let started = false, dive = null, lastPanelY = -1;
   const clock = new THREE.Clock();
 
   function frame() {
     const dt = Math.min(clock.getDelta(), .05), now = clock.elapsedTime;
-    const tf = target(scrollY);
-    const k = 1 - Math.pow(.0012, dt);
-    curP.lerp(P, k); curL.lerp(L, k); fogD += (tf - fogD) * k;
+    target(scrollY);
+    if (dive) {
+      const k = smooth((now - dive.t0) / 1.1);
+      P.lerpVectors(dive.fromP, dive.toP, k); L.lerpVectors(dive.fromL, dive.toL, k);
+    }
+    const k = dive ? 1 : 1 - Math.pow(.0012, dt);
+    curP.lerp(P, k); curL.lerp(L, k);
+    fogD += (tgtFog - fogD) * k; expo += (tgtExp - expo) * k;
     par.x += (mouse.x * .45 - par.x) * .05;
     par.y += (-mouse.y * .22 - par.y) * .05;
-    camera.position.copy(curP).add(par);
+    camera.position.copy(curP).add(dive ? par.multiplyScalar(.9) : par);
     camera.lookAt(curL);
     scene.fog.density = fogD;
+    renderer.toneMappingExposure = expo;
+
+    const v = (scrollY - lastY) / Math.max(dt, .001);
+    lastY = scrollY;
+    scrollVel += (Math.min(1, Math.abs(v) / 5000) - scrollVel) * .1;
+    finish.uniforms.uVel.value = reduceMotion ? 0 : scrollVel;
+    finish.uniforms.uTime.value = now;
+    if (road) { road.material.uniforms.uTime.value = now; road.material.uniforms.uFogDensity.value = fogD; }
 
     for (const l of lamps) {
       if (l.t0 < 0) {
         if (started && camera.position.z < l.z + l.reach) l.t0 = now + l.delay;
         else continue;
       }
-      const v = flicker(now - l.t0);
-      if (v !== l.last) { l.entries.forEach(fn => fn(v)); l.last = v; }
+      const val = flicker(now - l.t0);
+      if (val !== l.last) { l.entries.forEach(fn => fn(val)); l.last = val; }
     }
 
     if (!reduceMotion) for (const s of swingers) s.obj.rotation[s.axis] = Math.sin(now * s.speed + s.phase) * s.amp;
@@ -648,24 +825,33 @@ async function initWebGL() {
       rainGeo.attributes.position.needsUpdate = true;
     }
 
+    if (scrollY !== lastPanelY) { lastPanelY = scrollY; updatePanels(scrollY); }
     composer.render();
     requestAnimationFrame(frame);
   }
 
   composer.render();
   setProgress(100);
-  return { start() { started = true; clock.getDelta(); requestAnimationFrame(frame); } };
+  return {
+    start() { started = true; clock.getDelta(); requestAnimationFrame(frame); },
+    dive(key) {
+      const d = DOORS[key];
+      dive = { t0: clock.elapsedTime, fromP: curP.clone(), fromL: curL.clone(), toP: new THREE.Vector3(...d.p), toL: new THREE.Vector3(...d.l) };
+    },
+    undive() { dive = null; },
+  };
 }
 
 /* ================= 起動 ================= */
 setProgress(8);
-initWebGL().then(world => {
-  if (!world) document.documentElement.classList.add('no-webgl');
+initWebGL().then(w => {
+  world = w;
+  if (!w) document.documentElement.classList.add('no-webgl');
   setTimeout(() => {
     loader.classList.add('done');
-    if (world) world.start();
+    if (w) w.start();
     lightTitle();
-  }, world ? 450 : 0);
+  }, w ? 700 : 0);
 }).catch(err => {
   console.error(err);
   document.documentElement.classList.add('no-webgl');
