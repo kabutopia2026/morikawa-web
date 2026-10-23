@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>アート英｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#151617">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700;900&family=Yuji+Syuku&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#151617;--ink:#ecebe7;--mute:#a3a4a3;--accent:#b9a27a;--accent-ink:#151617;--panel:#1d1f20;--line:rgba(236,235,231,.13);--display:"Noto Serif JP",serif;--display-weight:900;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 50%}
+
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>がアート英様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">表札・ペット彫刻・石の製作販売　静岡市西脇</p><p class="pl-name">アート英</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">アート英</a>
+  <nav aria-label="ページ内の案内"><a href="#story">アート英</a><a href="#features">つくれるもの</a><a href="#info">お問い合わせ</a></nav>
+  
+  <a class="call" href="tel:0542812952"><span data-en="Call">電話</span><span class="num">054-281-2952</span></a>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-img"><img src="img/hero.jpg" alt="白い筋の入った黒御影石"  data-gl="wipe" data-gl-hero></div>
+    <div class="hero-copy">
+      <p class="kind">表札・ペット彫刻・石の製作販売　静岡市西脇</p>
+      <h1><span class="ln"><span style="--i:0">石に、</span></span><span class="ln"><span style="--i:1">毛並みまで。</span></span></h1>
+      
+      <p class="sub">独自のマイクロ（微細）サンドブラスト加工で、石材を繊細に彫刻します。表札、ペットの似顔絵、家紋、定礎まで、石のことならおまかせください。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-ha" id="sig" aria-label="名前を入れると、スクロールに合わせて黒御影石の表札に文字が彫られていく3Dの演出">
+    <div class="ha-stick">
+      <canvas id="ha3d" aria-hidden="true"></canvas>
+      <div class="ha-copy">
+        <p class="ha-step">表札を、試しに彫る</p>
+        <label class="ha-label" for="ha-name">お名前</label>
+        <input class="ha-input" id="ha-name" type="text" maxlength="5" value="山田" autocomplete="off">
+        <div class="ha-fonts" role="group" aria-label="字体を選ぶ"><button type="button" data-f="0" aria-pressed="true">明朝</button><button type="button" data-f="1" aria-pressed="false">楷書風</button><button type="button" data-f="2" aria-pressed="false">ゴシック</button></div>
+        <p class="ha-p">独自のマイクロ（微細）サンドブラスト加工で、石材を繊細に彫刻します。</p>
+      </div>
+      <p class="ha-note">表札の3Dイメージです。実際の石・字体とは異なります</p>
+    </div>
+  </section>
+<style>
+.sig-ha{position:relative;height:360vh;background:#121314}
+.ha-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:radial-gradient(60% 70% at 64% 46%,#34322d,#121314 72%)}
+#ha3d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.ha-copy{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);max-width:340px;z-index:3}
+.ha-step{margin:0 0 18px;color:var(--accent);font-weight:700;letter-spacing:.16em;font-size:14px}
+.ha-label{display:block;font-size:13px;color:var(--mute);margin-bottom:6px}
+.ha-input{font:inherit;font-family:var(--display);font-weight:900;font-size:clamp(40px,4.4vw,60px);width:100%;max-width:320px;padding:6px 14px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--ink);margin-bottom:16px}
+.ha-input:focus{outline:2px solid var(--accent);outline-offset:2px}
+.ha-fonts{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+.ha-fonts button{font:inherit;font-weight:700;font-size:14px;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.ha-fonts button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#151617}
+.ha-p{margin:0;color:var(--mute)}
+.ha-note{position:absolute;right:var(--gut);bottom:22px;margin:0;font-size:12px;color:var(--mute)}
+@media (max-width:860px){
+  .ha-copy{top:auto;bottom:0;transform:none;left:0;right:0;max-width:none;padding:40px var(--gut) 86px;background:linear-gradient(to top,rgba(18,19,20,.97) 70%,rgba(18,19,20,0))}
+  .ha-step{margin-bottom:10px}
+  .ha-input{font-size:34px;margin-bottom:10px}
+  .ha-fonts{margin-bottom:0}
+  .ha-p{display:none}
+  .ha-note{top:74px;bottom:auto}
+}
+</style>
+<script type="module">
+import * as THREE from 'three';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+import { stage3d, span, ease, c01, qa, mouse, canvasTexture } from '../_kit/sig/stage.js';
+
+const canvas = document.getElementById('ha3d'), section = canvas.closest('section');
+const input = document.getElementById('ha-name'), fontBtns = [...section.querySelectorAll('.ha-fonts button')];
+const FONTS = ['900 {s}px "Noto Serif JP", serif', '400 {s}px "Yuji Syuku", serif', '700 {s}px "Zen Kaku Gothic New", sans-serif'];
+let font = 0, reveal = -1;
+const CW = 1536, CH = 640, W = 3.4, H = W * CH / CW;
+const maskCv = document.createElement('canvas'); maskCv.width = CW; maskCv.height = CH;
+function drawMask() {
+  const g = maskCv.getContext('2d'); g.fillStyle = '#000'; g.fillRect(0, 0, CW, CH);
+  const name = [...(input.value.trim() || '　')].slice(0, 5), n = name.length, s = Math.min(CH * .62, CW * .82 / n);
+  g.fillStyle = '#fff'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.font = FONTS[font].replace('{s}', s);
+  const gap = Math.min(s * 1.25, CW * .84 / n);
+  name.forEach((ch, i) => g.fillText(ch, CW / 2 + (i - (n - 1) / 2) * gap, CH * .53));
+  reveal = -1;
+}
+
+const st = stage3d({ canvas, section, fov: 30, env: .04, exposure: 1.1, frame });
+if (st) {
+  const { scene } = st;
+  // 黒御影石：黒地に白と灰の小さな斑
+  const granite = canvasTexture(CW, CH, (g, w, h) => {
+    g.fillStyle = '#121314'; g.fillRect(0, 0, w, h);
+    for (let i = 0; i < 26000; i++) { const v = Math.random(); g.fillStyle = v < .7 ? `rgba(60,62,64,${Math.random()})` : v < .95 ? `rgba(140,140,138,${.5 * Math.random()})` : `rgba(230,230,225,${.7 * Math.random()})`; const r = Math.random() * 2.6; g.fillRect(Math.random() * w, Math.random() * h, r, r); }
+  });
+  const carveCv = document.createElement('canvas'); carveCv.width = CW; carveCv.height = CH;
+  const carveTex = new THREE.CanvasTexture(carveCv);
+  const mat = new THREE.MeshStandardMaterial({ map: granite, roughness: .12, metalness: 0, envMapIntensity: 1.6, bumpMap: carveTex, bumpScale: -6 });
+  mat.onBeforeCompile = sh => {
+    sh.uniforms.uCarve = { value: carveTex };
+    sh.fragmentShader = 'uniform sampler2D uCarve;\n' + sh.fragmentShader.replace('#include <roughnessmap_fragment>', `#include <roughnessmap_fragment>
+      float cv = texture2D(uCarve, vMapUv).g;
+      float nz = fract(sin(dot(floor(vMapUv * 900.), vec2(12.9, 78.2))) * 43758.5);
+      diffuseColor.rgb = mix(diffuseColor.rgb, vec3(.62, .62, .6) * (.82 + .25 * nz), cv);
+      roughnessFactor = mix(roughnessFactor, .92, cv);`);
+  };
+  // 前面だけに模様（箱の面ごとのUVを、前面いっぱいに）
+  const slab = new THREE.Mesh(new RoundedBoxGeometry(W, H, .3, 4, .04), mat);
+  // 台
+  const base = new THREE.Mesh(new THREE.BoxGeometry(W + .6, .08, 1.2), new THREE.MeshStandardMaterial({ color: '#2a2622', roughness: .9 })); base.position.y = -H / 2 - .04;
+  // ノズル
+  const nozzle = new THREE.Group();
+  const body = new THREE.Mesh(new THREE.CylinderGeometry(.06, .08, .8, 20), new THREE.MeshPhysicalMaterial({ color: '#9aa1a8', metalness: .9, roughness: .3 })); body.rotation.x = Math.PI / 2; body.position.z = .5; nozzle.add(body);
+  const tip = new THREE.Mesh(new THREE.CylinderGeometry(.02, .05, .14, 12), body.material); tip.rotation.x = Math.PI / 2; tip.position.z = .08; nozzle.add(tip);
+  // 粉じん
+  const DN = 360, dPos = new Float32Array(DN * 3), dVel = new Float32Array(DN * 3), dLife = new Float32Array(DN);
+  const dg = new THREE.BufferGeometry(); dg.setAttribute('position', new THREE.BufferAttribute(dPos, 3));
+  const dust = new THREE.Points(dg, new THREE.PointsMaterial({ color: '#d9d6cf', size: .02, transparent: true, opacity: .7, depthWrite: false }));
+  const group = new THREE.Group(); group.add(slab, base, nozzle, dust); scene.add(group);
+  scene.add(new THREE.HemisphereLight('#fff6e8', '#1a1a1a', .5));
+  const key = new THREE.DirectionalLight('#fff2e0', 2.2); key.position.set(-3, 4, 5); scene.add(key);
+  const spec = new THREE.PointLight('#ffffff', 10, 10); spec.position.set(2, 1.5, 3); scene.add(spec);
+  Object.assign(st, { slab, carveCv, carveTex, nozzle, dust, dPos, dVel, dLife, group, di: 0 });
+  drawMask();
+  st.start();
+}
+input.addEventListener('input', drawMask);
+fontBtns.forEach(b => b.addEventListener('click', () => { font = +b.dataset.f; fontBtns.forEach(x => x.setAttribute('aria-pressed', x === b)); drawMask(); }));
+if (document.fonts) Promise.all(['900 60px "Noto Serif JP"', '400 60px "Yuji Syuku"', '700 60px "Zen Kaku Gothic New"'].map(f => document.fonts.load(f, '山田'))).then(drawMask).catch(() => {});
+
+function frame({ t, dt, p, portrait }) {
+  const r = ease(span(p, .1, .72));
+  // 彫った所まで、文字を見せる（RoundedBox の前面は UV が 0〜1）
+  if (Math.abs(r - reveal) > .001) {
+    reveal = r;
+    const g = st.carveCv.getContext('2d'); g.fillStyle = '#000'; g.fillRect(0, 0, CW, CH);
+    g.save(); g.beginPath(); g.rect(0, 0, CW * r, CH); g.clip(); g.filter = 'blur(1.5px)'; g.drawImage(maskCv, 0, 0); g.restore();
+    st.carveTex.needsUpdate = true;
+  }
+  const working = r > .001 && r < .999;
+  st.nozzle.visible = working;
+  const nx = -W / 2 + W * r, ny = Math.sin(t * 14) * H * .32;
+  st.nozzle.position.set(nx, ny, .16);
+  if (working && !qa) for (let k = 0; k < 4; k++) { const i = st.di = (st.di + 1) % 360; st.dPos.set([nx, ny, .17], i * 3); st.dVel.set([(Math.random() - .5) * 1.4, (Math.random() - .3) * 1.2, Math.random() * 1.2], i * 3); st.dLife[i] = .4 + Math.random() * .5; }
+  for (let i = 0; i < 360; i++) { if (st.dLife[i] > 0) { st.dLife[i] -= dt; st.dVel[i * 3 + 1] -= 2 * dt; for (let k = 0; k < 3; k++) st.dPos[i * 3 + k] += st.dVel[i * 3 + k] * dt; } else st.dPos[i * 3 + 1] = -99; }
+  st.dust.geometry.attributes.position.needsUpdate = true;
+  const turn = ease(span(p, .72, 1));
+  st.group.rotation.set(-.08 + mouse.y * .06, -.32 + turn * .55 + mouse.x * .25, 0);
+  st.group.position.set(portrait ? 0 : 1.15, portrait ? .95 : 0, 0);
+  st.group.scale.setScalar(portrait ? .4 : .95);
+  st.camera.position.set(0, .6, 7.6); st.camera.lookAt(portrait ? 0 : .25, portrait ? .3 : 0, 0);
+}
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="2004" data-from="1944">2004</span><small>年　ホームページを開設</small></div></div>
+    <div class="rv"><h2>サンドブラストで、線を彫る。</h2><p>サンドブラストとは、コンプレッサーからの圧縮エアーで、砂状の研磨材を吹き付けて彫刻する技法です。当社の研磨材は通常よりさらに細かい材料を使っているため、微細な加工ができます。</p><p>ペットの写真をお借りして、天然御影石に線彫刻で肖像画を制作します。毛並み一本一本まで丁寧に描くので、表情豊かで柔らかみのある作品に仕上がります。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>表札</span><span>マイクロサンドブラスト</span><span>ペット彫刻</span><span>家紋</span><span>定礎</span><span>コースター</span><span>表札</span><span>マイクロサンドブラスト</span><span>ペット彫刻</span><span>家紋</span><span>定礎</span><span>コースター</span><span>表札</span><span>マイクロサンドブラスト</span><span>ペット彫刻</span><span>家紋</span><span>定礎</span><span>コースター</span><span>表札</span><span>マイクロサンドブラスト</span><span>ペット彫刻</span><span>家紋</span><span>定礎</span><span>コースター</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>つくれるもの</h2><span>WORKS</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/f1.jpg" alt="丸い石の番地表示" loading="lazy" data-speed=".06" data-gl></div><h3>完全オーダーの表札</h3><p>石の種類・色から、字体と文字の色まで、自由に組み合わせられます。</p></article><article class="feature rv"><div class="ph"><img src="img/f2.jpg" alt="花の模様を彫った石" loading="lazy" data-speed=".06" data-gl></div><h3>ペットの似顔絵彫刻</h3><p>写真から、天然御影石に線彫刻で。</p></article><article class="feature rv"><div class="ph"><img src="img/f3.jpg" alt="黒い御影石の表面" loading="lazy" data-speed=".06" data-gl></div><h3>コースター・花瓶</h3><p>標準の品は、オンラインショップからも注文できます。</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/wide.jpg" alt="御影石の表面" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">心を込めて、ご要望にお応えします。</figcaption></figure>
+  
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">ご案内</h2></div>
+      
+      <table class="hours"><tr><th>ご注文</th><td>表札・ペット彫刻・定礎などのオーダーメイドは、ご注文ページから</td></tr><tr><th>お問い合わせ</th><td>お電話・FAX・メールで</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>静岡県静岡市西脇288-2</p>
+      <p class="mute">オーダーメイドのご相談は、お電話・メールでお気軽にどうぞ。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E9%9D%99%E5%B2%A1%E5%B8%82%E8%A5%BF%E8%84%87288-2%20%E3%82%A2%E3%83%BC%E3%83%88%E8%8B%B1" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:0542812952" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">ずっと残る表札を。</h2>
+    <a class="tel" href="tel:0542812952">054-281-2952</a>
+    <p>石の種類・字体のご相談から承ります。</p>
+    <div class="btns"><a class="btn" href="mailto:shizuoka@art-hide.jp" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>アート英　静岡県静岡市西脇288-2　TEL 054-281-2952</p>
+  <p>この試作は森川ウェブ（koseimorikawa2026@gmail.com）が、アート英様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:0542812952" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>畠山醸造株式会社｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#1c1611">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@700;800&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#1c1611;--ink:#efe4d3;--mute:#b4a28a;--accent:#c98a3e;--accent-ink:#1c1611;--panel:#261d16;--line:rgba(239,228,211,.13);--display:"Shippori Mincho B1",serif;--display-weight:800;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 50%}
+
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>が畠山醸造株式会社様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">安曇野三年みそ 醸造元　長野県安曇野市穂高有明</p><p class="pl-name">畠山醸造</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">畠山醸造</a>
+  <nav aria-label="ページ内の案内"><a href="#story">味噌のこと</a><a href="#features">味噌づくり</a><a href="#info">お問い合わせ</a></nav>
+  
+  <a class="call" href="tel:0263832308"><span data-en="Call">電話</span><span class="num">0263-83-2308</span></a>
+</header>
+
+<main>
+  <section class="hero tate">
+    <div class="hero-img"><img src="img/hero.jpg" alt="木の器に入ったみそ汁"  data-gl="wipe" data-gl-hero></div>
+    <div class="hero-copy">
+      <p class="kind">安曇野三年みそ 醸造元　長野県安曇野市穂高有明</p>
+      <h1 aria-label="寒に仕込み、三年待つ。"><span class="ch" style="--i:0">寒</span><span class="ch" style="--i:1">に</span><span class="ch" style="--i:2">仕</span><span class="ch" style="--i:3">込</span><span class="ch" style="--i:4">み</span><span class="ch" style="--i:5">、</span><br><span class="ch" style="--i:6">三</span><span class="ch" style="--i:7">年</span><span class="ch" style="--i:8">待</span><span class="ch" style="--i:9">つ</span><span class="ch" style="--i:10">。</span></h1>
+      <span class="seal" aria-hidden="true">味噌</span>
+      <p class="sub">信州安曇野穂高、有明山麓で米と大豆を栽培し、農業のかたわら、天然醸造で昔ながらの手造り味噌の醸造を続けています。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-ms" id="sig" aria-label="スクロールすると、木桶の中の味噌が、寒仕込みから三年かけて色づいていく3Dの演出">
+    <div class="ms-stick" id="ms-stick">
+      <canvas id="ms3d" aria-hidden="true"></canvas>
+      <div class="ms-copy">
+        <p class="ms-step">安曇野三年みそ</p>
+        <p class="ms-h"><b id="ms-y">0</b><span>年</span><em id="ms-s">冬</em></p>
+        <p class="ms-p" id="ms-p">寒の厳しい冬に、木桶へ仕込みます。</p>
+        <ol class="ms-bar" id="ms-bar" aria-hidden="true"><li>寒仕込み</li><li>一年</li><li>二年</li><li>三年</li></ol>
+      </div>
+      <p class="ms-note">味噌の熟成の3Dイメージです。色の変わり方は目安です</p>
+    </div>
+  </section>
+<style>
+.sig-ms{position:relative;height:440vh;background:#140f0b}
+.ms-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:radial-gradient(60% 70% at 64% 46%,#3a2c20,#140f0b 72%);transition:background 1s}
+#ms3d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.ms-copy{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);max-width:340px;z-index:3}
+.ms-step{margin:0;color:var(--accent);font-weight:700;letter-spacing:.16em;font-size:14px}
+.ms-h{margin:8px 0 14px;font-family:var(--display);font-weight:800;line-height:1;display:flex;align-items:baseline;gap:6px}
+.ms-h b{font-size:clamp(110px,13vw,190px);font-weight:800;font-variant-numeric:tabular-nums}
+.ms-h span{font-size:34px}
+.ms-h em{font-style:normal;font-size:28px;margin-left:16px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;color:var(--mute)}
+.ms-p{margin:0 0 26px;color:var(--mute);min-height:3.6em;transition:opacity .3s}
+.ms-bar{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;font-size:12px;color:var(--mute)}
+.ms-bar li{border-top:3px solid rgba(239,228,211,.15);padding-top:8px;transition:border-color .4s,color .4s}
+.ms-bar li.on{border-color:var(--accent);color:var(--ink)}
+.ms-note{position:absolute;right:var(--gut);bottom:22px;margin:0;font-size:12px;color:var(--mute)}
+@media (max-width:860px){
+  .ms-copy{top:auto;bottom:0;transform:none;left:0;right:0;max-width:none;padding:56px var(--gut) 92px;background:linear-gradient(to top,rgba(20,15,11,.97) 62%,rgba(20,15,11,0))}
+  .ms-h b{font-size:96px}
+  .ms-p{display:none}
+  .ms-note{top:74px;bottom:auto}
+}
+</style>
+<script type="module">
+import * as THREE from 'three';
+import { stage3d, span, ease, c01, qa, mouse, canvasTexture } from '../_kit/sig/stage.js';
+
+const canvas = document.getElementById('ms3d'), section = canvas.closest('section'), stick = document.getElementById('ms-stick');
+const yEl = document.getElementById('ms-y'), sEl = document.getElementById('ms-s'), pEl = document.getElementById('ms-p'), bar = [...document.querySelectorAll('#ms-bar li')];
+const SEASON = ['冬', '春', '夏', '秋'];
+const BG = ['#26303a', '#33302a', '#3e2a1a', '#3a2818'];
+const TEXT = [
+  [0, '寒の厳しい冬に、木桶へ仕込みます。'],
+  [1, '加温はしません。安曇野の気候のなかで、季節が移ろうままに。'],
+  [5, '塩カドがとれて、まろやかに。'],
+  [11, '独特なコクと香り、旨味が生まれます。'],
+];
+const R = 1.2, HT = 1.5, SURF = 1.16;
+const C0 = new THREE.Color('#d9b679'), C1 = new THREE.Color('#9a5a2c'), C3 = new THREE.Color('#4a2614');
+
+const st = stage3d({ canvas, section, fov: 30, env: .02, exposure: 1.1, frame });
+if (st) {
+  const { scene } = st;
+  // 桶の側板：縦に並ぶ板と、その継ぎ目
+  const staves = canvasTexture(2048, 256, (g, w, h) => {
+    for (let i = 0; i < 28; i++) {
+      const x = i * w / 28, l = 58 + Math.random() * 14;
+      g.fillStyle = `hsl(28,${38 + Math.random() * 10}%,${l * .62}%)`; g.fillRect(x, 0, w / 28, h);
+      for (let k = 0; k < 7; k++) { g.strokeStyle = `rgba(60,30,12,${.12 + Math.random() * .12})`; g.lineWidth = 1 + Math.random() * 2; const xx = x + Math.random() * w / 28; g.beginPath(); g.moveTo(xx, 0); g.bezierCurveTo(xx + 6, h * .3, xx - 6, h * .7, xx + 3, h); g.stroke(); }
+      g.fillStyle = 'rgba(30,14,6,.7)'; g.fillRect(x, 0, 3, h);
+    }
+  });
+  const wood = new THREE.MeshStandardMaterial({ map: staves, roughness: .82 });
+  const outer = new THREE.Mesh(new THREE.CylinderGeometry(R, R * .94, HT, 112, 1, true), wood);
+  const inner = new THREE.Mesh(new THREE.CylinderGeometry(R - .07, R * .94 - .07, HT, 112, 1, true), new THREE.MeshStandardMaterial({ map: staves, roughness: .9, side: THREE.BackSide, color: '#8a6a50' }));
+  const rim = new THREE.Mesh(new THREE.RingGeometry(R - .07, R, 112), new THREE.MeshStandardMaterial({ color: '#b48a5e', roughness: .8 }));
+  rim.rotation.x = -Math.PI / 2; rim.position.y = HT / 2;
+  // 竹のたが
+  const braid = canvasTexture(1024, 64, (g, w, h) => { g.fillStyle = '#b39258'; g.fillRect(0, 0, w, h); for (let x = -h; x < w; x += 18) { g.strokeStyle = 'rgba(70,45,15,.5)'; g.lineWidth = 3; g.beginPath(); g.moveTo(x, 0); g.lineTo(x + h, h); g.stroke(); } });
+  braid.wrapS = THREE.RepeatWrapping; braid.repeat.set(6, 1);
+  const hoops = [.42, -.38].map(y => { const m = new THREE.Mesh(new THREE.TorusGeometry(R * (1 - (y + HT / 2) / HT * .06) + .035, .055, 12, 120), new THREE.MeshStandardMaterial({ map: braid, roughness: .6 })); m.rotation.x = Math.PI / 2; m.position.y = y; return m; });
+  // 味噌の面：ゆるやかな凹凸と、麹の粒
+  const mottle = canvasTexture(1024, 1024, (g, w, h) => {
+    g.fillStyle = '#fff'; g.fillRect(0, 0, w, h);
+    for (let i = 0; i < 900; i++) { const x = Math.random() * w, y = Math.random() * h, r = 20 + Math.random() * 70, gr = g.createRadialGradient(x, y, 0, x, y, r); gr.addColorStop(0, `rgba(120,90,70,${Math.random() * .16})`); gr.addColorStop(1, 'rgba(120,90,70,0)'); g.fillStyle = gr; g.fillRect(x - r, y - r, r * 2, r * 2); }
+  });
+  const surf = new THREE.Mesh(new THREE.CircleGeometry(R - .08, 96), new THREE.MeshPhysicalMaterial({ map: mottle, bumpMap: mottle, bumpScale: 2, roughness: .55, clearcoat: .2, color: C0.clone() }));
+  surf.rotation.x = -Math.PI / 2; surf.position.y = SURF - HT / 2;
+  const koji = canvasTexture(1024, 1024, (g, w, h) => {
+    g.clearRect(0, 0, w, h);
+    for (let i = 0; i < 5200; i++) { const x = Math.random() * w, y = Math.random() * h; g.fillStyle = `rgba(250,240,215,${.5 + Math.random() * .4})`; g.beginPath(); g.ellipse(x, y, 4 + Math.random() * 2, 2.4, Math.random() * 3, 0, 7); g.fill(); }
+  });
+  const grains = new THREE.Mesh(new THREE.CircleGeometry(R - .08, 96), new THREE.MeshStandardMaterial({ map: koji, transparent: true, roughness: .7, depthWrite: false }));
+  grains.rotation.x = -Math.PI / 2; grains.position.y = surf.position.y + .003;
+  // ふちにたまる、たまり
+  const ringTex = canvasTexture(512, 512, (g, w, h) => { g.fillStyle = '#000'; g.fillRect(0, 0, w, h); const gr = g.createRadialGradient(w / 2, h / 2, w * .32, w / 2, h / 2, w / 2); gr.addColorStop(0, '#000'); gr.addColorStop(.75, '#999'); gr.addColorStop(1, '#fff'); g.fillStyle = gr; g.fillRect(0, 0, w, h); }, false);
+  const tamari = new THREE.Mesh(new THREE.CircleGeometry(R - .08, 96), new THREE.MeshPhysicalMaterial({ color: '#2a1206', alphaMap: ringTex, transparent: true, roughness: .05, clearcoat: 1, depthWrite: false, opacity: 0 }));
+  tamari.rotation.x = -Math.PI / 2; tamari.position.y = surf.position.y + .006;
+  const oke = new THREE.Group(); oke.add(outer, inner, rim, ...hoops, surf, grains, tamari); scene.add(oke);
+  // 雪
+  const snowN = 260, snowPos = new Float32Array(snowN * 3);
+  for (let i = 0; i < snowN; i++) { snowPos[i * 3] = (Math.random() - .5) * 8; snowPos[i * 3 + 1] = Math.random() * 6 - 2; snowPos[i * 3 + 2] = (Math.random() - .5) * 6; }
+  const snowGeo = new THREE.BufferGeometry(); snowGeo.setAttribute('position', new THREE.BufferAttribute(snowPos, 3));
+  const dot = canvasTexture(64, 64, (g) => { const gr = g.createRadialGradient(32, 32, 0, 32, 32, 32); gr.addColorStop(0, 'rgba(255,255,255,1)'); gr.addColorStop(1, 'rgba(255,255,255,0)'); g.fillStyle = gr; g.fillRect(0, 0, 64, 64); });
+  const snow = new THREE.Points(snowGeo, new THREE.PointsMaterial({ size: .07, map: dot, transparent: true, depthWrite: false, opacity: 0 }));
+  scene.add(snow);
+  scene.add(new THREE.HemisphereLight('#ffe9cc', '#2a1a10', .55));
+  const key = new THREE.SpotLight('#ffe2b8', 60, 20, .5, .6); key.position.set(-2, 7, 3); key.target = oke; scene.add(key);
+  const fill = new THREE.DirectionalLight('#9fb4d6', .5); fill.position.set(4, 2, -3); scene.add(fill);
+  Object.assign(st, { oke, surf, grains, tamari, snow, snowPos });
+  st.start();
+}
+
+let shownT = -1, shownQ = -1;
+const col = new THREE.Color();
+function frame({ t, dt, p, portrait }) {
+  // 0〜12の季節（三年）を進む
+  const q = c01((p - .06) / .86) * 12, qi = Math.min(12, Math.floor(q + .02)), years = q / 4;
+  if (qi !== shownQ) {
+    shownQ = qi;
+    yEl.textContent = Math.floor(qi / 4); sEl.textContent = SEASON[qi % 4];
+    bar.forEach((li, k) => li.classList.toggle('on', k <= Math.floor(qi / 4)));
+    stick.style.background = `radial-gradient(60% 70% at 64% 46%,${BG[qi % 4]},#140f0b 72%)`;
+    const ti = TEXT.reduce((a, x, k) => qi >= x[0] ? k : a, 0);
+    if (ti !== shownT) { shownT = ti; pEl.style.opacity = 0; setTimeout(() => { pEl.textContent = TEXT[ti][1]; pEl.style.opacity = 1; }, qa ? 0 : 180); }
+  }
+  // 色：一年でぐっと赤く、三年で深い色へ
+  const y1 = c01(years), y3 = c01((years - 1) / 2);
+  col.copy(C0).lerp(C1, ease(y1)).lerp(C3, y3);
+  st.surf.material.color.copy(col);
+  st.grains.material.opacity = (1 - c01(years * 1.4)) * .9;
+  st.tamari.material.opacity = c01((years - .4) / 2.2) * .85;
+  // 冬だけ雪
+  const ph = q % 4, winter = Math.max(c01(1 - Math.abs(ph - 0) * 1.4), c01(1 - Math.abs(ph - 4) * 1.4));
+  st.snow.material.opacity = winter * .9;
+  const sp = st.snowPos;
+  if (!qa) for (let i = 0; i < sp.length; i += 3) { sp[i + 1] -= dt * (.35 + (i % 7) * .04); sp[i] += Math.sin(t + i) * dt * .1; if (sp[i + 1] < -2.2) sp[i + 1] = 3.8; }
+  st.snow.geometry.attributes.position.needsUpdate = true;
+  st.oke.rotation.y = (qa ? 0 : t * .05) + mouse.x * .4;
+  st.oke.position.set(portrait ? 0 : 1.2, portrait ? .8 : -.35, 0);
+  st.oke.scale.setScalar(portrait ? .5 : 1);
+  st.camera.position.set(0, 4.4, 5.2); st.camera.lookAt(portrait ? 0 : .3, portrait ? .1 : -.2, 0);
+}
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="3" data-from="-57">3</span><small>年　安曇野三年みそ</small></div></div>
+    <div class="rv"><h2>手作りではなく、手造り。</h2><p>人工的な作る「手作り」ではなく、醸造による「手造り」味噌です。味噌工場ではなく、言わば味噌（醗）酵場なのです。</p><p>加温で醸造を促すことなく、安曇野の気候風土の中で、季節の移り変わりを経てゆっくり熟成させることで、塩カドがとれてまろやかになり、独特なコクや香り、旨味が生まれます。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>安曇野三年みそ</span><span>天然醸造</span><span>寒仕込み</span><span>室蓋製法</span><span>木桶</span><span>有明山麓</span><span>安曇野三年みそ</span><span>天然醸造</span><span>寒仕込み</span><span>室蓋製法</span><span>木桶</span><span>有明山麓</span><span>安曇野三年みそ</span><span>天然醸造</span><span>寒仕込み</span><span>室蓋製法</span><span>木桶</span><span>有明山麓</span><span>安曇野三年みそ</span><span>天然醸造</span><span>寒仕込み</span><span>室蓋製法</span><span>木桶</span><span>有明山麓</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>味噌づくり</h2><span>MISO</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/f1.jpg" alt="並んだ木の樽" loading="lazy" data-speed=".06" data-gl></div><h3>寒仕込み</h3><p>寒の厳しい冬に仕込みます。農業と同じく、自然と生き物が相手です。</p></article><article class="feature rv"><div class="ph"><img src="img/f2.jpg" alt="大豆" loading="lazy" data-speed=".06" data-gl></div><h3>室蓋製法のこうじ</h3><p>伝統的な手作業で製麹を管理する、室蓋製法のこうじを全量使っています。</p></article><article class="feature rv"><div class="ph"><img src="img/f3.jpg" alt="お盆にのったみそ汁" loading="lazy" data-speed=".06" data-gl></div><h3>大きな木桶で</h3><p>和釜と甑で蒸した大豆をつぶし、麹と塩を併せて木桶に仕込みます。</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/wide.jpg" alt="一面の畑" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">澄んだ空気と、アルプスの水と。</figcaption></figure>
+  
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">ご案内</h2></div>
+      
+      <table class="hours"><tr><th>お問い合わせ</th><td>お電話・FAX・メールで承ります</td></tr><tr><th>郵便振替</th><td>00570-6-5678</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>長野県安曇野市穂高有明2865番地2</p>
+      <p class="mute">有明山の麓、安曇野穂高の味噌蔵です。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E9%95%B7%E9%87%8E%E7%9C%8C%E5%AE%89%E6%9B%87%E9%87%8E%E5%B8%82%E7%A9%82%E9%AB%98%E6%9C%89%E6%98%8E2865%20%E7%95%A0%E5%B1%B1%E9%86%B8%E9%80%A0" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:0263832308" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">三年みそを、食卓へ。</h2>
+    <a class="tel" href="tel:0263832308">0263-83-2308</a>
+    <p>ご用命をお待ちしております。</p>
+    <div class="btns"><a class="btn" href="mailto:sunmaruha@msj.biglobe.ne.jp" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>畠山醸造株式会社　長野県安曇野市穂高有明2865番地2　TEL 0263-83-2308</p>
+  <p>この試作は森川ウェブ（koseimorikawa2026@gmail.com）が、畠山醸造株式会社様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:0263832308" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

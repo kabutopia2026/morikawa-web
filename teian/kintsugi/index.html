@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>金継ぎ世田谷工房｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#14110e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@700;800&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#14110e;--ink:#f2eadb;--mute:#ab9f8b;--accent:#d4a94a;--accent-ink:#14110e;--panel:#1c1814;--line:rgba(242,234,219,.13);--display:"Shippori Mincho",serif;--display-weight:800;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 50%;--top-ink:var(--ink)}
+
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>が金継ぎ世田谷工房様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">器のお直し工房　東京・世田谷</p><p class="pl-name">金継ぎ世田谷工房</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">金継ぎ世田谷工房</a>
+  <nav aria-label="ページ内の案内"><a href="#story">工房のこと</a><a href="#features">お直し</a><a href="#price">料金</a></nav>
+  
+  <a class="call" href="mailto:una-caja0123@major.ocn.ne.jp"><span data-en="Call">メール</span><span class="num">お問い合わせ</span></a>
+</header>
+
+<main>
+  <section class="hero tate" hidden>
+    <div class="hero-img"><img src="img/hero.jpg" alt="金で継がれた器" ></div>
+    <div class="hero-copy">
+      <p class="kind">器のお直し工房　東京・世田谷</p>
+      <h1 aria-label="割れても、金で継ぐ。"><span class="ch" style="--i:0">割</span><span class="ch" style="--i:1">れ</span><span class="ch" style="--i:2">て</span><span class="ch" style="--i:3">も</span><span class="ch" style="--i:4">、</span><br><span class="ch" style="--i:5">金</span><span class="ch" style="--i:6">で</span><span class="ch" style="--i:7">継</span><span class="ch" style="--i:8">ぐ</span><span class="ch" style="--i:9">。</span></h1>
+      <span class="seal" aria-hidden="true">金継</span>
+      <p class="sub">女性だけで運営する、器のお直し工房です。体に安全な漆を使った、丁寧な仕事が好評です。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-kt hero-sig" id="sig" aria-label="割れた器のかけらが、スクロールすると集まって継がれ、継ぎ目に金が走る3Dの演出">
+    <div class="kt-stick hero tate">
+      <canvas id="kt3d" aria-hidden="true"></canvas>
+      <div class="hero-copy hs-copy" id="hs-copy"><p class="kind">器のお直し工房　東京・世田谷</p><h1 aria-label="割れても、金で継ぐ。"><span class="ch" style="--i:0">割</span><span class="ch" style="--i:1">れ</span><span class="ch" style="--i:2">て</span><span class="ch" style="--i:3">も</span><span class="ch" style="--i:4">、</span><br><span class="ch" style="--i:5">金</span><span class="ch" style="--i:6">で</span><span class="ch" style="--i:7">継</span><span class="ch" style="--i:8">ぐ</span><span class="ch" style="--i:9">。</span></h1><span class="seal" aria-hidden="true">金継</span><p class="sub">女性だけで運営する、器のお直し工房です。体に安全な漆を使った、丁寧な仕事が好評です。</p></div>
+      <div class="kt-copy" id="kt-copy">
+        <p class="kt-step" id="kt-step">割れ・欠け</p>
+        <p class="kt-h" id="kt-h">割れた器も、<br>欠けた器も。</p>
+        <p class="kt-p" id="kt-p">材質と品物、状態に合わせてお直しします。</p>
+        <ol class="kt-steps" id="kt-steps"><li>集める</li><li>漆で継ぐ</li><li>金で仕上げる</li></ol>
+      </div>
+      <p class="kt-note" id="kt-note">金継ぎの3Dイメージです</p>
+    </div>
+  </section>
+<style>
+.sig-kt{position:relative;height:420vh;background:#0f0d0b}
+.kt-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:radial-gradient(60% 70% at 38% 52%,#2a241d,#0f0d0b 72%)}
+.kt-stick .hs-copy{z-index:3}
+#kt3d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.kt-copy{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);max-width:340px;opacity:0;z-index:3}
+.kt-step{margin:0;color:var(--accent);font-weight:700;letter-spacing:.16em;font-size:14px}
+.kt-h{font-family:var(--display);font-weight:800;font-size:clamp(36px,4vw,58px);line-height:1.3;margin:10px 0 14px;transition:opacity .3s}
+.kt-p{margin:0 0 22px;color:var(--mute);transition:opacity .3s}
+.kt-steps{list-style:none;margin:0;padding:0;display:flex;gap:16px;font-size:14px;color:var(--mute);counter-reset:s;flex-wrap:wrap}
+.kt-steps li{counter-increment:s;transition:color .3s}
+.kt-steps li::before{content:counter(s);display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;border:1px solid currentColor;margin-right:6px;font-size:12px}
+.kt-steps li.on{color:var(--accent);font-weight:700}
+.kt-note{position:absolute;right:var(--gut);bottom:22px;margin:0;font-size:12px;color:var(--mute);z-index:3;opacity:0}
+@media (max-width:860px){
+  .kt-copy{top:auto;bottom:0;transform:none;left:0;right:0;max-width:none;padding:56px var(--gut) 92px;background:linear-gradient(to top,rgba(15,13,11,.97) 62%,rgba(15,13,11,0))}
+  .kt-h{font-size:34px}
+  .kt-p{display:none}
+  .kt-note{top:74px;bottom:auto}
+}
+</style>
+<script type="module">
+import * as THREE from 'three';
+import { stage3d, heroFade, span, ease, c01, qa, mouse } from '../_kit/sig/stage.js';
+import { PROFILES } from '../_kit/sig/turntable.js';
+
+const canvas = document.getElementById('kt3d'), section = canvas.closest('section');
+const copy = document.getElementById('kt-copy'), note = document.getElementById('kt-note'), stepEl = document.getElementById('kt-step'), hEl = document.getElementById('kt-h'), pEl = document.getElementById('kt-p'), steps = [...document.querySelectorAll('#kt-steps li')];
+const TEXT = [
+  ['割れ・欠け', '割れた器も、<br>欠けた器も。', '材質と品物、状態に合わせてお直しします。1か所の欠けは5千円から、完全に割れている場合は1万円前後からが目安です。'],
+  ['漆で継ぐ', '漆で、<br>ていねいに。', '体に安全な漆を使っての、丁寧な仕事が好評です。'],
+  ['金で仕上げる', '継ぎ目に、<br>金を。', 'お預かりは通常3か月。まずはメールで、器の様子をお知らせください。'],
+];
+const TAU = Math.PI * 2;
+// かけらの分け方（JSとシェーダーで同じ式）
+const bnd = (k, y) => k / 5 + .035 * Math.sin(y * 7 + k * 3);
+const crack = th => .62 + .1 * Math.sin(th * 3 + 1);
+function fid(x, y, z) {
+  if (y < .2) return 7;
+  const th = Math.atan2(z, x), t = (th + Math.PI) / TAU;
+  let s = 4; for (let i = 0; i < 5; i++) if (t > bnd(i, y)) s = i;
+  if ((s === 1 || s === 3) && y > crack(th)) return s === 1 ? 5 : 6;
+  return s;
+}
+const SEAM = `
+  float bnd(float k, float y){ return k / 5. + .035 * sin(y * 7. + k * 3.); }
+  float seamD(vec3 p){
+    float th = atan(p.z, p.x), t = (th + 3.14159265) / 6.2831853, r = max(length(p.xz), .05);
+    float d = 1e3, s = 4.;
+    for (int i = 0; i < 5; i++) { float b = bnd(float(i), p.y), dd = abs(t - b); dd = min(dd, 1. - dd); d = min(d, dd * 6.2831853 * r); if (t > b) s = float(i); }
+    if ((abs(s - 1.) < .5 || abs(s - 3.) < .5) && p.y > .2) d = min(d, abs(p.y - (.62 + .1 * sin(th * 3. + 1.))));
+    if (p.y < .2) d = 1e3;
+    d = min(d, abs(p.y - .2) + step(.45, p.y));
+    return d;
+  }`;
+
+const gold = { value: 0 };
+const st = stage3d({ canvas, section, fov: 30, env: .04, exposure: 1.1, frame });
+if (st) {
+  const { scene } = st;
+  const prof = PROFILES.chawan.map(([x, y]) => new THREE.Vector2(x, y));
+  const full = new THREE.LatheGeometry(new THREE.SplineCurve(prof).getPoints(80), 160).toNonIndexed();
+  full.computeVertexNormals();
+  const P = full.attributes.position, Nn = full.attributes.normal, buckets = Array.from({ length: 8 }, () => ({ p: [], n: [] }));
+  for (let i = 0; i < P.count; i += 3) {
+    const cx = (P.getX(i) + P.getX(i + 1) + P.getX(i + 2)) / 3, cy = (P.getY(i) + P.getY(i + 1) + P.getY(i + 2)) / 3, cz = (P.getZ(i) + P.getZ(i + 1) + P.getZ(i + 2)) / 3;
+    const b = buckets[fid(cx, cy, cz)];
+    for (let k = 0; k < 3; k++) { b.p.push(P.getX(i + k), P.getY(i + k), P.getZ(i + k)); b.n.push(Nn.getX(i + k), Nn.getY(i + k), Nn.getZ(i + k)); }
+  }
+  // 黒い釉薬の器。継ぎ目だけ金に
+  const mat = new THREE.MeshPhysicalMaterial({ color: '#2b231d', roughness: .32, clearcoat: .9, clearcoatRoughness: .15, side: THREE.DoubleSide });
+  mat.onBeforeCompile = sh => {
+    sh.uniforms.uGold = gold;
+    sh.vertexShader = 'varying vec3 vObj;\n' + sh.vertexShader.replace('#include <begin_vertex>', '#include <begin_vertex>\n vObj = transformed;');
+    sh.fragmentShader = 'uniform float uGold; varying vec3 vObj;\n' + SEAM + '\n' + sh.fragmentShader.replace('#include <metalnessmap_fragment>', `#include <metalnessmap_fragment>
+      float sd = seamD(vObj), w = .02 * uGold;
+      float g = (1. - smoothstep(w * .55, w, sd)) * step(.001, uGold);
+      float speck = fract(sin(dot(floor(vObj * 60.), vec3(12.9, 78.2, 37.7))) * 43758.5);
+      diffuseColor.rgb = mix(diffuseColor.rgb * (.85 + .3 * speck * step(.93, speck)), vec3(.95, .72, .32), g);
+      metalnessFactor = mix(metalnessFactor, 1., g); roughnessFactor = mix(roughnessFactor, .22, g);`);
+  };
+  const bowl = new THREE.Group(), pieces = [];
+  buckets.forEach((b, i) => {
+    if (!b.p.length) return;
+    const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(b.p, 3)); g.setAttribute('normal', new THREE.Float32BufferAttribute(b.n, 3));
+    g.computeBoundingBox(); const c = g.boundingBox.getCenter(new THREE.Vector3());
+    const m = new THREE.Mesh(g, mat); m.position.copy(c).multiplyScalar(-1);
+    const pivot = new THREE.Object3D(); pivot.add(m); bowl.add(pivot);
+    const dir = c.clone().sub(new THREE.Vector3(0, .55, 0)); dir.y *= .6; dir.normalize();
+    pivot.userData = { c, dir, rot: new THREE.Euler((Math.random() - .5) * 1.6, (Math.random() - .5) * 1.6, (Math.random() - .5) * 1.6), ph: Math.random() * 6, delay: i * .025 };
+    pieces.push(pivot);
+  });
+  bowl.position.y = -.65;
+  const holder = new THREE.Group(); holder.add(bowl); scene.add(holder);
+  scene.add(new THREE.HemisphereLight('#fff1dc', '#1a140e', .7));
+  const key = new THREE.DirectionalLight('#fff0d8', 2.6); key.position.set(-3, 5, 4); scene.add(key);
+  const rim = new THREE.DirectionalLight('#ffc879', 1.8); rim.position.set(4, 1, -4); scene.add(rim);
+  const top = new THREE.PointLight('#ffe2a8', 6, 6); top.position.set(0, 2.6, 1); scene.add(top);
+  Object.assign(st, { holder, bowl, pieces });
+  st.start();
+}
+
+let stepI = -1;
+function frame({ t, p, portrait }) {
+  const heroK = heroFade(p, .1);
+  copy.style.opacity = note.style.opacity = c01((p - .07) / .06);
+  const si = p < .4 ? 0 : p < .66 ? 1 : 2;
+  if (si !== stepI) {
+    stepI = si; steps.forEach((li, k) => li.classList.toggle('on', k === si));
+    hEl.style.opacity = pEl.style.opacity = 0;
+    setTimeout(() => { stepEl.textContent = TEXT[si][0]; hEl.innerHTML = TEXT[si][1]; pEl.textContent = TEXT[si][2]; hEl.style.opacity = pEl.style.opacity = 1; }, qa ? 0 : 180);
+  }
+  // かけらが集まる → 金が走る
+  st.pieces.forEach(pv => {
+    const u = pv.userData, k = 1 - ease(span(p, .14 + u.delay, .5 + u.delay));
+    const fl = Math.sin(t * .8 + u.ph) * .06 * k;
+    pv.position.copy(u.c).addScaledVector(u.dir, k * .95).add(new THREE.Vector3(0, fl, 0));
+    pv.rotation.set(u.rot.x * k, u.rot.y * k, u.rot.z * k);
+  });
+  gold.value = ease(span(p, .62, .86));
+  st.holder.rotation.set(.38 + mouse.y * .1, -.5 + (qa ? 0 : t * .1) + p * 1.6 + mouse.x * .3, 0);
+  const s = portrait ? .55 : 1.05;
+  st.holder.scale.setScalar(s);
+  st.holder.position.set(portrait ? -.35 * heroK : -1.55 * heroK + 1.15 * (1 - heroK), portrait ? .85 - heroK * 1.5 : 0, 0);
+  st.camera.position.set(0, 1.2, 8); st.camera.lookAt(0, 0, 0);
+}
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="30" data-from="-30">30</span><small>年　漆芸に出会ってから</small></div></div>
+    <div class="rv"><h2>ご紹介の方だけから、広く。</h2><p>今まではご紹介の方だけのお直しをお請けしていましたが、ホームページを公開し、広く修理をお請けできるようになりました。</p><p>赤平一枝が金継ぎに出会ったのは30年前。専門である鎌倉彫に漆をかけるために漆芸を学んだことがきっかけでした。今はスタッフも充実し、丈夫で美しい仕上がりに取り組んでいます。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>金継ぎ</span><span>漆</span><span>欠け</span><span>割れ</span><span>蓋をつくる</span><span>お直し</span><span>金継ぎ</span><span>漆</span><span>欠け</span><span>割れ</span><span>蓋をつくる</span><span>お直し</span><span>金継ぎ</span><span>漆</span><span>欠け</span><span>割れ</span><span>蓋をつくる</span><span>お直し</span><span>金継ぎ</span><span>漆</span><span>欠け</span><span>割れ</span><span>蓋をつくる</span><span>お直し</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>お直し</h2><span>REPAIR</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/f1.jpg" alt="器に金を塗る手" loading="lazy" data-speed=".06" data-gl></div><h3>欠け・割れの金継ぎ</h3><p>材質と品物、状態に合わせてお直しします。</p></article><article class="feature rv"><div class="ph"><img src="img/f2.jpg" alt="器を直す作業" loading="lazy" data-speed=".06" data-gl></div><h3>蓋や取っ手をつくる</h3><p>なくなった蓋も、木で作って漆で仕上げます。</p></article><article class="feature rv"><div class="ph"><img src="img/f3.jpg" alt="陶器の鉢" loading="lazy" data-speed=".06" data-gl></div><h3>金継ぎの教室</h3><p>朝日カルチャーセンター新宿教室、横浜馬車道で。</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/wide.jpg" alt="金継ぎされた器の数々" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">壊れた器に、もう一度。</figcaption></figure>
+  
+  <section class="sec" id="price">
+    <div class="sec-head rv"><h2>料金とお預かり期間</h2><span>PRICE</span></div>
+    <dl class="prices rv"><div><dt>1か所の欠け</dt><dd>5,000円から</dd></div><div><dt>完全に割れている場合</dt><dd>1万円前後から</dd></div><div><dt>お預かり期間<small>季節や破損状態によります</small></dt><dd>通常3か月</dd></div></dl>
+    <p class="prices-note rv">料金は割れと欠けの状態によります。金粉仕上げは金相場により変わる場合があります。修理をお受けした場合、返送の送料は工房が負担します。</p>
+  </section>
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">ご案内</h2></div>
+      
+      <table class="hours"><tr><th>ご相談</th><td>まずはメールで</td></tr><tr><th>流れ</th><td>メール → お見積り → お品物を送っていただく → お直し</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>お直しの品は、郵送でお預かりします</p>
+      <p class="mute">お見積りでお受けしない場合は、着払いでお返しします。</p>
+      <div class="btns"><a class="btn" href="mailto:una-caja0123@major.ocn.ne.jp" data-en="Call">メールする</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">大切な器を、もう一度。</h2>
+    <a class="tel mail" href="mailto:una-caja0123@major.ocn.ne.jp">una-caja0123@major.ocn.ne.jp</a>
+    <p>まずはメールで、器の様子をお知らせください。</p>
+    <div class="btns"><a class="btn" href="mailto:una-caja0123@major.ocn.ne.jp" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>金継ぎ世田谷工房　お直しの品は、郵送でお預かりします　una-caja0123@major.ocn.ne.jp</p>
+  <p>この試作は森川ウェブ（koseimorikawa2026@gmail.com）が、金継ぎ世田谷工房様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="mailto:una-caja0123@major.ocn.ne.jp" data-en="Call">メールする</a><a href="#info" data-en="Hours &amp; map">ご案内</a></nav>
+
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

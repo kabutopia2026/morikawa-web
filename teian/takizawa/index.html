@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>滝沢農園｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#f3f0e2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kaisei+Tokumin:wght@800&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#f3f0e2;--ink:#1f2616;--mute:#6b6e55;--accent:#a87a1c;--accent-ink:#fff;--panel:#e7e3cd;--line:rgba(31,38,22,.12);--display:"Kaisei Tokumin",serif;--display-weight:800;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 50%;--top-ink:var(--ink)}
+
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>が滝沢農園様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">魚沼産コシヒカリ・棚田米　新潟県十日町市松之山</p><p class="pl-name">滝沢農園</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">滝沢農園</a>
+  <nav aria-label="ページ内の案内"><a href="#story">滝沢農園</a><a href="#features">お米</a><a href="#price">価格</a></nav>
+  
+  <a class="call" href="tel:0255962381"><span data-en="Call">電話</span><span class="num">025-596-2381</span></a>
+</header>
+
+<main>
+  <section class="hero" hidden>
+    <div class="hero-img"><img src="img/hero.jpg" alt="朝もやの棚田" ></div>
+    <div class="hero-copy">
+      <p class="kind">魚沼産コシヒカリ・棚田米　新潟県十日町市松之山</p>
+      <h1><span class="ln"><span style="--i:0">一粒に、</span></span><span class="ln"><span style="--i:1">松之山の季節を。</span></span></h1>
+      
+      <p class="sub">新潟県認証特別栽培の「魚沼産コシヒカリ」を、松之山の棚田から産地直送でお届けしています。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-tz hero-sig" id="sig" aria-label="松之山の棚田の3D。スクロールすると、雪から水鏡、青田、実りの秋へと季節が移る演出">
+    <div class="tz-stick hero" id="tz-stick">
+      <canvas id="tz3d" aria-hidden="true"></canvas>
+      <div class="hero-copy hs-copy" id="hs-copy"><p class="kind">魚沼産コシヒカリ・棚田米　新潟県十日町市松之山</p><h1><span class="ln"><span style="--i:0">一粒に、</span></span><span class="ln"><span style="--i:1">松之山の季節を。</span></span></h1><p class="sub">新潟県認証特別栽培の「魚沼産コシヒカリ」を、松之山の棚田から産地直送でお届けしています。</p></div>
+      <div class="tz-panel" id="tz-panel">
+        <p class="tz-step" id="tz-step">冬</p>
+        <p class="tz-h" id="tz-h">雪</p>
+        <p class="tz-p" id="tz-p">越後松之山は、毎年3m以上も雪が降る豪雪地帯です。</p>
+        <ol class="tz-season" id="tz-season"><li>冬</li><li>春</li><li>夏</li><li>秋</li></ol>
+      </div>
+      <p class="tz-note" id="tz-note">棚田の3Dイメージです。実際の地形とは異なります</p>
+    </div>
+  </section>
+<style>
+.sig-tz{position:relative;height:460vh;background:#eef0e6}
+.tz-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;color:var(--ink);background:linear-gradient(#cfdce6,#f1efe4 60%);transition:background 1s}
+.tz-stick .hs-copy{z-index:3}
+.tz-stick .hs-copy::before{content:"";position:absolute;inset:-40px -60px -40px -40px;background:radial-gradient(closest-side,rgba(243,240,226,.85),rgba(243,240,226,0));z-index:-1}
+#tz3d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.tz-panel{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);max-width:330px;z-index:3;opacity:0;padding:26px 28px;background:rgba(243,240,226,.82);backdrop-filter:blur(8px);border-radius:18px}
+.tz-step{margin:0;color:var(--accent);font-weight:700;letter-spacing:.2em;font-size:14px}
+.tz-h{font-family:var(--display);font-weight:800;font-size:clamp(80px,9vw,140px);line-height:1;margin:8px 0 16px;transition:opacity .3s}
+.tz-p{margin:0 0 20px;color:var(--ink);transition:opacity .3s}
+.tz-season{list-style:none;margin:0;padding:0;display:flex;gap:6px}
+.tz-season li{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-weight:700;color:var(--mute);border:1px solid var(--line);transition:background .3s,color .3s}
+.tz-season li.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.tz-note{position:absolute;right:var(--gut);bottom:22px;margin:0;font-size:12px;color:var(--mute);z-index:3;opacity:0}
+@media (max-width:860px){
+  .tz-panel{top:auto;bottom:0;transform:none;left:0;right:0;max-width:none;border-radius:0;padding:56px var(--gut) 92px;background:linear-gradient(to top,rgba(243,240,226,.97) 62%,rgba(243,240,226,0));backdrop-filter:none}
+  .tz-h{font-size:72px}
+  .tz-p{display:none}
+  .tz-note{top:74px;bottom:auto}
+}
+</style>
+<script type="module">
+import * as THREE from 'three';
+import { stage3d, heroFade, span, ease, c01, qa, mouse, canvasTexture } from '../_kit/sig/stage.js';
+
+const canvas = document.getElementById('tz3d'), section = canvas.closest('section'), stick = document.getElementById('tz-stick');
+const panel = document.getElementById('tz-panel'), note = document.getElementById('tz-note'), stepEl = document.getElementById('tz-step'), hEl = document.getElementById('tz-h'), pEl = document.getElementById('tz-p'), seasons = [...document.querySelectorAll('#tz-season li')];
+const S = [
+  ['冬', '雪', '越後松之山は、毎年3m以上も雪が降る豪雪地帯です。', 'linear-gradient(#c9d3dc,#eef1f2 60%)'],
+  ['春', '水鏡', '雪解け水を森がじっくり蓄え、湧き水となって棚田を潤します。', 'linear-gradient(#a9cbe6,#f1efe4 60%)'],
+  ['夏', '青田', '化学肥料・農薬5割減。新潟県認証の特別栽培です。', 'linear-gradient(#8ec2ec,#eef2e2 60%)'],
+  ['秋', '実り', '令和8年産、魚沼産コシヒカリの新米。ご注文を受け付けています。', 'linear-gradient(#e9cfa8,#f3ecd8 60%)'],
+];
+const U = { uS: { value: 0 }, uTime: { value: 0 } };
+// 段々の地形：ゆるい斜面を、平らな田と急な畦に分ける
+const LV = 3.2;
+function terr(x, z) {
+  const f = -z * .3 + .5 * Math.sin(x * .32 + z * .25) + .22 * Math.cos(x * .7 - z * .45) + .08 * Math.sin(x * 1.7);
+  const u = f * LV, lv = Math.floor(u), fr = u - lv, ramp = THREE.MathUtils.smoothstep(fr, .8, .97);
+  return { y: (lv + ramp) / LV * .85, bank: THREE.MathUtils.smoothstep(fr, .74, .8), f };
+}
+
+const st = stage3d({ canvas, section, fov: 34, env: 0, exposure: 1, frame });
+if (st) {
+  const { scene } = st;
+  scene.fog = new THREE.Fog('#e8ece6', 12, 34);
+  const g = new THREE.PlaneGeometry(26, 20, 340, 260); g.rotateX(-Math.PI / 2); g.translate(0, 0, -6);
+  const pos = g.attributes.position, bank = new Float32Array(pos.count);
+  for (let i = 0; i < pos.count; i++) { const r = terr(pos.getX(i), pos.getZ(i)); pos.setY(i, r.y); bank[i] = r.bank; }
+  g.setAttribute('aBank', new THREE.BufferAttribute(bank, 1)); g.computeVertexNormals();
+  const mat = new THREE.ShaderMaterial({
+    uniforms: { ...U, fogColor: { value: new THREE.Color('#e8ece6') }, fogNear: { value: 12 }, fogFar: { value: 34 } }, fog: true,
+    vertexShader: `attribute float aBank; varying float vBank; varying vec3 vW, vN;
+      #include <fog_pars_vertex>
+      void main(){ vBank = aBank; vW = (modelMatrix * vec4(position, 1.)).xyz; vN = normal; vec4 mvPosition = viewMatrix * vec4(vW, 1.); gl_Position = projectionMatrix * mvPosition;
+      #include <fog_vertex>
+      }`,
+    fragmentShader: `uniform float uS, uTime; varying float vBank; varying vec3 vW, vN;
+      #include <fog_pars_fragment>
+      float hh(vec2 p){ return fract(sin(dot(p, vec2(12.9, 78.2))) * 43758.5); }
+      vec3 four(float s, vec3 a, vec3 b, vec3 c, vec3 d){ return s < 1. ? mix(a, b, s) : s < 2. ? mix(b, c, s - 1.) : mix(c, d, clamp(s - 2., 0., 1.)); }
+      void main(){
+        float flat_ = step(.8, vN.y) * (1. - vBank);
+        float n = hh(floor(vW.xz * 22.)), rows = .5 + .5 * sin(vW.x * 60. + sin(vW.z * 3.) * 4.);
+        // 田：雪 → 水鏡 → 青田 → 黄金
+        vec3 V = normalize(cameraPosition - vW), R = reflect(-V, vec3(0., 1., 0.));
+        vec3 sky = mix(vec3(.93, .9, .82), vec3(.55, .74, .9), clamp(R.y * 1.6, 0., 1.));
+        float rip = .02 * sin(vW.x * 30. + uTime * 2.) * sin(vW.z * 26. - uTime * 1.6);
+        vec3 water = sky * (.85 + rip * 4.) + pow(max(0., dot(R, normalize(vec3(-.4, .5, -.8)))), 60.) * .8;
+        vec3 snow = vec3(.95, .97, 1.) * (.92 + .08 * n);
+        vec3 green = mix(vec3(.25, .5, .16), vec3(.38, .64, .2), rows * .6 + n * .4);
+        vec3 gold = mix(vec3(.78, .58, .18), vec3(.9, .72, .3), rows * .6 + n * .4);
+        vec3 paddy = four(uS, snow, water, green, gold);
+        // 畦と土手
+        vec3 grass = four(uS, vec3(.92, .94, .97), vec3(.45, .58, .3), vec3(.3, .5, .2), vec3(.6, .55, .3)) * (.85 + .2 * n);
+        vec3 col = mix(grass, paddy, flat_);
+        col *= .75 + .25 * clamp(dot(vN, normalize(vec3(-.4, .8, .5))), 0., 1.);
+        gl_FragColor = vec4(col, 1.);
+        #include <fog_fragment>
+        #include <colorspace_fragment>
+      }`,
+  });
+  scene.add(new THREE.Mesh(g, mat));
+  // まわりの森（ブナ）
+  const NT = 420, trees = new THREE.InstancedMesh(new THREE.ConeGeometry(.28, .9, 7), new THREE.MeshStandardMaterial({ roughness: .9 }), NT);
+  const tmp = new THREE.Object3D(), tcol = [];
+  let k = 0;
+  for (let tries = 0; k < NT && tries < 8000; tries++) {
+    const x = (Math.random() - .5) * 26, z = -6 + (Math.random() - .5) * 20, r = terr(x, z);
+    const edge = Math.abs(x) > 6.5 || z < -11 || r.f > 3.2;
+    if (!edge) continue;
+    tmp.position.set(x, r.y + .4, z); tmp.scale.setScalar(.8 + Math.random() * .8); tmp.updateMatrix(); trees.setMatrixAt(k, tmp.matrix); tcol.push(Math.random()); k++;
+  }
+  trees.count = k; scene.add(trees);
+  // 雪
+  const SN = 600, sp = new Float32Array(SN * 3);
+  for (let i = 0; i < SN; i++) sp.set([(Math.random() - .5) * 16, Math.random() * 8, -Math.random() * 14 + 2], i * 3);
+  const sg = new THREE.BufferGeometry(); sg.setAttribute('position', new THREE.BufferAttribute(sp, 3));
+  const dot = canvasTexture(64, 64, gg => { const gr = gg.createRadialGradient(32, 32, 0, 32, 32, 32); gr.addColorStop(0, 'rgba(255,255,255,1)'); gr.addColorStop(1, 'rgba(255,255,255,0)'); gg.fillStyle = gr; gg.fillRect(0, 0, 64, 64); });
+  const snow = new THREE.Points(sg, new THREE.PointsMaterial({ size: .08, map: dot, transparent: true, depthWrite: false }));
+  scene.add(snow);
+  scene.add(new THREE.HemisphereLight('#f4f8ff', '#6a6a50', 1.1));
+  const sun = new THREE.DirectionalLight('#fff2dc', 1.6); sun.position.set(-4, 6, 3); scene.add(sun);
+  Object.assign(st, { trees, tcol, snow, sp, fog: scene.fog, mat });
+  st.start();
+}
+
+let shown = -1;
+const c = new THREE.Color(), TC = [['#e9edf0', '#3b4a3a'], ['#7da35a', '#9cc06e'], ['#2f6b2a', '#4a8a36'], ['#c8692a', '#e0a83a']].map(a => a.map(x => new THREE.Color(x)));
+function frame({ t, dt, p, portrait }) {
+  const heroK = heroFade(p, .08);
+  panel.style.opacity = note.style.opacity = c01((p - .07) / .06);
+  // 季節：冬 → 春 → 夏 → 秋（少しずつ止まりながら）
+  const raw = c01((p - .1) / .82) * 3, seg = Math.min(2, Math.floor(raw)), fr = raw - seg;
+  const s = raw >= 3 ? 3 : seg + ease(c01((fr - .4) / .6));
+  U.uS.value = s; U.uTime.value = t;
+  const near = Math.round(s);
+  if (near !== shown) {
+    shown = near; seasons.forEach((li, k) => li.classList.toggle('on', k === near));
+    stick.style.background = S[near][3];
+    hEl.style.opacity = pEl.style.opacity = 0;
+    setTimeout(() => { stepEl.textContent = S[near][0]; hEl.textContent = S[near][1]; pEl.textContent = S[near][2]; hEl.style.opacity = pEl.style.opacity = 1; }, qa ? 0 : 180);
+  }
+  // 森の色
+  const a = Math.min(2, Math.floor(s)), f = s - a;
+  for (let i = 0; i < st.trees.count; i++) { c.copy(TC[a][0]).lerp(TC[a][1], st.tcol[i]).lerp(new THREE.Color().copy(TC[a + 1][0]).lerp(TC[a + 1][1], st.tcol[i]), f); st.trees.setColorAt(i, c); }
+  st.trees.instanceColor.needsUpdate = true;
+  // 雪は冬だけ
+  const winter = c01(1 - s * 1.6);
+  st.snow.material.opacity = winter;
+  if (!qa) for (let i = 0; i < st.sp.length; i += 3) { st.sp[i + 1] -= dt * (.6 + (i % 5) * .1); st.sp[i] += Math.sin(t + i) * dt * .2; if (st.sp[i + 1] < -.5) st.sp[i + 1] = 7.5; }
+  st.snow.geometry.attributes.position.needsUpdate = true;
+  // カメラ：棚田を見おろしながら、ゆっくり回りこむ
+  const ang = -.25 + p * .55 + mouse.x * .08;
+  st.camera.position.set(Math.sin(ang) * 9.5, 4.6 - p * .8 + (portrait ? 1.2 : 0), 6 + Math.cos(ang) * 3.5);
+  st.camera.lookAt(portrait ? 0 : -1.2 * (1 - heroK) + .6 * heroK, 1.2, -5);
+  st.camera.fov = portrait ? 50 : 34; st.camera.updateProjectionMatrix();
+}
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="2026" data-from="1966">2026</span><small>年産　新米のご注文受付中</small></div></div>
+    <div class="rv"><h2>豊作も不作も、皆様と分かち合って。</h2><p>農業は天候に左右される仕事なので、毎年同じようにはいきません。それでも、豊作になっても不作になっても、そのときなりに皆様と分かち合いながら、中山間地農業への取り組みを続けてまいります。</p><p>令和6年1月1日から、滝沢徹也が代表を務めています。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>魚沼産コシヒカリ</span><span>棚田米</span><span>特別栽培</span><span>松之山</span><span>新米</span><span>産地直送</span><span>魚沼産コシヒカリ</span><span>棚田米</span><span>特別栽培</span><span>松之山</span><span>新米</span><span>産地直送</span><span>魚沼産コシヒカリ</span><span>棚田米</span><span>特別栽培</span><span>松之山</span><span>新米</span><span>産地直送</span><span>魚沼産コシヒカリ</span><span>棚田米</span><span>特別栽培</span><span>松之山</span><span>新米</span><span>産地直送</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>お米</h2><span>RICE</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/f1.jpg" alt="実った稲穂" loading="lazy" data-speed=".06" data-gl></div><h3>魚沼産コシヒカリ</h3><p>新潟県認証の特別栽培米です。</p></article><article class="feature rv"><div class="ph"><img src="img/f2.jpg" alt="手ですくった米" loading="lazy" data-speed=".06" data-gl></div><h3>玄米・精米・無洗米</h3><p>無洗米仕上げや密封袋のオプションもあります。</p></article><article class="feature rv"><div class="ph"><img src="img/f3.jpg" alt="青々とした田んぼ" loading="lazy" data-speed=".06" data-gl></div><h3>新米のお取り置き</h3><p>新米をお召し上がりいただいた方への、限定のサービスです。</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/wide.jpg" alt="山あいの棚田" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">十日町市松之山の棚田から。</figcaption></figure>
+  
+  <section class="sec" id="price">
+    <div class="sec-head rv"><h2>令和8年産コシヒカリ</h2><span>PRICE</span></div>
+    <dl class="prices rv"><div><dt>精米<small>5kg（同梱2つ目以降 4,100円）</small></dt><dd>4,600円</dd></div><div><dt>玄米<small>30kg</small></dt><dd>21,000円</dd></div><div><dt>無洗米仕上げ<small>5kgごと</small></dt><dd>50円</dd></div></dl>
+    <p class="prices-note rv">価格は現在のホームページの表示をもとにしています。</p>
+  </section>
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">ご案内</h2></div>
+      
+      <table class="hours"><tr><th>ご注文</th><td>ショップページ・お電話・FAX・メールで</td></tr><tr><th>農繁期</th><td>お電話に出られない場合があります</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>新潟県十日町市松之山825-2</p>
+      <p class="mute">お電話がつながらないときは、ご注文専用ダイヤルへのショートメールが助かります。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E6%BD%9F%E7%9C%8C%E5%8D%81%E6%97%A5%E7%94%BA%E5%B8%82%E6%9D%BE%E4%B9%8B%E5%B1%B1825-2%20%E6%BB%9D%E6%B2%A2%E8%BE%B2%E5%9C%92" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:0255962381" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">今年の新米を、どうぞ。</h2>
+    <a class="tel" href="tel:0255962381">025-596-2381</a>
+    <p>ご注文はショップページ、お電話・FAX・メールで承ります。</p>
+    <div class="btns"><a class="btn" href="mailto:takizawanouen@sky.plala.or.jp" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>滝沢農園　新潟県十日町市松之山825-2　TEL 025-596-2381</p>
+  <p>この試作は森川ウェブ（koseimorikawa2026@gmail.com）が、滝沢農園様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:0255962381" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

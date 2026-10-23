@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>創作染・革工房 藍美｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0e1726">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@600&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#0e1726;--ink:#eef1f6;--mute:#9aa8bf;--accent:#c9a46a;--accent-ink:#0e1726;--panel:#152036;--line:rgba(238,241,246,.13);--display:"Klee One",serif;--display-weight:600;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 50%}
+
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>が創作染・革工房 藍美様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">創作 染・革工房　新潟市中央区西堀</p><p class="pl-name">工房 藍美</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">工房 藍美</a>
+  <nav aria-label="ページ内の案内"><a href="#story">藍美について</a><a href="#features">できること</a><a href="#info">営業時間</a></nav>
+  
+  <a class="call" href="tel:0252241687"><span data-en="Call">電話</span><span class="num">025-224-1687</span></a>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-img"><img src="img/hero.jpg" alt="作業台に並ぶ革細工の道具"  data-gl="wipe" data-gl-hero></div>
+    <div class="hero-copy">
+      <p class="kind">創作 染・革工房　新潟市中央区西堀</p>
+      <h1><span class="ln"><span style="--i:0">革と染めのこと、</span></span><span class="ln"><span style="--i:1">何でも。</span></span></h1>
+      
+      <p class="sub">昭和51年（1976年）創業。オリジナルのバッグや財布、革小物、藍染・墨染の手染め布製品を製作・販売しています。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-ab" id="sig" aria-label="スクロールすると、白い布が藍甕にくぐり、空気にふれて緑から藍へ、くぐるたびに色が深くなる3Dの演出">
+    <div class="ab-stick">
+      <canvas id="ab3d" aria-hidden="true"></canvas>
+      <div class="ab-copy">
+        <p class="ab-step" id="ab-step">藍染</p>
+        <p class="ab-h" id="ab-h">白</p>
+        <p class="ab-p" id="ab-p">藍の甕にくぐらせるたび、色が深くなります。</p>
+        <ol class="ab-chips" id="ab-chips"><li style="--c:#a0d8ef">甕覗き</li><li style="--c:#00a3af">浅葱</li><li style="--c:#2792c3">縹</li><li style="--c:#165e83">藍</li><li style="--c:#223a70">紺</li></ol>
+      </div>
+      <p class="ab-note">藍染の3Dイメージです。色の名前と色合いは目安です</p>
+    </div>
+  </section>
+<style>
+.sig-ab{position:relative;height:460vh;background:#0b1322}
+.ab-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:radial-gradient(55% 70% at 64% 40%,#22314a,#0b1322 74%)}
+#ab3d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.ab-copy{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);max-width:350px;z-index:3}
+.ab-step{margin:0;color:var(--accent);font-weight:700;letter-spacing:.16em;font-size:14px}
+.ab-h{font-family:var(--display);font-weight:600;font-size:clamp(70px,8.4vw,124px);line-height:1;margin:12px 0 16px;transition:opacity .3s}
+.ab-p{margin:0 0 24px;color:var(--mute);min-height:3.4em;transition:opacity .3s}
+.ab-chips{list-style:none;margin:0;padding:0;display:flex;gap:6px;flex-wrap:wrap}
+.ab-chips li{font-size:12px;color:var(--mute);display:flex;flex-direction:column;align-items:center;gap:6px;width:56px;opacity:.45;transition:opacity .4s}
+.ab-chips li::before{content:"";width:40px;height:40px;border-radius:50%;background:var(--c);box-shadow:inset 0 0 0 1px rgba(255,255,255,.2)}
+.ab-chips li.on{opacity:1;color:var(--ink)}
+.ab-note{position:absolute;right:var(--gut);bottom:22px;margin:0;font-size:12px;color:var(--mute)}
+@media (max-width:860px){
+  .ab-copy{top:auto;bottom:0;transform:none;left:0;right:0;max-width:none;padding:56px var(--gut) 90px;background:linear-gradient(to top,rgba(11,19,34,.97) 64%,rgba(11,19,34,0))}
+  .ab-h{font-size:60px;margin:8px 0 12px}
+  .ab-p{display:none}
+  .ab-note{top:74px;bottom:auto}
+}
+</style>
+<script type="module">
+import * as THREE from 'three';
+import { stage3d, span, ease, c01, qa, mouse, canvasTexture } from '../_kit/sig/stage.js';
+
+const canvas = document.getElementById('ab3d'), section = canvas.closest('section');
+const stepEl = document.getElementById('ab-step'), hEl = document.getElementById('ab-h'), pEl = document.getElementById('ab-p'), chips = [...document.querySelectorAll('#ab-chips li')];
+const NAMES = ['白', '甕覗き', '浅葱', '縹', '藍', '紺'];
+const COLS = ['#f2efe6', '#a0d8ef', '#00a3af', '#2792c3', '#165e83', '#223a70'].map(c => new THREE.Color(c));
+const GREEN = new THREE.Color('#7f9a3a');
+const W = 1.5, H = 2.1, SURF = -1.25;
+
+const U = { uTime: { value: 0 }, uBase: { value: COLS[0].clone() }, uFront: { value: -1 }, uFrontCol: { value: GREEN.clone() }, uWet: { value: 0 }, uMask: { value: null } };
+const st = stage3d({ canvas, section, fov: 32, env: .03, exposure: 1.05, frame });
+if (st) {
+  const { scene } = st;
+  // 絞りの模様：糸でくくった所は、白く残る
+  U.uMask.value = canvasTexture(512, 700, (g, w, h) => {
+    g.fillStyle = '#000'; g.fillRect(0, 0, w, h);
+    for (let r = 0; r < 7; r++) for (let c = 0; c < 5; c++) {
+      const x = (c + .5 + (r % 2) * .5) * w / 5, y = (r + .7) * h / 7.6;
+      for (let k = 0; k < 4; k++) { g.strokeStyle = `rgba(255,255,255,${.9 - k * .2})`; g.lineWidth = 7 - k; g.beginPath(); g.arc(x + (Math.random() - .5) * 3, y + (Math.random() - .5) * 3, 22 + k * 4, 0, 7); g.stroke(); }
+      g.fillStyle = 'rgba(255,255,255,.95)'; g.beginPath(); g.arc(x, y, 6, 0, 7); g.fill();
+    }
+  }, false);
+  const cloth = new THREE.Mesh(new THREE.PlaneGeometry(W, H, 30, 44), new THREE.ShaderMaterial({
+    side: THREE.DoubleSide, uniforms: U,
+    vertexShader: `uniform float uTime; varying vec2 vUv; varying vec3 vN, vP;
+      void main(){ vUv = uv; vec3 p = position; float hang = (1. - uv.y);
+        p.z += (sin(p.x * 2.4 + uTime * 1.3) * .05 + sin(p.y * 2. - uTime) * .04) * hang;
+        vec3 q = p; q.z += .01; vec3 dx = vec3(.01, 0., cos(p.x * 2.4 + uTime * 1.3) * 2.4 * .05 * hang * .01);
+        vN = normalize(normalMatrix * normalize(vec3(-dx.z * 100., 0., 1.)));
+        vP = (modelMatrix * vec4(p, 1.)).xyz; gl_Position = projectionMatrix * viewMatrix * vec4(vP, 1.); }`,
+    fragmentShader: `uniform vec3 uBase, uFrontCol; uniform float uFront, uWet; uniform sampler2D uMask; varying vec2 vUv; varying vec3 vN, vP;
+      float hh(vec2 p){ return fract(sin(dot(p, vec2(41.3, 289.1))) * 43758.5); }
+      void main(){
+        vec3 dyed = vP.y < uFront ? uFrontCol : uBase;
+        float m = texture2D(uMask, vUv).g;
+        vec3 col = mix(dyed, vec3(.95, .94, .9) * mix(vec3(1.), dyed, .12), m);
+        col *= .93 + .07 * sin(vUv.x * 900.) * sin(vUv.y * 1100.);
+        col *= .95 + .1 * hh(floor(vUv * vec2(80., 110.)));
+        float l = .62 + .38 * abs(dot(normalize(vN), normalize(vec3(-.4, .5, 1.))));
+        col *= l * (1. - uWet * .22);
+        col += uWet * .06 * pow(l, 8.);
+        gl_FragColor = vec4(col, 1.);
+        #include <colorspace_fragment>
+      }`,
+  }));
+  const rod = new THREE.Mesh(new THREE.CylinderGeometry(.03, .03, W + .6, 12), new THREE.MeshStandardMaterial({ color: '#9b8a5a', roughness: .5 }));
+  rod.rotation.z = Math.PI / 2; rod.position.y = H / 2 + .02;
+  const hang = new THREE.Group(); hang.add(cloth, rod);
+  // 藍甕：濃い藍の液と、まんなかの藍の華
+  const jar = new THREE.Mesh(new THREE.CylinderGeometry(1.25, 1.05, 1.8, 80, 1, true), new THREE.MeshPhysicalMaterial({ color: '#3a2a20', roughness: .3, clearcoat: .6, side: THREE.DoubleSide }));
+  jar.position.y = SURF - .82;
+  const lip = new THREE.Mesh(new THREE.TorusGeometry(1.25, .07, 16, 96), jar.material); lip.rotation.x = Math.PI / 2; lip.position.y = SURF + .08;
+  const RU = { uTime: U.uTime, uRip: { value: 0 } };
+  const liquid = new THREE.Mesh(new THREE.CircleGeometry(1.22, 96), new THREE.ShaderMaterial({
+    uniforms: RU,
+    vertexShader: 'varying vec2 vP; void main(){ vP = position.xy; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.); }',
+    fragmentShader: `uniform float uTime, uRip; varying vec2 vP;
+      float hh(vec2 p){ return fract(sin(dot(p, vec2(12.9, 78.2))) * 43758.5); }
+      void main(){
+        float r = length(vP);
+        vec3 col = vec3(.03, .06, .16);
+        float rip = sin(r * 26. - uTime * 6.) * exp(-r * 1.6) * uRip;
+        col += vec3(.05, .09, .2) * rip;
+        // 藍の華：紫がかった銅色の泡
+        vec2 c = vP + vec2(sin(uTime * .3) * .08, cos(uTime * .25) * .06);
+        float foam = smoothstep(.55, .1, length(c));
+        vec2 cell = floor(c * 22.); float b = hh(cell); vec2 f = fract(c * 22.) - .5;
+        float bub = smoothstep(.42, .3, length(f)) * step(.35, b) * foam;
+        col = mix(col, vec3(.32, .2, .38), foam * .6) + bub * vec3(.35, .25, .22);
+        col += vec3(.5, .55, .7) * pow(max(0., 1. - length(vP - vec2(-.4, .5)) * 1.6), 6.) * .4;
+        gl_FragColor = vec4(col, 1.);
+        #include <colorspace_fragment>
+      }`,
+  }));
+  liquid.rotation.x = -Math.PI / 2; liquid.position.y = SURF;
+  // しずく
+  const drops = new THREE.InstancedMesh(new THREE.SphereGeometry(.022, 8, 6), new THREE.MeshPhysicalMaterial({ color: '#2a4a3a', roughness: 0, clearcoat: 1 }), 30);
+  const dd = Array.from({ length: 30 }, () => ({ x: (Math.random() - .5) * W, y: -9, v: 0, d: Math.random() }));
+  const group = new THREE.Group(); group.add(hang, jar, lip, liquid, drops); scene.add(group);
+  scene.add(new THREE.HemisphereLight('#e8eefc', '#1a2030', 1));
+  const key = new THREE.DirectionalLight('#fff4e4', 1.8); key.position.set(-3, 5, 4); scene.add(key);
+  Object.assign(st, { hang, group, drops, dd, RU, tmp: new THREE.Object3D() });
+  st.start();
+}
+
+let shown = -1, lastDip = -1;
+const tmpC = new THREE.Color(), green = new THREE.Color();
+function frame({ t, dt, p, portrait }) {
+  U.uTime.value = t;
+  // 五回くぐらせる。一回ごとに：下ろす → 沈める → 上げる → 空気にふれて藍に
+  const q = c01((p - .06) / .86) * 5, L = Math.min(4, Math.floor(q)), ph = q >= 5 ? 1 : q - L;
+  const down = ease(span(ph, 0, .28)), up = ease(span(ph, .4, .62)), ox = ease(span(ph, .62, .95));
+  const dip = down * (1 - up);
+  const y = .25 - dip * 2.2;
+  st.hang.position.y = y;
+  const dyedNext = ph > .28, from = COLS[L], to = COLS[L + 1];
+  green.copy(to).lerp(GREEN, .55);
+  // 沈んだ所から、緑がかった色に
+  U.uFront.value = ph < .4 && ph > .05 ? SURF + .02 : -99;
+  U.uFrontCol.value.copy(green);
+  if (!dyedNext) U.uBase.value.copy(from); else U.uBase.value.copy(tmpC.copy(green).lerp(to, ox));
+  U.uWet.value = dyedNext ? 1 - ox * .8 : (L ? .2 : 0);
+  st.RU.uRip.value = Math.max(0, 1 - Math.abs(ph - .3) * 4) * (q < 5 ? 1 : 0);
+  // 上げた布から、しずくが落ちる
+  const dripping = ph > .45 && ph < .85 && q < 5;
+  st.dd.forEach((d, i) => {
+    if (d.y < SURF) { if (dripping && Math.random() < .04 && !qa) { d.x = (Math.random() - .5) * W * .9; d.y = y - H / 2; d.v = 0; } else d.y = -9; }
+    else { d.v -= 9 * dt; d.y += d.v * dt; }
+    st.tmp.position.set(d.x, d.y, .02); st.tmp.updateMatrix(); st.drops.setMatrixAt(i, st.tmp.matrix);
+  });
+  st.drops.instanceMatrix.needsUpdate = true;
+  const reached = dyedNext && ox > .5 ? L + 1 : L;
+  if (reached !== shown) {
+    shown = reached; chips.forEach((li, k) => li.classList.toggle('on', k < reached));
+    hEl.style.opacity = 0; setTimeout(() => { hEl.textContent = NAMES[reached]; hEl.style.opacity = 1; }, qa ? 0 : 160);
+    stepEl.textContent = reached ? `${reached}回くぐらせて` : '藍染';
+  }
+  const msg = ph > .3 && ph < .8 && q < 5 ? '甕から上げると緑色。空気にふれて、藍に変わります。' : reached >= 5 ? 'くぐらせる回数で、色の深さが決まります。' : '藍の甕にくぐらせるたび、色が深くなります。';
+  if (msg !== lastDip) { lastDip = msg; pEl.style.opacity = 0; setTimeout(() => { pEl.textContent = msg; pEl.style.opacity = 1; }, qa ? 0 : 160); }
+  st.group.rotation.y = -.25 + mouse.x * .3;
+  st.group.position.set(portrait ? 0 : 1.25, portrait ? .6 : -.1, 0);
+  st.group.scale.setScalar(portrait ? .58 : 1);
+  st.camera.position.set(0, 1.6, 7.6); st.camera.lookAt(portrait ? 0 : .3, portrait ? -.1 : -.25, 0);
+}
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="1976" data-from="1916">1976</span><small>年　昭和51年　新潟市西堀で創業</small></div></div>
+    <div class="rv"><h2>日々、手を動かして。</h2><p>オリジナル製品の製作・販売、革工芸・染色工芸の材料販売、教室の運営、修理や染め直しまで。『革と染めに関わることなら何でも承る』をコンセプトに、日々手を動かしています。</p><p>定期的に全国の百貨店などで、製作の実演販売も行っています。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>革</span><span>藍染</span><span>墨染</span><span>修理</span><span>染め直し</span><span>教室</span><span>革</span><span>藍染</span><span>墨染</span><span>修理</span><span>染め直し</span><span>教室</span><span>革</span><span>藍染</span><span>墨染</span><span>修理</span><span>染め直し</span><span>教室</span><span>革</span><span>藍染</span><span>墨染</span><span>修理</span><span>染め直し</span><span>教室</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>できること</h2><span>WORKS</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/f1.jpg" alt="手に持った革の財布" loading="lazy" data-speed=".06" data-gl></div><h3>オリジナルの革製品</h3><p>実用性を重視したバッグ・財布・革小物。オーダーもできます。</p></article><article class="feature rv"><div class="ph"><img src="img/f2.jpg" alt="藍の染液に布を浸す手" loading="lazy" data-speed=".06" data-gl></div><h3>藍染・墨染</h3><p>手染めの布製品。2階は染色教室になっています。</p></article><article class="feature rv"><div class="ph"><img src="img/f3.jpg" alt="革を加工する手" loading="lazy" data-speed=".06" data-gl></div><h3>修理・染め直し</h3><p>バッグや財布から革の洋服まで、直せるものはすべて直します。</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/wide.jpg" alt="吊るされた藍染の布" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">既製品と違った、手づくりの風合いを。</figcaption></figure>
+  
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">営業時間</h2></div>
+      <p class="status" id="status"><i></i><b>…</b></p>
+      <table class="hours"><tr data-wd="1,2,3,4,5,6"><th>営業時間</th><td>9:30〜17:30</td></tr><tr><th>定休日</th><td>日曜日・祝日</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>新潟県新潟市中央区西堀通3番町258</p>
+      <p class="mute">修理のご相談は、TEL・メールでおたずねください。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E6%BD%9F%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E8%A5%BF%E5%A0%80%E9%80%9A3%E7%95%AA%E7%94%BA258%20%E5%B7%A5%E6%88%BF%E8%97%8D%E7%BE%8E" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:0252241687" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">革も、布も、直します。</h2>
+    <a class="tel" href="tel:0252241687">025-224-1687</a>
+    <p>修理・染め直し・オーダーのご相談をお待ちしています。</p>
+    <div class="btns"><a class="btn" href="mailto:sac-mas@nifty.com" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>創作染・革工房 藍美　新潟県新潟市中央区西堀通3番町258　TEL 025-224-1687</p>
+  <p>この試作は森川ウェブ（koseimorikawa2026@gmail.com）が、創作染・革工房 藍美様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:0252241687" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+<script>window.SCHEDULE = {"days": {"1": [[570, 1050]], "2": [[570, 1050]], "3": [[570, 1050]], "4": [[570, 1050]], "5": [[570, 1050]], "6": [[570, 1050]]}};</script>
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

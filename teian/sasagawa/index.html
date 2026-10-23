@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>有限会社 笹川餅屋｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#f1efe4">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@700;900&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#f1efe4;--ink:#1f2a1c;--mute:#5d6a57;--accent:#3f6b35;--accent-ink:#fff;--panel:#e3e6d6;--line:rgba(31,42,28,.13);--display:"Zen Old Mincho",serif;--display-weight:900;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 50%}
+
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>が有限会社 笹川餅屋様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">新潟名産 笹団子　新潟市中央区西堀前通</p><p class="pl-name">笹川餅屋</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">笹川餅屋</a>
+  <nav aria-label="ページ内の案内"><a href="#story">笹川餅屋のこと</a><a href="#features">お菓子</a><a href="#info">ご案内</a></nav>
+  
+  <a class="call" href="tel:0252229822"><span data-en="Call">電話</span><span class="num">025-222-9822</span></a>
+</header>
+
+<main>
+  <section class="hero tate">
+    <div class="hero-img"><img src="img/hero.jpg" alt="陽を受けて光る笹の葉"  data-gl="wipe" data-gl-hero></div>
+    <div class="hero-copy">
+      <p class="kind">新潟名産 笹団子　新潟市中央区西堀前通</p>
+      <h1 aria-label="新潟で、百四十三年。"><span class="ch" style="--i:0">新</span><span class="ch" style="--i:1">潟</span><span class="ch" style="--i:2">で</span><span class="ch" style="--i:3">、</span><br><span class="ch" style="--i:4">百</span><span class="ch" style="--i:5">四</span><span class="ch" style="--i:6">十</span><span class="ch" style="--i:7">三</span><span class="ch" style="--i:8">年</span><span class="ch" style="--i:9">。</span></h1>
+      <span class="seal" aria-hidden="true">笹川</span>
+      <p class="sub">明治16年創業。『新潟名産笹団子』の火付け役として、初代から六代目まで、ほんものの味を受け継いでいます。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-sg" id="sig" aria-label="スクロールすると、よもぎの団子が笹の葉に包まれ、い草で結ばれる3Dの演出">
+    <div class="sg-stick">
+      <canvas id="sg3d" aria-hidden="true"></canvas>
+      <div class="sg-copy">
+        <p class="sg-step">笹団子ができるまで</p>
+        <p class="sg-h" id="sg-h">よもぎの<br>団子</p>
+        <p class="sg-p" id="sg-p">まんなかは、よもぎを練りこんだ団子です。</p>
+        <ol class="sg-steps" id="sg-steps"><li>団子</li><li>笹で包む</li><li>い草で結ぶ</li></ol>
+      </div>
+      <p class="sg-note">笹団子の3Dイメージです</p>
+    </div>
+  </section>
+<style>
+.sig-sg{position:relative;height:400vh;background:#e7ead9}
+.sg-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:radial-gradient(70% 70% at 62% 50%,#fbfbf3,#e2e6d2 75%)}
+#sg3d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.sg-copy{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);max-width:330px;z-index:3}
+.sg-step{margin:0;color:var(--accent);font-weight:700;letter-spacing:.16em;font-size:14px}
+.sg-h{font-family:var(--display);font-weight:900;font-size:clamp(46px,5.4vw,82px);line-height:1.15;margin:10px 0 16px;transition:opacity .3s}
+.sg-p{margin:0 0 24px;color:var(--mute);transition:opacity .3s}
+.sg-steps{list-style:none;margin:0;padding:0;display:flex;gap:16px;font-size:14px;color:var(--mute);counter-reset:s}
+.sg-steps li{counter-increment:s;transition:color .3s}
+.sg-steps li::before{content:counter(s);display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;border:1px solid currentColor;margin-right:6px;font-size:12px}
+.sg-steps li.on{color:var(--accent);font-weight:700}
+.sg-note{position:absolute;right:var(--gut);bottom:22px;margin:0;font-size:12px;color:var(--mute)}
+@media (max-width:860px){
+  .sg-copy{top:auto;bottom:0;transform:none;left:0;right:0;max-width:none;padding:56px var(--gut) 96px;background:linear-gradient(to top,rgba(231,234,217,.97) 62%,rgba(231,234,217,0))}
+  .sg-h{font-size:44px}
+  .sg-p{display:none}
+  .sg-note{top:74px;bottom:auto}
+}
+</style>
+<script type="module">
+import * as THREE from 'three';
+import { stage3d, span, ease, qa, mouse, canvasTexture } from '../_kit/sig/stage.js';
+
+const canvas = document.getElementById('sg3d'), section = canvas.closest('section');
+const hEl = document.getElementById('sg-h'), pEl = document.getElementById('sg-p'), steps = [...document.querySelectorAll('#sg-steps li')];
+const TEXT = [
+  ['よもぎの<br>団子', 'まんなかは、よもぎを練りこんだ団子です。'],
+  ['笹で<br>包む', '香りのよい笹の葉で、くるりと包みます。'],
+  ['い草で<br>結ぶ', '両端をい草で結べば、新潟の笹団子に。'],
+];
+const DX = 1.18, DR = .55, TIE = 1.12, LL = 3.5, LW = 1.3;
+const rDango = x => DR * Math.sqrt(Math.max(0, 1 - (x / DX) ** 2));
+// 葉が巻きつく半径。結び目から先は少し開く
+const rLeaf = (x, k) => { const ax = Math.abs(x); return (ax < TIE ? rDango(x) : rDango(TIE) + (ax - TIE) * .45) + .02 + k * .014; };
+
+const st = stage3d({ canvas, section, fov: 30, env: .03, exposure: 1.05, frame });
+if (st) {
+  const { scene } = st;
+  // よもぎ団子：深い緑に、細かな繊維の点
+  const yomogi = canvasTexture(1024, 512, (g, w, h) => {
+    g.fillStyle = '#4d6a2e'; g.fillRect(0, 0, w, h);
+    for (let i = 0; i < 2600; i++) { g.fillStyle = Math.random() < .5 ? 'rgba(28,48,18,.5)' : 'rgba(120,150,80,.35)'; g.fillRect(Math.random() * w, Math.random() * h, 1 + Math.random() * 3, 1); }
+  });
+  const dango = new THREE.Mesh(new THREE.SphereGeometry(1, 72, 40), new THREE.MeshPhysicalMaterial({ map: yomogi, roughness: .55, sheen: .25, sheenColor: new THREE.Color('#9fbf6a') }));
+  dango.scale.set(DX, DR, DR);
+  // 笹の葉：細長い形、葉脈、縁の白い隈（くま）
+  const leafTex = canvasTexture(1024, 256, (g, w, h) => {
+    g.clearRect(0, 0, w, h);
+    const hw = u => .5 * Math.pow(Math.sin(Math.PI * u), .55) * (1 - .1 * u);
+    const path = (inset) => { g.beginPath(); for (let i = 0; i <= 200; i++) { const u = i / 200; g.lineTo(u * w, h * (.5 - Math.max(0, hw(u) - inset))); } for (let i = 200; i >= 0; i--) { const u = i / 200; g.lineTo(u * w, h * (.5 + Math.max(0, hw(u) - inset))); } g.closePath(); };
+    path(0); g.fillStyle = '#e6dfbf'; g.fill();
+    const gr = g.createLinearGradient(0, 0, 0, h); gr.addColorStop(0, '#3b6a2a'); gr.addColorStop(.5, '#4f8236'); gr.addColorStop(1, '#335f25');
+    path(.035); g.fillStyle = gr; g.fill();
+    g.save(); path(.035); g.clip();
+    for (let k = -9; k <= 9; k++) {
+      if (!k) continue;
+      g.strokeStyle = `rgba(20,45,15,${.18 + Math.random() * .1})`; g.lineWidth = 1.2; g.beginPath();
+      for (let i = 0; i <= 120; i++) { const u = i / 120; g.lineTo(u * w, h * (.5 + k / 10 * hw(u))); }
+      g.stroke();
+    }
+    g.strokeStyle = 'rgba(210,225,170,.75)'; g.lineWidth = 4; g.beginPath(); g.moveTo(0, h / 2); g.lineTo(w, h / 2); g.stroke();
+    g.restore();
+  });
+  const leafMat = new THREE.MeshStandardMaterial({ map: leafTex, alphaTest: .5, side: THREE.DoubleSide, roughness: .38 });
+  const leaves = [0, 1, 2].map(k => {
+    const geo = new THREE.PlaneGeometry(LL, LW, 80, 14);
+    const pos = geo.attributes.position, base = Float32Array.from(pos.array);
+    const m = new THREE.Mesh(geo, leafMat); m.userData = { k, base, th: k * 2.09 + .3 };
+    return m;
+  });
+  // い草の結び目
+  const rush = new THREE.MeshStandardMaterial({ color: '#c9b47c', roughness: .7 });
+  const ties = [-1, 1].map(sx => {
+    const g = new THREE.Group(); g.position.x = sx * TIE;
+    for (let j = 0; j < 2; j++) { const tr = new THREE.Mesh(new THREE.TorusGeometry(rLeaf(TIE, 3) + .01, .016, 8, 64), rush); tr.rotation.y = Math.PI / 2; tr.position.x = (j - .5) * .035; g.add(tr); }
+    const end = new THREE.Mesh(new THREE.CylinderGeometry(.012, .008, .2, 6), rush); end.position.set(sx * .05, -.33, 0); end.rotation.z = sx * .35; g.add(end);
+    return g;
+  });
+  const body = new THREE.Group(); body.add(dango, ...leaves, ...ties);
+  const group = new THREE.Group(); group.add(body); scene.add(group);
+  scene.add(new THREE.HemisphereLight('#fffbe8', '#7d8a5a', 1.1));
+  const key = new THREE.DirectionalLight('#fff4dc', 2.2); key.position.set(-3, 5, 4); scene.add(key);
+  const rim = new THREE.DirectionalLight('#d9f0b0', 1.1); rim.position.set(3, 1, -4); scene.add(rim);
+  Object.assign(st, { leaves, ties, body, group });
+  st.start();
+}
+
+let stepI = -1;
+const N = new THREE.Vector3(), T = new THREE.Vector3();
+function frame({ t, p, portrait }) {
+  const si = p < .3 ? 0 : p < .64 ? 1 : 2;
+  if (si !== stepI) {
+    stepI = si; steps.forEach((li, k) => li.classList.toggle('on', k === si));
+    hEl.style.opacity = pEl.style.opacity = 0;
+    setTimeout(() => { hEl.innerHTML = TEXT[si][0]; pEl.textContent = TEXT[si][1]; hEl.style.opacity = pEl.style.opacity = 1; }, qa ? 0 : 200);
+  }
+  st.leaves.forEach(m => {
+    const { k, base, th } = m.userData;
+    const a = ease(span(p, .26 + k * .06, .44 + k * .06)), w = Math.max(.002, ease(span(p, .36 + k * .06, .6 + k * .03)));
+    const lift = (1 - a) * (1 - a) * 3.6, twist = (1 - a) * .5;
+    m.visible = a > .001;
+    const pos = m.geometry.attributes.position;
+    for (let i = 0; i < pos.count; i++) {
+      const x = base[i * 3], s = base[i * 3 + 1], r = rLeaf(x, k), th0 = th + twist * x * .3;
+      N.set(0, Math.cos(th0), Math.sin(th0)); T.set(0, -Math.sin(th0), Math.cos(th0));
+      // 曲げの半径：平らなとき大きく、包むと団子の半径に
+      const rho = r / w, phi = s / rho;
+      const px = x, py = N.y * (r + lift) + rho * Math.sin(phi) * T.y - rho * (1 - Math.cos(phi)) * N.y;
+      const pz = N.z * (r + lift) + rho * Math.sin(phi) * T.z - rho * (1 - Math.cos(phi)) * N.z;
+      pos.setXYZ(i, px, py, pz);
+    }
+    pos.needsUpdate = true; m.geometry.computeVertexNormals();
+  });
+  const tie = ease(span(p, .66, .84));
+  st.ties.forEach(g => { g.visible = tie > .01; g.scale.set(1, 1 + (1 - tie) * 1.6, 1 + (1 - tie) * 1.6); });
+  st.body.rotation.x = -.4 - p * 2.6 - (qa ? 0 : t * .06);
+  st.group.rotation.set(.18, -.42 + mouse.x * .3 + (portrait ? .2 : 0), .1 + mouse.y * .08);
+  const s = portrait ? .42 : .9;
+  st.group.scale.setScalar(s);
+  st.group.position.set(portrait ? 0 : 1.15, portrait ? .95 : 0, 0);
+  st.camera.position.set(0, 1.4, 7.2); st.camera.lookAt(0, portrait ? .1 : 0, 0);
+}
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="1883" data-from="1823">1883</span><small>年　明治16年　信濃川近く花町にて創業</small></div></div>
+    <div class="rv"><h2>ほんものの味を、六代目まで。</h2><p>創業以来『ほんものの味を』をモットーに、初代から現在六代目まで受け継いでおります。原材料はできる限り新潟県内産にこだわって吟味し、昔ながらの製法でお作りしています。</p><p>昭和36年には笹団子・笹粽が新潟市土産品に認定。お茶会用のお菓子から贈り物、鏡餅や一升餅まで、小ロットからでもご相談を承ります。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>笹団子</span><span>笹粽</span><span>涅槃万十</span><span>鏡餅</span><span>笹団氷</span><span>明治十六年</span><span>笹団子</span><span>笹粽</span><span>涅槃万十</span><span>鏡餅</span><span>笹団氷</span><span>明治十六年</span><span>笹団子</span><span>笹粽</span><span>涅槃万十</span><span>鏡餅</span><span>笹団氷</span><span>明治十六年</span><span>笹団子</span><span>笹粽</span><span>涅槃万十</span><span>鏡餅</span><span>笹団氷</span><span>明治十六年</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>お菓子</h2><span>SWEETS</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/f1.jpg" alt="葉の形をした緑の和菓子" loading="lazy" data-speed=".06" data-gl></div><h3>笹団子</h3><p>軟化剤や酵素は使わず、餅粉を多めに。冷めてもおいしい甘さに調えています。</p></article><article class="feature rv"><div class="ph"><img src="img/f2.jpg" alt="串にさした焼き餅" loading="lazy" data-speed=".06" data-gl></div><h3>お餅</h3><p>鏡餅・切り餅・一升餅など。餅つきイベントのお手伝いもしています。</p></article><article class="feature rv"><div class="ph"><img src="img/f3.jpg" alt="お茶とお餅" loading="lazy" data-speed=".06" data-gl></div><h3>お茶会・贈り物</h3><p>お茶会用のお菓子や、オーダーメイドも小ロットからご相談ください。</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/wide.jpg" alt="霧の中の笹の葉" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">笹の香りごと、お届けします。</figcaption></figure>
+  
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">ご案内</h2></div>
+      
+      <table class="hours"><tr><th>ご注文</th><td>お電話・FAX・メールで承ります</td></tr><tr><th>休業日</th><td>月ごとに店頭とホームページでお知らせします</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>新潟県新潟市中央区西堀前通4番町739番地</p>
+      <p class="mute">2千円以上お買い上げのお客様には、契約駐車場の駐車券（100円分）をお渡ししています。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E6%BD%9F%E7%9C%8C%E6%96%B0%E6%BD%9F%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E8%A5%BF%E5%A0%80%E5%89%8D%E9%80%9A4%E7%95%AA%E7%94%BA739%20%E7%AC%B9%E5%B7%9D%E9%A4%85%E5%B1%8B" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:0252229822" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">笹団子を、お取り寄せで。</h2>
+    <a class="tel" href="tel:0252229822">025-222-9822</a>
+    <p>お急ぎのご注文は、お電話・FAXがおすすめです。</p>
+    <div class="btns"><a class="btn" href="mailto:sasagawamochiya@chive.ocn.ne.jp" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>有限会社 笹川餅屋　新潟県新潟市中央区西堀前通4番町739番地　TEL 025-222-9822</p>
+  <p>この試作は森川ウェブ（koseimorikawa2026@gmail.com）が、有限会社 笹川餅屋様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:0252229822" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>有限会社 福井製茶｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#f1f4ec">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti:wght@700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#f1f4ec;--ink:#16251a;--mute:#5b6c5d;--accent:#2f7a46;--accent-ink:#fff;--panel:#e1e9dc;--line:rgba(22,37,26,.12);--display:"Kaisei Opti",serif;--display-weight:700;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 50%}
+
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>が有限会社 福井製茶様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">お茶の栽培・製造販売　鳥取県米子市淀江町</p><p class="pl-name">福井製茶</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">福井製茶</a>
+  <nav aria-label="ページ内の案内"><a href="#story">福井製茶</a><a href="#features">お茶</a><a href="#info">営業時間</a></nav>
+  
+  <a class="call" href="tel:0859562127"><span data-en="Call">電話</span><span class="num">0859-56-2127</span></a>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-img"><img src="img/hero.jpg" alt="うねのように続く茶畑"  data-gl="wipe" data-gl-hero></div>
+    <div class="hero-copy">
+      <p class="kind">お茶の栽培・製造販売　鳥取県米子市淀江町</p>
+      <h1><span class="ln"><span style="--i:0">大山の麓で、</span></span><span class="ln"><span style="--i:1">育てて、つくる。</span></span></h1>
+      
+      <p class="sub">中国地方最高峰・大山の麓、鳥取県米子市淀江町の自園茶園でお茶を栽培し、製造販売しています。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-fc" id="sig" aria-label="スクロールすると、大山を望む茶畑で新芽が伸び、摘み取られていく3Dの演出">
+    <div class="fc-stick">
+      <canvas id="fc3d" aria-hidden="true"></canvas>
+      <div class="fc-copy">
+        <p class="fc-step">自園自製</p>
+        <p class="fc-h" id="fc-h">新芽が、<br>伸びる。</p>
+        <p class="fc-p" id="fc-p">大山の麓、淀江町の自園の茶園で育てています。</p>
+        <ol class="fc-steps" id="fc-steps"><li>育てる</li><li>摘む</li><li>仕上げる</li></ol>
+      </div>
+      <p class="fc-pin" id="fc-pin" aria-hidden="true">大山<small>中国地方の最高峰</small></p>
+      <p class="fc-note">茶畑の3Dイメージです。実際の景色とは異なります</p>
+    </div>
+  </section>
+<style>
+.sig-fc{position:relative;height:400vh;background:#e8efe2}
+.fc-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:linear-gradient(#a9c9e0,#e3ecea 58%,#e8efe2)}
+#fc3d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.fc-copy{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);max-width:340px;z-index:3;padding:26px 28px;background:rgba(241,244,236,.86);backdrop-filter:blur(8px);border-radius:18px}
+.fc-step{margin:0;color:var(--accent);font-weight:700;letter-spacing:.16em;font-size:14px}
+.fc-h{font-family:var(--display);font-weight:700;font-size:clamp(40px,4.6vw,66px);line-height:1.2;margin:8px 0 14px;transition:opacity .3s}
+.fc-p{margin:0 0 20px;color:var(--mute);transition:opacity .3s}
+.fc-steps{list-style:none;margin:0;padding:0;display:flex;gap:16px;font-size:14px;color:var(--mute);counter-reset:s}
+.fc-steps li{counter-increment:s;transition:color .3s}
+.fc-steps li::before{content:counter(s);display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;border:1px solid currentColor;margin-right:6px;font-size:12px}
+.fc-steps li.on{color:var(--accent);font-weight:700}
+.fc-pin{position:absolute;left:0;top:0;margin:0;z-index:2;transform:translate(-50%,-130%);background:#fff;color:var(--ink);font-weight:700;font-size:15px;padding:8px 14px;border-radius:10px;box-shadow:0 6px 20px rgba(20,40,30,.18);white-space:nowrap;pointer-events:none;transition:opacity .4s}
+.fc-pin small{display:block;font-size:11px;font-weight:400;color:var(--mute)}
+.fc-pin::after{content:"";position:absolute;left:50%;bottom:-6px;margin-left:-6px;border:6px solid transparent;border-bottom:0;border-top-color:#fff}
+.fc-note{position:absolute;right:var(--gut);bottom:22px;margin:0;font-size:12px;color:var(--mute)}
+@media (max-width:860px){
+  .fc-copy{top:auto;bottom:0;transform:none;left:0;right:0;max-width:none;border-radius:0;padding:48px var(--gut) 92px;background:linear-gradient(to top,rgba(232,239,226,.97) 64%,rgba(232,239,226,0));backdrop-filter:none}
+  .fc-p{display:none}
+  .fc-note{top:74px;bottom:auto}
+}
+</style>
+<script type="module">
+import * as THREE from 'three';
+import { stage3d, span, ease, c01, qa, mouse } from '../_kit/sig/stage.js';
+
+const canvas = document.getElementById('fc3d'), section = canvas.closest('section'), stick = canvas.parentElement;
+const hEl = document.getElementById('fc-h'), pEl = document.getElementById('fc-p'), pin = document.getElementById('fc-pin'), steps = [...document.querySelectorAll('#fc-steps li')];
+const TEXT = [
+  ['新芽が、<br>伸びる。', '大山の麓、淀江町の自園の茶園で育てています。'],
+  ['摘む。', '茶園はいま、4.7ヘクタール。'],
+  ['自分たちで、<br>仕上げる。', '育てるところから、お茶にするまで。自園自製です。'],
+];
+const ROWS = 11, LEN = 16, CUT_ROW = 5;
+const ground = (x, z) => .22 * Math.sin(x * .45 + 1) + .18 * Math.cos(z * .35 + x * .15) - z * .05;
+const rowX = (i, z) => (i - (ROWS - 1) / 2) * .66 + .35 * Math.sin(z * .22 + 1.2);
+
+const uniforms = { uFresh: { value: 0 }, uCutZ: { value: 2 }, uRow: { value: CUT_ROW } };
+const st = stage3d({ canvas, section, fov: 40, env: 0, exposure: 1.05, frame });
+if (st) {
+  const { scene, THREE: T } = st;
+  scene.fog = new THREE.Fog('#dfe8e6', 9, 60);
+  // 茶の畝：かまぼこ形の生け垣
+  const pos = [], aTop = [], aZ = [], aRow = [], idx = [];
+  const N = 160, M = 12;
+  for (let r = 0; r < ROWS; r++) {
+    const base = pos.length / 3;
+    for (let i = 0; i <= N; i++) {
+      const z = 1 - i / N * LEN, cx = rowX(r, z), cy = ground(cx, z);
+      for (let j = 0; j <= M; j++) {
+        const a = j / M * Math.PI, bump = 1 + .05 * Math.sin(z * 9 + j) * Math.sin(a);
+        pos.push(cx + Math.cos(a) * .3 * bump, cy + Math.sin(a) * .36 * bump, z); aTop.push(Math.sin(a)); aZ.push(z); aRow.push(r);
+      }
+    }
+    for (let i = 0; i < N; i++) for (let j = 0; j < M; j++) { const a = base + i * (M + 1) + j, b = a + M + 1; idx.push(a, b, a + 1, b, b + 1, a + 1); }
+  }
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setAttribute('aTop', new THREE.Float32BufferAttribute(aTop, 1));
+  g.setAttribute('aZ', new THREE.Float32BufferAttribute(aZ, 1)); g.setAttribute('aRow', new THREE.Float32BufferAttribute(aRow, 1));
+  g.setIndex(idx); g.computeVertexNormals();
+  const mat = new THREE.MeshStandardMaterial({ color: '#ffffff', roughness: .85 });
+  mat.onBeforeCompile = sh => {
+    Object.assign(sh.uniforms, uniforms);
+    sh.vertexShader = 'attribute float aTop, aZ, aRow; varying float vTop, vZ, vRow; varying vec3 vW;\n' + sh.vertexShader.replace('#include <begin_vertex>', '#include <begin_vertex>\n vTop = aTop; vZ = aZ; vRow = aRow; vW = position;');
+    sh.fragmentShader = 'uniform float uFresh, uCutZ, uRow; varying float vTop, vZ, vRow; varying vec3 vW;\nfloat hh(vec3 p){ return fract(sin(dot(p, vec3(12.9, 78.2, 37.7))) * 43758.5); }\n' + sh.fragmentShader.replace('#include <color_fragment>', `#include <color_fragment>
+      float cut = step(abs(vRow - uRow), .5) * step(uCutZ, vZ);
+      float fresh = smoothstep(.55, .95, vTop) * uFresh * (1. - cut);
+      vec3 dark = vec3(.10, .22, .09), young = vec3(.62, .82, .24), trimmed = vec3(.16, .30, .12);
+      vec3 col = mix(mix(dark, trimmed, cut * smoothstep(.6, .9, vTop)), young, fresh);
+      col *= .75 + .5 * hh(floor(vW * 34.));
+      diffuseColor.rgb = col;`);
+  };
+  const rows = new THREE.Mesh(g, mat); scene.add(rows);
+  // 畝の間の地面
+  const gg = new THREE.PlaneGeometry(30, 40, 90, 120); gg.rotateX(-Math.PI / 2); gg.translate(0, 0, -15);
+  const gp = gg.attributes.position, gc = [];
+  for (let i = 0; i < gp.count; i++) { const x = gp.getX(i), z = gp.getZ(i); gp.setY(i, ground(x, z) - .02); const n = Math.random() * .05; gc.push(.28 + n, .3 + n, .16); }
+  gg.setAttribute('color', new THREE.Float32BufferAttribute(gc, 3)); gg.computeVertexNormals();
+  scene.add(new THREE.Mesh(gg, new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 1 })));
+  // 大山：西から見ると、すそ野の長い山
+  const prof = x => { const k = Math.max(0, 1 - Math.abs(x + 4) / 34); return .2 + 11 * Math.pow(k, 1.8) + .5 * Math.sin(x * .9) * k + .12 * Math.sin(x * 3.1); };
+  const shape = new THREE.Shape(); shape.moveTo(-60, -2);
+  for (let x = -60; x <= 60; x += .5) shape.lineTo(x, prof(x));
+  shape.lineTo(60, -2); shape.closePath();
+  const mg = new THREE.ShapeGeometry(shape);
+  const mm = new THREE.Mesh(mg, new THREE.ShaderMaterial({
+    fog: false, vertexShader: 'varying vec3 vP; void main(){ vP = position; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.); }',
+    fragmentShader: 'varying vec3 vP; void main(){ float h = clamp(vP.y / 11., 0., 1.); vec3 c = mix(vec3(.55,.66,.74), vec3(.42,.52,.62), h); c *= .95 + .05 * sin(vP.x * 2.2 + sin(vP.y * 1.3) * 2.) * h; gl_FragColor = vec4(c, 1.); }',
+  }));
+  mm.position.set(4, -1, -46); scene.add(mm);
+  // 摘採機
+  const red = new THREE.MeshStandardMaterial({ color: '#c8452c', roughness: .5 }), black = new THREE.MeshStandardMaterial({ color: '#222', roughness: .8 });
+  const harv = new THREE.Group();
+  const top = new THREE.Mesh(new THREE.BoxGeometry(1.15, .26, .7), red); top.position.y = .62; harv.add(top);
+  [-.5, .5].forEach(x => { const leg = new THREE.Mesh(new THREE.BoxGeometry(.12, .5, .6), red); leg.position.set(x, .32, 0); harv.add(leg); [-.22, .22].forEach(z => { const w = new THREE.Mesh(new THREE.CylinderGeometry(.11, .11, .1, 16), black); w.rotation.z = Math.PI / 2; w.position.set(x, .1, z); harv.add(w); }); });
+  const seat = new THREE.Mesh(new THREE.BoxGeometry(.3, .3, .3), new THREE.MeshStandardMaterial({ color: '#e8e2d0' })); seat.position.set(0, .9, .1); harv.add(seat);
+  scene.add(harv);
+  scene.add(new THREE.HemisphereLight('#dbeaf7', '#4a5a30', 1.1));
+  const sun = new THREE.DirectionalLight('#fff3dc', 2.2); sun.position.set(-6, 8, 4); scene.add(sun);
+  Object.assign(st, { harv, mm });
+  st.start();
+}
+
+let stepI = -1;
+const v = new THREE.Vector3();
+function frame({ t, p, portrait }) {
+  const si = p < .34 ? 0 : p < .7 ? 1 : 2;
+  if (si !== stepI) {
+    stepI = si; steps.forEach((li, k) => li.classList.toggle('on', k === si));
+    hEl.style.opacity = pEl.style.opacity = 0;
+    setTimeout(() => { hEl.innerHTML = TEXT[si][0]; pEl.textContent = TEXT[si][1]; hEl.style.opacity = pEl.style.opacity = 1; }, qa ? 0 : 180);
+  }
+  uniforms.uFresh.value = .25 + .75 * ease(span(p, .04, .3));
+  // 摘採機が、畝の上を奥へ進む
+  const hz = -1.2 - ease(span(p, .36, .7)) * (LEN - 3);
+  uniforms.uCutZ.value = hz + .1;
+  const hx = rowX(CUT_ROW, hz);
+  st.harv.position.set(hx, ground(hx, hz) - .02, hz);
+  st.harv.rotation.y = Math.atan(.35 * .22 * Math.cos(hz * .22 + 1.2));
+  // カメラ：畝の間から、だんだん高く引いて大山まで
+  const up = ease(span(p, .66, 1));
+  const cz = 4.6 - up * 2.2, cy = 1.75 + up * 3.4, cx = (portrait ? .2 : -1.1) + mouse.x * .5;
+  st.camera.position.set(cx, cy, cz);
+  st.camera.lookAt(cx * .3 + (portrait ? 0 : -.9), .6 + up * 1.2, -12);
+  if (portrait) st.camera.fov = 52; else st.camera.fov = 40;
+  st.camera.updateProjectionMatrix();
+  // 山の上に名札
+  v.set(0, 10.2, -46).project(st.camera);
+  pin.style.left = (v.x * .5 + .5) * stick.clientWidth + 'px'; pin.style.top = (-v.y * .5 + .5) * stick.clientHeight + 'px';
+  pin.style.opacity = c01((p - .7) / .1);
+}
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="4.7" data-from="-55.3">4.7</span><small>ヘクタール　自園の茶園</small></div></div>
+    <div class="rv"><h2>自園自製ならではの、安心とおいしさ。</h2><p>自家用のお茶を栽培するところから始まり、淀江町のつぼかめ山で本格的にお茶の栽培を始めました。荒茶工場を建て、はま茶の栽培も始め、今では茶園は4.7ヘクタールになりました。</p><p>製造・販売部門を法人化し、緑茶・はま茶などお茶全般をお届けしています。オンラインショップもご利用いただけます。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>自園自製</span><span>緑茶</span><span>はま茶</span><span>大山の麓</span><span>淀江町</span><span>4.7ヘクタール</span><span>自園自製</span><span>緑茶</span><span>はま茶</span><span>大山の麓</span><span>淀江町</span><span>4.7ヘクタール</span><span>自園自製</span><span>緑茶</span><span>はま茶</span><span>大山の麓</span><span>淀江町</span><span>4.7ヘクタール</span><span>自園自製</span><span>緑茶</span><span>はま茶</span><span>大山の麓</span><span>淀江町</span><span>4.7ヘクタール</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>お茶</h2><span>TEA</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/f1.jpg" alt="光の差す茶畑" loading="lazy" data-speed=".06" data-gl></div><h3>緑茶</h3><p>自園で育て、自社の工場で仕上げます。</p></article><article class="feature rv"><div class="ph"><img src="img/f2.jpg" alt="お茶の若葉" loading="lazy" data-speed=".06" data-gl></div><h3>はま茶</h3><p>昭和57年から栽培を続けています。</p></article><article class="feature rv"><div class="ph"><img src="img/f3.jpg" alt="急須と湯呑み" loading="lazy" data-speed=".06" data-gl></div><h3>オンラインショップ</h3><p>クレジットカードやコンビニ決済も使えます。</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/wide.jpg" alt="霧の茶畑" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">大山の麓の、自園茶園から。</figcaption></figure>
+  
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">営業時間</h2></div>
+      <p class="status" id="status"><i></i><b>…</b></p>
+      <table class="hours"><tr data-wd="1,2,3,4,5"><th>営業時間</th><td>8:30〜15:30</td></tr><tr><th>定休日</th><td>土曜日・日曜日・祝日</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>鳥取県米子市淀江町福井183-1</p>
+      <p class="mute">お問い合わせは、電話・FAX・Eメールで承ります。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E9%B3%A5%E5%8F%96%E7%9C%8C%E7%B1%B3%E5%AD%90%E5%B8%82%E6%B7%80%E6%B1%9F%E7%94%BA%E7%A6%8F%E4%BA%95183-1%20%E7%A6%8F%E4%BA%95%E8%A3%BD%E8%8C%B6" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:0859562127" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">大山の麓のお茶を、ご家庭に。</h2>
+    <a class="tel" href="tel:0859562127">0859-56-2127</a>
+    <p>ご注文はオンラインショップ、お電話・FAX・メールで。</p>
+    <div class="btns"><a class="btn" href="mailto:info.fukui-tea@mbr.nifty.com" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>有限会社 福井製茶　鳥取県米子市淀江町福井183-1　TEL 0859-56-2127</p>
+  <p>この試作は森川ウェブ（koseimorikawa2026@gmail.com）が、有限会社 福井製茶様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:0859562127" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+<script>window.SCHEDULE = {"days": {"1": [[510, 930]], "2": [[510, 930]], "3": [[510, 930]], "4": [[510, 930]], "5": [[510, 930]]}};</script>
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

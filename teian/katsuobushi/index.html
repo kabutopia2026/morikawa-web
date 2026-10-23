@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>山田鰹節店｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0f1e26">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Antique+Soft&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#0f1e26;--ink:#f0ebe2;--mute:#9fb1b8;--accent:#e2a15c;--accent-ink:#0f1e26;--panel:#16262f;--line:rgba(240,235,226,.13);--display:"Zen Antique Soft",serif;--display-weight:400;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 50%}
+
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>が山田鰹節店様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">削り節・海産物・海苔の専門店　静岡県下田市</p><p class="pl-name">山田鰹節店</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">山田鰹節店</a>
+  <nav aria-label="ページ内の案内"><a href="#story">山田鰹節店</a><a href="#features">品物</a><a href="#info">営業時間</a></nav>
+  
+  <a class="call" href="tel:0558220058"><span data-en="Call">電話</span><span class="num">0558-22-0058</span></a>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-img"><img src="img/hero.jpg" alt="伊豆の海に浮かぶ岩の島"  data-gl="wipe" data-gl-hero></div>
+    <div class="hero-copy">
+      <p class="kind">削り節・海産物・海苔の専門店　静岡県下田市</p>
+      <h1><span class="ln"><span style="--i:0">下田で唯一の、</span></span><span class="ln"><span style="--i:1">鰹節店。</span></span></h1>
+      
+      <p class="sub">伊豆の国下田で、削り節、海産物、海苔の専門店として、創業以来70年にわたり営業しています。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-kb" id="sig" aria-label="スクロールや左右のドラッグで、削り器の上の節が動き、削り節が舞って積もる3Dの演出">
+    <div class="kb-stick">
+      <canvas id="kb3d" aria-hidden="true"></canvas>
+      <div class="kb-copy">
+        <p class="kb-step">左右にドラッグして、削ってみてください</p>
+        <p class="kb-h" id="kb-h">鰹節</p>
+        <p class="kb-p" id="kb-p">削り節の、いちばんの定番です。</p>
+        <div class="kb-tabs" role="group" aria-label="節を選ぶ"><button type="button" data-i="0" aria-pressed="true">鰹節</button><button type="button" data-i="1" aria-pressed="false">宗田節</button><button type="button" data-i="2" aria-pressed="false">サバ節</button><button type="button" data-i="3" aria-pressed="false">ムロ節</button></div>
+        <p class="kb-count">ひと削り <b id="kb-n">0</b> 回</p>
+      </div>
+      <p class="kb-note">削り節の3Dイメージです。どの節も、昔から変わらぬ製法で作られたものを使っています</p>
+    </div>
+  </section>
+<style>
+.sig-kb{position:relative;height:360vh;background:#0c171e}
+.kb-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:radial-gradient(60% 70% at 64% 55%,#26343a,#0c171e 75%);touch-action:pan-y}
+#kb3d{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:ew-resize}
+.kb-copy{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);max-width:340px;z-index:3}
+.kb-step{margin:0;color:var(--accent);font-weight:700;letter-spacing:.08em;font-size:14px}
+.kb-h{font-family:var(--display);font-size:clamp(70px,8vw,120px);line-height:1;margin:12px 0 14px;transition:opacity .3s}
+.kb-p{margin:0 0 22px;color:var(--mute);transition:opacity .3s}
+.kb-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+.kb-tabs button{font:inherit;font-weight:700;font-size:14px;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.kb-tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#0f1e26}
+.kb-count{margin:0;color:var(--mute);font-size:14px}
+.kb-count b{font-family:var(--display);font-size:34px;color:var(--ink);font-weight:400;margin:0 4px;font-variant-numeric:tabular-nums}
+.kb-note{position:absolute;right:var(--gut);top:84px;margin:0;font-size:12px;color:var(--mute);max-width:60%;text-align:right}
+@media (max-width:860px){
+  .kb-copy{top:auto;bottom:0;transform:none;left:0;right:0;max-width:none;padding:48px var(--gut) 88px;background:linear-gradient(to top,rgba(12,23,30,.97) 66%,rgba(12,23,30,0))}
+  .kb-h{font-size:60px;margin:6px 0 10px}
+  .kb-p{display:none}
+  .kb-tabs{margin-bottom:10px}
+  .kb-note{top:74px;bottom:auto;max-width:none;left:var(--gut)}
+}
+</style>
+<script type="module">
+import * as THREE from 'three';
+import { stage3d, c01, qa, mouse, canvasTexture, woodTexture } from '../_kit/sig/stage.js';
+
+const canvas = document.getElementById('kb3d'), section = canvas.closest('section');
+const hEl = document.getElementById('kb-h'), pEl = document.getElementById('kb-p'), nEl = document.getElementById('kb-n'), tabs = [...section.querySelectorAll('.kb-tabs button')];
+const TYPES = [
+  { h: '鰹節', p: '削り節の、いちばんの定番です。', body: '#4a2e22', cut: '#8a3b2c', flake: '#e8b9a0' },
+  { h: '宗田節', p: '宗田鰹（そうだがつお）の節です。', body: '#33201a', cut: '#6e2a22', flake: '#c98c74' },
+  { h: 'サバ節', p: '鯖（さば）の節です。', body: '#4d3a2c', cut: '#7a4a34', flake: '#d9b493' },
+  { h: 'ムロ節', p: '室鯵（むろあじ）の節です。', body: '#463428', cut: '#7b4636', flake: '#cfa58c' },
+];
+let type = 0, strokes = 0;
+
+const st = stage3d({ canvas, section, fov: 30, env: .03, exposure: 1.05, frame });
+const MAXF = 220;
+if (st) {
+  const { scene } = st;
+  // 削り器：木の箱と刃
+  const box = new THREE.Mesh(new THREE.BoxGeometry(3, .8, 1.5), new THREE.MeshStandardMaterial({ map: woodTexture('#b88a58', 'rgba(80,45,20,'), roughness: .7 }));
+  box.position.y = -.4;
+  const slot = new THREE.Mesh(new THREE.PlaneGeometry(.08, 1.2), new THREE.MeshBasicMaterial({ color: '#120a06' }));
+  slot.rotation.x = -Math.PI / 2; slot.position.set(0, .002, 0);
+  const blade = new THREE.Mesh(new THREE.BoxGeometry(.05, .012, 1.16), new THREE.MeshPhysicalMaterial({ color: '#cfd6dc', metalness: 1, roughness: .2 }));
+  blade.position.set(.04, .006, 0);
+  const drawer = new THREE.Mesh(new THREE.PlaneGeometry(.9, .16), new THREE.MeshStandardMaterial({ color: '#7a5434', roughness: .8 }));
+  drawer.position.set(0, -.55, .752);
+  const knob = new THREE.Mesh(new THREE.SphereGeometry(.05, 16, 12), new THREE.MeshStandardMaterial({ color: '#2a1a10', roughness: .4 })); knob.position.set(0, -.55, .78);
+  // 節：舟のような形。下は削った赤い面
+  const g = new THREE.SphereGeometry(1, 96, 48), pos = g.attributes.position, colors = new Float32Array(pos.count * 3), c = new THREE.Color();
+  for (let i = 0; i < pos.count; i++) {
+    let x = pos.getX(i), y = pos.getY(i), z = pos.getZ(i);
+    y = Math.max(y, -.42) + .08 * (1 - x * x) * (y > 0 ? 1 : 0);
+    z *= 1 - .25 * Math.max(0, y);
+    pos.setXYZ(i, x, y, z);
+    colors[i * 3] = y <= -.419 ? 1 : 0;
+  }
+  g.setAttribute('cutmask', new THREE.BufferAttribute(colors, 3)); g.computeVertexNormals();
+  const mold = canvasTexture(1024, 512, (gg, w, h) => {
+    gg.fillStyle = '#fff'; gg.fillRect(0, 0, w, h);
+    for (let i = 0; i < 1600; i++) { gg.fillStyle = `rgba(${150 + Math.random() * 60},${130 + Math.random() * 50},${110 + Math.random() * 40},${.06 + Math.random() * .14})`; gg.beginPath(); gg.arc(Math.random() * w, Math.random() * h, 2 + Math.random() * 9, 0, 7); gg.fill(); }
+  });
+  const bodyMat = new THREE.MeshPhysicalMaterial({ map: mold, roughness: .62, clearcoat: .15, color: TYPES[0].body });
+  const cutU = { value: new THREE.Color(TYPES[0].cut) };
+  bodyMat.onBeforeCompile = sh => {
+    sh.uniforms.uCut = cutU;
+    sh.vertexShader = 'attribute vec3 cutmask; varying float vCut;\n' + sh.vertexShader.replace('#include <begin_vertex>', '#include <begin_vertex>\n vCut = cutmask.x;');
+    sh.fragmentShader = 'uniform vec3 uCut; varying float vCut;\n' + sh.fragmentShader.replace('#include <map_fragment>', '#include <map_fragment>\n diffuseColor.rgb = mix(diffuseColor.rgb, uCut * (.85 + .15 * sin(vMapUv.x * 300.)), step(.5, vCut));');
+  };
+  const bushi = new THREE.Mesh(g, bodyMat);
+  bushi.scale.set(1.15, .38, .36); bushi.position.y = .16;
+  // 削り節：くるりと丸まった薄片
+  const flakeGeos = [0, 1, 2].map(v => {
+    const fg = new THREE.PlaneGeometry(.34, .2, 16, 4), fp = fg.attributes.position;
+    const curl = 5 + v * 3;
+    for (let i = 0; i < fp.count; i++) { const x = fp.getX(i) + .17, y = fp.getY(i), a = x * curl, r = 1 / curl; fp.setXYZ(i, Math.sin(a) * r * (1 + y * .6), y + x * .1 * v, (1 - Math.cos(a)) * r); }
+    fg.computeVertexNormals(); return fg;
+  });
+  const flakeMat = new THREE.MeshStandardMaterial({ side: THREE.DoubleSide, roughness: .55, color: '#ffffff', emissive: '#3a1a10', emissiveIntensity: .25 });
+  const flakes = flakeGeos.map(fg => { const m = new THREE.InstancedMesh(fg, flakeMat, MAXF); m.instanceMatrix.setUsage(THREE.DynamicDrawUsage); m.instanceColor = new THREE.InstancedBufferAttribute(new Float32Array(MAXF * 3), 3); m.count = 0; return m; });
+  // 削った節を受ける皿
+  const dish = new THREE.Mesh(new THREE.LatheGeometry([[0, 0], [.9, 0], [1.05, .12], [1.08, .16], [1.02, .14], [.86, .04], [0, .03]].map(([x, y]) => new THREE.Vector2(x, y)), 64), new THREE.MeshPhysicalMaterial({ color: '#e8e2d6', roughness: .3, clearcoat: 1 }));
+  dish.position.set(1.85, -.8, 1.05);
+  const plane = new THREE.Group(); plane.add(box, slot, blade, drawer, knob, bushi);
+  const group = new THREE.Group(); group.add(plane, dish, ...flakes); scene.add(group);
+  scene.add(new THREE.HemisphereLight('#ffeedd', '#20303a', .7));
+  const key = new THREE.DirectionalLight('#ffe6c8', 2.4); key.position.set(-3, 6, 4); scene.add(key);
+  const rim = new THREE.DirectionalLight('#8fc2e0', 1.2); rim.position.set(4, 2, -4); scene.add(rim);
+  const fd = [];
+  Object.assign(st, { bushi, bodyMat, cutU, flakeMat, flakes, fd, group, dish, tmp: new THREE.Object3D(), col: new THREE.Color() });
+  st.start();
+}
+
+function setType(i) {
+  type = i; tabs.forEach((b, k) => b.setAttribute('aria-pressed', k === i));
+  hEl.style.opacity = pEl.style.opacity = 0;
+  setTimeout(() => { hEl.textContent = TYPES[i].h; pEl.textContent = TYPES[i].p; hEl.style.opacity = pEl.style.opacity = 1; }, 160);
+  if (st) { st.bodyMat.color.set(TYPES[i].body); st.cutU.value.set(TYPES[i].cut); }
+}
+tabs.forEach(b => b.addEventListener('click', () => setType(+b.dataset.i)));
+
+// ドラッグで節を前後に動かす
+let drag = null, dragX = 0;
+canvas.addEventListener('pointerdown', e => { drag = e.clientX; });
+addEventListener('pointerup', () => { drag = null; });
+canvas.addEventListener('pointermove', e => { if (drag !== null) { dragX += (e.clientX - drag) / innerWidth * 3.2; drag = e.clientX; } });
+
+let bx = 0, lastBx = 0, lastP = 0, push = 0, travel = 0;
+function spawn(n) {
+  for (let k = 0; k < n; k++) {
+    const f = { x: .05, y: .02, z: (Math.random() - .5) * 1, vx: .4 + Math.random() * .9, vy: 1.6 + Math.random() * 1.4, vz: .6 + Math.random() * .7, r: Math.random() * 6, vr: (Math.random() - .5) * 8, kind: Math.floor(Math.random() * 3), color: new THREE.Color(TYPES[type].flake).offsetHSL(0, 0, (Math.random() - .5) * .08), rest: false, s: .7 + Math.random() * .6 };
+    if (st.fd.length >= 600) st.fd.shift();
+    st.fd.push(f);
+  }
+}
+function frame({ t, dt, p, portrait }) {
+  // スクロール量と、ドラッグ量の分だけ、節を前後させる
+  push += (p - lastP) * 40; lastP = p;
+  const idle = qa ? 0 : Math.sin(t * 1.6) * .35;
+  travel += dragX; dragX = 0;
+  const target = Math.sin(push + travel * 1.2) * .7 + idle * (Math.abs(push) < .01 ? 1 : .3);
+  bx += (target - bx) * .25;
+  const v = (bx - lastBx) / Math.max(dt, .001); lastBx = bx;
+  if (v < -.6 && !qa) { if (Math.random() < Math.min(1, -v * dt * 9)) { spawn(1 + Math.floor(Math.random() * 2)); } }
+  if (v < -.6 && !st.down) { st.down = true; strokes++; nEl.textContent = strokes; }
+  if (v > .2) st.down = false;
+  st.bushi.position.x = bx; st.bushi.rotation.z = -v * .01;
+  // 確認用：はじめから積もった状態を作る
+  if (qa && !st.qaFilled) { st.qaFilled = true; for (let k = 0; k < 160; k++) { spawn(1); const f = st.fd[st.fd.length - 1]; f.rest = true; const a = Math.random() * 6.28, r = Math.sqrt(Math.random()) * .75; f.x = 1.85 + Math.cos(a) * r; f.z = 1.05 + Math.sin(a) * r; f.y = -.75 + (1 - r / .75) * .45 * Math.random(); } for (let k = 0; k < 14; k++) { spawn(1); const f = st.fd[st.fd.length - 1]; f.x = .2 + k * .12; f.y = .3 + Math.sin(k) * .4; } }
+  const counts = [0, 0, 0];
+  st.fd.forEach(f => {
+    if (!f.rest && !qa) {
+      f.vy -= 4.2 * dt; f.vx *= .995; f.x += f.vx * dt * 1.2; f.y += f.vy * dt * .6; f.z += f.vz * dt * .5; f.r += f.vr * dt;
+      // ひらひらと、皿の上へ
+      f.vx += (1.85 - f.x) * dt * 1.5; f.vz += (1.05 - f.z) * dt * 1.5;
+      const dx = f.x - 1.85, dz = f.z - 1.05, inDish = dx * dx + dz * dz < .8;
+      const floor = inDish ? -.75 + Math.max(0, .45 - Math.hypot(dx, dz) * .55) * c01(st.fd.length / 300) : -.82;
+      if (f.y < floor && f.vy < 0) { f.y = floor; f.rest = true; f.old = true; }
+    }
+    if (counts[f.kind] >= MAXF) return;
+    const m = st.flakes[f.kind], k = counts[f.kind]++;
+    st.tmp.position.set(f.x, f.y, f.z); st.tmp.rotation.set(f.r, f.r * .7, f.r * 1.3); st.tmp.scale.setScalar(f.s); st.tmp.updateMatrix();
+    m.setMatrixAt(k, st.tmp.matrix); m.setColorAt(k, f.color);
+  });
+  st.flakes.forEach((m, i) => { m.count = counts[i]; m.instanceMatrix.needsUpdate = true; if (m.instanceColor) m.instanceColor.needsUpdate = true; });
+  st.group.rotation.set(0, -.5 + mouse.x * .15, 0);
+  st.group.position.set(portrait ? -.38 : .75, portrait ? 1 : 0, 0);
+  st.group.scale.setScalar(portrait ? .44 : .95);
+  st.camera.position.set(0, 3.2, 7.6); st.camera.lookAt(portrait ? -.2 : .3, -.1, 0);
+}
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="70" data-from="10">70</span><small>年　伊豆・下田で</small></div></div>
+    <div class="rv"><h2>昔から変わらぬ製法で。</h2><p>当店の品物は、地場産・国内産にこだわっています。特に削り節は、昔から変わらぬ製法で丁寧に作られた鰹節、宗田節、サバ節、ムロ節を使い、味と風味の豊かさを大切に販売しています。</p><p>これからもお客様の安全と安心を第一に考え、信用される品物を販売してまいります。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>削り節</span><span>鰹節</span><span>宗田節</span><span>サバ節</span><span>地のり</span><span>伊豆・下田</span><span>削り節</span><span>鰹節</span><span>宗田節</span><span>サバ節</span><span>地のり</span><span>伊豆・下田</span><span>削り節</span><span>鰹節</span><span>宗田節</span><span>サバ節</span><span>地のり</span><span>伊豆・下田</span><span>削り節</span><span>鰹節</span><span>宗田節</span><span>サバ節</span><span>地のり</span><span>伊豆・下田</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>品物</h2><span>ITEMS</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/f1.jpg" alt="削り節ののった料理" loading="lazy" data-speed=".06" data-gl></div><h3>削り節</h3><p>鰹節、宗田節、サバ節、ムロ節。だしパックも。</p></article><article class="feature rv"><div class="ph"><img src="img/f2.jpg" alt="だしのきいた汁物" loading="lazy" data-speed=".06" data-gl></div><h3>だしのとり方</h3><p>店頭で、おいしいだしのとり方もご案内しています。</p></article><article class="feature rv"><div class="ph"><img src="img/f3.jpg" alt="港に並ぶ漁船" loading="lazy" data-speed=".06" data-gl></div><h3>地のり・海産物</h3><p>地のり、わかめ、ひじき、桜えびなど、伊豆の海の幸。</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/wide.jpg" alt="伊豆の海岸線" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">温暖な気候と、風光明媚な自然と。</figcaption></figure>
+  
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">営業時間</h2></div>
+      <p class="status" id="status"><i></i><b>…</b></p>
+      <table class="hours"><tr data-wd="0,1,2,4,5,6"><th>営業時間</th><td>8:00〜19:30</td></tr><tr><th>定休日</th><td>毎週水曜日（8月・12月は無休）</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>静岡県下田市二丁目2-15</p>
+      <p class="mute">電話・FAX・メールでのご注文も承り、地方発送いたします。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E9%9D%99%E5%B2%A1%E7%9C%8C%E4%B8%8B%E7%94%B0%E5%B8%82%E4%BA%8C%E4%B8%81%E7%9B%AE2-15%20%E5%B1%B1%E7%94%B0%E9%B0%B9%E7%AF%80%E5%BA%97" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:0558220058" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">削りたての香りを、どうぞ。</h2>
+    <a class="tel" href="tel:0558220058">0558-22-0058</a>
+    <p>ご注文、ご意見、ご質問などは、お気軽にメールをください。</p>
+    <div class="btns"><a class="btn" href="mailto:yamada-katsuobushi@earth.ocn.ne.jp" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>山田鰹節店　静岡県下田市二丁目2-15　TEL 0558-22-0058</p>
+  <p>この試作は森川ウェブ（koseimorikawa2026@gmail.com）が、山田鰹節店様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:0558220058" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+<script>window.SCHEDULE = {"days": {"0": [[480, 1170]], "1": [[480, 1170]], "2": [[480, 1170]], "4": [[480, 1170]], "5": [[480, 1170]], "6": [[480, 1170]]}};</script>
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

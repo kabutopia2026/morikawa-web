@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>時游窯工房｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#efe7dc">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@500&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#efe7dc;--ink:#2b1f17;--mute:#7b6a5c;--accent:#b5562f;--accent-ink:#fff;--panel:#e4d8c8;--line:rgba(43,31,23,.12);--display:"Kiwi Maru",serif;--display-weight:500;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 50%;--top-ink:var(--ink)}
+
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>が時游窯工房様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">陶芸教室＆ギャラリー　静岡県浜松市中央区半田町</p><p class="pl-name">時游窯工房</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">時游窯工房</a>
+  <nav aria-label="ページ内の案内"><a href="#story">時游窯のこと</a><a href="#features">体験・教室</a><a href="#price">料金</a></nav>
+  
+  <a class="call" href="tel:09056341749"><span data-en="Call">電話</span><span class="num">090-5634-1749</span></a>
+</header>
+
+<main>
+  <section class="hero" hidden>
+    <div class="hero-img"><img src="img/hero.jpg" alt="ろくろで器を形づくる手" ></div>
+    <div class="hero-copy">
+      <p class="kind">陶芸教室＆ギャラリー　静岡県浜松市中央区半田町</p>
+      <h1><span class="ln"><span style="--i:0">自由に、</span></span><span class="ln"><span style="--i:1">土とあそぶ。</span></span></h1>
+      
+      <p class="sub">浜松市で陶芸教室＆ギャラリーを主宰する、隠れ家のような工房です。技法に捕われない自由な作陶をモットーにしています。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-jy hero-sig" id="sig" aria-label="ろくろの上で回る土が、スクロールすると湯呑みの形に立ち上がり、焼かれて釉薬の色になる3Dの演出">
+    <div class="jy-stick hero">
+      <canvas id="jy3d" aria-hidden="true"></canvas>
+      <div class="hero-copy hs-copy" id="hs-copy"><p class="kind">陶芸教室＆ギャラリー　静岡県浜松市中央区半田町</p><h1><span class="ln"><span style="--i:0">自由に、</span></span><span class="ln"><span style="--i:1">土とあそぶ。</span></span></h1><p class="sub">浜松市で陶芸教室＆ギャラリーを主宰する、隠れ家のような工房です。技法に捕われない自由な作陶をモットーにしています。</p></div>
+      <div class="jy-panel" id="jy-panel">
+        <p class="jy-step" id="jy-step">土</p>
+        <p class="jy-h" id="jy-h">信楽土を、<br>ろくろへ。</p>
+        <p class="jy-p" id="jy-p">粘土は信楽土を3種類。作陶に必要な道具は、ほぼ揃えています。</p>
+        <ol class="jy-steps" id="jy-steps"><li>土</li><li>挽く</li><li>焼く</li></ol>
+      </div>
+      <p class="jy-note" id="jy-note">陶芸の3Dイメージです</p>
+    </div>
+  </section>
+<style>
+.sig-jy{position:relative;height:420vh;background:#e9dfd2}
+.jy-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;color:var(--ink);background:radial-gradient(60% 70% at 66% 52%,#fbf6ef,#e2d5c4 76%)}
+.jy-stick .hs-copy{z-index:3}
+#jy3d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.jy-panel{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);max-width:340px;z-index:3;opacity:0}
+.jy-step{margin:0;color:var(--accent);font-weight:700;letter-spacing:.2em;font-size:14px}
+.jy-h{font-family:var(--display);font-weight:500;font-size:clamp(40px,4.6vw,66px);line-height:1.25;margin:10px 0 14px;transition:opacity .3s}
+.jy-p{margin:0 0 22px;color:var(--mute);transition:opacity .3s}
+.jy-steps{list-style:none;margin:0;padding:0;display:flex;gap:16px;font-size:14px;color:var(--mute);counter-reset:s}
+.jy-steps li{counter-increment:s;transition:color .3s}
+.jy-steps li::before{content:counter(s);display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;border:1px solid currentColor;margin-right:6px;font-size:12px}
+.jy-steps li.on{color:var(--accent);font-weight:700}
+.jy-note{position:absolute;right:var(--gut);bottom:22px;margin:0;font-size:12px;color:var(--mute);z-index:3;opacity:0}
+@media (max-width:860px){
+  .jy-panel{top:auto;bottom:0;transform:none;left:0;right:0;max-width:none;padding:56px var(--gut) 92px;background:linear-gradient(to top,rgba(233,223,210,.97) 62%,rgba(233,223,210,0))}
+  .jy-h{font-size:36px}
+  .jy-p{display:none}
+  .jy-note{top:74px;bottom:auto}
+}
+</style>
+<script type="module">
+import * as THREE from 'three';
+import { stage3d, heroFade, span, ease, c01, qa, mouse, canvasTexture } from '../_kit/sig/stage.js';
+
+const canvas = document.getElementById('jy3d'), section = canvas.closest('section');
+const panel = document.getElementById('jy-panel'), note = document.getElementById('jy-note'), stepEl = document.getElementById('jy-step'), hEl = document.getElementById('jy-h'), pEl = document.getElementById('jy-p'), steps = [...document.querySelectorAll('#jy-steps li')];
+const TEXT = [
+  ['土', '信楽土を、<br>ろくろへ。', '粘土は信楽土を3種類。作陶に必要な道具は、ほぼ揃えています。'],
+  ['挽く', '回して、<br>立ち上げる。', '電動ろくろ4台、手回しろくろ8台。初めての方も、基本からしっかり学べます。'],
+  ['焼く', '窯で焼いて、<br>釉薬の色に。', '自前で調合した釉薬を、25種類ほどご用意しています。'],
+];
+// 形の断面（外側を下から上へ、内側を上から下へ）。同じ点の数にそろえて混ぜる
+const NP = 64;
+const prof = pts => new THREE.SplineCurve(pts.map(([x, y]) => new THREE.Vector2(x, y))).getSpacedPoints(NP - 1);
+const LUMP = prof([[0, 0], [.92, 0], [1.02, .16], [.98, .46], [.78, .72], [.42, .86], [.2, .88], [.08, .885], [0, .89]]);
+const CYL = prof([[0, 0], [.8, 0], [.84, .16], [.76, .9], [.74, 1.32], [.7, 1.38], [.64, 1.33], [.62, .9], [.62, .26], [.3, .22], [0, .21]]);
+const CUP = prof([[0, 0], [.6, 0], [.66, .12], [.6, .36], [.64, 1.1], [.74, 1.72], [.71, 1.78], [.66, 1.73], [.56, 1.1], [.5, .36], [.5, .24], [.2, .2], [0, .19]]);
+const shapeAt = s => { const a = s < 1 ? LUMP : CYL, b = s < 1 ? CYL : CUP, f = s < 1 ? s : s - 1; return a.map((p, i) => new THREE.Vector2(p.x + (b[i].x - p.x) * f, p.y + (b[i].y - p.y) * f)); };
+
+const st = stage3d({ canvas, section, fov: 30, env: .04, exposure: 1.05, frame });
+if (st) {
+  const { scene } = st;
+  // 挽き目：横すじ
+  const rings = canvasTexture(64, 1024, (g, w, h) => { g.fillStyle = '#fff'; g.fillRect(0, 0, w, h); for (let y = 0; y < h; y += 6 + Math.random() * 10) { g.fillStyle = `rgba(80,50,30,${.06 + Math.random() * .12})`; g.fillRect(0, y, w, 2 + Math.random() * 3); } });
+  rings.wrapS = rings.wrapT = THREE.RepeatWrapping;
+  const clayMat = new THREE.MeshPhysicalMaterial({ map: rings, color: '#a86d4c', roughness: .38, clearcoat: .5, clearcoatRoughness: .3, side: THREE.DoubleSide, emissive: '#ff6a1a', emissiveIntensity: 0 });
+  const clay = new THREE.Mesh(new THREE.LatheGeometry(shapeAt(0), 96), clayMat);
+  clay.position.y = .16;
+  // ろくろ
+  const steel = new THREE.MeshPhysicalMaterial({ color: '#9aa0a6', metalness: .9, roughness: .3 });
+  const head = new THREE.Mesh(new THREE.CylinderGeometry(1.35, 1.35, .14, 64), steel); head.position.y = .08;
+  const rim = new THREE.Mesh(new THREE.TorusGeometry(2.1, .12, 16, 96), new THREE.MeshStandardMaterial({ color: '#c9c3b8', roughness: .6 })); rim.rotation.x = Math.PI / 2; rim.position.y = .0;
+  const tray = new THREE.Mesh(new THREE.CircleGeometry(2.1, 64), new THREE.MeshStandardMaterial({ color: '#b9b2a6', roughness: .8 })); tray.rotation.x = -Math.PI / 2; tray.position.y = -.12;
+  const slip = new THREE.Mesh(new THREE.RingGeometry(1.4, 2.0, 64), new THREE.MeshStandardMaterial({ color: '#9a6a4c', roughness: .3, transparent: true, opacity: .55 })); slip.rotation.x = -Math.PI / 2; slip.position.y = -.11;
+  const wheel = new THREE.Group(); wheel.add(head, clay);
+  const group = new THREE.Group(); group.add(wheel, rim, tray, slip); scene.add(group);
+  scene.add(new THREE.HemisphereLight('#fff6ea', '#7a6450', 1));
+  const key = new THREE.DirectionalLight('#fff0dc', 2.4); key.position.set(-3, 6, 4); scene.add(key);
+  const fire = new THREE.PointLight('#ff7a2a', 0, 6); fire.position.set(0, 1, 1.5); scene.add(fire);
+  Object.assign(st, { clay, clayMat, rings, wheel, group, fire, cClay: new THREE.Color('#a86d4c'), cDry: new THREE.Color('#d9c2a6'), cGlaze: new THREE.Color('#2f6b72'), spin: 0 });
+  st.start();
+}
+
+let stepI = -1, lastS = -1;
+function frame({ t, dt, p, portrait }) {
+  const heroK = heroFade(p, .1);
+  panel.style.opacity = note.style.opacity = c01((p - .08) / .06);
+  const si = p < .3 ? 0 : p < .62 ? 1 : 2;
+  if (si !== stepI) {
+    stepI = si; steps.forEach((li, k) => li.classList.toggle('on', k === si));
+    hEl.style.opacity = pEl.style.opacity = 0;
+    setTimeout(() => { stepEl.textContent = TEXT[si][0]; hEl.innerHTML = TEXT[si][1]; pEl.textContent = TEXT[si][2]; hEl.style.opacity = pEl.style.opacity = 1; }, qa ? 0 : 180);
+  }
+  // 形：かたまり → 筒 → 湯呑み
+  const s = ease(span(p, .2, .42)) + ease(span(p, .42, .62));
+  if (Math.abs(s - lastS) > .002) { lastS = s; st.clay.geometry.dispose(); st.clay.geometry = new THREE.LatheGeometry(shapeAt(s), 96); }
+  // 回転：挽いている間は速く、焼いたあとはゆっくり
+  const fired = ease(span(p, .66, .88)), glow = Math.sin(span(p, .64, .86) * Math.PI);
+  st.spin += dt * (qa ? 0 : 1) * (fired > .5 ? .35 : 5);
+  st.wheel.rotation.y = st.spin;
+  st.rings.offset.y = (st.spin * .02) % 1;
+  // 色：濡れた土 → 焼けて → 釉薬
+  const c = st.clayMat.color.copy(st.cClay);
+  if (fired > 0) c.lerp(st.cDry, Math.min(1, fired * 2)).lerp(st.cGlaze, c01(fired * 2 - 1));
+  st.clayMat.roughness = .38 - fired * .3; st.clayMat.clearcoat = .5 + fired * .5;
+  st.clayMat.emissiveIntensity = glow * .9; st.fire.intensity = glow * 30;
+  st.clayMat.map = fired > .6 ? null : st.rings; st.clayMat.needsUpdate = (fired > .6) !== !!st.wasGlazed; st.wasGlazed = fired > .6;
+  st.group.rotation.x = .28 + mouse.y * .05;
+  st.group.position.set(portrait ? 0 : 1.45 * heroK + 1.15 * (1 - heroK), portrait ? .85 - heroK * .1 : -.7, 0);
+  st.group.scale.setScalar(portrait ? .45 : .95);
+  st.camera.position.set(0, 1.2, 8.2); st.camera.lookAt(portrait ? 0 : .3, portrait ? .4 : .2, 0);
+}
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="2000" data-from="1940">2000</span><small>年5月　時游窯工房設立</small></div></div>
+    <div class="rv"><h2>作陶室、ギャラリー、そして窯場。</h2><p>工房の1階は作陶室、2階はギャラリー、隣には窯場を併設しています。手回しろくろ8台、電動ろくろ4台、粘土は信楽土3種類、自前調合の釉薬は25種類ほどご用意しています。</p><p>ギャラリーには、作品を常時200点ほど展示・販売しています。主宰は大石賢です。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>陶芸体験</span><span>陶芸教室</span><span>手びねり</span><span>電動ろくろ</span><span>ギャラリー</span><span>浜松</span><span>陶芸体験</span><span>陶芸教室</span><span>手びねり</span><span>電動ろくろ</span><span>ギャラリー</span><span>浜松</span><span>陶芸体験</span><span>陶芸教室</span><span>手びねり</span><span>電動ろくろ</span><span>ギャラリー</span><span>浜松</span><span>陶芸体験</span><span>陶芸教室</span><span>手びねり</span><span>電動ろくろ</span><span>ギャラリー</span><span>浜松</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>体験・教室</h2><span>CLASS</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/f1.jpg" alt="ろくろの上の器" loading="lazy" data-speed=".06" data-gl></div><h3>陶芸体験</h3><p>紐作りの手びねりで、湯呑みや茶碗、鉢などを作ります。約1時間30分。</p></article><article class="feature rv"><div class="ph"><img src="img/f2.jpg" alt="並んだ釉薬の容器" loading="lazy" data-speed=".06" data-gl></div><h3>陶芸教室（会員制）</h3><p>少人数制で、マンツーマンに近い形で受講できます。</p></article><article class="feature rv"><div class="ph"><img src="img/f3.jpg" alt="窯の炎" loading="lazy" data-speed=".06" data-gl></div><h3>ギャラリー</h3><p>作品を常時200点ほど。ご来店の際はご連絡を。</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/wide.jpg" alt="工房の棚に並ぶ器" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">初めての方も、基本からしっかり。</figcaption></figure>
+  
+  <section class="sec" id="price">
+    <div class="sec-head rv"><h2>陶芸体験の料金</h2><span>PRICE</span></div>
+    <dl class="prices rv"><div><dt>陶芸体験<small>お一人様・粘土1kg代、釉薬掛け、焼成費込み</small></dt><dd>3,300円</dd></div><div><dt>教室の作品代<small>焼成後の作品重量1gあたり</small></dt><dd>3.5円</dd></div></dl>
+    <p class="prices-note rv">体験は、希望日の前々日までにご予約ください。PayPayも使えます。</p>
+  </section>
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">営業時間</h2></div>
+      
+      <table class="hours"><tr><th>ギャラリー</th><td>9:30〜18:00（ご来店の際はご連絡を）</td></tr><tr><th>体験</th><td>午前は9:30〜、午後は13:30〜</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>静岡県浜松市中央区半田町1201-1</p>
+      <p class="mute">工房北側に駐車場（10台分）を完備しています。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E9%9D%99%E5%B2%A1%E7%9C%8C%E6%B5%9C%E6%9D%BE%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E5%8D%8A%E7%94%B0%E7%94%BA1201-1%20%E6%99%82%E6%B8%B8%E7%AA%AF%E5%B7%A5%E6%88%BF" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:09056341749" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">土にさわりに、来てください。</h2>
+    <a class="tel" href="tel:09056341749">090-5634-1749</a>
+    <p>体験のご予約は、メールまたはショートメール・留守電で。</p>
+    <div class="btns"><a class="btn" href="mailto:jiyuugama@hotmail.co.jp" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>時游窯工房　静岡県浜松市中央区半田町1201-1　TEL 090-5634-1749</p>
+  <p>この試作は森川ウェブ（koseimorikawa2026@gmail.com）が、時游窯工房様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:09056341749" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>江戸切子専門店 煌粋（キヨヒデガラス工房）｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#070b16">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Antique&family=Cormorant+Garamond:wght@600&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#070b16;--ink:#eef2fb;--mute:#98a3bf;--accent:#e0485b;--accent-ink:#fff;--panel:#0d1324;--line:rgba(238,242,251,.13);--display:"Shippori Antique",serif;--display-weight:400;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 50%;--top-ink:var(--ink)}
+.top .name{font-family:'Cormorant Garamond','Shippori Antique',serif;letter-spacing:.14em}
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>が江戸切子専門店 煌粋（キヨヒデガラス工房）様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">江戸切子専門店　東京都江東区猿江</p><p class="pl-name">煌粋 KIRAMEKI</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">煌粋 KIRAMEKI</a>
+  <nav aria-label="ページ内の案内"><a href="#story">煌粋のこと</a><a href="#features">江戸切子</a><a href="#info">営業時間</a></nav>
+  
+  <a class="call" href="tel:0366595117"><span data-en="Call">電話</span><span class="num">03-6659-5117</span></a>
+</header>
+
+<main>
+  <section class="hero" hidden>
+    <div class="hero-img"><img src="img/hero.jpg" alt="光を受けて輝くカットグラス" ></div>
+    <div class="hero-copy">
+      <p class="kind">江戸切子専門店　東京都江東区猿江</p>
+      <h1><span class="ln"><span style="--i:0">手触りまで、</span></span><span class="ln"><span style="--i:1">江戸切子。</span></span></h1>
+      
+      <p class="sub">伝統工芸士・清秀の江戸切子専門店です。ぐい呑み、タンブラー、ロックグラスから、切子のアクセサリーまで。ショップに併設した工房で、切子体験もできます。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-ky hero-sig" id="sig" aria-label="江戸切子のグラスの3D。スクロールすると、矢来、縦細市松、八角籠目と模様が替わり、色も選べる演出">
+    <div class="ky-stick hero">
+      <canvas id="ky3d" aria-hidden="true"></canvas>
+      <div class="hero-copy hs-copy" id="hs-copy"><p class="kind">江戸切子専門店　東京都江東区猿江</p><h1><span class="ln"><span style="--i:0">手触りまで、</span></span><span class="ln"><span style="--i:1">江戸切子。</span></span></h1><p class="sub">伝統工芸士・清秀の江戸切子専門店です。ぐい呑み、タンブラー、ロックグラスから、切子のアクセサリーまで。ショップに併設した工房で、切子体験もできます。</p></div>
+      <div class="ky-panel" id="ky-panel">
+        <p class="ky-step">江戸切子の紋様</p>
+        <p class="ky-h" id="ky-h">矢来</p>
+        <p class="ky-p">カットの深さや滑らかさ。飲みながらも、ついグラスを触っていたくなる手触りです。</p>
+        <div class="ky-tabs" role="group" aria-label="紋様を選ぶ"><button type="button" data-i="0" aria-pressed="true">矢来</button><button type="button" data-i="1" aria-pressed="false">縦細市松</button><button type="button" data-i="2" aria-pressed="false">八角籠目</button></div>
+        <div class="ky-colors" role="group" aria-label="色を選ぶ"><button type="button" data-c="0" aria-pressed="true" style="--c:#c41f3b">赤</button><button type="button" data-c="1" aria-pressed="false" style="--c:#1f47b8">瑠璃</button></div>
+      </div>
+      <p class="ky-note" id="ky-note">江戸切子の3Dイメージです。実際の品物とは異なります</p>
+    </div>
+  </section>
+<style>
+.sig-ky{position:relative;height:420vh;background:#060a14}
+.ky-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:radial-gradient(55% 65% at 66% 50%,#1b2440,#060a14 74%)}
+.ky-stick .hs-copy{z-index:3;text-shadow:0 2px 30px rgba(0,0,0,.6)}
+#ky3d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.ky-panel{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);max-width:340px;z-index:3;opacity:0}
+.ky-step{margin:0;color:var(--accent);font-weight:700;letter-spacing:.16em;font-size:14px}
+.ky-h{font-family:var(--display);font-size:clamp(64px,7.6vw,112px);line-height:1.05;margin:10px 0 14px;transition:opacity .3s}
+.ky-p{margin:0 0 20px;color:var(--mute)}
+.ky-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.ky-tabs button{font:inherit;font-weight:700;font-size:14px;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.ky-tabs button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#070b16}
+.ky-colors{display:flex;gap:10px}
+.ky-colors button{font:inherit;font-size:12px;color:var(--mute);background:none;border:0;padding:0;cursor:pointer;display:flex;align-items:center;gap:8px}
+.ky-colors button::before{content:"";width:26px;height:26px;border-radius:50%;background:var(--c);box-shadow:0 0 0 1px rgba(255,255,255,.3)}
+.ky-colors button[aria-pressed="true"]{color:var(--ink)}
+.ky-colors button[aria-pressed="true"]::before{box-shadow:0 0 0 2px #070b16,0 0 0 4px var(--ink)}
+.ky-note{position:absolute;right:var(--gut);bottom:22px;margin:0;font-size:12px;color:var(--mute);z-index:3;opacity:0}
+@media (max-width:860px){
+  .ky-panel{top:auto;bottom:0;transform:none;left:0;right:0;max-width:none;padding:44px var(--gut) 88px;background:linear-gradient(to top,rgba(6,10,20,.97) 66%,rgba(6,10,20,0))}
+  .ky-h{font-size:52px;margin:6px 0 10px}
+  .ky-p{display:none}
+  .ky-tabs{margin-bottom:10px}
+  .ky-note{top:74px;bottom:auto}
+}
+</style>
+<script type="module">
+import * as THREE from 'three';
+import { stage3d, heroFade, span, ease, c01, qa, mouse } from '../_kit/sig/stage.js';
+
+const canvas = document.getElementById('ky3d'), section = canvas.closest('section');
+const panel = document.getElementById('ky-panel'), note = document.getElementById('ky-note'), hEl = document.getElementById('ky-h');
+const tabs = [...section.querySelectorAll('.ky-tabs button')], cols = [...section.querySelectorAll('.ky-colors button')];
+const NAMES = ['矢来', '縦細市松', '八角籠目'];
+const COLORS = [new THREE.Color('#b8102e'), new THREE.Color('#163fae')];
+const U = { uA: { value: 0 }, uB: { value: 0 }, uMix: { value: 0 }, uColor: { value: COLORS[0].clone() }, uTime: { value: 0 } };
+let forced = null, forcedAt = 0, lastP = 0, shown = -1, colorI = 0;
+tabs.forEach(b => b.addEventListener('click', () => { forced = +b.dataset.i; forcedAt = lastP; }));
+cols.forEach(b => b.addEventListener('click', () => { colorI = +b.dataset.c; cols.forEach(x => x.setAttribute('aria-pressed', x === b)); }));
+
+const FRAG = `
+  uniform float uA, uB, uMix, uTime; uniform vec3 uColor;
+  varying vec3 vObj, vW, vN;
+  float line(float d, float w){ return 1. - smoothstep(w, w + .012, d); }
+  // 紋様ごとの「削った所」
+  float pat(float k, vec2 q){
+    if (k < .5) { float s = .19; float a = abs(fract((q.x + q.y) / s) - .5) * s, b = abs(fract((q.x - q.y) / s) - .5) * s; return max(line(a, .012), line(b, .012)); }
+    if (k < 1.5) { vec2 c = vec2(.1, .16), id = floor(q / c), f = fract(q / c); float chk = mod(id.x + id.y, 2.);
+      float fine = line(abs(fract(f.x * 4.) - .5) * c.x / 4., .004) * chk; float grid = max(line(min(f.x, 1. - f.x) * c.x, .006), line(min(f.y, 1. - f.y) * c.y, .006)); return max(fine, grid); }
+    vec2 c = vec2(.3), f = fract(q / c) - .5, a = abs(f) * c.x; float oct = max(max(a.x, a.y), (a.x + a.y) * .7071);
+    float o = line(abs(oct - .125), .008), cross_ = line(min(a.x, a.y), .006) * step(oct, .125), dia = line(abs(a.x - a.y) * .7071, .006) * step(oct, .125);
+    return max(o, max(cross_ * .9, dia * .9));
+  }
+  void main(){
+    vec3 N = normalize(vN), V = normalize(cameraPosition - vW);
+    float th = atan(vObj.z, vObj.x), r = length(vObj.xz);
+    vec2 q = vec2(th * .92, vObj.y);
+    float m = mix(pat(uA, q), pat(uB, q), uMix);
+    // 口元と底の帯は、色をのせずに磨く
+    float band = step(1.42, vObj.y) + step(vObj.y, .16);
+    float hz = line(abs(vObj.y - .22), .01) + line(abs(vObj.y - 1.36), .01);
+    m = clamp(max(m * (1. - band), hz), 0., 1.);
+    float fr = pow(1. - max(dot(N, V), 0.), 2.5);
+    vec3 L = normalize(vec3(-.5, .7, .6));
+    float spec = pow(max(dot(reflect(-V, N), L), 0.), 60.);
+    vec3 colored = uColor * (.42 + .9 * fr) + spec * .8;
+    // 削った面：光をはじいて、ちらちら光る
+    float glint = .5 + .5 * sin(dot(q, vec2(140., 90.)) + dot(V, vec3(9., 4., 7.)) + uTime * .6);
+    vec3 clear_ = vec3(.86, .9, 1.) * (.35 + .55 * glint * glint) + fr * .3;
+    vec3 col = mix(colored, clear_, m);
+    col = mix(col, vec3(.8, .86, .95) * (.25 + fr), band * (1. - m) * .9);
+    float alpha = mix(.9, .55 + .4 * glint, m);
+    alpha = mix(alpha, .3 + fr * .5, band);
+    gl_FragColor = vec4(col, alpha);
+    #include <colorspace_fragment>
+  }`;
+
+const st = stage3d({ canvas, section, fov: 30, env: .04, exposure: 1.1, frame });
+if (st) {
+  const { scene } = st;
+  // ロックグラス：厚い底、まっすぐな胴
+  const outer = [[0, 0], [.86, 0], [.9, .04], [.92, 1.5], [.89, 1.53]].map(([x, y]) => new THREE.Vector2(x, y));
+  const shell = new THREE.Mesh(new THREE.LatheGeometry(outer, 160), new THREE.ShaderMaterial({
+    uniforms: U, transparent: true, depthWrite: false,
+    vertexShader: 'varying vec3 vObj, vW, vN; void main(){ vObj = position; vW = (modelMatrix * vec4(position, 1.)).xyz; vN = normalize(mat3(modelMatrix) * normal); gl_Position = projectionMatrix * viewMatrix * vec4(vW, 1.); }',
+    fragmentShader: FRAG,
+  }));
+  const inner = new THREE.Mesh(new THREE.LatheGeometry([[0, .22], [.8, .24], [.84, 1.52]].map(([x, y]) => new THREE.Vector2(x, y)), 96), new THREE.MeshPhysicalMaterial({ color: '#cfd9ee', transparent: true, opacity: .14, roughness: 0, side: THREE.BackSide, depthWrite: false }));
+  // お酒と氷
+  const whisky = new THREE.Mesh(new THREE.CylinderGeometry(.79, .79, .55, 64), new THREE.MeshPhysicalMaterial({ color: '#c77a22', transparent: true, opacity: .62, roughness: .05, depthWrite: false }));
+  whisky.position.y = .52;
+  const ice = new THREE.Mesh(new THREE.BoxGeometry(.62, .62, .62, 2, 2, 2), new THREE.MeshPhysicalMaterial({ color: '#eaf4ff', transparent: true, opacity: .4, roughness: .15, depthWrite: false }));
+  ice.position.set(.08, .68, .02); ice.rotation.set(.3, .5, .1);
+  const glass = new THREE.Group(); glass.add(whisky, ice, inner, shell); glass.position.y = -.78;
+  shell.renderOrder = 2;
+  const holder = new THREE.Group(); holder.add(glass); scene.add(holder);
+  const refl = new THREE.Mesh(new THREE.CircleGeometry(1.6, 64), new THREE.MeshBasicMaterial({ color: '#c41f3b', transparent: true, opacity: .12, depthWrite: false }));
+  refl.rotation.x = -Math.PI / 2; refl.position.y = -.79; holder.add(refl);
+  scene.add(new THREE.HemisphereLight('#dfe6ff', '#100810', .8));
+  const key = new THREE.DirectionalLight('#ffffff', 1.6); key.position.set(-3, 5, 4); scene.add(key);
+  Object.assign(st, { holder, glass, refl });
+  st.start();
+}
+
+function frame({ t, p, portrait }) {
+  lastP = p; U.uTime.value = t;
+  const heroK = heroFade(p, .1);
+  panel.style.opacity = note.style.opacity = c01((p - .08) / .06);
+  if (forced !== null && Math.abs(p - forcedAt) > .05) forced = null;
+  // 紋様：スクロールで順に替える
+  const raw = c01((p - .14) / .78) * 2, seg = Math.min(1, Math.floor(raw)), fr = raw - seg;
+  let s = raw >= 2 ? 2 : seg + ease(c01((fr - .5) / .5));
+  if (forced !== null) s = forced;
+  st.sCur = st.sCur === undefined ? s : st.sCur + (s - st.sCur) * (qa ? 1 : .1);
+  const a = Math.min(1, Math.floor(st.sCur)), f = st.sCur - a;
+  U.uA.value = a; U.uB.value = a + 1; U.uMix.value = f;
+  const near = Math.round(st.sCur);
+  if (near !== shown) { shown = near; tabs.forEach((b, k) => b.setAttribute('aria-pressed', k === near)); hEl.style.opacity = 0; setTimeout(() => { hEl.textContent = NAMES[near]; hEl.style.opacity = 1; }, qa ? 0 : 160); }
+  U.uColor.value.lerp(COLORS[colorI], qa ? 1 : .08); st.refl.material.color.copy(U.uColor.value);
+  st.glass.rotation.y = (qa ? .6 : t * .3) + p * 3 + mouse.x * .6;
+  st.holder.rotation.x = .32 + mouse.y * .08;
+  const sc = portrait ? .56 : 1.25;
+  st.holder.scale.setScalar(sc);
+  st.holder.position.set(portrait ? 0 : 1.6 * heroK + 1.25 * (1 - heroK), portrait ? 1.05 - heroK * .05 : .05, 0);
+  st.camera.position.set(0, 1.1, 7.6); st.camera.lookAt(0, portrait ? .3 : 0, 0);
+}
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="10" data-from="-50">10</span><small>年　独立までの修行</small></div></div>
+    <div class="rv"><h2>美味しいお酒の、至福の時間のお供に。</h2><p>手作業で仕上げた品は高価になってしまいましたが、手間の価値を分かったうえで気に入ったグラスでお酒を楽しむと、いつもの料理やお酒がいっそう美味しく味わえます。その思いで製作しています。</p><p>江戸切子は紋様に目が行きがちですが、実はもう一つの楽しみは手触り。カットの深さや滑らかさ、飲みながらもグラスを触っていたくなる、五感で楽しめるグラスです。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>江戸切子</span><span>ぐい呑み</span><span>タンブラー</span><span>ロックグラス</span><span>伝統工芸士</span><span>切子体験</span><span>江戸切子</span><span>ぐい呑み</span><span>タンブラー</span><span>ロックグラス</span><span>伝統工芸士</span><span>切子体験</span><span>江戸切子</span><span>ぐい呑み</span><span>タンブラー</span><span>ロックグラス</span><span>伝統工芸士</span><span>切子体験</span><span>江戸切子</span><span>ぐい呑み</span><span>タンブラー</span><span>ロックグラス</span><span>伝統工芸士</span><span>切子体験</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>江戸切子</h2><span>KIRIKO</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/f1.jpg" alt="上から見たカットグラス" loading="lazy" data-speed=".06" data-gl></div><h3>ぐい呑み</h3><p>六華など。木箱入りで、贈り物にも。</p></article><article class="feature rv"><div class="ph"><img src="img/f2.jpg" alt="ウイスキーの入ったグラス" loading="lazy" data-speed=".06" data-gl></div><h3>タンブラー・ロックグラス</h3><p>矢来、縦細市松、八角籠目。</p></article><article class="feature rv"><div class="ph"><img src="img/f3.jpg" alt="光にかざしたグラス" loading="lazy" data-speed=".06" data-gl></div><h3>江戸切子体験</h3><p>現役の伝統工芸士が、直接指導します。</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/wide.jpg" alt="カットグラスの陰影" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">気に入ったグラスで、いつものお酒を。</figcaption></figure>
+  
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">営業時間</h2></div>
+      <p class="status" id="status"><i></i><b>…</b></p>
+      <table class="hours"><tr data-wd="1,2,3,5"><th>平日</th><td>11:00〜20:00</td></tr><tr data-wd="6"><th>土曜</th><td>10:00〜20:00</td></tr><tr data-wd="0"><th>日曜</th><td>10:00〜18:00</td></tr><tr><th>定休日</th><td>木曜日</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>東京都江東区猿江2丁目13-14</p>
+      <p class="mute">体験はショップに併設した工房で行います。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B1%9F%E6%9D%B1%E5%8C%BA%E7%8C%BF%E6%B1%9F2%E4%B8%81%E7%9B%AE13-14%20%E7%85%8C%E7%B2%8B" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:0366595117" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">切子に、ふれてみてください。</h2>
+    <a class="tel" href="tel:0366595117">03-6659-5117</a>
+    <p>体験のご予約・ご質問は、お電話・メールで。</p>
+    <div class="btns"><a class="btn" href="mailto:kirameki620@icloud.com" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>江戸切子専門店 煌粋（キヨヒデガラス工房）　東京都江東区猿江2丁目13-14　TEL 03-6659-5117</p>
+  <p>この試作は森川ウェブ（koseimorikawa2026@gmail.com）が、江戸切子専門店 煌粋（キヨヒデガラス工房）様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:0366595117" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+<script>window.SCHEDULE = {"days": {"1": [[660, 1200]], "2": [[660, 1200]], "3": [[660, 1200]], "5": [[660, 1200]], "6": [[600, 1200]], "0": [[600, 1080]]}};</script>
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

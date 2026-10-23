@@ -152,7 +152,7 @@ export function noren(opts) {
     const part = opts.noPart ? 0 : THREE.MathUtils.smoothstep(cur, .12, .62);
     const portrait = camera.aspect < .9;
     // 縦長の画面では暖簾を上に、横長では右に寄せる
-    const s = portrait ? Math.min(1, camera.aspect * 2.1) : 1;
+    const s = portrait ? Math.min(1, camera.aspect * (opts.portraitK || 2.1)) : 1;
     group.scale.setScalar(s);
     group.position.set(portrait ? 0 : (opts.offsetX ?? 1.25), portrait ? .55 : .05, 0);
     panels.forEach(m => {

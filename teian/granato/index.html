@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ぐらなーと｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#fdf4ef">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#fdf4ef;--ink:#3a1216;--mute:#8a5d5f;--accent:#a3222f;--accent-ink:#fff;--panel:#f6e2da;--line:rgba(58,18,22,.12);--display:"Mochiy Pop One",sans-serif;--display-weight:400;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 50%}
+
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>がぐらなーと様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">伊藤牧場のジェラート　兵庫県明石市藤江</p><p class="pl-name">ぐらなーと</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">ぐらなーと</a>
+  <nav aria-label="ページ内の案内"><a href="#story">ぐらなーと</a><a href="#features">ジェラート</a><a href="#info">営業時間</a></nav>
+  
+  <a class="call" href="tel:0787780930"><span data-en="Call">電話</span><span class="num">078-778-0930</span></a>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-img"><img src="img/hero.jpg" alt="ショーケースに並ぶジェラート"  data-gl="wipe" data-gl-hero></div>
+    <div class="hero-copy">
+      <p class="kind">伊藤牧場のジェラート　兵庫県明石市藤江</p>
+      <h1><span class="ln"><span style="--i:0">牧場のとなりで、</span></span><span class="ln"><span style="--i:1">ジェラートを。</span></span></h1>
+      
+      <p class="sub">ぐらなーとは、伊藤牧場が営むジェラート屋さんです。すぐ隣の牧場でしぼった生乳を、100％原材料にしています。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-gr" id="sig" aria-label="スクロールすると、カップにジェラートがぽとんと乗り、シングルからダブルになる3Dの演出">
+    <div class="gr-stick">
+      <canvas id="gr3d" aria-hidden="true"></canvas>
+      <div class="gr-copy">
+        <p class="gr-step" id="gr-step">生乳100％</p>
+        <p class="gr-h" id="gr-h">となりの牧場で、<br>しぼった生乳。</p>
+        <p class="gr-p" id="gr-p">すぐ隣の伊藤牧場でしぼった生乳を、100％原材料にしています。</p>
+        <div class="gr-tabs" role="group" aria-label="サイズを選ぶ"><button type="button" data-i="1" aria-pressed="false">シングル<small>475円〜</small></button><button type="button" data-i="2" aria-pressed="false">ダブル<small>572円〜</small></button></div>
+      </div>
+      <p class="gr-note">ジェラートの3Dイメージです。価格はテイクアウトのカップの場合（イートインはシングル484円・ダブル583円）</p>
+    </div>
+  </section>
+<style>
+.sig-gr{position:relative;height:380vh;background:#fbefe9}
+.gr-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:radial-gradient(60% 70% at 64% 55%,#fff9f5,#f6e0d6 76%)}
+#gr3d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.gr-copy{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);max-width:350px;z-index:3}
+.gr-step{margin:0;color:var(--accent);font-weight:700;letter-spacing:.14em;font-size:14px}
+.gr-h{font-family:var(--display);font-size:clamp(34px,3.8vw,56px);line-height:1.3;margin:10px 0 14px;transition:opacity .3s}
+.gr-p{margin:0 0 22px;color:var(--mute);transition:opacity .3s}
+.gr-tabs{display:flex;gap:8px}
+.gr-tabs button{font:inherit;font-weight:700;font-size:15px;padding:10px 18px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.7);color:var(--ink);cursor:pointer;display:flex;flex-direction:column;align-items:flex-start;line-height:1.3}
+.gr-tabs button small{font-weight:400;font-size:12px;color:var(--mute)}
+.gr-tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.gr-tabs button[aria-pressed="true"] small{color:#fff}
+.gr-note{position:absolute;right:var(--gut);top:84px;margin:0;font-size:12px;color:var(--mute);max-width:52%;text-align:right}
+@media (max-width:860px){
+  .gr-copy{top:auto;bottom:0;transform:none;left:0;right:0;max-width:none;padding:48px var(--gut) 90px;background:linear-gradient(to top,rgba(251,239,233,.97) 64%,rgba(251,239,233,0))}
+  .gr-h{font-size:32px}
+  .gr-p{display:none}
+  .gr-note{top:74px;bottom:auto;max-width:none;left:var(--gut)}
+}
+</style>
+<script type="module">
+import * as THREE from 'three';
+import { stage3d, span, ease, c01, qa, mouse, canvasTexture } from '../_kit/sig/stage.js';
+
+const canvas = document.getElementById('gr3d'), section = canvas.closest('section');
+const stepEl = document.getElementById('gr-step'), hEl = document.getElementById('gr-h'), pEl = document.getElementById('gr-p'), tabs = [...section.querySelectorAll('.gr-tabs button')];
+const TEXT = [
+  ['生乳100％', 'となりの牧場で、<br>しぼった生乳。', 'すぐ隣の伊藤牧場でしぼった生乳を、100％原材料にしています。'],
+  ['シングル', 'ぽとん、<br>ひとつ。', '低温殺菌法で、生乳の甘さと豊かな風味を生かしています。'],
+  ['ダブル', 'もうひとつ、<br>のせて。', '季節限定をふくめた約12種類から。明石産をはじめ、兵庫県産の果物や野菜も使っています。'],
+];
+let forced = null, forcedAt = 0, lastP = 0, stepI = -1;
+tabs.forEach(b => b.addEventListener('click', () => { forced = +b.dataset.i; forcedAt = lastP; }));
+
+const st = stage3d({ canvas, section, fov: 30, env: .04, exposure: 1.05, frame });
+if (st) {
+  const { scene } = st;
+  // 紙のカップ
+  const cupTex = canvasTexture(1024, 256, (g, w, h) => {
+    g.fillStyle = '#fbf7f2'; g.fillRect(0, 0, w, h);
+    g.fillStyle = '#a3222f'; g.fillRect(0, h * .78, w, h * .22);
+    for (let x = 0; x < w; x += 64) { g.fillStyle = 'rgba(163,34,47,.12)'; g.beginPath(); g.arc(x + 32, h * .35, 9, 0, 7); g.fill(); }
+    g.fillStyle = '#a3222f'; g.font = '700 58px "Mochiy Pop One", sans-serif'; g.textAlign = 'center'; g.textBaseline = 'middle';
+    g.fillText('ぐらなーと', w * .25, h * .52); g.fillText('ぐらなーと', w * .75, h * .52);
+  });
+  const cupMat = new THREE.MeshPhysicalMaterial({ map: cupTex, roughness: .55, side: THREE.DoubleSide });
+  if (document.fonts) document.fonts.load('700 58px "Mochiy Pop One"').then(() => { const g = cupTex.image.getContext('2d'); g.fillStyle = '#fbf7f2'; g.fillRect(0, 0, 1024, 256); g.fillStyle = '#a3222f'; g.fillRect(0, 256 * .78, 1024, 256 * .22); for (let x = 0; x < 1024; x += 64) { g.fillStyle = 'rgba(163,34,47,.12)'; g.beginPath(); g.arc(x + 32, 256 * .35, 9, 0, 7); g.fill(); } g.fillStyle = '#a3222f'; g.font = '700 58px "Mochiy Pop One", sans-serif'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('ぐらなーと', 256, 133); g.fillText('ぐらなーと', 768, 133); cupTex.needsUpdate = true; }).catch(() => {});
+  const cup = new THREE.Mesh(new THREE.CylinderGeometry(.82, .56, 1.05, 64, 1, true), cupMat); cup.position.y = .525;
+  const rim = new THREE.Mesh(new THREE.TorusGeometry(.82, .025, 10, 64), new THREE.MeshStandardMaterial({ color: '#fbf7f2' })); rim.rotation.x = Math.PI / 2; rim.position.y = 1.05;
+  const bottom = new THREE.Mesh(new THREE.CircleGeometry(.56, 48), cupMat); bottom.rotation.x = Math.PI / 2;
+  // ジェラート：へらで盛った、ひだのある丸
+  function scoopGeo(seed) {
+    const g = new THREE.SphereGeometry(.7, 96, 64), p = g.attributes.position;
+    for (let i = 0; i < p.count; i++) {
+      const v = new THREE.Vector3().fromBufferAttribute(p, i), th = Math.atan2(v.z, v.x), ph = Math.acos(v.y / .7);
+      let r = 1 + .04 * Math.sin(th * 5 + ph * 4 + seed) + .015 * Math.sin(th * 11 - ph * 7 + seed * 2) + .01 * Math.sin(ph * 18 + th * 2);
+      if (v.y < -.2) r += .05 * Math.sin(th * 13 + seed) * c01((-v.y - .2) / .3);
+      v.multiplyScalar(r); v.y *= .82; if (v.y < -.38) v.y = -.38 - (v.y + .38) * .2;
+      p.setXYZ(i, v.x, v.y, v.z);
+    }
+    g.computeVertexNormals(); return g;
+  }
+  const milk = new THREE.MeshPhysicalMaterial({ color: '#f7f1e3', roughness: .6, sheen: 1, sheenColor: new THREE.Color('#ffffff'), sheenRoughness: .5 });
+  const season = new THREE.MeshPhysicalMaterial({ color: '#f3b7c2', roughness: .6, sheen: 1, sheenColor: new THREE.Color('#fff2f4') });
+  const s1 = new THREE.Mesh(scoopGeo(1), milk), s2 = new THREE.Mesh(scoopGeo(4), season);
+  const spoon = new THREE.Mesh(new THREE.BoxGeometry(.12, .9, .03), new THREE.MeshStandardMaterial({ color: '#c7343f', roughness: .5 }));
+  spoon.position.set(.35, 1.75, .2); spoon.rotation.z = -.5;
+  // ミルクのしずく
+  const drops = new THREE.InstancedMesh(new THREE.SphereGeometry(.035, 12, 8), milk, 24);
+  const dd = Array.from({ length: 24 }, () => ({ x: 0, y: -9, z: 0, vx: 0, vy: 0, vz: 0 }));
+  const group = new THREE.Group(); group.add(cup, rim, bottom, s1, s2, spoon, drops); scene.add(group);
+  const shadow = new THREE.Mesh(new THREE.CircleGeometry(1.4, 48), new THREE.MeshBasicMaterial({ color: '#d9b3a6', transparent: true, opacity: .35 })); shadow.rotation.x = -Math.PI / 2; shadow.position.y = -.005; group.add(shadow);
+  scene.add(new THREE.HemisphereLight('#fffaf4', '#c79a8a', 1.1));
+  const key = new THREE.DirectionalLight('#fff3e6', 2.2); key.position.set(-3, 6, 4); scene.add(key);
+  const rimL = new THREE.DirectionalLight('#ffd6d6', 1.2); rimL.position.set(3, 2, -4); scene.add(rimL);
+  Object.assign(st, { group, s1, s2, spoon, drops, dd, tmp: new THREE.Object3D(), land: [false, false] });
+  st.start();
+}
+
+// 落ちてきて、つぶれて、戻る
+function drop(k, top) { const fall = c01(k / .6), bounce = c01((k - .6) / .4); const y = top + (1 - fall * fall) * 3.2; const sq = Math.sin(bounce * Math.PI) * .28 * (1 - bounce); return { y: k >= .6 ? top : y, sx: 1 + sq, sy: 1 - sq }; }
+function splash(y) { st.dd.forEach(d => { const a = Math.random() * 6.28; d.x = Math.cos(a) * .5; d.z = Math.sin(a) * .5; d.y = y; d.vx = Math.cos(a) * (1 + Math.random()); d.vz = Math.sin(a) * (1 + Math.random()); d.vy = 1.5 + Math.random() * 1.5; }); }
+function frame({ t, dt, p, portrait }) {
+  lastP = p;
+  if (forced !== null && Math.abs(p - forcedAt) > .05) forced = null;
+  let k1 = span(p, .22, .45), k2 = span(p, .55, .78);
+  if (forced === 1) { k1 = 1; k2 = 0; } if (forced === 2) { k1 = 1; k2 = 1; }
+  const si = k2 > .6 ? 2 : k1 > .6 ? 1 : 0;
+  if (si !== stepI) {
+    stepI = si; tabs.forEach(b => b.setAttribute('aria-pressed', +b.dataset.i === si));
+    hEl.style.opacity = pEl.style.opacity = 0;
+    setTimeout(() => { stepEl.textContent = TEXT[si][0]; hEl.innerHTML = TEXT[si][1]; pEl.textContent = TEXT[si][2]; hEl.style.opacity = pEl.style.opacity = 1; }, qa ? 0 : 160);
+  }
+  const a = drop(k1, 1.3), b = drop(k2, 2.12);
+  st.s1.visible = k1 > 0; st.s1.position.set(0, a.y, 0); st.s1.scale.set(a.sx, a.sy, a.sx);
+  st.s2.visible = k2 > 0; st.s2.position.set(.04, b.y + (st.s1.scale.y - 1) * .5, -.02); st.s2.scale.set(b.sx, b.sy, b.sx); st.s2.rotation.y = 1.3;
+  [k1, k2].forEach((k, i) => { if (k >= .6 && !st.land[i]) { st.land[i] = true; if (!qa) splash(i ? 2.1 : 1.3); } if (k < .5) st.land[i] = false; });
+  st.spoon.visible = k2 >= 1 || forced === 2; st.spoon.position.y = 2.55;
+  st.dd.forEach((d, i) => { d.vy -= 8 * dt; d.x += d.vx * dt; d.y += d.vy * dt; d.z += d.vz * dt; st.tmp.position.set(d.x, d.y, d.z); st.tmp.updateMatrix(); st.drops.setMatrixAt(i, st.tmp.matrix); });
+  st.drops.instanceMatrix.needsUpdate = true;
+  st.group.rotation.y = (qa ? .4 : t * .25) + mouse.x * .5;
+  st.group.position.set(portrait ? 0 : 1.3, portrait ? .8 : -1.05, 0);
+  st.group.scale.setScalar(portrait ? .55 : 1);
+  st.camera.position.set(0, 2.2, 8.2); st.camera.lookAt(portrait ? 0 : .35, portrait ? .85 : .5, 0);
+}
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="80" data-from="20">80</span><small>年　先代から続く伊藤牧場</small></div></div>
+    <div class="rv"><h2>牛乳が苦手な人にも、食べてもらえるように。</h2><p>2013年5月、「新鮮なミルクを直接お客様にお届けしたい」という想いから、先代から約80年続く伊藤牧場のすぐ隣にお店を開きました。</p><p>伊藤牧場には30頭の乳牛がいます。かつて明石市内に約120軒あった酪農家は今では3軒となり、藤江地区では伊藤牧場を残すのみとなりました。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>生乳100%</span><span>伊藤牧場</span><span>ジェラート</span><span>アイスミルク</span><span>明石</span><span>約12種類</span><span>生乳100%</span><span>伊藤牧場</span><span>ジェラート</span><span>アイスミルク</span><span>明石</span><span>約12種類</span><span>生乳100%</span><span>伊藤牧場</span><span>ジェラート</span><span>アイスミルク</span><span>明石</span><span>約12種類</span><span>生乳100%</span><span>伊藤牧場</span><span>ジェラート</span><span>アイスミルク</span><span>明石</span><span>約12種類</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>ジェラート</h2><span>GELATO</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/f1.jpg" alt="コーンにのったジェラート" loading="lazy" data-speed=".06" data-gl></div><h3>生乳本来のやさしい味</h3><p>低温殺菌法で、生乳の甘さと豊かな風味を生かしています。</p></article><article class="feature rv"><div class="ph"><img src="img/f2.jpg" alt="夕暮れの牛" loading="lazy" data-speed=".06" data-gl></div><h3>30頭の乳牛</h3><p>近くの幼稚園や小学校の子どもたちにも慣れた、人なつこい牛たち。</p></article><article class="feature rv"><div class="ph"><img src="img/f3.jpg" alt="グラスに注がれる牛乳" loading="lazy" data-speed=".06" data-gl></div><h3>地元の食材</h3><p>明石産をはじめ、兵庫県産の果物や野菜を使っています。</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/wide.jpg" alt="牧場の牛たち" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">ぐらなーとは、イタリア語で「ガーネット」。</figcaption></figure>
+  
+  <section class="sec" id="price">
+    <div class="sec-head rv"><h2>メニュー</h2><span>MENU</span></div>
+    <dl class="prices rv"><div><dt>シングルカップ<small>イートイン／テイクアウト</small></dt><dd>484円／475円</dd></div><div><dt>ダブルカップ<small>イートイン／テイクアウト</small></dt><dd>583円／572円</dd></div></dl>
+    <p class="prices-note rv">季節限定メニューをふくめた約12種類が店頭に並びます。価格は現在のホームページの表示をもとにしています。</p>
+  </section>
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">営業時間</h2></div>
+      <p class="status" id="status"><i></i><b>…</b></p>
+      <table class="hours"><tr data-wd="1,2,4,5"><th>平日</th><td>10:00〜16:30</td></tr><tr data-wd="0,6"><th>土日祝</th><td>10:00〜17:00</td></tr><tr><th>定休日</th><td>水曜日・不定休</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>兵庫県明石市藤江285-1</p>
+      <p class="mute">山陽電車「藤江駅」より徒歩15分。駐車場は9台（お店の前に4台、横の月極駐車場に5台）です。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E5%85%B5%E5%BA%AB%E7%9C%8C%E6%98%8E%E7%9F%B3%E5%B8%82%E8%97%A4%E6%B1%9F285-1%20%E3%81%90%E3%82%89%E3%81%AA%E3%83%BC%E3%81%A8" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:0787780930" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">しぼりたてのミルクを、ジェラートで。</h2>
+    <a class="tel" href="tel:0787780930">078-778-0930</a>
+    <p>その日のジェラートがなくなり次第、終了します。</p>
+    <div class="btns"><a class="btn" href="mailto:granato@milk.zaq.jp" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>ぐらなーと　兵庫県明石市藤江285-1　TEL 078-778-0930</p>
+  <p>この試作は森川ウェブ（koseimorikawa2026@gmail.com）が、ぐらなーと様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:0787780930" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+<script>window.SCHEDULE = {"days": {"1": [[600, 990]], "2": [[600, 990]], "4": [[600, 990]], "5": [[600, 990]], "6": [[600, 1020]], "0": [[600, 1020]]}};</script>
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

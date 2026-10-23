@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>彩古堂｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#f3eee3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@700;900&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#f3eee3;--ink:#2a2118;--mute:#6f6455;--accent:#8c3b2a;--accent-ink:#fff;--panel:#e8e0cf;--line:rgba(42,33,24,.12);--display:"Zen Old Mincho",serif;--display-weight:900;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 50%}
+
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>が彩古堂様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">美術表装・表具師　名古屋市北区大杉町</p><p class="pl-name">彩古堂</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">彩古堂</a>
+  <nav aria-label="ページ内の案内"><a href="#story">彩古堂のこと</a><a href="#features">仕事</a><a href="#price">料金</a></nav>
+  
+  <a class="call" href="tel:0529150871"><span data-en="Call">電話</span><span class="num">052-915-0871</span></a>
+</header>
+
+<main>
+  <section class="hero tate">
+    <div class="hero-img"><img src="img/hero.jpg" alt="床の間に掛けられた掛軸"  data-gl="wipe" data-gl-hero></div>
+    <div class="hero-copy">
+      <p class="kind">美術表装・表具師　名古屋市北区大杉町</p>
+      <h1 aria-label="一幅を、後の世まで。"><span class="ch" style="--i:0">一</span><span class="ch" style="--i:1">幅</span><span class="ch" style="--i:2">を</span><span class="ch" style="--i:3">、</span><br><span class="ch" style="--i:4">後</span><span class="ch" style="--i:5">の</span><span class="ch" style="--i:6">世</span><span class="ch" style="--i:7">ま</span><span class="ch" style="--i:8">で</span><span class="ch" style="--i:9">。</span></h1>
+      <span class="seal" aria-hidden="true">彩古</span>
+      <p class="sub">表具師が手作業で、心を込めてお仕立てします。表装、軸装、額装、屏風から、古書画の修理・修復まで。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-sk" id="sig" aria-label="スクロールすると掛軸が下へひらき、天・地・中廻し・一文字・風帯・軸先など、各部の名前が出てくる演出">
+    <div class="sk-stick">
+      <canvas id="sk2d" aria-hidden="true"></canvas>
+      <div class="sk-copy">
+        <p class="sk-step" id="sk-step">掛軸のしくみ</p>
+        <p class="sk-h" id="sk-h">一幅を、<br>ひらく。</p>
+        <p class="sk-p" id="sk-p">裂地と和紙を、本紙と継ぎ合わせて仕立てます。</p>
+        <p class="sk-price" id="sk-price">軸装（機械表具の基本サイズ）<b>15,000円</b>から・消費税別</p>
+      </div>
+      <p class="sk-note">掛軸のイメージです。裂地や本紙は架空のものです</p>
+    </div>
+  </section>
+<style>
+.sig-sk{position:relative;height:440vh;background:#ece5d6}
+.sk-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:linear-gradient(90deg,#efe8da,#e6dcc8 60%,#ddd1ba)}
+#sk2d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.sk-copy{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);max-width:330px;z-index:3}
+.sk-step{margin:0;color:var(--accent);font-weight:700;letter-spacing:.16em;font-size:14px}
+.sk-h{font-family:var(--display);font-weight:900;font-size:clamp(42px,4.8vw,70px);line-height:1.25;margin:10px 0 16px;transition:opacity .3s}
+.sk-p{margin:0 0 20px;color:var(--mute);transition:opacity .3s}
+.sk-price{margin:0;font-size:14px;color:var(--mute);opacity:0;transition:opacity .4s}
+.sk-price b{font-family:var(--display);font-size:28px;color:var(--ink);margin:0 4px}
+.sk-note{position:absolute;right:var(--gut);bottom:22px;margin:0;font-size:12px;color:var(--mute)}
+@media (max-width:860px){
+  .sk-copy{top:auto;bottom:0;transform:none;left:0;right:0;max-width:none;padding:48px var(--gut) 90px;background:linear-gradient(to top,rgba(236,229,214,.97) 64%,rgba(236,229,214,0))}
+  .sk-h{font-size:36px;margin:6px 0 10px}
+  .sk-p{display:none}
+  .sk-note{top:74px;bottom:auto}
+}
+</style>
+<script type="module">
+import { stage2d, span, ease, c01, qa } from '../_kit/sig/stage.js';
+
+const canvas = document.getElementById('sk2d'), section = canvas.closest('section');
+const stepEl = document.getElementById('sk-step'), hEl = document.getElementById('sk-h'), pEl = document.getElementById('sk-p'), price = document.getElementById('sk-price');
+const TEXT = [
+  ['掛軸のしくみ', '一幅を、<br>ひらく。', '裂地と和紙を、本紙と継ぎ合わせて仕立てます。'],
+  ['各部の名前', 'いくつもの<br>裂地で。', '天・地・中廻し・一文字。掛軸は、いくつもの裂地と和紙でできています。'],
+  ['仕立て', '後の世まで、<br>残す。', '数か月、加湿と乾燥をくり返して狂いを少なくしてから、掛軸に仕上げます。'],
+];
+// 裂地の柄
+function fabric(base, ink, kind) {
+  const c = document.createElement('canvas'); c.width = c.height = 48; const g = c.getContext('2d');
+  g.fillStyle = base; g.fillRect(0, 0, 48, 48);
+  for (let i = 0; i < 160; i++) { g.fillStyle = `rgba(0,0,0,${Math.random() * .05})`; g.fillRect(Math.random() * 48, Math.random() * 48, 1, 2); }
+  g.strokeStyle = ink; g.fillStyle = ink;
+  if (kind === 'karakusa') { g.lineWidth = 1.4; g.beginPath(); g.arc(12, 12, 7, .3, 4.6); g.stroke(); g.beginPath(); g.arc(36, 36, 7, 3.4, 7.7); g.stroke(); g.beginPath(); g.arc(12, 12, 2, 0, 7); g.arc(36, 36, 2, 0, 7); g.fill(); }
+  if (kind === 'kin') { for (let y = 0; y < 48; y += 6) for (let x = (y / 6 % 2) * 3; x < 48; x += 6) { g.fillRect(x, y, 2, 2); } }
+  if (kind === 'plain') { g.globalAlpha = .25; for (let y = 0; y < 48; y += 3) g.fillRect(0, y, 48, 1); g.globalAlpha = 1; }
+  return c;
+}
+const F = { ten: fabric('#a9b3a2', 'rgba(70,80,60,.5)', 'plain'), naka: fabric('#7b5b3a', 'rgba(222,190,120,.6)', 'karakusa'), ichi: fabric('#b9924a', 'rgba(255,230,160,.8)', 'kin') };
+// 本紙：墨の山水と、賛
+const honshi = document.createElement('canvas'); honshi.width = 600; honshi.height = 980;
+{
+  const g = honshi.getContext('2d'), w = 600, h = 980;
+  g.fillStyle = '#efe5cf'; g.fillRect(0, 0, w, h);
+  for (let i = 0; i < 1400; i++) { g.strokeStyle = `rgba(150,120,80,${Math.random() * .06})`; g.beginPath(); const x = Math.random() * w, y = Math.random() * h; g.moveTo(x, y); g.lineTo(x + Math.random() * 30 - 15, y + Math.random() * 6); g.stroke(); }
+  const ridge = (base, amp, dark, seed) => {
+    g.beginPath(); g.moveTo(0, h);
+    for (let x = 0; x <= w; x += 6) g.lineTo(x, base - amp * (Math.sin(x * .011 + seed) * .5 + Math.sin(x * .027 + seed * 2) * .3 + Math.sin(x * .061 + seed) * .12 + .6));
+    g.lineTo(w, h); g.closePath();
+    const gr = g.createLinearGradient(0, base - amp * 1.4, 0, base + 120); gr.addColorStop(0, `rgba(30,28,26,${dark})`); gr.addColorStop(.5, `rgba(30,28,26,${dark * .45})`); gr.addColorStop(1, 'rgba(30,28,26,0)'); g.fillStyle = gr; g.fill();
+  };
+  ridge(380, 260, .32, 1); ridge(560, 220, .5, 3); ridge(760, 160, .7, 5);
+  for (let k = 0; k < 3; k++) { const y = 430 + k * 180, gr = g.createLinearGradient(0, y - 40, 0, y + 40); gr.addColorStop(0, 'rgba(239,229,207,0)'); gr.addColorStop(.5, 'rgba(239,229,207,.85)'); gr.addColorStop(1, 'rgba(239,229,207,0)'); g.fillStyle = gr; g.fillRect(0, y - 40, w, 80); }
+  // 松
+  g.strokeStyle = 'rgba(20,18,16,.85)'; g.lineWidth = 5; g.beginPath(); g.moveTo(140, 900); g.bezierCurveTo(150, 820, 120, 780, 160, 720); g.stroke();
+  for (let i = 0; i < 6; i++) { g.fillStyle = 'rgba(20,18,16,.7)'; g.beginPath(); g.ellipse(150 + (i % 2 ? 40 : -30), 720 + i * 26, 46, 10, (i % 2 ? .2 : -.2), 0, 7); g.fill(); }
+  // 舟
+  g.fillStyle = 'rgba(20,18,16,.8)'; g.beginPath(); g.moveTo(380, 870); g.quadraticCurveTo(420, 885, 460, 868); g.lineTo(380, 870); g.fill(); g.fillRect(418, 846, 3, 22);
+  // 賛と落款
+  g.fillStyle = 'rgba(20,18,16,.85)'; g.font = '700 40px "Zen Old Mincho", serif'; g.textAlign = 'center';
+  ['山', '高', '水', '長'].forEach((ch, i) => g.fillText(ch, 520, 90 + i * 48));
+  g.fillStyle = '#b8352a'; g.fillRect(500, 300, 38, 38); g.fillStyle = '#efe5cf'; g.font = '700 16px "Zen Old Mincho", serif'; g.fillText('彩', 519, 325);
+}
+const LABELS = ['八双', '風帯', '天', '一文字', '中廻し', '本紙', '地', '軸先'];
+let stepI = -1;
+stage2d({ canvas, section, draw(g, w, h, { t, p }) {
+  g.clearRect(0, 0, w, h);
+  const portrait = w < 860;
+  const H = portrait ? h * .49 : h - Math.max(h * .12, 108) - 70, W = Math.min(H * .36, portrait ? w * .5 : w * .26);
+  const cx = portrait ? w / 2 : w * .66, top = portrait ? 140 : Math.max(h * .12, 108), x0 = cx - W / 2;
+  // 各部の高さ
+  const P = { ten: .17, ichi: .02, nakaT: .045, hon: .48, ichiB: .015, nakaB: .07, chi: .12 };
+  const total = Object.values(P).reduce((a, b) => a + b, 0) * H;
+  const u = ease(span(p, .04, .4)), shown = total * u;
+  const si = p < .42 ? 0 : p < .78 ? 1 : 2;
+  if (si !== stepI) { stepI = si; hEl.style.opacity = pEl.style.opacity = 0; setTimeout(() => { stepEl.textContent = TEXT[si][0]; hEl.innerHTML = TEXT[si][1]; pEl.textContent = TEXT[si][2]; hEl.style.opacity = pEl.style.opacity = 1; }, qa ? 0 : 160); }
+  price.style.opacity = c01((p - .8) / .06);
+  // 掛緒と八双
+  g.strokeStyle = '#6b4a2a'; g.lineWidth = 2; g.beginPath(); g.moveTo(x0 + W * .2, top); g.lineTo(cx, top - 34); g.lineTo(x0 + W * .8, top); g.stroke();
+  g.fillStyle = '#3a2a1c'; g.beginPath(); g.arc(cx, top - 36, 4, 0, 7); g.fill();
+  // ひらいた分だけ描く
+  g.save(); g.beginPath(); g.rect(x0 - 40, top, W + 80, shown + 1); g.clip();
+  g.shadowColor = 'rgba(60,40,20,.25)'; g.shadowBlur = 24; g.shadowOffsetX = 8; g.fillStyle = '#000'; g.fillRect(x0, top, W, total); g.shadowColor = 'transparent';
+  let y = top; const seg = {};
+  const band = (key, hgt, pat, inset = 0) => { const yy = y, hh = hgt * H; g.fillStyle = g.createPattern(pat, 'repeat'); g.fillRect(x0 + inset, yy, W - inset * 2, hh); seg[key] = [yy, yy + hh]; y += hh; return [yy, hh]; };
+  band('ten', P.ten, F.ten);
+  // 中廻し（本紙のまわり全体）
+  const nakaTop = y, nakaH = (P.ichi + P.nakaT + P.hon + P.ichiB + P.nakaB) * H;
+  g.fillStyle = g.createPattern(F.naka, 'repeat'); g.fillRect(x0, nakaTop, W, nakaH); seg.naka = [nakaTop, nakaTop + nakaH];
+  const hw = W * .74, hx = cx - hw / 2;
+  let yy = nakaTop + P.nakaT * H;
+  g.fillStyle = g.createPattern(F.ichi, 'repeat'); g.fillRect(hx, yy, hw, P.ichi * H); seg.ichi = [yy, yy + P.ichi * H]; yy += P.ichi * H;
+  g.drawImage(honshi, hx, yy, hw, P.hon * H); seg.hon = [yy, yy + P.hon * H]; yy += P.hon * H;
+  g.fillStyle = g.createPattern(F.ichi, 'repeat'); g.fillRect(hx, yy, hw, P.ichiB * H);
+  y = nakaTop + nakaH;
+  band('chi', P.chi, F.ten);
+  // 継ぎ目の影
+  g.fillStyle = 'rgba(0,0,0,.12)'; [nakaTop, nakaTop + nakaH].forEach(v => g.fillRect(x0, v, W, 1.5));
+  g.restore();
+  // 八双（上の棒）
+  const rod = (yc, r, len, knobs) => { const gr = g.createLinearGradient(0, yc - r, 0, yc + r); gr.addColorStop(0, '#5a4028'); gr.addColorStop(.4, '#a07a52'); gr.addColorStop(1, '#3a2818'); g.fillStyle = gr; g.fillRect(cx - len / 2, yc - r, len, r * 2);
+    if (knobs) [-1, 1].forEach(s => { const kx = cx + s * (len / 2 + 9), kg = g.createRadialGradient(kx - 3, yc - 4, 1, kx, yc, r + 5); kg.addColorStop(0, '#f4e8d4'); kg.addColorStop(1, '#8a7558'); g.fillStyle = kg; g.beginPath(); g.ellipse(kx, yc, 10, r + 4, 0, 0, 7); g.fill(); }); };
+  rod(top + 3, 5, W + 6, false);
+  // 風帯：二本、そよぐ
+  const sway = Math.sin(t * 1.3) * 3;
+  [-.22, .22].forEach((o, i) => {
+    const fx = cx + o * W, fw = W * .075, fl = Math.min(shown, P.ten * H * .82);
+    if (fl <= 2) return;
+    g.save(); g.translate(fx, top + 6); g.rotate((sway + i) * .004);
+    g.fillStyle = g.createPattern(F.ichi, 'repeat'); g.fillRect(-fw / 2, 0, fw, fl);
+    g.fillStyle = 'rgba(0,0,0,.18)'; g.fillRect(-fw / 2, 0, 1.5, fl);
+    if (fl > P.ten * H * .8) { g.fillStyle = '#e9dcc4'; g.beginPath(); g.arc(-fw * .3, fl + 3, 2.5, 0, 7); g.arc(fw * .3, fl + 3, 2.5, 0, 7); g.fill(); }
+    g.restore();
+  });
+  // 軸（下の巻き）：巻き残りが多いほど太い
+  const rr = 8 + (1 - u) * 14;
+  rod(top + shown + rr * .6, rr, W + 10, true);
+  // 各部の名前
+  const lab = span(p, .42, .78);
+  if (lab > 0) {
+    const pos = {
+      八双: [top + 3, -1], 風帯: [top + P.ten * H * .45, 1, cx + .22 * W + W * .04], 天: [seg.ten[0] + P.ten * H * .7, -1],
+      一文字: [(seg.ichi[0] + seg.ichi[1]) / 2, 1, cx + hw / 2], 中廻し: [seg.naka[0] + P.nakaT * H * .5, -1], 本紙: [(seg.hon[0] + seg.hon[1]) / 2, 1, cx + hw / 2 - 20],
+      地: [(seg.chi[0] + seg.chi[1]) / 2, -1], 軸先: [top + total + 8, 1, cx + W / 2 + 18],
+    };
+    g.font = `700 ${portrait ? 12 : 15}px "Zen Kaku Gothic New", sans-serif`; g.textBaseline = 'middle';
+    LABELS.forEach((name, i) => {
+      const k = c01(lab * LABELS.length * 1.1 - i); if (k <= 0) return;
+      const [ly, side, ax] = pos[name], from = ax ?? (side < 0 ? x0 : x0 + W), to = side < 0 ? x0 - (portrait ? 22 : 60) : x0 + W + (portrait ? 22 : 60);
+      g.globalAlpha = k; g.strokeStyle = '#8c3b2a'; g.lineWidth = 1.2;
+      g.beginPath(); g.moveTo(from, ly); g.lineTo(from + (to - from) * k, ly); g.stroke();
+      g.fillStyle = '#8c3b2a'; g.beginPath(); g.arc(from, ly, 3, 0, 7); g.fill();
+      g.fillStyle = '#2a2118'; g.textAlign = side < 0 ? 'right' : 'left'; g.fillText(name, to + side * 8, ly);
+      g.globalAlpha = 1;
+    });
+  }
+} });
+if (document.fonts) document.fonts.load('700 40px "Zen Old Mincho"', '山高水長彩').then(() => {
+  const g = honshi.getContext('2d'); g.fillStyle = '#efe5cf'; g.fillRect(500, 60, 60, 210); g.fillStyle = 'rgba(20,18,16,.85)'; g.font = '700 40px "Zen Old Mincho", serif'; g.textAlign = 'center';
+  ['山', '高', '水', '長'].forEach((ch, i) => g.fillText(ch, 520, 90 + i * 48));
+}).catch(() => {});
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="1980" data-from="1920">1980</span><small>年　昭和55年　筒井郁雄が独立</small></div></div>
+    <div class="rv"><h2>糊は、必要最低限の濃さで。</h2><p>裂地と和紙を正麩糊で肌裏し、古糊で増裏をして本紙と継ぎ合わせ、最後に古糊で総裏をして、板に張り込みます。数か月間、加湿と乾燥を繰り返して狂いを少なくしてから、掛軸に仕上げます。</p><p>筒井郁雄は名古屋の武智整古堂で18年間修行し、昭和55年に独立。筒井俊雄は京都の伊藤竹香堂で6年間修行し、名古屋城本丸御殿障壁画の復元工事にも参加しました。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>掛軸</span><span>表装</span><span>額装</span><span>屏風</span><span>修復</span><span>表装教室</span><span>掛軸</span><span>表装</span><span>額装</span><span>屏風</span><span>修復</span><span>表装教室</span><span>掛軸</span><span>表装</span><span>額装</span><span>屏風</span><span>修復</span><span>表装教室</span><span>掛軸</span><span>表装</span><span>額装</span><span>屏風</span><span>修復</span><span>表装教室</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>仕事</h2><span>WORKS</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/f1.jpg" alt="絵を描く和紙" loading="lazy" data-speed=".06" data-gl></div><h3>表装・軸装</h3><p>掛け軸、額、屏風、衝立、巻子、和綴本。</p></article><article class="feature rv"><div class="ph"><img src="img/f2.jpg" alt="筆で書をしたためる手" loading="lazy" data-speed=".06" data-gl></div><h3>染み抜き・修復</h3><p>本紙（絹本・紙本）の染み抜き・洗い、古書画の修理。</p></article><article class="feature rv"><div class="ph"><img src="img/f3.jpg" alt="古い書の掛軸" loading="lazy" data-speed=".06" data-gl></div><h3>表装教室</h3><p>講師は筒井俊雄。星が丘テラスで、小作品の裏打ちから掛け軸まで。</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/wide.jpg" alt="書の作品" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">美術品に、耐久性と保存を。</figcaption></figure>
+  
+  <section class="sec" id="price">
+    <div class="sec-head rv"><h2>参考価格</h2><span>PRICE</span></div>
+    <dl class="prices rv"><div><dt>軸装<small>機械表具の基本サイズ</small></dt><dd>15,000円〜</dd></div><div><dt>法名軸 本金襴</dt><dd>20,000円〜</dd></div></dl>
+    <p class="prices-note rv">消費税別の参考価格です。お客様のご注文ごとにお見積りします。価格は現在のホームページの表示をもとにしています。</p>
+  </section>
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">ご案内</h2></div>
+      
+      <table class="hours"><tr><th>出店</th><td>星が丘テラスEAST 3階 COMMUNITY ROOM（偶数日曜日）</td></tr><tr><th>対象地域</th><td>名古屋市・尾張地域ほか、他地域もご相談ください</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>愛知県名古屋市北区大杉町七丁目133番地の2</p>
+      <p class="mute">駐車場あります。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E5%90%8D%E5%8F%A4%E5%B1%8B%E5%B8%82%E5%8C%97%E5%8C%BA%E5%A4%A7%E6%9D%89%E7%94%BA7%E4%B8%81%E7%9B%AE133-2%20%E5%BD%A9%E5%8F%A4%E5%A0%82" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:0529150871" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">大切な一幅を、お預かりします。</h2>
+    <a class="tel" href="tel:0529150871">052-915-0871</a>
+    <p>表装・修復のご相談、表装教室のお申し込みは、お電話・メールで。</p>
+    <div class="btns"><a class="btn" href="mailto:tsutsuisaikodou@gmail.com" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>彩古堂　愛知県名古屋市北区大杉町七丁目133番地の2　TEL 052-915-0871</p>
+  <p>この試作は森川ウェブ（koseimorikawa2026@gmail.com）が、彩古堂様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:0529150871" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

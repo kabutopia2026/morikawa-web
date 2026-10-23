@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>和菓子 埼玉屋南雲｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#f7f1ec">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#f7f1ec;--ink:#2e1f22;--mute:#7a6266;--accent:#b2456e;--accent-ink:#fff;--panel:#efe3dc;--line:rgba(46,31,34,.12);--display:"Kaisei Decol",serif;--display-weight:700;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 50%}
+
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>が和菓子 埼玉屋南雲様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">手作りの和菓子　埼玉県三郷市</p><p class="pl-name">埼玉屋南雲</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">埼玉屋南雲</a>
+  <nav aria-label="ページ内の案内"><a href="#story">埼玉屋南雲</a><a href="#features">和菓子</a><a href="#info">営業時間</a></nav>
+  
+  <a class="call" href="mailto:saitamaya@mbp.nifty.com"><span data-en="Call">メール</span><span class="num">お問い合わせ</span></a>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-img"><img src="img/hero.jpg" alt="花をかたどった色とりどりの上生菓子"  data-gl="wipe" data-gl-hero></div>
+    <div class="hero-copy">
+      <p class="kind">手作りの和菓子　埼玉県三郷市</p>
+      <h1><span class="ln"><span style="--i:0">季節を、</span></span><span class="ln"><span style="--i:1">ひとつずつ。</span></span></h1>
+      
+      <p class="sub">手作りの和菓子を製造販売しているお店です。伝統製法の和菓子から新製法の和菓子まで、他のお店にはないオリジナリティー豊かな和菓子をお楽しみください。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-sn" id="sig" aria-label="スクロールすると、上生菓子の形と色が春・夏・秋・冬と移り変わる3Dの演出">
+    <div class="sn-stick">
+      <canvas id="sn3d" aria-hidden="true"></canvas>
+      <div class="sn-copy">
+        <p class="sn-step">上生菓子は、毎月かわります</p>
+        <p class="sn-h" id="sn-h"><small>春</small>桜</p>
+        <p class="sn-p" id="sn-p">やわらかな桃色の、花びら五枚。</p>
+        <div class="sn-tabs" role="group" aria-label="季節を選ぶ"><button type="button" data-i="0" aria-pressed="true">春</button><button type="button" data-i="1" aria-pressed="false">夏</button><button type="button" data-i="2" aria-pressed="false">秋</button><button type="button" data-i="3" aria-pressed="false">冬</button></div>
+      </div>
+      <p class="sn-note">上生菓子の3Dイメージです。実際のお菓子とは異なります</p>
+    </div>
+  </section>
+<style>
+.sig-sn{position:relative;height:420vh;background:#f3e9e3}
+.sn-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:radial-gradient(60% 65% at 64% 55%,#fffaf6,#efe2da 78%);transition:background .8s}
+#sn3d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.sn-copy{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);max-width:340px;z-index:3}
+.sn-step{margin:0;color:var(--accent);font-weight:700;letter-spacing:.12em;font-size:14px}
+.sn-h{font-family:var(--display);font-weight:700;font-size:clamp(70px,8.4vw,128px);line-height:1;margin:14px 0 16px;transition:opacity .3s}
+.sn-h small{display:block;font-size:.26em;letter-spacing:.3em;color:var(--mute);margin-bottom:8px}
+.sn-p{margin:0 0 24px;color:var(--mute);transition:opacity .3s;min-height:3.4em}
+.sn-tabs{display:flex;gap:8px}
+.sn-tabs button{font:inherit;font-family:var(--display);font-size:18px;width:52px;height:52px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.6);color:var(--ink);cursor:pointer;transition:background .3s,color .3s}
+.sn-tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.sn-note{position:absolute;right:var(--gut);bottom:22px;margin:0;font-size:12px;color:var(--mute)}
+@media (max-width:860px){
+  .sn-copy{top:auto;bottom:0;transform:none;left:0;right:0;max-width:none;padding:56px var(--gut) 92px;background:linear-gradient(to top,rgba(243,233,227,.97) 64%,rgba(243,233,227,0))}
+  .sn-h{font-size:64px;margin:8px 0 10px}
+  .sn-p{display:none}
+  .sn-note{top:74px;bottom:auto}
+}
+</style>
+<script type="module">
+import * as THREE from 'three';
+import { stage3d, span, ease, c01, qa, mouse, canvasTexture, woodTexture } from '../_kit/sig/stage.js';
+
+const canvas = document.getElementById('sn3d'), section = canvas.closest('section'), stick = section.firstElementChild;
+const hEl = document.getElementById('sn-h'), pEl = document.getElementById('sn-p'), tabs = [...section.querySelectorAll('.sn-tabs button')];
+const NT = 180, NV = 46, H = .62;
+const lobe = (th, n, pw) => Math.pow(Math.abs(Math.cos(th * n / 2)), pw);
+// 季節ごとの形：輪郭 r(θ) と、高さの彫り h(θ, v)
+const SEASONS = [
+  { name: '桜', s: '春', p: 'やわらかな桃色の、花びら五枚。', bg: '#fdf3f5',
+    r: th => .8 + .2 * lobe(th, 5, .7) - .1 * Math.pow(Math.max(0, Math.cos(5 * th)), 40),
+    h: (th, v) => 1 - .16 * Math.pow(1 - lobe(th, 5, 1), 4) * v, stamen: 1 },
+  { name: '紫陽花', s: '夏', p: '小さな花を、青と紫で寄せて。', bg: '#eef2fb',
+    r: th => 1 + .025 * Math.cos(7 * th), h: (th, v) => 1.06 + .03 * Math.sin(th * 23) * Math.sin(v * 17), stamen: 0 },
+  { name: '菊', s: '秋', p: '細い花びらを、まんなかから外へ。', bg: '#fbf4e6',
+    r: th => .92 + .08 * lobe(th, 24, .25), h: (th, v) => 1 - .07 * Math.pow(1 - lobe(th, 24, .5), 2) * Math.min(1, v * 1.6), stamen: 0 },
+  { name: '椿', s: '冬', p: '赤い花びらに、黄色いしべを。', bg: '#fbf0ee',
+    r: th => .86 + .14 * lobe(th, 5, 1.6), h: (th, v) => 1 - .1 * Math.pow(1 - lobe(th, 5, 1.2), 3) * v, stamen: 2 },
+];
+// 上から見た絵を、そのまま貼る
+const TEX = [
+  (g, w, h) => { const gr = g.createRadialGradient(w / 2, h / 2, 0, w / 2, h / 2, w * .5); gr.addColorStop(0, '#fff6f6'); gr.addColorStop(.45, '#f9cfd9'); gr.addColorStop(1, '#ee93ae'); g.fillStyle = gr; g.fillRect(0, 0, w, h);
+    g.strokeStyle = 'rgba(214,100,140,.35)'; g.lineWidth = 3; for (let k = 0; k < 5; k++) { const a = (k + .5) / 5 * Math.PI * 2; g.beginPath(); g.moveTo(w / 2, h / 2); g.lineTo(w / 2 + Math.cos(a) * w * .42, h / 2 + Math.sin(a) * h * .42); g.stroke(); } },
+  (g, w, h) => { g.fillStyle = '#9db0e6'; g.fillRect(0, 0, w, h);
+    for (let i = 0; i < 420; i++) { const x = Math.random() * w, y = Math.random() * h, s = 26 + Math.random() * 18, c = ['#5f7fd6', '#9270d0', '#b49ce6', '#6f9ee6', '#a283dc'][i % 5]; g.save(); g.translate(x, y); g.rotate(Math.random() * 3); g.fillStyle = c;
+      for (let k = 0; k < 4; k++) { g.rotate(Math.PI / 2); g.beginPath(); g.ellipse(s * .5, 0, s * .5, s * .36, 0, 0, 7); g.fill(); } g.fillStyle = '#f4f0ff'; g.beginPath(); g.arc(0, 0, 2.5, 0, 7); g.fill(); g.restore(); } },
+  (g, w, h) => { const gr = g.createRadialGradient(w / 2, h / 2, 0, w / 2, h / 2, w * .5); gr.addColorStop(0, '#c9741a'); gr.addColorStop(.25, '#eeb532'); gr.addColorStop(1, '#f5cf5a'); g.fillStyle = gr; g.fillRect(0, 0, w, h);
+    for (let k = 0; k < 96; k++) { const a = k / 96 * Math.PI * 2; g.strokeStyle = k % 2 ? 'rgba(170,100,10,.5)' : 'rgba(255,250,210,.55)'; g.lineWidth = 4; g.beginPath(); g.moveTo(w / 2 + Math.cos(a) * 40, h / 2 + Math.sin(a) * 40); g.lineTo(w / 2 + Math.cos(a) * w * .5, h / 2 + Math.sin(a) * h * .5); g.stroke(); } },
+  (g, w, h) => { const gr = g.createRadialGradient(w / 2, h / 2, 0, w / 2, h / 2, w * .5); gr.addColorStop(0, '#fff3d6'); gr.addColorStop(.18, '#e0405a'); gr.addColorStop(1, '#b3172f'); g.fillStyle = gr; g.fillRect(0, 0, w, h);
+    g.strokeStyle = 'rgba(120,10,30,.3)'; g.lineWidth = 4; for (let k = 0; k < 5; k++) { const a = (k + .5) / 5 * Math.PI * 2; g.beginPath(); g.moveTo(w / 2, h / 2); g.lineTo(w / 2 + Math.cos(a) * w * .42, h / 2 + Math.sin(a) * h * .42); g.stroke(); } },
+].map(f => canvasTexture(1024, 1024, f));
+
+let mixU = { value: 0 }, texB = { value: TEX[1] };
+const st = stage3d({ canvas, section, fov: 28, env: .04, exposure: .95, frame });
+if (st) {
+  const { scene } = st;
+  const geo = new THREE.BufferGeometry();
+  const pos = new Float32Array((NT + 1) * (NV + 1) * 3), uv = new Float32Array((NT + 1) * (NV + 1) * 2), idx = [];
+  for (let i = 0; i < NT; i++) for (let j = 0; j < NV; j++) { const a = i * (NV + 1) + j, b = (i + 1) * (NV + 1) + j; idx.push(a, b, a + 1, b, b + 1, a + 1); }
+  geo.setIndex(idx); geo.setAttribute('position', new THREE.BufferAttribute(pos, 3)); geo.setAttribute('uv', new THREE.BufferAttribute(uv, 2));
+  const mat = new THREE.MeshPhysicalMaterial({ map: TEX[0], roughness: .7, sheen: .15, sheenColor: new THREE.Color('#ffffff'), side: THREE.DoubleSide });
+  mat.onBeforeCompile = sh => {
+    sh.uniforms.mapB = texB; sh.uniforms.uMix = mixU;
+    sh.fragmentShader = 'uniform sampler2D mapB; uniform float uMix;\n' + sh.fragmentShader.replace('#include <map_fragment>', '#include <map_fragment>\n diffuseColor.rgb = mix(diffuseColor.rgb, texture2D(mapB, vMapUv).rgb, uMix);');
+  };
+  const sweet = new THREE.Mesh(geo, mat);
+  // しべ
+  const stamens = new THREE.InstancedMesh(new THREE.SphereGeometry(.035, 12, 8), new THREE.MeshStandardMaterial({ color: '#f2c230', roughness: .6 }), 14);
+  // 菓子皿と、黒文字
+  const plate = new THREE.Mesh(new THREE.LatheGeometry([[0, -.06], [1.3, -.06], [1.46, .02], [1.5, .06], [1.45, .07], [1.27, 0], [0, -.01]].map(([x, y]) => new THREE.Vector2(x, y)), 96), new THREE.MeshPhysicalMaterial({ color: '#f4f1ea', roughness: .25, clearcoat: 1 }));
+  plate.position.y = -.02;
+  const kuromoji = new THREE.Mesh(new THREE.CylinderGeometry(.03, .012, 1.5, 8), new THREE.MeshStandardMaterial({ map: woodTexture('#c9a97a', 'rgba(90,60,30,', 256, 64), roughness: .7 }));
+  kuromoji.rotation.set(Math.PI / 2, 0, .9); kuromoji.position.set(.35, .06, 1.1);
+  const group = new THREE.Group(); group.add(sweet, stamens, plate, kuromoji); scene.add(group);
+  scene.add(new THREE.HemisphereLight('#fffaf2', '#9a8478', 1));
+  const key = new THREE.DirectionalLight('#fff1e2', 2.1); key.position.set(-2.5, 5, 3); scene.add(key);
+  const rim = new THREE.DirectionalLight('#ffe0ea', .9); rim.position.set(3, 2, -4); scene.add(rim);
+  Object.assign(st, { geo, pos, uv, sweet, stamens, group, tmp: new THREE.Object3D() });
+  st.start();
+}
+
+let forced = null, forcedAt = 0, shown = -1, sCur = 0;
+tabs.forEach(b => b.addEventListener('click', () => { forced = +b.dataset.i; forcedAt = lastP; }));
+let lastP = 0;
+function build(a, b, f) {
+  const A = SEASONS[a], B = SEASONS[b], { pos, uv } = st;
+  for (let i = 0; i <= NT; i++) {
+    const th = i / NT * Math.PI * 2, R = A.r(th) * (1 - f) + B.r(th) * f;
+    for (let j = 0; j <= NV; j++) {
+      const v = j / NV, hm = A.h(th, v) * (1 - f) + B.h(th, v) * f;
+      // ふっくらした山の形。縁は丸くおさめる
+      const rr = R * Math.sin(v * Math.PI / 2) * 1.05, y = H * Math.pow(Math.cos(v * Math.PI / 2), .7) * hm;
+      const k = (i * (NV + 1) + j);
+      pos[k * 3] = Math.cos(th) * rr; pos[k * 3 + 1] = y; pos[k * 3 + 2] = Math.sin(th) * rr;
+      uv[k * 2] = .5 + Math.cos(th) * v * .5; uv[k * 2 + 1] = .5 + Math.sin(th) * v * .5;
+    }
+  }
+  st.geo.attributes.position.needsUpdate = true; st.geo.attributes.uv.needsUpdate = true; st.geo.computeVertexNormals();
+}
+function frame({ t, p, portrait }) {
+  lastP = p;
+  if (forced !== null && Math.abs(p - forcedAt) > .04) forced = null;
+  // 季節ごとに少し止まりながら、次へ形を変える
+  const raw = c01((p - .04) / .9) * 3, seg = Math.min(2, Math.floor(raw)), fr = raw - seg;
+  let target = seg + ease(c01((fr - .45) / .55));
+  if (raw >= 3) target = 3;
+  if (forced !== null) target = forced;
+  sCur += (target - sCur) * (qa ? 1 : forced !== null ? .07 : .2);
+  const a = Math.min(2, Math.floor(sCur)), f = sCur - a;
+  build(a, a + 1, f);
+  st.sweet.material.map = TEX[a]; texB.value = TEX[a + 1]; mixU.value = f;
+  const near = Math.round(sCur);
+  if (near !== shown) {
+    shown = near; const S = SEASONS[near];
+    tabs.forEach((b, k) => b.setAttribute('aria-pressed', k === near));
+    hEl.style.opacity = pEl.style.opacity = 0; stick.style.background = `radial-gradient(60% 65% at 64% 55%,#fff,${S.bg} 78%)`;
+    setTimeout(() => { hEl.innerHTML = `<small>${S.s}</small>${S.name}`; pEl.textContent = S.p; hEl.style.opacity = pEl.style.opacity = 1; }, qa ? 0 : 180);
+  }
+  // しべ：桜は小さく、椿は大きく
+  const sw = SEASONS[a].stamen * (1 - f) + SEASONS[a + 1].stamen * f;
+  for (let i = 0; i < 14; i++) {
+    const ang = i * 2.4, rad = i < 6 ? .06 : .13;
+    st.tmp.position.set(Math.cos(ang) * rad * (.6 + sw * .3), H * (1.02 + (sw > 1.2 ? .06 : 0)) + .02, Math.sin(ang) * rad * (.6 + sw * .3));
+    st.tmp.scale.setScalar(Math.min(1, sw) * (i < 6 || sw > 1 ? (.7 + sw * .3) : 0) + 1e-4); st.tmp.updateMatrix(); st.stamens.setMatrixAt(i, st.tmp.matrix);
+  }
+  st.stamens.instanceMatrix.needsUpdate = true;
+  st.group.rotation.y = -.4 + (qa ? 0 : t * .12) + mouse.x * .5;
+  st.group.position.set(portrait ? 0 : 1.25, portrait ? .55 : -.15, 0);
+  st.group.scale.setScalar(portrait ? .5 : 1);
+  st.camera.position.set(0, 3.3, 6); st.camera.lookAt(portrait ? 0 : .2, portrait ? -.2 : 0, 0);
+}
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="12" data-from="-48">12</span><small>か月　毎月かわる上生菓子</small></div></div>
+    <div class="rv"><h2>職人が、一つひとつ心を込めて。</h2><p>上生菓子は、季節に合わせて当店の職人が一つひとつ心を込めて作った伝統の和菓子です。お茶席にはもちろん、大事なお客様をおもてなしするには無くてはならない品です。</p><p>どら焼や生どら焼、饅頭、煉切・雪平・きんとん・外郎まで。お取り寄せは、電話・FAX・メールで承ります。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>上生菓子</span><span>煉切</span><span>どら焼</span><span>生どら焼</span><span>饅頭</span><span>お取り寄せ</span><span>上生菓子</span><span>煉切</span><span>どら焼</span><span>生どら焼</span><span>饅頭</span><span>お取り寄せ</span><span>上生菓子</span><span>煉切</span><span>どら焼</span><span>生どら焼</span><span>饅頭</span><span>お取り寄せ</span><span>上生菓子</span><span>煉切</span><span>どら焼</span><span>生どら焼</span><span>饅頭</span><span>お取り寄せ</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>和菓子</h2><span>WAGASHI</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/f1.jpg" alt="並んだどら焼" loading="lazy" data-speed=".06" data-gl></div><h3>生どら焼</h3><p>いちご、モンブラン、コーヒー、抹茶。</p></article><article class="feature rv"><div class="ph"><img src="img/f2.jpg" alt="皿にのった上生菓子" loading="lazy" data-speed=".06" data-gl></div><h3>季節の上生菓子</h3><p>煉切・雪平・きんとん・外郎・流し物など。</p></article><article class="feature rv"><div class="ph"><img src="img/f3.jpg" alt="和菓子の詰め合わせ" loading="lazy" data-speed=".06" data-gl></div><h3>饅頭</h3><p>ミニ黒糖饅頭、紅白饅頭、季節限定のおさつ饅頭も。</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/wide.jpg" alt="器に盛られた和菓子" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">お茶席にも、ご家庭にも。</figcaption></figure>
+  
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">営業時間</h2></div>
+      <p class="status" id="status"><i></i><b>…</b></p>
+      <table class="hours"><tr data-wd="1,3,4,5,6,0"><th>営業時間</th><td>9:00〜18:30</td></tr><tr><th>定休日</th><td>毎週火曜日・第3月曜日</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>埼玉県三郷市（三郷中央総合病院通り、セブンイレブン隣）</p>
+      <p class="mute">お休みは、店頭とホームページのお休みカレンダーでお知らせしています。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E5%92%8C%E8%8F%93%E5%AD%90%20%E5%9F%BC%E7%8E%89%E5%B1%8B%E5%8D%97%E9%9B%B2%20%E4%B8%89%E9%83%B7%E5%B8%82" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="mailto:saitamaya@mbp.nifty.com" data-en="Call">メールする</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">今月の上生菓子を、どうぞ。</h2>
+    <a class="tel mail" href="mailto:saitamaya@mbp.nifty.com">saitamaya@mbp.nifty.com</a>
+    <p>お取り寄せのご注文は、メール・電話・FAXで承ります。</p>
+    <div class="btns"><a class="btn" href="mailto:saitamaya@mbp.nifty.com" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>和菓子 埼玉屋南雲　埼玉県三郷市（三郷中央総合病院通り、セブンイレブン隣）　saitamaya@mbp.nifty.com</p>
+  <p>この試作は森川ウェブ（koseimorikawa2026@gmail.com）が、和菓子 埼玉屋南雲様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="mailto:saitamaya@mbp.nifty.com" data-en="Call">メールする</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+<script>window.SCHEDULE = {"days": {"0": [[540, 1110]], "1": [[540, 1110]], "3": [[540, 1110]], "4": [[540, 1110]], "5": [[540, 1110]], "6": [[540, 1110]]}};</script>
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>パティスリーメゾン｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#fbf3f1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&family=Cormorant+Garamond:wght@600&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#fbf3f1;--ink:#3a1d22;--mute:#86636a;--accent:#c0394f;--accent-ink:#fff;--panel:#f4e1de;--line:rgba(58,29,34,.12);--display:"Zen Kurenaido",sans-serif;--display-weight:400;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 50%}
+.top .name{font-family:'Cormorant Garamond',serif;letter-spacing:.08em;font-size:20px}
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>がパティスリーメゾン様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">ケーキ店　東京都八王子市めじろ台</p><p class="pl-name">Pâtisserie Maison</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">Pâtisserie Maison</a>
+  <nav aria-label="ページ内の案内"><a href="#story">メゾンのこと</a><a href="#features">お菓子</a><a href="#price">ご予約</a></nav>
+  
+  <a class="call" href="tel:0426682010"><span data-en="Call">電話</span><span class="num">042-668-2010</span></a>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-img"><img src="img/hero.jpg" alt="いちごののったショートケーキ"  data-gl="wipe" data-gl-hero></div>
+    <div class="hero-copy">
+      <p class="kind">ケーキ店　東京都八王子市めじろ台</p>
+      <h1><span class="ln"><span style="--i:0">「かわいい」を、</span></span><span class="ln"><span style="--i:1">おいしく。</span></span></h1>
+      
+      <p class="sub">お客様のご要望にお応えするケーキ店です。「八王子を発信していきたい」を理念に、JA八王子や地元の農家さんと協力して、皆様に愛されるお菓子作りを心がけています。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-pm" id="sig" aria-label="スクロールすると、スポンジ、クリームといちご、絞りと重なって、クリスマスケーキが組み上がる3Dの演出">
+    <div class="pm-stick">
+      <canvas id="pm3d" aria-hidden="true"></canvas>
+      <div class="pm-copy">
+        <p class="pm-step">クリスマスケーキ、ご予約受付中</p>
+        <p class="pm-h" id="pm-h">スポンジ</p>
+        <ol class="pm-steps" id="pm-steps"><li>スポンジ</li><li>クリームといちご</li><li>ナッペ</li><li>絞り</li><li>仕上げ</li></ol>
+        <p class="pm-price" id="pm-price">生クリームデコレーション 5号 <b>5,300円</b>（税込）</p>
+      </div>
+      <p class="pm-note">ケーキの3Dイメージです。実際の商品とは異なります</p>
+    </div>
+  </section>
+<style>
+.sig-pm{position:relative;height:440vh;background:#f8ebe8}
+.pm-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:radial-gradient(60% 70% at 64% 55%,#fffaf8,#f2dcd8 76%)}
+#pm3d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.pm-copy{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);max-width:340px;z-index:3}
+.pm-step{margin:0;color:var(--accent);font-weight:700;letter-spacing:.08em;font-size:14px}
+.pm-h{font-family:var(--display);font-size:clamp(48px,5.6vw,84px);line-height:1.1;margin:12px 0 20px;transition:opacity .3s}
+.pm-steps{list-style:none;margin:0 0 22px;padding:0;display:grid;gap:8px;font-size:14px;color:var(--mute);counter-reset:s}
+.pm-steps li{counter-increment:s;transition:color .3s;display:flex;align-items:center;gap:10px}
+.pm-steps li::before{content:counter(s);display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;border:1px solid currentColor;font-size:12px}
+.pm-steps li.on{color:var(--accent);font-weight:700}
+.pm-steps li.done{color:var(--ink)}
+.pm-price{margin:0;font-size:14px;color:var(--mute);opacity:0;transition:opacity .4s}
+.pm-price b{font-family:"Cormorant Garamond",serif;font-size:30px;color:var(--ink);margin:0 2px 0 6px}
+.pm-note{position:absolute;right:var(--gut);bottom:22px;margin:0;font-size:12px;color:var(--mute)}
+@media (max-width:860px){
+  .pm-copy{top:auto;bottom:0;transform:none;left:0;right:0;max-width:none;padding:44px var(--gut) 88px;background:linear-gradient(to top,rgba(248,235,232,.97) 66%,rgba(248,235,232,0))}
+  .pm-h{font-size:44px;margin:6px 0 10px}
+  .pm-steps{display:flex;flex-wrap:wrap;gap:6px 12px;margin-bottom:10px;font-size:12px}
+  .pm-steps li::before{width:20px;height:20px}
+  .pm-note{top:74px;bottom:auto}
+}
+</style>
+<script type="module">
+import * as THREE from 'three';
+import { stage3d, span, ease, c01, qa, mouse, canvasTexture } from '../_kit/sig/stage.js';
+
+const canvas = document.getElementById('pm3d'), section = canvas.closest('section');
+const hEl = document.getElementById('pm-h'), price = document.getElementById('pm-price'), steps = [...document.querySelectorAll('#pm-steps li')];
+const NAMES = ['スポンジ', 'クリームと<br>いちご', 'ナッペ', '絞り', '仕上げ'];
+const R = 1.05, SP = .36, CR = .07;
+const rand = (a, b) => a + Math.random() * (b - a);
+
+const st = stage3d({ canvas, section, fov: 30, env: .04, exposure: 1.05, frame });
+const parts = [];
+if (st) {
+  const { scene } = st;
+  const sponge = canvasTexture(1024, 256, (g, w, h) => { g.fillStyle = '#f2cf7e'; g.fillRect(0, 0, w, h); for (let i = 0; i < 3000; i++) { g.fillStyle = `rgba(${170 + Math.random() * 40},${120 + Math.random() * 30},40,${.25 + Math.random() * .3})`; g.beginPath(); g.ellipse(Math.random() * w, Math.random() * h, 1 + Math.random() * 3, 1 + Math.random() * 2, 0, 0, 7); g.fill(); } g.fillStyle = '#c98b3c'; g.fillRect(0, 0, w, 10); });
+  const spongeMat = new THREE.MeshStandardMaterial({ map: sponge, roughness: .9 });
+  const cream = new THREE.MeshPhysicalMaterial({ color: '#fffaf2', roughness: .55, sheen: 1, sheenColor: new THREE.Color('#ffffff') });
+  const berryTex = canvasTexture(256, 256, (g, w, h) => { g.fillStyle = '#d5202e'; g.fillRect(0, 0, w, h); for (let i = 0; i < 260; i++) { g.fillStyle = '#f3d35a'; g.beginPath(); g.ellipse(Math.random() * w, Math.random() * h, 2, 3, 0, 0, 7); g.fill(); } });
+  const berryMat = new THREE.MeshPhysicalMaterial({ map: berryTex, roughness: .25, clearcoat: 1 });
+  const sliceTex = canvasTexture(256, 256, (g, w, h) => { const gr = g.createRadialGradient(w / 2, h / 2, 10, w / 2, h / 2, w / 2); gr.addColorStop(0, '#fbe3e3'); gr.addColorStop(.55, '#f2828c'); gr.addColorStop(1, '#c81e2c'); g.fillStyle = gr; g.fillRect(0, 0, w, h); });
+  // 部品：一つずつ上から落ちてくる
+  const add = (obj, y, k0, k1) => { obj.userData = { y, k0, k1 }; parts.push(obj); return obj; };
+  const group = new THREE.Group();
+  const board = new THREE.Mesh(new THREE.CylinderGeometry(1.45, 1.45, .04, 72), new THREE.MeshPhysicalMaterial({ color: '#d8b56a', metalness: .8, roughness: .3 })); board.position.y = -.02; group.add(board);
+  group.add(add(new THREE.Mesh(new THREE.CylinderGeometry(R, R, SP, 72), spongeMat), SP / 2, .04, .14));
+  group.add(add(new THREE.Mesh(new THREE.CylinderGeometry(R - .02, R - .02, CR, 72), cream), SP + CR / 2, .18, .26));
+  const slices = new THREE.Group();
+  slices.userData.later = true;
+  group.add(add(slices, SP + CR + .06, .26, .34));
+  group.add(add(new THREE.Mesh(new THREE.CylinderGeometry(R - .02, R - .02, CR, 72), cream), SP + CR * 1.5 + .05, .34, .4));
+  group.add(add(new THREE.Mesh(new THREE.CylinderGeometry(R, R, SP, 72), spongeMat), SP * 1.5 + CR * 2 + .06, .4, .48));
+  // ナッペ：クリームで全体を覆う
+  const TOP = SP * 2 + CR * 2 + .06;
+  const coatG = new THREE.CylinderGeometry(R + .05, R + .05, TOP + .06, 96); coatG.translate(0, -(TOP + .06) / 2, 0);
+  const coat = new THREE.Mesh(coatG, cream); coat.userData = { coat: true }; coat.position.y = TOP + .06; group.add(coat);
+  // 絞り：星口金のうず
+  const kissPts = []; for (let i = 0; i <= 20; i++) { const t = i / 20; kissPts.push(new THREE.Vector2(.14 * Math.pow(1 - t, .8) * (1 + .1 * Math.sin(t * 9)), t * .22)); }
+  const kg = new THREE.LatheGeometry(kissPts, 40), kp = kg.attributes.position;
+  for (let i = 0; i < kp.count; i++) { const x = kp.getX(i), z = kp.getZ(i), y = kp.getY(i), a = Math.atan2(z, x) + y * 14, f = 1 + .14 * Math.cos(a * 8); kp.setX(i, x * f); kp.setZ(i, z * f); }
+  kg.computeVertexNormals();
+  const NK = 18, kisses = new THREE.InstancedMesh(kg, cream, NK * 2), tmp = new THREE.Object3D();
+  for (let i = 0; i < NK * 2; i++) { const top = i < NK, a = (i % NK) / NK * Math.PI * 2, r = top ? R - .1 : R + .1; tmp.position.set(Math.cos(a) * r, top ? 0 : -TOP - .02, Math.sin(a) * r); tmp.rotation.y = a * 3; tmp.scale.setScalar(top ? 1 : .8); tmp.updateMatrix(); kisses.setMatrixAt(i, tmp.matrix); }
+  group.add(add(kisses, TOP + .07, .66, .78));
+  // 仕上げ：いちごと、チョコのプレート
+  const bg = new THREE.SphereGeometry(.15, 32, 24), bp = bg.attributes.position;
+  for (let i = 0; i < bp.count; i++) { const y = bp.getY(i), f = 1 - .5 * Math.max(0, y / .15); bp.setX(i, bp.getX(i) * f); bp.setZ(i, bp.getZ(i) * f); bp.setY(i, y * 1.25); }
+  bg.computeVertexNormals();
+  const berries = new THREE.Group();
+  for (let i = 0; i < 9; i++) { const m = new THREE.Mesh(bg, berryMat), a = (i + .5) / 9 * Math.PI * 2; m.position.set(Math.cos(a) * (R - .1), .2, Math.sin(a) * (R - .1)); m.rotation.set(rand(-.2, .2), rand(0, 6), rand(-.2, .2)); berries.add(m); }
+  group.add(add(berries, TOP + .07, .8, .88));
+  const plateTex = canvasTexture(512, 256, (g, w, h) => { g.fillStyle = '#4a2a1c'; g.fillRect(0, 0, w, h); g.fillStyle = '#f7ead6'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.font = 'italic 600 66px "Cormorant Garamond", serif'; g.fillText('Merry', w / 2, h * .34); g.fillText('Christmas', w / 2, h * .7); });
+  const choco = new THREE.Mesh(new THREE.BoxGeometry(.9, .03, .45), [0, 1, 2, 3, 4, 5].map(i => new THREE.MeshPhysicalMaterial({ color: i === 2 ? '#ffffff' : '#4a2a1c', map: i === 2 ? plateTex : null, roughness: .3, clearcoat: .6 })));
+  choco.rotation.order = 'YXZ';
+  group.add(add(choco, TOP + .3, .88, .95));
+  scene.add(group);
+  scene.add(new THREE.HemisphereLight('#fffaf6', '#c99a92', 1.1));
+  const key = new THREE.DirectionalLight('#fff3e8', 2.2); key.position.set(-3, 6, 4); scene.add(key);
+  const rim = new THREE.DirectionalLight('#ffd4dc', 1.1); rim.position.set(3, 2, -4); scene.add(rim);
+  // いちごを横にして並べる（断面の層）
+  for (let i = 0; i < 12; i++) { const m = new THREE.Mesh(bg, berryMat), a = i / 12 * Math.PI * 2; m.position.set(Math.cos(a) * .72, 0, Math.sin(a) * .72); m.rotation.set(0, -a, -Math.PI / 2); m.scale.setScalar(.85); slices.add(m); }
+  Object.assign(st, { group, coat, TOP, choco });
+  if (document.fonts) document.fonts.load('italic 600 66px "Cormorant Garamond"').then(() => { const g = plateTex.image.getContext('2d'), w = 512, h = 256; g.fillStyle = '#4a2a1c'; g.fillRect(0, 0, w, h); g.fillStyle = '#f7ead6'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.font = 'italic 600 66px "Cormorant Garamond", serif'; g.fillText('Merry', w / 2, h * .34); g.fillText('Christmas', w / 2, h * .7); plateTex.needsUpdate = true; }).catch(() => {});
+  st.start();
+}
+
+let stepI = -1;
+function frame({ t, p, portrait }) {
+  // 部品を順に落とす
+  parts.forEach(o => {
+    const { y, k0, k1 } = o.userData, k = span(p, k0, k1), e = ease(k);
+    o.visible = k > 0;
+    o.position.y = y + (1 - e) * 2.6;
+    const sq = Math.sin(c01((k - .8) / .2) * Math.PI) * .08;
+    o.scale.set(1 + sq, 1 - sq, 1 + sq);
+  });
+  // ナッペは上から包む
+  const nap = ease(span(p, .5, .64));
+  st.coat.visible = nap > 0; st.coat.scale.set(1, Math.max(.001, nap), 1);
+  const si = p < .16 ? 0 : p < .5 ? 1 : p < .66 ? 2 : p < .8 ? 3 : 4;
+  if (si !== stepI) {
+    stepI = si; steps.forEach((li, k) => { li.classList.toggle('on', k === si); li.classList.toggle('done', k < si); });
+    hEl.style.opacity = 0; setTimeout(() => { hEl.innerHTML = NAMES[si]; hEl.style.opacity = 1; }, qa ? 0 : 160);
+  }
+  price.style.opacity = c01((p - .9) / .05);
+  st.choco.rotation.set(.55, -st.group.rotation.y + .35, 0);
+  st.group.rotation.y = (qa ? .5 : t * .2) + p * 1.5 + mouse.x * .4;
+  st.group.position.set(portrait ? 0 : 1.3, portrait ? .75 : -.75, 0);
+  st.group.scale.setScalar(portrait ? .55 : 1.1);
+  st.camera.position.set(0, 3.2, 7.4); st.camera.lookAt(portrait ? 0 : .3, portrait ? 0 : -.1, 0);
+}
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="1982" data-from="1922">1982</span><small>年　第一回全国洋菓子技術コンテスト　東京代表</small></div></div>
+    <div class="rv"><h2>18歳、自由が丘風月堂から。</h2><p>代表の田中保男は、18歳で自由が丘風月堂で修行し、各地で勉強を重ねて、40歳でパティスリーメゾンを開業しました。</p><p>1995年には「TVチャンピオン 洋菓子職人選手権」で準優勝。本当はデザインの勉強をしたかったのに、この世界にとっぷりはまってしまいました。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>クリスマスケーキ</span><span>モンブランロール</span><span>カッサータ</span><span>アイシングクッキー</span><span>マジパン</span><span>めじろ台</span><span>クリスマスケーキ</span><span>モンブランロール</span><span>カッサータ</span><span>アイシングクッキー</span><span>マジパン</span><span>めじろ台</span><span>クリスマスケーキ</span><span>モンブランロール</span><span>カッサータ</span><span>アイシングクッキー</span><span>マジパン</span><span>めじろ台</span><span>クリスマスケーキ</span><span>モンブランロール</span><span>カッサータ</span><span>アイシングクッキー</span><span>マジパン</span><span>めじろ台</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>お菓子</h2><span>SWEETS</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/f1.jpg" alt="いちごのショートケーキ" loading="lazy" data-speed=".06" data-gl></div><h3>生クリームデコレーション</h3><p>4号から8号まで。お祝いに。</p></article><article class="feature rv"><div class="ph"><img src="img/f2.jpg" alt="クリスマスのケーキ" loading="lazy" data-speed=".06" data-gl></div><h3>クリスマスケーキ</h3><p>モンブランロール、くまサンタ、ブッシュ・ド・ノエルなど。</p></article><article class="feature rv"><div class="ph"><img src="img/f3.jpg" alt="クリスマスのアイシングクッキー" loading="lazy" data-speed=".06" data-gl></div><h3>アイシングクッキー・マジパン</h3><p>10日前までのご予約で、お作りします。</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/wide.jpg" alt="並んだ焼き菓子" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">八王子を、お菓子で発信。</figcaption></figure>
+  
+  <section class="sec" id="price">
+    <div class="sec-head rv"><h2>クリスマスケーキ</h2><span>CHRISTMAS</span></div>
+    <dl class="prices rv"><div><dt>モンブランロール</dt><dd>4,400円</dd></div><div><dt>くまサンタ</dt><dd>3,800円</dd></div><div><dt>ブッシュ・ド・ノエル</dt><dd>5,600円</dd></div><div><dt>生クリームデコレーション 5号</dt><dd>5,300円</dd></div></dl>
+    <p class="prices-note rv">税込。ご予約はご来店・お電話がおすすめです。価格は現在のホームページの表示をもとにしています。</p>
+  </section>
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">営業時間</h2></div>
+      <p class="status" id="status"><i></i><b>…</b></p>
+      <table class="hours"><tr data-wd="0,1,3,5,6"><th>営業時間</th><td>10:00〜19:00</td></tr><tr><th>定休日</th><td>火曜日・木曜日</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>東京都八王子市めじろ台1-5-6</p>
+      <p class="mute">駐車場は、店の正面の横にあります。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%85%AB%E7%8E%8B%E5%AD%90%E5%B8%82%E3%82%81%E3%81%98%E3%82%8D%E5%8F%B01-5-6%20%E3%83%91%E3%83%86%E3%82%A3%E3%82%B9%E3%83%AA%E3%83%BC%E3%83%A1%E3%82%BE%E3%83%B3" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:0426682010" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">クリスマスケーキのご予約を。</h2>
+    <a class="tel" href="tel:0426682010">042-668-2010</a>
+    <p>1日のご予約が8台以上になった場合、お受けできないことがあります。お早めにどうぞ。</p>
+    <div class="btns"><a class="btn" href="mailto:patisseriemaison156@gmail.com" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>パティスリーメゾン　東京都八王子市めじろ台1-5-6　TEL 042-668-2010</p>
+  <p>この試作は森川ウェブ（koseimorikawa2026@gmail.com）が、パティスリーメゾン様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:0426682010" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+<script>window.SCHEDULE = {"days": {"0": [[600, 1140]], "1": [[600, 1140]], "3": [[600, 1140]], "5": [[600, 1140]], "6": [[600, 1140]]}};</script>
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

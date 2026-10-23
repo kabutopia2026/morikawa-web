@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>星野時計眼鏡店｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#121212">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Shippori+Mincho:wght@700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#121212;--ink:#f2ece0;--mute:#a99f8e;--accent:#d4a64a;--accent-ink:#121212;--panel:#1b1a18;--line:rgba(242,236,224,.13);--display:"Shippori Mincho",serif;--display-weight:700;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 50%;--top-ink:var(--ink)}
+.top .name{font-family:'Cormorant Garamond',serif;letter-spacing:.24em;font-size:20px}
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>が星野時計眼鏡店様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">時計・メガネ・補聴器　新潟県柏崎市東本町</p><p class="pl-name">HOSHINO</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">HOSHINO</a>
+  <nav aria-label="ページ内の案内"><a href="#story">星野時計眼鏡店</a><a href="#features">取り扱い</a><a href="#info">営業時間</a></nav>
+  
+  <a class="call" href="tel:0257224022"><span data-en="Call">電話</span><span class="num">0257-22-4022</span></a>
+</header>
+
+<main>
+  <section class="hero" hidden>
+    <div class="hero-img"><img src="img/hero.jpg" alt="分解された機械式時計の歯車" ></div>
+    <div class="hero-copy">
+      <p class="kind">時計・メガネ・補聴器　新潟県柏崎市東本町</p>
+      <h1><span class="ln"><span style="--i:0">明治から、</span></span><span class="ln"><span style="--i:1">時を刻んで。</span></span></h1>
+      
+      <p class="sub">明治36年4月開業。旧名は星野時計店。時計の修理・電池交換から、メガネ、補聴器まで、柏崎のまちの専門店です。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-hs hero-sig" id="sig" aria-label="いまの時刻を指す時計が、スクロールすると文字盤から歯車、てんぷへと分解されていく3Dの演出">
+    <div class="hs-stick hero">
+      <canvas id="hs3d" aria-hidden="true"></canvas>
+      <div class="hero-copy hs-copy" id="hs-copy"><p class="kind">時計・メガネ・補聴器　新潟県柏崎市東本町</p><h1><span class="ln"><span style="--i:0">明治から、</span></span><span class="ln"><span style="--i:1">時を刻んで。</span></span></h1><p class="sub">明治36年4月開業。旧名は星野時計店。時計の修理・電池交換から、メガネ、補聴器まで、柏崎のまちの専門店です。</p></div>
+      <div class="hs-panel" id="hs-panel">
+        <p class="hs-step" id="hs-step">文字盤</p>
+        <p class="hs-h" id="hs-h">止まった時計も、<br>ご相談ください。</p>
+        <p class="hs-p" id="hs-p">時計の修理、電池交換。時計バンドの調整も承ります（一部ブランド品を除く）。</p>
+        <ol class="hs-steps" id="hs-steps"><li>文字盤</li><li>歯車</li><li>てんぷ</li></ol>
+      </div>
+      <p class="hs-note" id="hs-note">時計のしくみの3Dイメージです</p>
+    </div>
+  </section>
+<style>
+.sig-hs{position:relative;height:420vh;background:#0e0e0d}
+.hs-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:radial-gradient(60% 70% at 66% 50%,#2b2722,#0e0e0d 74%)}
+.hs-stick .hs-copy{z-index:3;text-shadow:0 2px 30px rgba(0,0,0,.6)}
+#hs3d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hs-panel{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);max-width:350px;z-index:3;opacity:0}
+.hs-step{margin:0;color:var(--accent);font-weight:700;letter-spacing:.16em;font-size:14px}
+.hs-h{font-family:var(--display);font-weight:700;font-size:clamp(34px,3.6vw,52px);line-height:1.3;margin:10px 0 14px;transition:opacity .3s}
+.hs-p{margin:0 0 22px;color:var(--mute);transition:opacity .3s}
+.hs-steps{list-style:none;margin:0;padding:0;display:flex;gap:16px;font-size:14px;color:var(--mute);counter-reset:s}
+.hs-steps li{counter-increment:s;transition:color .3s}
+.hs-steps li::before{content:counter(s);display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;border:1px solid currentColor;margin-right:6px;font-size:12px}
+.hs-steps li.on{color:var(--accent);font-weight:700}
+.hs-note{position:absolute;right:var(--gut);bottom:22px;margin:0;font-size:12px;color:var(--mute);z-index:3;opacity:0}
+@media (max-width:860px){
+  .hs-panel{top:auto;bottom:0;transform:none;left:0;right:0;max-width:none;padding:56px var(--gut) 92px;background:linear-gradient(to top,rgba(14,14,13,.97) 62%,rgba(14,14,13,0))}
+  .hs-h{font-size:32px}
+  .hs-p{display:none}
+  .hs-note{top:74px;bottom:auto}
+}
+</style>
+<script type="module">
+import * as THREE from 'three';
+import { stage3d, heroFade, span, ease, c01, qa, mouse, canvasTexture } from '../_kit/sig/stage.js';
+
+const canvas = document.getElementById('hs3d'), section = canvas.closest('section');
+const panel = document.getElementById('hs-panel'), note = document.getElementById('hs-note'), stepEl = document.getElementById('hs-step'), hEl = document.getElementById('hs-h'), pEl = document.getElementById('hs-p'), steps = [...document.querySelectorAll('#hs-steps li')];
+const TEXT = [
+  ['文字盤', '止まった時計も、<br>ご相談ください。', '時計の修理、電池交換。時計バンドの調整も承ります（一部ブランド品を除く）。'],
+  ['歯車', '小さな部品が、<br>かみ合って。', '明治36年4月の開業から、柏崎のまちの時計を見てきました。'],
+  ['てんぷ', '時計から、<br>メガネ、補聴器まで。', 'メガネのフレーム・レンズ選びや、補聴器のご相談も。'],
+];
+
+// 歯車の形：歯と、軽くするための窓
+function gearGeo(r, teeth, depth, arms = 5, hub = .18) {
+  const s = new THREE.Shape(), tooth = Math.PI * 2 / teeth, h = Math.min(.08, r * .12);
+  for (let i = 0; i < teeth; i++) {
+    const a = i * tooth;
+    [[0, r - h], [.2, r], [.5, r], [.7, r - h]].forEach(([f, rr], k) => { const x = Math.cos(a + f * tooth) * rr, y = Math.sin(a + f * tooth) * rr; (i || k) ? s.lineTo(x, y) : s.moveTo(x, y); });
+  }
+  if (arms && r > .3) for (let k = 0; k < arms; k++) {
+    const a0 = k / arms * Math.PI * 2 + .22, a1 = (k + 1) / arms * Math.PI * 2 - .22, ri = r * hub + .06, ro = r - h - .07, hole = new THREE.Path();
+    hole.absarc(0, 0, ro, a0, a1, false); hole.absarc(0, 0, ri, a1, a0, true); s.holes.push(hole);
+  }
+  const g = new THREE.ExtrudeGeometry(s, { depth, bevelEnabled: false, curveSegments: 4 }); g.translate(0, 0, -depth / 2); return g;
+}
+
+const st = stage3d({ canvas, section, fov: 30, env: .04, exposure: 1.05, frame });
+if (st) {
+  const { scene } = st;
+  const brass = new THREE.MeshPhysicalMaterial({ color: '#d9ac5a', metalness: 1, roughness: .28, clearcoat: .3 });
+  const steel = new THREE.MeshPhysicalMaterial({ color: '#c9ccd2', metalness: 1, roughness: .22 });
+  const ruby = new THREE.MeshPhysicalMaterial({ color: '#b0102a', roughness: .05, transmission: 0, clearcoat: 1, emissive: '#3a0008' });
+  // 地板：ペルラージュ（丸い磨き模様）
+  const perl = canvasTexture(1024, 1024, (g, w, h) => {
+    g.fillStyle = '#b9bcc2'; g.fillRect(0, 0, w, h);
+    for (let y = 0; y < h + 40; y += 34) for (let x = 0; x < w + 40; x += 34) { const gr = g.createRadialGradient(x, y, 2, x, y, 30); gr.addColorStop(0, 'rgba(255,255,255,.55)'); gr.addColorStop(.6, 'rgba(160,165,175,.2)'); gr.addColorStop(1, 'rgba(120,125,135,.35)'); g.fillStyle = gr; g.beginPath(); g.arc(x, y, 30, 0, 7); g.fill(); }
+  });
+  const plate = new THREE.Mesh(new THREE.CylinderGeometry(1.42, 1.42, .08, 96), new THREE.MeshPhysicalMaterial({ map: perl, metalness: .9, roughness: .35 }));
+  plate.rotation.x = Math.PI / 2;
+  // 輪列
+  const wheels = [
+    { r: .62, t: 72, x: -.45, y: .5, z: .12, sp: -1 / 24, mat: brass },   // 香箱
+    { r: .5, t: 60, x: 0, y: 0, z: .2, sp: 1 / 4, mat: brass },          // 二番車
+    { r: .38, t: 48, x: .5, y: -.38, z: .14, sp: -1.2, mat: brass },     // 三番車
+    { r: .34, t: 40, x: -.2, y: -.62, z: .24, sp: 6, mat: brass },       // 四番車
+    { r: .2, t: 15, x: .72, y: .2, z: .2, sp: -20, mat: steel, arms: 3 }, // がんぎ車
+  ].map(w => {
+    const m = new THREE.Mesh(gearGeo(w.r, w.t, .05, w.arms ?? 5), w.mat); m.position.set(w.x, w.y, w.z); m.userData = w;
+    const pin = new THREE.Mesh(new THREE.CylinderGeometry(.04, .04, .14, 16), steel); pin.rotation.x = Math.PI / 2; m.add(pin);
+    const jw = new THREE.Mesh(new THREE.SphereGeometry(.045, 16, 12), ruby); jw.position.z = .08; m.add(jw);
+    return m;
+  });
+  // てんぷ：輪と腕、ひげぜんまい
+  const balance = new THREE.Group();
+  const ring = new THREE.Mesh(new THREE.TorusGeometry(.34, .035, 12, 64), brass); balance.add(ring);
+  for (let k = 0; k < 3; k++) { const arm = new THREE.Mesh(new THREE.BoxGeometry(.66, .03, .02), brass); arm.rotation.z = k * Math.PI / 3; balance.add(arm); }
+  const spiral = []; for (let i = 0; i <= 300; i++) { const a = i / 300 * Math.PI * 2 * 9, r = .04 + i / 300 * .2; spiral.push(new THREE.Vector3(Math.cos(a) * r, Math.sin(a) * r, .03)); }
+  balance.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(spiral), new THREE.LineBasicMaterial({ color: '#9fb7d8' })));
+  const bj = new THREE.Mesh(new THREE.SphereGeometry(.05, 16, 12), ruby); bj.position.z = .05; balance.add(bj);
+  balance.position.set(.62, .78, .2);
+  // ケースとりゅうず
+  const caseMesh = new THREE.Mesh(new THREE.TorusGeometry(1.55, .16, 24, 120), new THREE.MeshPhysicalMaterial({ color: '#e2c27a', metalness: 1, roughness: .18, clearcoat: .6 }));
+  caseMesh.scale.z = 1.6;
+  const crown = new THREE.Mesh(new THREE.CylinderGeometry(.16, .16, .22, 24), caseMesh.material); crown.rotation.z = Math.PI / 2; crown.position.x = 1.82;
+  // 文字盤
+  const drawDial = (g, w, h) => {
+    const c = w / 2, gr = g.createRadialGradient(c * .8, c * .7, 10, c, c, c); gr.addColorStop(0, '#fbf6ea'); gr.addColorStop(1, '#e6dcc6'); g.fillStyle = gr; g.fillRect(0, 0, w, h);
+    g.strokeStyle = '#2a241c'; g.fillStyle = '#2a241c';
+    for (let i = 0; i < 60; i++) { const a = i / 60 * Math.PI * 2; g.lineWidth = i % 5 ? 3 : 10; const r0 = i % 5 ? c * .9 : c * .82; g.beginPath(); g.moveTo(c + Math.sin(a) * r0, c - Math.cos(a) * r0); g.lineTo(c + Math.sin(a) * c * .95, c - Math.cos(a) * c * .95); g.stroke(); }
+    g.textAlign = 'center'; g.textBaseline = 'middle'; g.font = '600 58px "Cormorant Garamond", serif';
+    ['XII', 'I', 'II', 'III', 'IIII', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI'].forEach((n, i) => { const a = i / 12 * Math.PI * 2; g.save(); g.translate(c + Math.sin(a) * c * .68, c - Math.cos(a) * c * .68); g.rotate(a); g.fillText(n, 0, 0); g.restore(); });
+    g.font = '600 46px "Cormorant Garamond", serif'; g.fillText('HOSHINO', c, c * .62);
+    g.font = '400 26px "Cormorant Garamond", serif'; g.fillText('KASHIWAZAKI  1903', c, c * 1.42);
+  };
+  const dialTex = canvasTexture(1024, 1024, drawDial);
+  if (document.fonts) document.fonts.load('600 46px "Cormorant Garamond"').then(() => { drawDial(dialTex.image.getContext('2d'), 1024, 1024); dialTex.needsUpdate = true; }).catch(() => {});
+  const dial = new THREE.Mesh(new THREE.CircleGeometry(1.45, 96), new THREE.MeshPhysicalMaterial({ map: dialTex, roughness: .4, clearcoat: .3 }));
+  const handMat = new THREE.MeshPhysicalMaterial({ color: '#1d2a5a', metalness: .8, roughness: .25 });
+  const mkHand = (len, wid, z, mat = handMat) => { const g = new THREE.Group(), m = new THREE.Mesh(new THREE.BoxGeometry(wid, len, .015), mat); m.position.y = len * .42; g.add(m); g.position.z = z; return g; };
+  const hh = mkHand(.78, .07, .05), mh = mkHand(1.18, .05, .07), sh = mkHand(1.25, .015, .09, new THREE.MeshStandardMaterial({ color: '#b3242a' }));
+  const cap = new THREE.Mesh(new THREE.CylinderGeometry(.06, .06, .04, 24), handMat); cap.rotation.x = Math.PI / 2; cap.position.z = .1;
+  const front = new THREE.Group(); front.add(dial, hh, mh, sh, cap);
+  const glass = new THREE.Mesh(new THREE.CircleGeometry(1.5, 96), new THREE.MeshPhysicalMaterial({ color: '#ffffff', transparent: true, opacity: .08, roughness: 0, clearcoat: 1, depthWrite: false }));
+  const movement = new THREE.Group(); movement.add(plate, ...wheels, balance); movement.position.z = -.5;
+  const watch = new THREE.Group(); watch.add(movement, front, caseMesh, crown, glass); scene.add(watch);
+  scene.add(new THREE.HemisphereLight('#fff4e0', '#201a14', .6));
+  const key = new THREE.DirectionalLight('#fff0d8', 2.4); key.position.set(-3, 4, 5); scene.add(key);
+  const rim = new THREE.DirectionalLight('#ffd08a', 1.4); rim.position.set(4, -1, -3); scene.add(rim);
+  Object.assign(st, { watch, movement, front, glass, wheels, balance, hh, mh, sh, plate, caseMesh, crown });
+  st.start();
+}
+
+let stepI = -1;
+function frame({ t, p, portrait }) {
+  const heroK = heroFade(p, .1);
+  panel.style.opacity = note.style.opacity = c01((p - .08) / .06);
+  const si = p < .36 ? 0 : p < .66 ? 1 : 2;
+  if (si !== stepI) {
+    stepI = si; steps.forEach((li, k) => li.classList.toggle('on', k === si));
+    hEl.style.opacity = pEl.style.opacity = 0;
+    setTimeout(() => { stepEl.textContent = TEXT[si][0]; hEl.innerHTML = TEXT[si][1]; pEl.textContent = TEXT[si][2]; hEl.style.opacity = pEl.style.opacity = 1; }, qa ? 0 : 180);
+  }
+  // いまの時刻
+  const now = new Date(), s = now.getSeconds() + (qa ? 0 : 0), m = now.getMinutes() + s / 60, h = now.getHours() % 12 + m / 60;
+  st.hh.rotation.z = -h / 12 * Math.PI * 2; st.mh.rotation.z = -m / 60 * Math.PI * 2; st.sh.rotation.z = -s / 60 * Math.PI * 2;
+  // 分解：文字盤が手前へ、歯車の層が浮く
+  const ex = ease(span(p, .3, .6)), dialOff = ease(span(p, .14, .4)), deep = ease(span(p, .62, .9));
+  st.front.position.set(-dialOff * 1.4, dialOff * 1.1, .2 + dialOff * 1.2); st.front.rotation.x = -dialOff * .4;
+  st.front.visible = dialOff < .99;
+  st.front.traverse(o => { if (o.material) { o.material.transparent = true; o.material.opacity = 1 - dialOff; } });
+  st.glass.position.set(-dialOff * 1.6, dialOff * 1.2, .3 + dialOff * 1.4); st.glass.visible = dialOff < .6;
+  st.wheels.forEach((w, i) => { w.position.z = w.userData.z + ex * (.2 + i * .17); w.rotation.z = (qa ? 1 : t) * w.userData.sp * .3; });
+  st.balance.position.z = .2 + ex * 1.05 + deep * .2; st.balance.rotation.z = Math.sin(t * 6 * Math.PI) * 2.2;
+  st.balance.scale.setScalar(1 + deep * .4);
+  st.caseMesh.position.z = -ex * .3; st.crown.position.z = -ex * .3;
+  // 置き場所：最初は右に大きく、説明が出たら傾けて見せる
+  const tilt = ease(span(p, .12, .5));
+  st.watch.rotation.set(-tilt * .5 + mouse.y * .1, tilt * .75 + mouse.x * .25 - deep * .3, 0);
+  const sc = portrait ? .58 : .82;
+  st.watch.scale.setScalar(sc);
+  st.watch.position.set(portrait ? 0 : 1.55 * heroK + 1.2 * (1 - heroK), portrait ? 1.15 - (1 - heroK) * .15 : .1, 0);
+  st.camera.position.set(0, 0, 9); st.camera.lookAt(0, portrait ? .3 : 0, 0);
+}
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="1903" data-from="1843">1903</span><small>年　明治36年4月　開業</small></div></div>
+    <div class="rv"><h2>メガネを、タイの人々へ。</h2><p>当店はNPO法人 日本－タイ王国メガネボランティアグループに加盟しています。寄付していただいたご不要のメガネに当店用意の新品レンズを入れ、タイの方々にメガネを直接お配りする活動を、毎年続けてきました。</p><p>2026年秋のボランティアのため、下取りメガネを募集しています。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>時計</span><span>メガネ</span><span>補聴器</span><span>電池交換</span><span>修理</span><span>明治三十六年</span><span>時計</span><span>メガネ</span><span>補聴器</span><span>電池交換</span><span>修理</span><span>明治三十六年</span><span>時計</span><span>メガネ</span><span>補聴器</span><span>電池交換</span><span>修理</span><span>明治三十六年</span><span>時計</span><span>メガネ</span><span>補聴器</span><span>電池交換</span><span>修理</span><span>明治三十六年</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>取り扱い</h2><span>SERVICE</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/f1.jpg" alt="時計を修理する手" loading="lazy" data-speed=".06" data-gl></div><h3>時計の修理・電池交換</h3><p>時計バンドの調整も（一部ブランド品を除く）。</p></article><article class="feature rv"><div class="ph"><img src="img/f2.jpg" alt="木の台に置かれたメガネ" loading="lazy" data-speed=".06" data-gl></div><h3>メガネ</h3><p>フレーム、レンズ、修理・調整まで。</p></article><article class="feature rv"><div class="ph"><img src="img/f3.jpg" alt="壁に掛かった古い時計" loading="lazy" data-speed=".06" data-gl></div><h3>補聴器</h3><p>初めての方には、まず耳鼻科での検診をおすすめしています。</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/wide.jpg" alt="時計の部品と工具" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">柏崎のまちで、百二十年。</figcaption></figure>
+  
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">営業時間</h2></div>
+      <p class="status" id="status"><i></i><b>…</b></p>
+      <table class="hours"><tr data-wd="0,1,2,4,5,6"><th>営業時間</th><td>10:00〜16:00</td></tr><tr><th>定休日</th><td>水曜日</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>新潟県柏崎市東本町1丁目16番28号</p>
+      <p class="mute">東本町通り（ぴっから通り）から柏崎税務署へ曲がる交差点の角です。臨時休業は出入り口に掲示しています。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E6%BD%9F%E7%9C%8C%E6%9F%8F%E5%B4%8E%E5%B8%82%E6%9D%B1%E6%9C%AC%E7%94%BA1%E4%B8%81%E7%9B%AE16-28%20%E6%98%9F%E9%87%8E%E6%99%82%E8%A8%88%E7%9C%BC%E9%8F%A1%E5%BA%97" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:0257224022" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">止まった時計も、ご相談ください。</h2>
+    <a class="tel" href="tel:0257224022">0257-22-4022</a>
+    <p>修理・電池交換・メガネのご相談は、お電話・メールで。</p>
+    <div class="btns"><a class="btn" href="mailto:hoshino-tokei@biglobe.jp" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>星野時計眼鏡店　新潟県柏崎市東本町1丁目16番28号　TEL 0257-22-4022</p>
+  <p>この試作は森川ウェブ（koseimorikawa2026@gmail.com）が、星野時計眼鏡店様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:0257224022" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+<script>window.SCHEDULE = {"days": {"0": [[600, 960]], "1": [[600, 960]], "2": [[600, 960]], "4": [[600, 960]], "5": [[600, 960]], "6": [[600, 960]]}};</script>
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

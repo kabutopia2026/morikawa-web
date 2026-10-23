@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>民芸工房たかはし｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#f5ece0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#f5ece0;--ink:#2d2016;--mute:#7d6a57;--accent:#c0392b;--accent-ink:#fff;--panel:#ecdfcd;--line:rgba(45,32,22,.12);--display:"Yusei Magic",sans-serif;--display-weight:400;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 50%;--top-ink:var(--ink)}
+
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>が民芸工房たかはし様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">仙台民芸品 仙臺さすり　仙台市青葉区国見ケ丘</p><p class="pl-name">民芸工房たかはし</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">民芸工房たかはし</a>
+  <nav aria-label="ページ内の案内"><a href="#story">仙臺さすり</a><a href="#features">作品</a><a href="#info">ご案内</a></nav>
+  
+  <a class="call" href="tel:08018303327"><span data-en="Call">電話</span><span class="num">080-1830-3327</span></a>
+</header>
+
+<main>
+  <section class="hero" hidden>
+    <div class="hero-img"><img src="img/hero.jpg" alt="棚に並ぶこけし" ></div>
+    <div class="hero-copy">
+      <p class="kind">仙台民芸品 仙臺さすり　仙台市青葉区国見ケ丘</p>
+      <h1><span class="ln"><span style="--i:0">さすって、</span></span><span class="ln"><span style="--i:1">福を招く。</span></span></h1>
+      
+      <p class="sub">丸い体は角がないので「円満」を、地震でも倒れにくい体は「商売繁盛・繁栄」を表します。招いた福を留めておきたいとの願いを込めています。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-mg hero-sig" id="sig" aria-label="仙臺さすりの3D。ドラッグでさすると回って福が舞い、タップすると揺れても起き上がります">
+    <div class="mg-stick hero">
+      <canvas id="mg3d" aria-label="仙臺さすり。ドラッグでさする、タップでゆらす"></canvas>
+      <div class="hero-copy hs-copy" id="hs-copy"><p class="kind">仙台民芸品 仙臺さすり　仙台市青葉区国見ケ丘</p><h1><span class="ln"><span style="--i:0">さすって、</span></span><span class="ln"><span style="--i:1">福を招く。</span></span></h1><p class="sub">丸い体は角がないので「円満」を、地震でも倒れにくい体は「商売繁盛・繁栄」を表します。招いた福を留めておきたいとの願いを込めています。</p></div>
+      <div class="mg-panel" id="mg-panel">
+        <p class="mg-step">仙臺さすり</p>
+        <p class="mg-h" id="mg-h">丸い体は、<br>円満。</p>
+        <p class="mg-p" id="mg-p">角がないので「円満」を、地震でも倒れにくい体は「商売繁盛・繁栄」を表します。</p>
+        <p class="mg-hint">ドラッグでさする・タップでゆらす<span>福 <b id="mg-n">0</b></span></p>
+      </div>
+      <p class="mg-note" id="mg-note">仙臺さすりの3Dイメージです。実際の作品とは異なります</p>
+    </div>
+  </section>
+<style>
+.sig-mg{position:relative;height:380vh;background:#f1e5d4}
+.mg-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;color:var(--ink);background:radial-gradient(60% 70% at 66% 52%,#fffaf2,#ecdcc6 76%);touch-action:pan-y}
+.mg-stick .hs-copy{z-index:3;pointer-events:none}
+#mg3d{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab}
+.mg-panel{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);max-width:340px;z-index:3;opacity:0;pointer-events:none}
+.mg-step{margin:0;color:var(--accent);font-weight:700;letter-spacing:.16em;font-size:14px}
+.mg-h{font-family:var(--display);font-size:clamp(42px,4.8vw,70px);line-height:1.2;margin:10px 0 14px;transition:opacity .3s}
+.mg-p{margin:0 0 20px;color:var(--mute);transition:opacity .3s}
+.mg-hint{margin:0;font-size:13px;color:var(--mute);display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+.mg-hint span{font-family:var(--display);font-size:18px;color:var(--accent)}
+.mg-hint b{font-size:34px;color:var(--ink);font-weight:400;font-variant-numeric:tabular-nums}
+.mg-note{position:absolute;right:var(--gut);bottom:22px;margin:0;font-size:12px;color:var(--mute);z-index:3;opacity:0}
+@media (max-width:860px){
+  .mg-panel{top:auto;bottom:0;transform:none;left:0;right:0;max-width:none;padding:48px var(--gut) 90px;background:linear-gradient(to top,rgba(241,229,212,.97) 64%,rgba(241,229,212,0))}
+  .mg-h{font-size:34px}
+  .mg-p{display:none}
+  .mg-note{top:74px;bottom:auto}
+}
+</style>
+<script type="module">
+import * as THREE from 'three';
+import { stage3d, heroFade, span, c01, qa, mouse, canvasTexture } from '../_kit/sig/stage.js';
+
+const canvas = document.getElementById('mg3d'), section = canvas.closest('section');
+const panel = document.getElementById('mg-panel'), note = document.getElementById('mg-note'), hEl = document.getElementById('mg-h'), pEl = document.getElementById('mg-p'), nEl = document.getElementById('mg-n');
+const TEXT = [
+  ['丸い体は、<br>円満。', '角がないので「円満」を、地震でも倒れにくい体は「商売繁盛・繁栄」を表します。'],
+  ['木の物で、<br>さする。', '船橋の百貨店の展示会で、お医者様の奥様がその場で体をさすったのが、きっかけでした。'],
+  ['笑顔で、<br>いたい。', 'どんな困難にも負けず、笑顔でいたい。その思いから、笑顔のある作品を作っています。'],
+];
+let fuku = 0;
+
+const st = stage3d({ canvas, section, fov: 30, env: .03, exposure: 1.05, frame });
+if (st) {
+  const { scene } = st;
+  // 体：朱の着物に梅、白い衿。顔：ほほえみ（球のUVは u=0.25 が正面）
+  const bodyTex = canvasTexture(2048, 1024, (g, w, h) => {
+    g.fillStyle = '#e6cfa8'; g.fillRect(0, 0, w, h);
+    for (let i = 0; i < 70; i++) { g.strokeStyle = `rgba(150,110,60,${.1 + Math.random() * .12})`; g.lineWidth = 2; g.beginPath(); const y = Math.random() * h; g.moveTo(0, y); g.bezierCurveTo(w * .3, y + 20, w * .6, y - 20, w, y + 10); g.stroke(); }
+    g.fillStyle = '#c4362c'; g.fillRect(0, h * .3, w, h * .55);
+    // 衿
+    g.strokeStyle = '#f6efe2'; g.lineWidth = 18; g.beginPath(); g.moveTo(w * .25 - 160, h * .3); g.lineTo(w * .25, h * .52); g.lineTo(w * .25 + 160, h * .3); g.stroke();
+    g.strokeStyle = '#2f6b4f'; g.lineWidth = 10; g.beginPath(); g.moveTo(w * .25 - 120, h * .3); g.lineTo(w * .25, h * .46); g.lineTo(w * .25 + 120, h * .3); g.stroke();
+    // 梅
+    for (let i = 0; i < 26; i++) { const x = (i * 157) % w, y = h * (.42 + ((i * 37) % 40) / 100); if (Math.abs(x - w * .25) < 120 && y < h * .55) continue; g.save(); g.translate(x, y); for (let k = 0; k < 5; k++) { g.rotate(Math.PI * 2 / 5); g.fillStyle = '#f7e6d8'; g.beginPath(); g.arc(0, -14, 11, 0, 7); g.fill(); } g.fillStyle = '#e9b24a'; g.beginPath(); g.arc(0, 0, 6, 0, 7); g.fill(); g.restore(); }
+    g.fillStyle = '#2f6b4f'; g.fillRect(0, h * .83, w, 16);
+  });
+  const headTex = canvasTexture(1024, 512, (g, w, h) => {
+    g.fillStyle = '#f3e3cc'; g.fillRect(0, 0, w, h);
+    g.fillStyle = '#1d1a18'; g.fillRect(0, 0, w, h * .3);
+    const fx = w * .25;
+    g.fillStyle = '#1d1a18'; g.beginPath(); g.ellipse(fx, h * .3, 120, 40, 0, 0, Math.PI); g.fill();
+    g.strokeStyle = '#1d1a18'; g.lineWidth = 7; g.lineCap = 'round';
+    [-1, 1].forEach(s => { g.beginPath(); g.arc(fx + s * 52, h * .5, 22, Math.PI * 1.1, Math.PI * 1.9); g.stroke(); g.beginPath(); g.arc(fx + s * 52, h * .42, 26, Math.PI * 1.15, Math.PI * 1.85); g.stroke(); });
+    g.strokeStyle = '#b8282a'; g.lineWidth = 8; g.beginPath(); g.arc(fx, h * .6, 22, .25, Math.PI - .25); g.stroke();
+    [-1, 1].forEach(s => { const gr = g.createRadialGradient(fx + s * 82, h * .6, 2, fx + s * 82, h * .6, 30); gr.addColorStop(0, 'rgba(230,110,110,.6)'); gr.addColorStop(1, 'rgba(230,110,110,0)'); g.fillStyle = gr; g.fillRect(fx + s * 82 - 30, h * .6 - 30, 60, 60); });
+  });
+  const lacquer = (map) => new THREE.MeshPhysicalMaterial({ map, roughness: .32, clearcoat: .7, clearcoatRoughness: .25 });
+  const body = new THREE.Mesh(new THREE.SphereGeometry(.92, 64, 48), lacquer(bodyTex)); body.scale.set(1, .86, 1); body.position.y = .79;
+  const head = new THREE.Mesh(new THREE.SphereGeometry(.56, 64, 48), lacquer(headTex)); head.position.y = 1.86;
+  const fig = new THREE.Group(); fig.add(body, head);
+  // 起き上がり：底の一点を中心に傾く
+  const pivot = new THREE.Group(); pivot.add(fig); scene.add(pivot);
+  const shadow = new THREE.Mesh(new THREE.CircleGeometry(1.1, 48), new THREE.MeshBasicMaterial({ color: '#b89a74', transparent: true, opacity: .35, depthWrite: false })); shadow.rotation.x = -Math.PI / 2; shadow.position.y = .005; scene.add(shadow);
+  // 福の字が舞う
+  const fukuTex = canvasTexture(128, 128, g => { g.fillStyle = '#d9a23a'; g.font = '700 96px "Yusei Magic", serif'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.shadowColor = 'rgba(255,220,140,.9)'; g.shadowBlur = 14; g.fillText('福', 64, 70); });
+  const sprites = Array.from({ length: 24 }, () => { const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: fukuTex, transparent: true, depthWrite: false, opacity: 0 })); s.userData = { life: 0 }; scene.add(s); return s; });
+  const sparkN = 160, spPos = new Float32Array(sparkN * 3), spLife = new Float32Array(sparkN), spVel = new Float32Array(sparkN * 3);
+  const spGeo = new THREE.BufferGeometry(); spGeo.setAttribute('position', new THREE.BufferAttribute(spPos, 3));
+  const sparks = new THREE.Points(spGeo, new THREE.PointsMaterial({ color: '#f2c45a', size: .05, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending })); scene.add(sparks);
+  scene.add(new THREE.HemisphereLight('#fff8ec', '#9a7a58', 1.1));
+  const key = new THREE.DirectionalLight('#fff1dc', 2.2); key.position.set(-3, 6, 5); scene.add(key);
+  const rim = new THREE.DirectionalLight('#ffd7a8', 1); rim.position.set(3, 2, -4); scene.add(rim);
+  Object.assign(st, { pivot, fig, shadow, sprites, sparks, spPos, spLife, spVel, ray: new THREE.Raycaster(), si: 0, ki: 0 });
+  if (document.fonts) document.fonts.load('700 96px "Yusei Magic"', '福').then(() => { const g = fukuTex.image.getContext('2d'); g.clearRect(0, 0, 128, 128); g.fillStyle = '#d9a23a'; g.font = '700 96px "Yusei Magic", serif'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.shadowColor = 'rgba(255,220,140,.9)'; g.shadowBlur = 14; g.fillText('福', 64, 70); fukuTex.needsUpdate = true; }).catch(() => {});
+  st.start();
+}
+
+// さする（ドラッグ）と、ゆらす（タップ）
+const phys = { spin: 0, ang: 0, tx: 0, tz: 0, vx: 0, vz: 0 };
+let down = null, moved = 0, rubAcc = 0;
+canvas.addEventListener('pointerdown', e => { down = { x: e.clientX, y: e.clientY }; moved = 0; });
+canvas.addEventListener('pointermove', e => {
+  if (!down) return;
+  const dx = e.clientX - down.x; moved += Math.abs(dx) + Math.abs(e.clientY - down.y);
+  phys.spin += dx * .004; rubAcc += Math.abs(dx); down = { x: e.clientX, y: e.clientY };
+  while (rubAcc > 90) { rubAcc -= 90; emitFuku(); }
+});
+addEventListener('pointerup', e => {
+  if (down && moved < 6 && st) { const r = canvas.getBoundingClientRect(), px = (e.clientX - r.left) / r.width - .5; phys.vz += (px > 0 ? -1 : 1) * 2.2; phys.vx += .8; }
+  down = null;
+});
+function emitFuku() {
+  if (!st) return;
+  fuku++; nEl.textContent = fuku;
+  const s = st.sprites[st.ki = (st.ki + 1) % st.sprites.length], p = st.pivot.position;
+  s.position.set(p.x + (Math.random() - .5) * 1.4, p.y + 1.2 + Math.random() * .8, p.z + .8); s.userData = { life: 1, vx: (Math.random() - .5) * .5 };
+  for (let k = 0; k < 12; k++) { const i = st.si = (st.si + 1) % 160; st.spPos.set([p.x + (Math.random() - .5) * 1.6, p.y + .4 + Math.random() * 2, p.z + .5], i * 3); st.spVel.set([(Math.random() - .5) * .6, .4 + Math.random() * .8, (Math.random() - .5) * .3], i * 3); st.spLife[i] = .6 + Math.random() * .6; }
+}
+let stepI = -1;
+function frame({ t, dt, p, portrait }) {
+  const heroK = heroFade(p, .1);
+  panel.style.opacity = note.style.opacity = c01((p - .08) / .06);
+  const si = p < .4 ? 0 : p < .7 ? 1 : 2;
+  if (si !== stepI) { stepI = si; hEl.style.opacity = pEl.style.opacity = 0; setTimeout(() => { hEl.innerHTML = TEXT[si][0]; pEl.textContent = TEXT[si][1]; hEl.style.opacity = pEl.style.opacity = 1; }, qa ? 0 : 160); }
+  // 回転（ゆっくり止まる）と、起き上がりのばね
+  phys.ang += (phys.spin + (qa ? 0 : .15)) * dt * 3; phys.spin *= Math.pow(.35, dt);
+  phys.vx += (-phys.tx * 26 - phys.vx * 2.4) * dt; phys.vz += (-phys.tz * 26 - phys.vz * 2.4) * dt;
+  phys.tx += phys.vx * dt; phys.tz += phys.vz * dt;
+  if (qa) { phys.tz = .18; phys.ang = .3; }
+  st.fig.rotation.y = phys.ang + mouse.x * .3;
+  st.pivot.rotation.set(phys.tx * .5, 0, phys.tz * .6);
+  // 確認用：福がいくつか出た状態に
+  if (qa && !st.qaDone) { st.qaDone = true; for (let k = 0; k < 4; k++) emitFuku(); st.sprites.forEach((s, i) => { if (s.userData.life) s.userData.life = .3 + i * .15; }); }
+  st.sprites.forEach(s => { const u = s.userData; if (u.life > 0) { if (!qa) u.life -= dt * .5; s.position.y += dt * .7; s.position.x += (u.vx || 0) * dt; s.material.opacity = Math.min(1, u.life * 2) * (u.life > .9 ? (1 - u.life) * 10 : 1); s.scale.setScalar((.24 + (1 - u.life) * .16) * (portrait ? .65 : 1)); } else s.material.opacity = 0; });
+  for (let i = 0; i < 160; i++) { if (st.spLife[i] > 0) { st.spLife[i] -= dt; for (let k = 0; k < 3; k++) st.spPos[i * 3 + k] += st.spVel[i * 3 + k] * dt; } else st.spPos[i * 3 + 1] = -99; }
+  st.sparks.geometry.attributes.position.needsUpdate = true;
+  const x = portrait ? 0 : 1.6 * heroK + 1.25 * (1 - heroK), y = portrait ? .95 : -1.1;
+  st.pivot.position.set(x, y, 0); st.shadow.position.set(x, y + .005, 0);
+  const sc = portrait ? .55 : .88; st.pivot.scale.setScalar(sc); st.shadow.scale.setScalar(sc * (1 - Math.abs(phys.tz) * .3));
+  st.camera.position.set(0, 1.4, 8.4); st.camera.lookAt(0, portrait ? 1 : .2, 0);
+}
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="1979" data-from="1919">1979</span><small>年　故 高橋はしめ師に師事</small></div></div>
+    <div class="rv"><h2>木の物で、体をさする。</h2><p>2000年頃、千葉県船橋市の百貨店で展示会を開いた際、お医者様の奥様が私の「こけし」を購入し、その場で体をさすったのがきっかけでした。「この様な木の物で体をさするといいから」と。</p><p>震災後、本格的に、倒れずそして「さすって福を招く」ことにこだわった作品を作り始めました。飾ってもよし、手の上でさすってもよし。愛しい人の肩・腰・背中をさすってください。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>仙臺さすり</span><span>こけし</span><span>まん丸ホルダー</span><span>絵付け体験</span><span>商売繁盛</span><span>仙台</span><span>仙臺さすり</span><span>こけし</span><span>まん丸ホルダー</span><span>絵付け体験</span><span>商売繁盛</span><span>仙台</span><span>仙臺さすり</span><span>こけし</span><span>まん丸ホルダー</span><span>絵付け体験</span><span>商売繁盛</span><span>仙台</span><span>仙臺さすり</span><span>こけし</span><span>まん丸ホルダー</span><span>絵付け体験</span><span>商売繁盛</span><span>仙台</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>作品</h2><span>WORKS</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/f1.jpg" alt="顔を描いた丸い木の人形" loading="lazy" data-speed=".06" data-gl></div><h3>仙臺さすり</h3><p>倒れにくい丸い体に、笑顔を描いて。</p></article><article class="feature rv"><div class="ph"><img src="img/f2.jpg" alt="ろくろで木を削る様子" loading="lazy" data-speed=".06" data-gl></div><h3>まん丸ホルダー</h3><p>30mm×30mm。1,100円（税込）より。</p></article><article class="feature rv"><div class="ph"><img src="img/f3.jpg" alt="並んだ木の人形" loading="lazy" data-speed=".06" data-gl></div><h3>絵付け体験</h3><p>イベント会場で、仙臺さすりの絵付けを体験できます。</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/wide.jpg" alt="こけしの並ぶ壁" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">どんな困難にも負けず、笑顔でいたい。</figcaption></figure>
+  
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">ご案内</h2></div>
+      
+      <table class="hours"><tr><th>工房</th><td>留守にする場合があるので、お越しの際は必ず電話・メール・ラインでご確認ください</td></tr><tr><th>主な販売店</th><td>藤崎百貨店、遠刈田こけし館、仙台うみの杜水族館など</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>宮城県仙台市青葉区国見ケ丘5-40-13</p>
+      <p class="mute">お問い合わせは、携帯・メール・ラインでお願いします。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E4%BB%99%E5%8F%B0%E5%B8%82%E9%9D%92%E8%91%89%E5%8C%BA%E5%9B%BD%E8%A6%8B%E3%82%B1%E4%B8%985-40-13" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:08018303327" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">福を、さすりに。</h2>
+    <a class="tel" href="tel:08018303327">080-1830-3327</a>
+    <p>作品・体験のお問い合わせは、携帯・メールで。</p>
+    <div class="btns"><a class="btn" href="mailto:t-akinori@sj8.so-net.ne.jp" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>民芸工房たかはし　宮城県仙台市青葉区国見ケ丘5-40-13　TEL 080-1830-3327</p>
+  <p>この試作は森川ウェブ（koseimorikawa2026@gmail.com）が、民芸工房たかはし様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:08018303327" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>八女茶苑｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0f1a12">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yuji+Mai&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#0f1a12;--ink:#eef0e4;--mute:#a7b39b;--accent:#9cc45a;--accent-ink:#0f1a12;--panel:#16241a;--line:rgba(238,240,228,.13);--display:"Yuji Mai",serif;--display-weight:400;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 50%}
+
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>が八女茶苑様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">八女茶の通販　福岡県春日市</p><p class="pl-name">八女茶苑</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">八女茶苑</a>
+  <nav aria-label="ページ内の案内"><a href="#story">八女茶苑</a><a href="#features">お茶</a><a href="#info">お問い合わせ</a></nav>
+  
+  <a class="call" href="mailto:main@yametyaen.sakura.ne.jp"><span data-en="Call">メール</span><span class="num">お問い合わせ</span></a>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-img"><img src="img/hero.jpg" alt="山あいに広がる茶畑"  data-gl="wipe" data-gl-hero></div>
+    <div class="hero-copy">
+      <p class="kind">八女茶の通販　福岡県春日市</p>
+      <h1><span class="ln"><span style="--i:0">産地ごとの、</span></span><span class="ln"><span style="--i:1">八女茶を。</span></span></h1>
+      
+      <p class="sub">100％純粋の八女茶を、産地別に産直価格で販売しています。農林大臣賞の受賞に携わった生産者の手による品ばかりです。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-yc" id="sig" aria-label="スクロールすると、ガラスの湯呑みにお湯が注がれ、茶葉がひらいてお茶の色が出る3Dの演出">
+    <div class="yc-stick">
+      <canvas id="yc3d" aria-hidden="true"></canvas>
+      <div class="yc-copy">
+        <p class="yc-step" id="yc-step">お湯を注ぐ</p>
+        <p class="yc-h" id="yc-h">煎茶</p>
+        <p class="yc-p" id="yc-p">八女地方で育った、産地ごとのお茶を。</p>
+        <div class="yc-tabs" role="group" aria-label="お茶を選ぶ"><button type="button" data-i="0" aria-pressed="false">玉露</button><button type="button" data-i="1" aria-pressed="true">煎茶</button><button type="button" data-i="2" aria-pressed="false">番茶</button></div>
+      </div>
+      <p class="yc-note">お茶の3Dイメージです。色は目安です</p>
+    </div>
+  </section>
+<style>
+.sig-yc{position:relative;height:380vh;background:#0c150e}
+.yc-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:radial-gradient(55% 65% at 64% 52%,#1f3324,#0c150e 74%)}
+#yc3d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.yc-copy{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);max-width:340px;z-index:3}
+.yc-step{margin:0;color:var(--accent);font-weight:700;letter-spacing:.16em;font-size:14px;transition:opacity .3s}
+.yc-h{font-family:var(--display);font-size:clamp(76px,9vw,136px);line-height:1;margin:12px 0 16px;transition:opacity .3s}
+.yc-p{margin:0 0 24px;color:var(--mute);transition:opacity .3s}
+.yc-tabs{display:flex;gap:8px}
+.yc-tabs button{font:inherit;font-weight:700;font-size:15px;padding:10px 18px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.yc-tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#0f1a12}
+.yc-note{position:absolute;right:var(--gut);bottom:22px;margin:0;font-size:12px;color:var(--mute)}
+@media (max-width:860px){
+  .yc-copy{top:auto;bottom:0;transform:none;left:0;right:0;max-width:none;padding:56px var(--gut) 92px;background:linear-gradient(to top,rgba(12,21,14,.97) 64%,rgba(12,21,14,0))}
+  .yc-h{font-size:64px;margin:8px 0 10px}
+  .yc-p{display:none}
+  .yc-note{top:74px;bottom:auto}
+}
+</style>
+<script type="module">
+import * as THREE from 'three';
+import { stage3d, span, ease, c01, qa, mouse, canvasTexture } from '../_kit/sig/stage.js';
+
+const canvas = document.getElementById('yc3d'), section = canvas.closest('section');
+const stepEl = document.getElementById('yc-step'), hEl = document.getElementById('yc-h'), pEl = document.getElementById('yc-p'), tabs = [...section.querySelectorAll('.yc-tabs button')];
+const TEAS = [
+  { h: '玉露', p: 'ぬるめのお湯で、ゆっくりと。', tea: '#93b02c', leaf: '#21451f', size: .8 },
+  { h: '煎茶', p: '八女地方で育った、産地ごとのお茶を。', tea: '#b29a1e', leaf: '#2c4f22', size: 1 },
+  { h: '番茶', p: '熱いお湯で、さっと。毎日のお茶に。', tea: '#8a4a16', leaf: '#4a3a1c', size: 1.35 },
+];
+const STEPS = ['お湯を注ぐ', '葉がひらく', '色が出る'];
+let tea = 1, teaK = 1, stepI = -1;
+const R = .66, HC = 1.45, NL = 64;
+
+const st = stage3d({ canvas, section, fov: 28, env: .04, exposure: 1.1, frame });
+if (st) {
+  const { scene } = st;
+  // ガラスの湯呑み
+  const prof = [[0, 0], [.6, 0], [.64, .04], [.7, HC], [.67, HC + .02], [.62, .14], [0, .12]].map(([x, y]) => new THREE.Vector2(x, y));
+  const cup = new THREE.Mesh(new THREE.LatheGeometry(prof, 96), new THREE.MeshPhysicalMaterial({ color: '#e6f0ea', roughness: .03, transparent: true, opacity: .22, depthWrite: false, clearcoat: 1, envMapIntensity: 2.6, side: THREE.DoubleSide }));
+  // お茶：器の内側の形に合わせた円柱
+  const liquid = new THREE.Mesh(new THREE.CylinderGeometry(.66, .615, 1, 96, 1), new THREE.MeshStandardMaterial({ color: '#eef3ee', transparent: true, opacity: .2, roughness: .3, depthWrite: false, envMapIntensity: .25 }));
+  // 注ぐお湯
+  const stream = new THREE.Mesh(new THREE.CylinderGeometry(.04, .055, 1, 16, 1, true), new THREE.MeshPhysicalMaterial({ color: '#ffffff', transparent: true, opacity: .45, roughness: 0, depthWrite: false }));
+  // 茶葉：細く撚れた形から、ひらいた葉へ
+  const leafShape = new THREE.Shape(); leafShape.moveTo(0, -.17); leafShape.quadraticCurveTo(.1, -.03, 0, .17); leafShape.quadraticCurveTo(-.1, -.03, 0, -.17);
+  const lg = new THREE.ShapeGeometry(leafShape, 8), lp = lg.attributes.position;
+  for (let i = 0; i < lp.count; i++) { const x = lp.getX(i); lp.setZ(i, x * x * 4); }
+  lg.computeVertexNormals();
+  const vein = canvasTexture(64, 64, g => { g.fillStyle = '#fff'; g.fillRect(0, 0, 64, 64); });
+  const leaves = new THREE.InstancedMesh(lg, new THREE.MeshStandardMaterial({ color: TEAS[1].leaf, roughness: .6, side: THREE.DoubleSide, map: vein }), NL);
+  const ld = Array.from({ length: NL }, (_, i) => ({ a: Math.random() * 6.28, r: Math.sqrt(Math.random()) * .5, y0: .15 + Math.random() * .1, float: Math.random(), rx: Math.random() * 6, ry: Math.random() * 6, sp: .3 + Math.random() * .6 }));
+  // 湯気
+  const dot = canvasTexture(64, 64, g => { const gr = g.createRadialGradient(32, 32, 0, 32, 32, 32); gr.addColorStop(0, 'rgba(255,255,255,.7)'); gr.addColorStop(1, 'rgba(255,255,255,0)'); g.fillStyle = gr; g.fillRect(0, 0, 64, 64); });
+  const steam = Array.from({ length: 14 }, (_, i) => { const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: dot, transparent: true, depthWrite: false, opacity: 0 })); s.userData = { o: i / 14, x: (Math.random() - .5) * .6 }; return s; });
+  const coaster = new THREE.Mesh(new THREE.CylinderGeometry(1.1, 1.1, .06, 64), new THREE.MeshStandardMaterial({ color: '#3a2a1c', roughness: .7 }));
+  coaster.position.y = -.03;
+  const group = new THREE.Group(); group.add(coaster, cup, liquid, leaves, stream, ...steam); scene.add(group);
+  scene.add(new THREE.HemisphereLight('#f4fff0', '#1a2a1a', .8));
+  const key = new THREE.DirectionalLight('#fff6e0', 2); key.position.set(-3, 5, 3); scene.add(key);
+  const back = new THREE.PointLight('#d8ffb0', 5, 8); back.position.set(.5, 1, -1.6); group.add(back);
+  Object.assign(st, { liquid, stream, leaves, ld, steam, group, tmp: new THREE.Object3D(), c: new THREE.Color(), water: new THREE.Color('#eef3ee') });
+  st.start();
+}
+
+function setTea(i) {
+  tea = i; tabs.forEach((b, k) => b.setAttribute('aria-pressed', k === i));
+  hEl.style.opacity = pEl.style.opacity = 0;
+  setTimeout(() => { hEl.textContent = TEAS[i].h; pEl.textContent = TEAS[i].p; hEl.style.opacity = pEl.style.opacity = 1; }, 160);
+  if (st) st.leaves.material.color.set(TEAS[i].leaf);
+}
+tabs.forEach(b => b.addEventListener('click', () => setTea(+b.dataset.i)));
+
+function frame({ t, dt, p, portrait }) {
+  const pour = ease(span(p, .04, .3)), open = ease(span(p, .25, .62)), steep = ease(span(p, .4, .85));
+  const si = p < .27 ? 0 : p < .55 ? 1 : 2;
+  if (si !== stepI) { stepI = si; stepEl.style.opacity = 0; setTimeout(() => { stepEl.textContent = STEPS[si]; stepEl.style.opacity = 1; }, qa ? 0 : 160); }
+  teaK += (tea - teaK) * .1;
+  // 水位と色
+  const level = .14 + pour * (HC - .3);
+  st.liquid.scale.y = level - .12; st.liquid.position.y = .12 + (level - .12) / 2;
+  const T = TEAS[tea];
+  st.c.copy(st.water).lerp(new THREE.Color(T.tea).multiplyScalar(.75), steep);
+  st.liquid.material.color.lerp(st.c, qa ? 1 : .12);
+  st.liquid.material.opacity = .22 + steep * .62;
+  st.liquid.visible = pour > .01;
+  st.stream.visible = pour > .01 && pour < .99;
+  st.stream.scale.y = 2.4; st.stream.position.set(.05, level + 1.2, 0);
+  // 茶葉
+  st.ld.forEach((d, i) => {
+    const rise = c01(pour * 1.4 - d.float * .3) * (1 - open * .55);
+    const y = d.y0 + rise * (level - .4) * d.float + Math.sin(t * d.sp + i) * .03 * pour;
+    const a = d.a + t * .15 * pour * d.sp;
+    st.tmp.position.set(Math.cos(a) * d.r, Math.min(y, level - .06), Math.sin(a) * d.r);
+    st.tmp.rotation.set(d.rx + t * .2 * d.sp * pour, d.ry, d.rx * .5);
+    const w = .14 + open * .86, sz = T.size * (.9 + d.float * .3);
+    st.tmp.scale.set(w * sz, sz * (.75 + open * .25), sz); st.tmp.updateMatrix(); st.leaves.setMatrixAt(i, st.tmp.matrix);
+  });
+  st.leaves.instanceMatrix.needsUpdate = true;
+  st.steam.forEach(s => {
+    const k = ((qa ? s.userData.o : t * .18 + s.userData.o) % 1);
+    s.position.set(s.userData.x + Math.sin(k * 6 + s.userData.o * 9) * .15, HC + .1 + k * 1.4, 0);
+    s.scale.setScalar(.4 + k * .9); s.material.opacity = pour * Math.sin(k * Math.PI) * .35;
+  });
+  st.group.rotation.y = mouse.x * .5 + (qa ? 0 : t * .05);
+  st.group.position.set(portrait ? 0 : 1.05, portrait ? .6 : -.85, 0);
+  st.group.scale.setScalar(portrait ? .55 : 1.05);
+  st.camera.position.set(0, 2.4, 6.4); st.camera.lookAt(portrait ? 0 : .3, portrait ? .1 : .2, 0);
+}
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="6" data-from="-54">6</span><small>パック　各地の煎茶・玉露の利き茶セット</small></div></div>
+    <div class="rv"><h2>土壌づくりから、製茶まで。</h2><p>当苑のお茶は、土壌づくりから製茶に至るまでこだわりの銘品です。「旨み」「薫り」、どれをとっても折り紙つき。一度味わっていただければ、お分かりいただけるはずです。</p><p>八女市・広川町・黒木町・上陽町・矢部村・星野村など、福岡県南部の八女地方で育ったお茶を、産地別にお届けします。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>八女茶</span><span>玉露</span><span>星野茶</span><span>上陽茶</span><span>利き茶セット</span><span>産直価格</span><span>八女茶</span><span>玉露</span><span>星野茶</span><span>上陽茶</span><span>利き茶セット</span><span>産直価格</span><span>八女茶</span><span>玉露</span><span>星野茶</span><span>上陽茶</span><span>利き茶セット</span><span>産直価格</span><span>八女茶</span><span>玉露</span><span>星野茶</span><span>上陽茶</span><span>利き茶セット</span><span>産直価格</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>お茶</h2><span>TEA</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/f1.jpg" alt="グラスに注がれる緑茶" loading="lazy" data-speed=".06" data-gl></div><h3>利き茶セット</h3><p>各地で生産された煎茶・玉露の詰め合わせ。当苑だけのセットです。</p></article><article class="feature rv"><div class="ph"><img src="img/f2.jpg" alt="茶筅" loading="lazy" data-speed=".06" data-gl></div><h3>星野茶の煎茶・粉茶</h3><p>玉露で有名な奥八女・星野村のお茶を、ご家庭で気軽に。</p></article><article class="feature rv"><div class="ph"><img src="img/f3.jpg" alt="湯呑みに入った緑茶" loading="lazy" data-speed=".06" data-gl></div><h3>矢部村の番茶</h3><p>昔ながらの味を、独自の手法で。</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/wide.jpg" alt="整然と並ぶ茶畑" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">福岡県南部、八女地方から。</figcaption></figure>
+  
+  <section class="sec" id="price">
+    <div class="sec-head rv"><h2>価格</h2><span>PRICE</span></div>
+    <dl class="prices rv"><div><dt>超特価 煎茶<small>星野村産・100g</small></dt><dd>324円</dd></div><div><dt>超特価 煎茶<small>上陽町産・100g</small></dt><dd>324円</dd></div><div><dt>お徳用 番茶<small>矢部村産・500g</small></dt><dd>1,080円</dd></div></dl>
+    <p class="prices-note rv">価格は現在のホームページの表示をもとにしています。</p>
+  </section>
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">ご案内</h2></div>
+      
+      <table class="hours"><tr><th>ご注文</th><td>オンラインショップ・お問い合わせフォームから</td></tr><tr><th>卸販売</th><td>業務用のご相談も承ります</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>福岡県春日市春日原東町1-14</p>
+      <p class="mute">八女茶を産直価格で、全国へお届けします。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E7%A6%8F%E5%B2%A1%E7%9C%8C%E6%98%A5%E6%97%A5%E5%B8%82%E6%98%A5%E6%97%A5%E5%8E%9F%E6%9D%B1%E7%94%BA1-14" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="mailto:main@yametyaen.sakura.ne.jp" data-en="Call">メールする</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">一度、味わってみてください。</h2>
+    <a class="tel mail" href="mailto:main@yametyaen.sakura.ne.jp">main@yametyaen.sakura.ne.jp</a>
+    <p>お問い合わせ・ご質問は、メールでどうぞ。</p>
+    <div class="btns"><a class="btn" href="mailto:main@yametyaen.sakura.ne.jp" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>八女茶苑　福岡県春日市春日原東町1-14　main@yametyaen.sakura.ne.jp</p>
+  <p>この試作は森川ウェブ（koseimorikawa2026@gmail.com）が、八女茶苑様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="mailto:main@yametyaen.sakura.ne.jp" data-en="Call">メールする</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>

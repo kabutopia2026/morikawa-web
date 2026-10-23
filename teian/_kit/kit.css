@@ -196,3 +196,6 @@ img.gl-hidden{opacity:0}
 .split .w{display:inline-block;white-space:nowrap}
 h2,h3,figcaption,blockquote{word-break:auto-phrase}
 .hero-img::before{content:"";position:absolute;left:0;right:0;top:0;height:200px;background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,0));z-index:2;pointer-events:none}
+
+/* 電話番号のないお店は、メールアドレスを大きく */
+.cta .tel.mail{font-size:clamp(20px,3.6vw,44px);overflow-wrap:anywhere}

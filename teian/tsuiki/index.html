@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="ja" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>築城果樹園｜ご提案用の試作（森川ウェブ）</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#fbf3ec">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@700;900&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_kit/kit.css">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#fbf3ec;--ink:#2a1414;--mute:#7a5c58;--accent:#c73a2e;--accent-ink:#fff;--panel:#f3e3d8;--line:rgba(42,20,20,.12);--display:"Zen Maru Gothic",sans-serif;--display-weight:900;--body:"Zen Kaku Gothic New",sans-serif;--hero-pos:50% 40%}
+
+</style>
+</head>
+<body>
+
+<div class="proposal-bar">これは<b>森川ウェブ</b>が築城果樹園様へのご提案のために作った試作です。公式サイトではありません。写真は仮のものです。</div>
+<div class="preloader" aria-hidden="true"><p class="pl-kind">観光果樹園・直売所　北海道亀田郡七飯町</p><p class="pl-name">築城果樹園</p><p class="pl-num">0</p><div class="pl-bar"><i></i></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="name" href="#">築城果樹園</a>
+  <nav aria-label="ページ内の案内"><a href="#story">築城果樹園</a><a href="#features">果物</a><a href="#info">直売所</a></nav>
+  
+  <a class="call" href="tel:0138654763"><span data-en="Call">電話</span><span class="num">0138-65-4763</span></a>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-img"><img src="img/hero.jpg" alt="枝に実った赤いりんご"  data-gl="wipe" data-gl-hero></div>
+    <div class="hero-copy">
+      <p class="kind">観光果樹園・直売所　北海道亀田郡七飯町</p>
+      <h1><span class="ln"><span style="--i:0">横津岳のふもとで、</span></span><span class="ln"><span style="--i:1">実る。</span></span></h1>
+      
+      <p class="sub">さくらんぼ、プラム、ブルーベリー、もも、プルーン、りんごの収穫体験と直売。プルーン、りんご、りんごジュースの通信販売も行っています。</p>
+    </div>
+    <p class="scroll-cue" aria-hidden="true">SCROLL</p>
+  </section>
+  <section class="sig-tk" id="sig" aria-label="りんごの木の3D。実をタップやクリックすると摘めて、かごに入ります">
+    <div class="tk-stick">
+      <canvas id="tk3d" aria-label="りんごの木。実をタップすると摘めます"></canvas>
+      <div class="tk-copy">
+        <p class="tk-step">実をタップして、摘んでみてください</p>
+        <p class="tk-h" id="tk-h">ひめかみ</p>
+        <p class="tk-p" id="tk-p">直売所では、ひめかみ、トキなどのりんごを販売しています。</p>
+        <div class="tk-tabs" role="group" aria-label="品種を選ぶ"><button type="button" data-i="0" aria-pressed="true">ひめかみ</button><button type="button" data-i="1" aria-pressed="false">トキ</button><button type="button" data-i="2" aria-pressed="false">華宝</button></div>
+        <p class="tk-count">かごの中 <b id="tk-n">0</b> 個</p>
+      </div>
+      <p class="tk-note">りんごの木の3Dイメージです。当日の熟し具合や作業状況により、在庫がない場合があります</p>
+    </div>
+  </section>
+<style>
+.sig-tk{position:relative;height:300vh;background:#f6ece3}
+.tk-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:linear-gradient(#cfe3ee,#f7efe6 62%,#efe2d3)}
+#tk3d{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:pointer}
+.tk-copy{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);max-width:340px;z-index:3;pointer-events:none}
+.tk-copy button{pointer-events:auto}
+.tk-step{margin:0;color:var(--accent);font-weight:700;letter-spacing:.06em;font-size:14px}
+.tk-h{font-family:var(--display);font-weight:900;font-size:clamp(54px,6.4vw,96px);line-height:1.05;margin:10px 0 14px;transition:opacity .3s}
+.tk-p{margin:0 0 20px;color:var(--mute);transition:opacity .3s}
+.tk-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.tk-tabs button{font:inherit;font-weight:700;font-size:14px;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.7);color:var(--ink);cursor:pointer}
+.tk-tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.tk-count{margin:0;color:var(--mute);font-size:14px}
+.tk-count b{font-family:var(--display);font-size:38px;color:var(--ink);margin:0 4px;font-variant-numeric:tabular-nums}
+.tk-note{position:absolute;right:var(--gut);top:84px;margin:0;font-size:12px;color:var(--mute);max-width:46%;text-align:right}
+@media (max-width:860px){
+  .tk-copy{top:auto;bottom:0;transform:none;left:0;right:0;max-width:none;padding:40px var(--gut) 88px;background:linear-gradient(to top,rgba(246,236,227,.97) 66%,rgba(246,236,227,0))}
+  .tk-h{font-size:46px;margin:6px 0 10px}
+  .tk-p{display:none}
+  .tk-tabs{margin-bottom:8px}
+  .tk-note{top:74px;bottom:auto;max-width:none;left:var(--gut)}
+}
+</style>
+<script type="module">
+import * as THREE from 'three';
+import { stage3d, ease, span, c01, qa, mouse, canvasTexture } from '../_kit/sig/stage.js';
+
+const canvas = document.getElementById('tk3d'), section = canvas.closest('section');
+const hEl = document.getElementById('tk-h'), pEl = document.getElementById('tk-p'), nEl = document.getElementById('tk-n'), tabs = [...section.querySelectorAll('.tk-tabs button')];
+const KINDS = [
+  { h: 'ひめかみ', p: '赤いりんご。直売所では、ひめかみ、トキなどを販売しています。', base: '#b8262c', streak: '#7a1018', light: '#e8b04a' },
+  { h: 'トキ', p: '黄色いりんご。直売所の品ぞろえは、その日の熟し具合によります。', base: '#e2cf52', streak: '#c9b23a', light: '#f4a66a' },
+  { h: '華宝', p: '赤いりんご。お電話は、お昼休み（12:00〜13:00）にお願いします。', base: '#9c1626', streak: '#5e0a14', light: '#d8763a' },
+];
+let kind = 0, count = 0;
+const NA = 26;
+const rand = (a, b) => a + Math.random() * (b - a);
+
+const st = stage3d({ canvas, section, fov: 34, env: .03, exposure: 1.05, frame });
+if (st) {
+  const { scene } = st;
+  const bark = new THREE.MeshStandardMaterial({ color: '#6a4a34', roughness: .95 });
+  const tree = new THREE.Group();
+  // 幹と枝
+  const limb = (a, b, r0, r1) => { const d = new THREE.Vector3().subVectors(b, a), m = new THREE.Mesh(new THREE.CylinderGeometry(r1, r0, d.length(), 10), bark); m.position.copy(a).addScaledVector(d, .5); m.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), d.clone().normalize()); tree.add(m); };
+  const V = (x, y, z) => new THREE.Vector3(x, y, z);
+  limb(V(0, 0, 0), V(0, 1.3, 0), .2, .15);
+  const tips = [];
+  [[1.4, 1.9, .4], [-1.3, 2, .2], [.3, 2.6, -.9], [-.4, 2.4, 1], [.9, 2.7, .8], [-1, 2.8, -.7]].forEach(([x, y, z]) => { const b = V(x, y, z); limb(V(0, 1.2, 0), b, .12, .06); tips.push(b); });
+  // 葉：たくさんの小さな葉を、枝先のまわりに
+  const leafTex = canvasTexture(64, 128, (g, w, h) => { g.clearRect(0, 0, w, h); g.fillStyle = '#fff'; g.beginPath(); g.moveTo(w / 2, 2); g.bezierCurveTo(w * 1.1, h * .2, w * .9, h * .8, w / 2, h - 2); g.bezierCurveTo(w * .1, h * .8, -w * .1, h * .2, w / 2, 2); g.fill(); });
+  const NLF = 2600, leaves = new THREE.InstancedMesh(new THREE.PlaneGeometry(.2, .3), new THREE.MeshStandardMaterial({ alphaMap: leafTex, alphaTest: .5, side: THREE.DoubleSide, roughness: .7 }), NLF);
+  const tmp = new THREE.Object3D(), c = new THREE.Color(), centers = [...tips, V(0, 2.2, 0), V(.5, 2.1, -.3), V(-.5, 2, .4)];
+  for (let i = 0; i < NLF; i++) {
+    const ce = centers[i % centers.length], u = Math.random() * 6.28, v = Math.acos(2 * Math.random() - 1), r = Math.cbrt(Math.random()) * .85;
+    tmp.position.set(ce.x + Math.sin(v) * Math.cos(u) * r * 1.2, ce.y + Math.cos(v) * r * .75, ce.z + Math.sin(v) * Math.sin(u) * r * 1.2);
+    tmp.rotation.set(rand(0, 6), rand(0, 6), rand(0, 6)); tmp.scale.setScalar(rand(.8, 1.25)); tmp.updateMatrix(); leaves.setMatrixAt(i, tmp.matrix);
+    leaves.setColorAt(i, c.setHSL(rand(.25, .32), rand(.45, .65), rand(.13, .26)));
+  }
+  tree.add(leaves);
+  // りんご：少し平たい球に、くぼみと軸
+  const ag = new THREE.SphereGeometry(.17, 32, 24), ap = ag.attributes.position;
+  for (let i = 0; i < ap.count; i++) { const y = ap.getY(i), x = ap.getX(i), z = ap.getZ(i), rr = Math.hypot(x, z); ap.setY(i, y * .88 - .05 * Math.exp(-rr * rr * 120) * Math.sign(y)); }
+  ag.computeVertexNormals();
+  const skin = k => canvasTexture(256, 128, (g, w, h) => {
+    const K = KINDS[k]; g.fillStyle = K.base; g.fillRect(0, 0, w, h);
+    for (let i = 0; i < 40; i++) { g.strokeStyle = K.streak + '26'; g.lineWidth = 1 + Math.random() * 3; const x = Math.random() * w; g.beginPath(); g.moveTo(x, 0); g.lineTo(x + (Math.random() - .5) * 20, h); g.stroke(); }
+    const gr = g.createLinearGradient(0, 0, 0, h); gr.addColorStop(0, K.light + '00'); gr.addColorStop(1, K.light + '66'); g.fillStyle = gr; g.fillRect(0, 0, w, h);
+    for (let i = 0; i < 160; i++) { g.fillStyle = 'rgba(255,240,200,.35)'; g.fillRect(Math.random() * w, Math.random() * h, 1.5, 1.5); }
+  });
+  const skins = KINDS.map((_, k) => skin(k));
+  const appleMat = new THREE.MeshPhysicalMaterial({ map: skins[0], roughness: .35, clearcoat: .7, clearcoatRoughness: .3 });
+  const stemMat = new THREE.MeshStandardMaterial({ color: '#5a3a1e' });
+  const apples = Array.from({ length: NA }, (_, i) => {
+    const m = new THREE.Mesh(ag, appleMat), stem = new THREE.Mesh(new THREE.CylinderGeometry(.008, .012, .08, 6), stemMat); stem.position.y = .16; m.add(stem);
+    const ce = tips[i % tips.length], a = rand(0, 6.28), r = rand(.35, .8);
+    m.userData = { home: V(ce.x + Math.cos(a) * r, ce.y - rand(.15, .6), ce.z + Math.sin(a) * r), state: 'tree', t: 0, rot: rand(0, 6) };
+    m.position.copy(m.userData.home); m.rotation.y = m.userData.rot; tree.add(m); return m;
+  });
+  // 地面とかご
+  const grass = new THREE.Mesh(new THREE.CircleGeometry(6, 64), new THREE.MeshStandardMaterial({ color: '#7f9a4c', roughness: 1 }));
+  grass.rotation.x = -Math.PI / 2;
+  const weave = canvasTexture(512, 128, (g, w, h) => { g.fillStyle = '#b98b52'; g.fillRect(0, 0, w, h); for (let y = 0; y < h; y += 16) for (let x = 0; x < w; x += 24) { g.fillStyle = ((x / 24 + y / 16) % 2) ? 'rgba(90,55,20,.35)' : 'rgba(255,230,180,.25)'; g.fillRect(x, y, 24, 16); } });
+  weave.wrapS = THREE.RepeatWrapping; weave.repeat.set(4, 1);
+  const basket = new THREE.Mesh(new THREE.CylinderGeometry(.62, .46, .5, 48, 1, true), new THREE.MeshStandardMaterial({ map: weave, side: THREE.DoubleSide, roughness: .9 }));
+  basket.position.set(1.25, .25, 1.15);
+  const bBottom = new THREE.Mesh(new THREE.CircleGeometry(.46, 32), basket.material); bBottom.rotation.x = -Math.PI / 2; bBottom.position.set(1.25, .02, 1.15);
+  const group = new THREE.Group(); group.add(tree, grass, basket, bBottom); scene.add(group);
+  scene.add(new THREE.HemisphereLight('#eaf4ff', '#6b5a3a', 1.1));
+  const sun = new THREE.DirectionalLight('#fff2dc', 2.3); sun.position.set(-4, 7, 5); scene.add(sun);
+  Object.assign(st, { tree, apples, appleMat, skins, group, basket, ray: new THREE.Raycaster(), inBasket: 0 });
+  st.start();
+}
+
+function setKind(i) {
+  kind = i; tabs.forEach((b, k) => b.setAttribute('aria-pressed', k === i));
+  hEl.style.opacity = pEl.style.opacity = 0;
+  setTimeout(() => { hEl.textContent = KINDS[i].h; pEl.textContent = KINDS[i].p; hEl.style.opacity = pEl.style.opacity = 1; }, 160);
+  if (st) { st.appleMat.map = st.skins[i]; st.appleMat.needsUpdate = true; }
+}
+tabs.forEach(b => b.addEventListener('click', () => setKind(+b.dataset.i)));
+
+const ptr = new THREE.Vector2();
+canvas.addEventListener('pointerdown', e => {
+  if (!st) return;
+  const r = canvas.getBoundingClientRect(); ptr.set((e.clientX - r.left) / r.width * 2 - 1, -(e.clientY - r.top) / r.height * 2 + 1);
+  st.ray.setFromCamera(ptr, st.camera);
+  const hit = st.ray.intersectObjects(st.apples.filter(a => a.userData.state === 'tree'), false)[0];
+  if (hit) pick(hit.object);
+});
+const wp = new THREE.Vector3();
+function pick(a) {
+  const u = a.userData; u.state = 'fly'; u.t = 0; u.from = a.position.clone();
+  // かごの中の置き場所（木の座標で）
+  st.basket.getWorldPosition(wp); st.tree.worldToLocal(wp);
+  const n = st.inBasket++, ang = n * 2.4, rr = Math.min(.36, .1 + n * .03);
+  u.to = wp.clone().add(new THREE.Vector3(Math.cos(ang) * rr, -.12 + Math.floor(n / 9) * .14, Math.sin(ang) * rr));
+  count++; nEl.textContent = count;
+}
+function frame({ t, dt, p, portrait }) {
+  // 確認用：いくつか摘んだ状態に
+  if (qa && !st.qaDone) { st.qaDone = true; for (let i = 0; i < 6; i++) { pick(st.apples[i]); st.apples[i].userData.t = 1; } }
+  st.apples.forEach(a => {
+    const u = a.userData;
+    if (u.state === 'tree') { a.position.y = u.home.y + Math.sin(t * 1.3 + u.rot) * .01; a.scale.setScalar(Math.min(1, a.scale.x + dt)); }
+    if (u.state === 'fly') {
+      u.t = Math.min(1, u.t + dt * 1.1); const k = ease(u.t);
+      a.position.lerpVectors(u.from, u.to, k); a.position.y += Math.sin(k * Math.PI) * .8; a.rotation.x += dt * 6;
+      if (u.t >= 1) u.state = 'basket';
+    }
+  });
+  // 木の実がなくなったら、かごを空にして実り直す
+  if (st.apples.every(a => a.userData.state === 'basket') && !qa) { st.inBasket = 0; st.apples.forEach(a => { a.userData.state = 'tree'; a.position.copy(a.userData.home); a.scale.setScalar(.01); }); }
+  const orbit = -.35 + p * .9 + mouse.x * .2;
+  st.group.rotation.y = orbit;
+  st.tree.rotation.z = Math.sin(t * .7) * .01;
+  st.group.position.set(portrait ? 0 : 1.95, portrait ? 1.35 : -1.45, 0);
+  st.group.scale.setScalar(portrait ? .5 : .92);
+  st.camera.position.set(0, portrait ? 2.2 : 1.6, 8.4); st.camera.lookAt(portrait ? 0 : .6, portrait ? 1.5 : .4, 0);
+}
+</script>
+
+
+  <section class="sec story" id="story">
+    <div class="rv"><div class="year"><span data-count="2000" data-from="1940">2000</span><small>年6月3日から　ホームページでお知らせ</small></div></div>
+    <div class="rv"><h2>寒暖の差が、実をおいしくする。</h2><p>七飯町にあり、横津岳のふもとに位置しているため、寒暖の差が大きく、果物がおいしく育ちます。</p><p>ただいま直売所では、りんご（ひめかみ、トキなど）、プルーン、野菜などを販売しています。当日の熟し具合や作業状況により、在庫がない場合があります。</p></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>りんご</span><span>プルーン</span><span>さくらんぼ</span><span>プラム</span><span>ブルーベリー</span><span>もも</span><span>りんご</span><span>プルーン</span><span>さくらんぼ</span><span>プラム</span><span>ブルーベリー</span><span>もも</span><span>りんご</span><span>プルーン</span><span>さくらんぼ</span><span>プラム</span><span>ブルーベリー</span><span>もも</span><span>りんご</span><span>プルーン</span><span>さくらんぼ</span><span>プラム</span><span>ブルーベリー</span><span>もも</span></div></div>
+
+  <section class="sec" id="features">
+    <div class="sec-head rv"><h2>果物</h2><span>FRUITS</span></div>
+    <div class="features" style="--cols:3"><article class="feature rv"><div class="ph"><img src="img/f1.jpg" alt="枝についたりんご" loading="lazy" data-speed=".06" data-gl></div><h3>りんご</h3><p>ひめかみ、トキ、華宝など。りんご狩りも。</p></article><article class="feature rv"><div class="ph"><img src="img/f2.jpg" alt="プルーンの実" loading="lazy" data-speed=".06" data-gl></div><h3>プルーン</h3><p>プルーン狩りと、直売。</p></article><article class="feature rv"><div class="ph"><img src="img/f3.jpg" alt="りんごを摘み取る人" loading="lazy" data-speed=".06" data-gl></div><h3>収穫体験</h3><p>さくらんぼからりんごまで、季節ごとの果物狩り。</p></article></div>
+  </section>
+  <figure class="wide-photo"><img src="img/wide.jpg" alt="りんご畑の並木" loading="lazy" data-speed=".12" data-gl><figcaption class="rv">家族一同、ご来園をお待ちしています。</figcaption></figure>
+  
+
+  <section class="sec info" id="info">
+    <div class="rv">
+      <div class="sec-head"><h2 data-en="Hours">営業時間</h2></div>
+      <p class="status" id="status"><i></i><b>…</b></p>
+      <table class="hours"><tr data-wd="0,2,3,4,5,6"><th>直売所</th><td>9:00〜16:00（12:00〜13:00は昼休み）</td></tr><tr><th>定休日</th><td>月曜日（祝日の場合は火曜日）</td></tr></table>
+    </div>
+    <div class="rv addr">
+      <div class="sec-head"><h2 data-en="Access">アクセス</h2></div>
+      <p>北海道亀田郡七飯町鳴川4丁目297</p>
+      <p class="mute">お電話は12:00〜13:00の間にお願いします。メールでのご連絡には、こちらから折り返しお電話します。</p>
+      <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E5%8C%97%E6%B5%B7%E9%81%93%E4%BA%80%E7%94%B0%E9%83%A1%E4%B8%83%E9%A3%AF%E7%94%BA%E9%B3%B4%E5%B7%9D4%E4%B8%81%E7%9B%AE297%20%E7%AF%89%E5%9F%8E%E6%9E%9C%E6%A8%B9%E5%9C%92" target="_blank" rel="noopener" data-en="Open map">地図を開く</a><a class="btn ghost" href="tel:0138654763" data-en="Call">電話する</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="rv">実りの季節に、どうぞ。</h2>
+    <a class="tel" href="tel:0138654763">0138-65-4763</a>
+    <p>通信販売・収穫体験のお問い合わせは、お電話・メールで。</p>
+    <div class="btns"><a class="btn" href="mailto:tsuiki-kaju@mbr.nifty.com" data-en="Email us">メールで問い合わせる</a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>築城果樹園　北海道亀田郡七飯町鳴川4丁目297　TEL 0138-65-4763</p>
+  <p>この試作は森川ウェブ（koseimorikawa2026@gmail.com）が、築城果樹園様へのご提案のために作成したものです。掲載している情報は現在の公式サイトをもとにしています。写真はUnsplashの仮の素材で、実際にはお店の写真に差し替えます。</p>
+</footer>
+
+<div class="proposal-badge">提案用の試作</div>
+<nav class="mobile-call" aria-label="連絡"><a href="tel:0138654763" data-en="Call">電話する</a><a href="#info" data-en="Hours &amp; map">営業時間・地図</a></nav>
+<script>window.SCHEDULE = {"days": {"0": [[540, 960]], "2": [[540, 960]], "3": [[540, 960]], "4": [[540, 960]], "5": [[540, 960]], "6": [[540, 960]]}};</script>
+<script src="../_kit/kit.js" defer></script>
+<script type="module" src="../_kit/gl.js"></script>
+</body>
+</html>
